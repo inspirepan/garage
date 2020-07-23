@@ -1,11 +1,23 @@
 package Algorithm;
 
-import javax.swing.tree.TreeNode;
+import DataStructure.TreeNode;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class S94 {
-    public List<Integer> inorderTraversal(TreeNode root) {
-        测试git
+    private List<Integer> result = new ArrayList<>();
 
+    public List<Integer> inorderTraversal(TreeNode root) {
+        if (root == null) {
+            return result;
+        } else {
+            inorderTraversal(root.left);
+            result.add(root.val);
+            inorderTraversal(root.right);
+        }
+        return result;
     }
+
+
 }
