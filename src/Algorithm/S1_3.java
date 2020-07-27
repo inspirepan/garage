@@ -9,13 +9,14 @@ import java.util.Map;
 
 public class S1_3 {
 
-
-    /* 1
-    哈希表 */
+    /*
+     * 1 哈希表
+     */
     public int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> m = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            if (m.containsKey(target - nums[i])) return new int[]{m.get(target - nums[i]), i};
+            if (m.containsKey(target - nums[i]))
+                return new int[] { m.get(target - nums[i]), i };
             m.put(nums[i], i);
         }
         throw new IllegalArgumentException("No Answer");
@@ -49,8 +50,9 @@ public class S1_3 {
         return r.next; // 容易忘记要返回next
     }
 
-    /* 3
-    这道题的思想要记住啊，相当于对每个可能出现的字符做统计 */
+    /*
+     * 3 这道题的思想要记住啊，相当于对每个可能出现的字符做统计
+     */
     public int lengthOfLongestSubstring(String s) {
         char[] c = s.toCharArray();
         int[] index = new int[128];
@@ -61,7 +63,8 @@ public class S1_3 {
         for (i = 0; i < c.length; i++) {
             if (index[c[i]] > tail) {
                 count = i - tail;
-                if (count > max) max = count;
+                if (count > max)
+                    max = count;
                 tail = index[c[i]];
             }
             index[c[i]] = i + 1;

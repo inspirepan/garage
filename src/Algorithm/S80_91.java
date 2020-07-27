@@ -7,7 +7,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
 
-
 public class S80_91 {
 
     public static void printLinkList(ListNode head) {
@@ -21,9 +20,10 @@ public class S80_91 {
         }
     }
 
-    //    80
+    // 80
     public int removeDuplicates(int[] nums) {
-        if (nums.length == 0) return 0;
+        if (nums.length == 0)
+            return 0;
         int currentTimes = 0;
         int currentNumber = nums[0];
         boolean remove = false;
@@ -36,7 +36,8 @@ public class S80_91 {
             System.out.println("currentNumber" + currentNumber);
             System.out.println("currentTimes" + currentTimes);
 
-            if (currentTimes >= 2) remove = true;
+            if (currentTimes >= 2)
+                remove = true;
 
             if (nums[loc1] == currentNumber && remove) {
                 loc1++;
@@ -62,7 +63,8 @@ public class S80_91 {
         ans.next = head;
         ListNode p = ans;
         ListNode q = head;
-        if (head == null || q.next == null) return head;
+        if (head == null || q.next == null)
+            return head;
         int val = q.val;
         boolean del = q.next.val == val;
         while (q.next != null) {
@@ -83,22 +85,25 @@ public class S80_91 {
                     val = q.val;
                 } else {
                     q = q.next;
-                    if (q.next == null) p.next = null;
+                    if (q.next == null)
+                        p.next = null;
                 }
             }
         }
         return ans.next;
     }
 
-    //    83
+    // 83
     public ListNode deleteDuplicates(ListNode head) {
         ListNode no1 = new ListNode();
         no1.next = head;
         ListNode p1 = no1;
         ListNode p2 = head;
-        if (p2 == null || p2.next == null) return head;
+        if (p2 == null || p2.next == null)
+            return head;
         while (p2 != null && p2.next != null) {
-            while (p2.next != null && p2.next.val == p1.next.val) p2 = p2.next;
+            while (p2.next != null && p2.next.val == p1.next.val)
+                p2 = p2.next;
             p1.next = p2;
             p1 = p2;
             p2 = p2.next;
@@ -106,8 +111,9 @@ public class S80_91 {
         return no1.next;
     }
 
-    /* 84
-    分治法还好理解, 就是分组计算 */
+    /*
+     * 84 分治法还好理解, 就是分组计算
+     */
     public int calculateArea(int[] heights, int start, int end) {
         if (start > end)
             return 0;
@@ -115,7 +121,8 @@ public class S80_91 {
         for (int i = start; i <= end; i++)
             if (heights[minindex] > heights[i])
                 minindex = i;
-        return Math.max(heights[minindex] * (end - start + 1), Math.max(calculateArea(heights, start, minindex - 1), calculateArea(heights, minindex + 1, end)));
+        return Math.max(heights[minindex] * (end - start + 1),
+                Math.max(calculateArea(heights, start, minindex - 1), calculateArea(heights, minindex + 1, end)));
     }
 
     public int largestRectangleArea2(int[] heights) {
@@ -165,8 +172,10 @@ public class S80_91 {
         m--;
         n--;
         while (m >= 0 || n >= 0) {
-            if (m >= 0 && n >= 0) nums1[i--] = nums1[m] > nums2[n] ? nums1[m--] : nums2[n--];
-            else nums1[i--] = n < 0 ? nums1[m--] : nums2[n--];
+            if (m >= 0 && n >= 0)
+                nums1[i--] = nums1[m] > nums2[n] ? nums1[m--] : nums2[n--];
+            else
+                nums1[i--] = n < 0 ? nums1[m--] : nums2[n--];
         }
     }
 
@@ -176,9 +185,13 @@ public class S80_91 {
 
     /* 89 格雷码 */
     public List<Integer> grayCode(int n) {
-        List<Integer> res = new ArrayList<Integer>() {{
-            add(0);
-        }};
+        List<Integer> res = new ArrayList<Integer>() {
+            private static final long serialVersionUID = 1L;
+
+            {
+                add(0);
+            }
+        };
         int head = 1;
         for (int i = 0; i < n; i++) {
             System.out.println(head);

@@ -7,8 +7,10 @@ import java.util.List;
 
 public class S95 {
     public List<TreeNode> generateTrees(int n) {
-        if (n == 0) return new ArrayList<>();
-        else return generateTrees(1, n);
+        if (n == 0)
+            return new ArrayList<>();
+        else
+            return generateTrees(1, n);
     }
 
     private List<TreeNode> generateTrees(int start, int end) {

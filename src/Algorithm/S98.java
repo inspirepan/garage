@@ -10,8 +10,10 @@ public class S98 {
         if (root == null) {
             return true;
         } else {
-            if (!isValidBST(root.left)) return false;
-            if (root.val <= pre) return false;
+            if (!isValidBST(root.left))
+                return false;
+            if (root.val <= pre)
+                return false;
             pre = root.val;
             return isValidBST(root.right);
         }

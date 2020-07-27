@@ -16,8 +16,10 @@ public class S43_46 {
         if (num1.equals("0") || num2.equals("0")) {
             return new String("0");
         }
-        if (num1.equals("1")) return num2;
-        else if (num2.equals("1")) return num1;
+        if (num1.equals("1"))
+            return num2;
+        else if (num2.equals("1"))
+            return num1;
         int len1 = num1.length() - 1;
         int len2 = num2.length() - 1;
         int[] ans = new int[len1 + len2 + 2];
@@ -54,7 +56,8 @@ public class S43_46 {
                 }
                 if (p.charAt(j) == '*') {
                     u = j++;
-                    if (j == p.length()) return true;
+                    if (j == p.length())
+                        return true;
                     position = i;
                     continue;
                 }
@@ -66,7 +69,8 @@ public class S43_46 {
             }
             return false;
         }
-        while (j < p.length() && p.charAt(j) == '*') ++j;
+        while (j < p.length() && p.charAt(j) == '*')
+            ++j;
         return j == p.length();
     }
 
@@ -76,10 +80,10 @@ public class S43_46 {
         int maxPosition = 0;
         int steps = 0;
         for (int i = 0; i < nums.length - 1; i++) {
-            //找能跳的最远的
+            // 找能跳的最远的
             maxPosition = Math.max(maxPosition, nums[i] + i);
             if (i == end) {
-                //遇到边界，就更新边界，并且步数加一
+                // 遇到边界，就更新边界，并且步数加一
                 end = maxPosition;
                 steps++;
             }
@@ -87,10 +91,11 @@ public class S43_46 {
         return steps;
     }
 
-    //    46
+    // 46
     public List<List<Integer>> permute(int[] nums) {
         LinkedList<List<Integer>> ans = new LinkedList<>();
-        if (nums.length == 0) return ans;
+        if (nums.length == 0)
+            return ans;
         ans.add(Arrays.asList(nums[0]));
         for (int i = 1; i < nums.length; i++) {
             while (ans.peek().size() == i) {
@@ -109,7 +114,8 @@ public class S43_46 {
     public List<List<Integer>> permuteUnique(int[] nums) {
         Arrays.sort(nums);// 排序
         LinkedList<List<Integer>> ans = new LinkedList<>();
-        if (nums.length == 0) return ans;
+        if (nums.length == 0)
+            return ans;
         int rep = 1;// 表示重复的个数
         for (int i = 0; i < nums.length; i++) {
             /* 如果下一个与当前重复，那就跳到下一个，记录重复个数 */
@@ -122,7 +128,8 @@ public class S43_46 {
             /* 初始化,把第一种数字放进去 */
             if (i + 1 == rep) {
                 List<Integer> list = new ArrayList<>();
-                for (int l = 0; l < rep; l++) list.add(nums[0]);
+                for (int l = 0; l < rep; l++)
+                    list.add(nums[0]);
                 ans.add(list);
                 rep = 1;
                 continue;
@@ -142,7 +149,8 @@ public class S43_46 {
                 List<List<Integer>> indexes = new ArrayList<>();// indexes是可以插入的方式
                 int m = i - rep_t + 2;// k个数，有k+1个空可以插
                 int[] temp = new int[m];
-                for (int s = 0; s < m; s++) temp[s] = 0;
+                for (int s = 0; s < m; s++)
+                    temp[s] = 0;
                 insertRepeat(indexes, temp, rep_t, m, 0);
                 System.out.println("定位" + indexes);
 
@@ -176,7 +184,8 @@ public class S43_46 {
         if (m == 1) {
             d[start] = n;
             ArrayList<Integer> alis = new ArrayList<>();// 傻逼asList不能用
-            for (int ti : d) alis.add(ti);
+            for (int ti : d)
+                alis.add(ti);
             indexes.add(alis);
             return;
         }
@@ -188,17 +197,18 @@ public class S43_46 {
 
     public List<List<Integer>> permuteDFS(int[] nums) {
         n = nums.length;
-        if (n <= 0) return res;
+        if (n <= 0)
+            return res;
         state = new boolean[n];
-        path = new Stack();
-        res = new LinkedList();
+        path = new Stack<>();
+        res = new LinkedList<>();
         dfs(nums, 0);
         return res;
     }
 
     public void dfs(int[] nums, int pos) {
         if (pos == n) {
-            res.add(new LinkedList(path));
+            res.add(new LinkedList<>(path));
             return;
         }
 
@@ -215,4 +225,3 @@ public class S43_46 {
         }
     }
 }
-

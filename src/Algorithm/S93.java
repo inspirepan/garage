@@ -9,9 +9,9 @@ public class S93 {
     private StringBuilder sb;
     private char[] chars;
 
-    /* 复原IP地址
-     * 采用深度优先搜索
-     * 可以转换为摆三个分隔点的问题 */
+    /*
+     * 复原IP地址 采用深度优先搜索 可以转换为摆三个分隔点的问题
+     */
 
     public List<String> restoreIpAddresses(String s) {
         results = new ArrayList<>();
@@ -54,4 +54,3 @@ public class S93 {
         }
     }
 }
-
