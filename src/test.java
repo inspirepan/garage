@@ -1,19 +1,21 @@
 import Algorithm.*;
 import DataStructure.ListNode;
-
 import java.util.*;
 
 public class test {
     public static void main(String[] args) {
-        S93 s = new S93();
-        System.out.println(s.restoreIpAddresses("2552552551"));
+        S1_3 s = new S1_3();
+        System.out.println(s.lengthOfLongestSubstring("hello") + 23232);
     }
 
-    public static void printIntegerMatrix(int[][] matrix) {
-        for (int[] k : matrix) System.out.println(Arrays.toString(k));
+    /* 输出二维数组 */
+    public static void print(int[][] matrix) {
+        for (int[] k : matrix)
+            System.out.println(Arrays.toString(k));
     }
 
-    public static void printLinkList(ListNode head) {
+    /* 输出单链表 */
+    public static void print(ListNode head) {
         if (head == null) {
             System.out.println("null");
             return;
@@ -25,5 +27,3 @@ public class test {
     }
 
 }
-
-
