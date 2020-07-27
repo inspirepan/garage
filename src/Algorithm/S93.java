@@ -3,15 +3,12 @@ package Algorithm;
 import java.util.ArrayList;
 import java.util.List;
 
+/* 复原IP地址 采用深度优先搜索 可以转换为摆三个分隔点的问题 */
 public class S93 {
 
     private List<String> results;
     private StringBuilder sb;
     private char[] chars;
-
-    /*
-     * 复原IP地址 采用深度优先搜索 可以转换为摆三个分隔点的问题
-     */
 
     public List<String> restoreIpAddresses(String s) {
         results = new ArrayList<>();
