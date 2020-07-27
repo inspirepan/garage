@@ -6,9 +6,10 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import DataStructure.TreeNode;
 
-/* 层序遍历，BFS */
 public class S102 {
-
+    /*
+     * 层序遍历， BFS
+     */
     public List<List<Integer>> levelOrder(TreeNode root) {
         LinkedList<TreeNode> queue = new LinkedList<>();
         int currentLevelcount = 0;

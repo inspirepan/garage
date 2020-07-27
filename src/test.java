@@ -1,11 +1,14 @@
 import Algorithm.*;
 import DataStructure.ListNode;
+import DataStructure.TreeNode;
+
 import java.util.*;
 
 public class test {
     public static void main(String[] args) {
-        S1_3 s = new S1_3();
-        System.out.println(s.lengthOfLongestSubstring("hello") + 23232);
+        S102 s = new S102();
+        TreeNode root = new TreeNode(-8,new TreeNode(-6),new TreeNode(7));
+        System.out.println(s.levelOrder(root));
     }
 
     /* 输出二维数组 */

@@ -2,8 +2,8 @@ package Algorithm;
 
 import DataStructure.TreeNode;
 
-/* 比较两棵二叉树是否相等 */
 public class S100 {
+    /* 比较两棵二叉树是否相等 */
     public boolean isSameTree(TreeNode p, TreeNode q) {
         if (p == null && q == null)
             return true;

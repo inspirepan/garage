@@ -1,11 +1,10 @@
+
 package Algorithm;
 
-/**
- * 没思路, 看的题解
- */
-
 public class S97 {
-
+    /*
+     * 没思路, 看的题解
+     */
     public boolean isInterleave(String s1, String s2, String s3) {
         int m = s1.length(), n = s2.length();
         if (s3.length() != m + n)

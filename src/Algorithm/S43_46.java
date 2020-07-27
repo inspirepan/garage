@@ -5,7 +5,7 @@ import java.util.*;
 /* 4.18 */
 
 public class S43_46 {
-    /* 46题抄的DFS，需要用一个状态记录数组，表示是否可以选用 */
+    /* 46题DFS，需要用一个状态记录数组，表示是否可以选用 */
     int n;
     Stack<Integer> path;
     List<List<Integer>> res;

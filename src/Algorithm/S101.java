@@ -2,9 +2,10 @@ package Algorithm;
 
 import DataStructure.TreeNode;
 
-/* 判断二叉树是否对称
-*  递归 */
 public class S101 {
+    /*
+     * 判断二叉树是否对称，递归
+     */
     public boolean isSymmetric(TreeNode root) {
         if (root == null)
             return true;
