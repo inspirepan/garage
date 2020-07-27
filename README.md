@@ -1,4 +1,4 @@
 # garage project
 
-Solutions to LeetCode Exercises
+Solutions to LeetCode exercises
 
