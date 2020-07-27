@@ -1,10 +1,8 @@
-package Algorithm;
+package algorithm;
 
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import DataStructure.TreeNode;
+import java.util.*;
+
+import dataStructure.TreeNode;
 
 public class S102 {
     /*
@@ -12,16 +10,16 @@ public class S102 {
      */
     public List<List<Integer>> levelOrder(TreeNode root) {
         LinkedList<TreeNode> queue = new LinkedList<>();
-        int currentLevelcount = 0;
+        int currentLevelCount;
         List<List<Integer>> ans = new ArrayList<List<Integer>>();
         if (root == null)
             return ans;
-        ans.add(new ArrayList<>(Arrays.asList(root.val)));
+        ans.add(new ArrayList<>(Collections.singletonList(root.val)));
         queue.add(root);
-        currentLevelcount = queue.size();
-        while (currentLevelcount != 0) {
+        currentLevelCount = queue.size();
+        while (currentLevelCount != 0) {
             List<Integer> currentLevelResult = new ArrayList<>();
-            for (int i = 0; i < currentLevelcount; i++) {
+            for (int i = 0; i < currentLevelCount; i++) {
                 TreeNode top = queue.pop();
                 if (top.left != null)
                     queue.add(top.left);
@@ -29,7 +27,7 @@ public class S102 {
                     queue.add(top.right);
                 currentLevelResult.add(top.val);
             }
-            currentLevelcount = queue.size();
+            currentLevelCount = queue.size();
             ans.add(currentLevelResult);
         }
         ans.remove(0);

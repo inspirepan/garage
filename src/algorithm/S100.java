@@ -1,6 +1,6 @@
-package Algorithm;
+package algorithm;
 
-import DataStructure.TreeNode;
+import dataStructure.TreeNode;
 
 public class S100 {
     /* 比较两棵二叉树是否相等 */

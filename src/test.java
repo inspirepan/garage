@@ -1,6 +1,6 @@
-import Algorithm.*;
-import DataStructure.ListNode;
-import DataStructure.TreeNode;
+import algorithm.*;
+import dataStructure.ListNode;
+import dataStructure.TreeNode;
 
 import java.util.*;
 

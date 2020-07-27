@@ -1,6 +1,6 @@
-package Algorithm;
+package algorithm;
 
-import DataStructure.TreeNode;
+import dataStructure.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.Stack;
 
 /* 中序遍历 */
 public class S94 {
-    private List<Integer> result = new ArrayList<>();
+    private final List<Integer> result = new ArrayList<>();
 
     public List<Integer> inorderTraversal(TreeNode root) {
         if (root == null) {

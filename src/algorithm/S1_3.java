@@ -1,6 +1,6 @@
-package Algorithm;
+package algorithm;
 
-import DataStructure.ListNode;
+import dataStructure.ListNode;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -56,10 +56,10 @@ public class S1_3 {
     public int lengthOfLongestSubstring(String s) {
         char[] c = s.toCharArray();
         int[] index = new int[128];
-        int i = 0;
+        int i;
         int max = 0;
         int tail = 0;
-        int count = 0;
+        int count;
         for (i = 0; i < c.length; i++) {
             if (index[c[i]] > tail) {
                 count = i - tail;
@@ -70,6 +70,6 @@ public class S1_3 {
             index[c[i]] = i + 1;
         }
         count = i - tail;
-        return count > max ? count : max;
+        return Math.max(count, max);
     }
 }

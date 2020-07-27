@@ -1,4 +1,4 @@
-package Algorithm;
+package algorithm;
 
 import java.util.*;
 
@@ -14,7 +14,7 @@ public class S43_46 {
     /* 43 */
     public String multiply(String num1, String num2) {
         if (num1.equals("0") || num2.equals("0")) {
-            return new String("0");
+            return "0";
         }
         if (num1.equals("1"))
             return num2;
@@ -96,9 +96,11 @@ public class S43_46 {
         LinkedList<List<Integer>> ans = new LinkedList<>();
         if (nums.length == 0)
             return ans;
-        ans.add(Arrays.asList(nums[0]));
+        ans.add(Collections.singletonList(nums[0]));
         for (int i = 1; i < nums.length; i++) {
-            while (ans.peek().size() == i) {
+            while (true) {
+                assert ans.peek() != null;
+                if (!(ans.peek().size() == i)) break;
                 List<Integer> t = ans.remove();
                 for (int j = 0; j < i + 1; j++) {
                     List<Integer> s = new ArrayList<>(t);
@@ -142,7 +144,9 @@ public class S43_46 {
             System.out.println(i - rep_t + 1);
 
             /* 把尚未插数的数组选出来 */
-            while (ans.peek().size() == i - rep_t + 1) {
+            while (true) {
+                assert ans.peek() != null;
+                if (!(ans.peek().size() == i - rep_t + 1)) break;
                 List<Integer> t = ans.remove();// t就是当前需要插数的List
 
                 /* 使用insertRepeat函数获取可以插入的方式 */

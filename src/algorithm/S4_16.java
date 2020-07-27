@@ -1,4 +1,4 @@
-package Algorithm;
+package algorithm;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -152,7 +152,7 @@ public class S4_16 {
 
     /* 7 试试看吧,不知道这个Integer.MAX_VALUE的用法也太麻烦了 */
     public int reverse(int x) throws OutOfMemoryError {
-        int p = 0;
+        int p;
         int ans = 0;
         int k = Math.abs(x);
         while (k != 0) {
@@ -197,7 +197,7 @@ public class S4_16 {
             return false;
         if (x < 10)
             return true;
-        int rem = 0;
+        int rem;
         int y = 0, q = x;
         while (q != 0) {
             rem = q % 10;
@@ -224,58 +224,46 @@ public class S4_16 {
 
     /* 12 */
     public String intToRoman(int num) {
-        String ans = "";
+        StringBuilder ans = new StringBuilder();
         if (num / 1000 > 0) {
             for (int i = 0; i < num / 1000; i++) {
-                ans = ans + "M";
+                ans.append("M");
             }
         }
         int count2 = (num % 1000) / 100;
         if (count2 == 9)
-            ans = ans + "CM";
+            ans.append("CM");
         else if (count2 == 4)
-            ans = ans + "CD";
+            ans.append("CD");
         else if (count2 < 4 && count2 > 0) {
-            for (int i = 0; i < count2; i++) {
-                ans += "C";
-            }
+            ans.append("C".repeat(count2));
         } else if (count2 >= 5 && count2 < 9) {
-            ans += "D";
-            for (int i = 0; i < count2 - 5; i++) {
-                ans += "C";
-            }
+            ans.append("D");
+            ans.append("C".repeat(count2 - 5));
         }
         int count1 = (num % 100) / 10;
         if (count1 == 9)
-            ans = ans + "XC";
+            ans.append("XC");
         else if (count1 == 4)
-            ans = ans + "XL";
+            ans.append("XL");
         else if (count1 < 4 && count1 > 0) {
-            for (int i = 0; i < count1; i++) {
-                ans += "X";
-            }
+            ans.append("X".repeat(count1));
         } else if (count1 >= 5 && count1 < 9) {
-            ans += "L";
-            for (int i = 0; i < count1 - 5; i++) {
-                ans += "X";
-            }
+            ans.append("L");
+            ans.append("X".repeat(count1 - 5));
         }
         int count0 = num % 10;
         if (count0 == 9)
-            ans = ans + "IX";
+            ans.append("IX");
         else if (count0 == 4)
-            ans = ans + "IV";
+            ans.append("IV");
         else if (count0 < 4 && count0 > 0) {
-            for (int i = 0; i < count0; i++) {
-                ans += "I";
-            }
+            ans.append("I".repeat(count0));
         } else if (count0 >= 5 && count0 < 9) {
-            ans += "V";
-            for (int i = 0; i < count0 - 5; i++) {
-                ans += "I";
-            }
+            ans.append("V");
+            ans.append("I".repeat(count0 - 5));
         }
-        return ans;
+        return ans.toString();
     }
 
     /* 13 还是近乎暴力的方法，其实罗马数字中只要把所有字母代表的数字加起来，同时分辨出要做减法的字符，就可以了 */
@@ -355,7 +343,7 @@ public class S4_16 {
         for (String s : strs) {
             minlength = Math.min(s.length(), minlength);
         }
-        String ans = "";
+        StringBuilder ans = new StringBuilder();
         boolean stop = false;
         for (int i = 0; i < minlength; i++) {
             for (String s : strs) {
@@ -366,9 +354,9 @@ public class S4_16 {
             }
             if (stop)
                 break;
-            ans += strs[0].substring(i, i + 1);
+            ans.append(strs[0].substring(i, i + 1));
         }
-        return ans;
+        return ans.toString();
     }
 
     /*

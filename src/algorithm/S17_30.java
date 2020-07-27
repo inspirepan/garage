@@ -1,6 +1,6 @@
-package Algorithm;
+package algorithm;
 
-import DataStructure.ListNode;
+import dataStructure.ListNode;
 
 import java.util.*;
 
@@ -19,7 +19,9 @@ public class S17_30 {
         for (int i = 0; i < digits.length(); i++) {
             System.out.println("i= " + i);
             int x = Character.getNumericValue(digits.charAt(i));
-            while (ans.peek().length() == i) {
+            while (true) {
+                assert ans.peek() != null;
+                if (!(ans.peek().length() == i)) break;
                 System.out.println("peek= " + ans.peek());
                 System.out.println("ans1= " + ans);
                 String t = ans.remove();
@@ -76,8 +78,8 @@ public class S17_30 {
 
     // 19
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode p = new ListNode();
-        ListNode q = new ListNode();
+        ListNode p;
+        ListNode q;
         p = head;
         q = head;
         boolean removeHead = false;
@@ -117,25 +119,23 @@ public class S17_30 {
             if (s.charAt(i) == '(' || s.charAt(i) == '[' || s.charAt(i) == '{')
                 stack.push(s.charAt(i));
             if (s.charAt(i) == ')') {
-                if (!stack.empty() && (Character) stack.peek() == '(')
+                if (!stack.empty() && stack.peek() == '(')
                     stack.pop();
                 else
                     return false;
             } else if (s.charAt(i) == ']') {
-                if (!stack.empty() && (Character) stack.peek() == '[')
+                if (!stack.empty() && stack.peek() == '[')
                     stack.pop();
                 else
                     return false;
             } else if (s.charAt(i) == '}') {
-                if (!stack.empty() && (Character) stack.peek() == '{')
+                if (!stack.empty() && stack.peek() == '{')
                     stack.pop();
                 else
                     return false;
             }
         }
-        if (!stack.empty())
-            return false;
-        return true;
+        return stack.empty();
 
     }
 
@@ -208,7 +208,7 @@ public class S17_30 {
     }
 
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        ListNode first_node = new ListNode();
+        ListNode first_node;
         if (l1 == null)
             return l2;
         else if (l2 == null)
@@ -260,7 +260,7 @@ public class S17_30 {
      * 23 这题学到了分治法，其实也不难，就是先两两分组（奇数就单独一组），然后两两合并， 比我这种每次读取n个数快多了
      */
     public ListNode mergeKLists_RAW(ListNode[] lists) {
-        ListNode firstNode = new ListNode();
+        ListNode firstNode;
         ListNode p = new ListNode();
         firstNode = p;
         int num = lists.length;
@@ -293,6 +293,7 @@ public class S17_30 {
             temp.val = min_val;
             p.next = temp;
             p = p.next;
+            assert lists[min_index] != null;
             lists[min_index] = lists[min_index].next;
             if (lists[min_index] == null)
                 rem -= 1;
@@ -328,7 +329,7 @@ public class S17_30 {
             return head;
         ListNode p = new ListNode();
         ListNode q;
-        ListNode f = new ListNode();
+        ListNode f;
         f = p;
         p.next = head;
         q = head;
@@ -438,8 +439,6 @@ public class S17_30 {
         int count = 0;
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] == val) {
-                continue;
-            } else {
                 nums[count] = nums[i];
                 count += 1;
             }
@@ -543,10 +542,10 @@ public class S17_30 {
                 } else
                     map.put(sub, 1);
             }
-            for (int k = 0; k < nums; k++) {
-                if (map.containsKey(words[k])) {
-                    int t = map.get(words[k]);
-                    map.put(words[k], t - 1);
+            for (String word : words) {
+                if (map.containsKey(word)) {
+                    int t = map.get(word);
+                    map.put(word, t - 1);
                 } else
                     break;
             }
@@ -554,12 +553,12 @@ public class S17_30 {
             /*
              * 这一步的实质是比较子串n分段，和模式串所包含的结果是否一致， 我在循环中又嵌套了一个循环进去，实际上可以再用一个哈希表
              */
-            for (int k = 0; k < nums; k++) {
-                if (!map.containsKey(words[k])) {
+            for (String word : words) {
+                if (!map.containsKey(word)) {
                     a = false;
                     break;
                 }
-                if (map.get(words[k]) != 0) {
+                if (map.get(word) != 0) {
                     a = false;
                     break;
                 }

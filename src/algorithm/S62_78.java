@@ -1,4 +1,4 @@
-package Algorithm;
+package algorithm;
 
 import java.util.*;
 
@@ -268,7 +268,7 @@ public class S62_78 {
         if (n == 0)
             return false;
         int begin = 0;
-        int mid = 0;
+        int mid;
         int end = m * n - 1;
         while (end > begin) {
             mid = (begin + end) / 2;
@@ -371,7 +371,7 @@ public class S62_78 {
         res = new LinkedList<>();
         if (nums.length == 0)
             return res;
-        res.add(Arrays.asList());
+        res.add(Collections.emptyList());
         path = new Stack<>();
         for (int i = 1; i <= nums.length; i++) {
             dfs78(nums, i, 0);

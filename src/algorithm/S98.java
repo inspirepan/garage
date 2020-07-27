@@ -1,6 +1,6 @@
-package Algorithm;
+package algorithm;
 
-import DataStructure.TreeNode;
+import dataStructure.TreeNode;
 
 public class S98 {
 

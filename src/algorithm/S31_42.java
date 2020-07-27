@@ -1,4 +1,4 @@
-package Algorithm;
+package algorithm;
 
 import java.util.*;
 
@@ -184,9 +184,9 @@ public class S31_42 {
             return 1;
         boolean a = true;
         Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
-            map.put(nums[i], 1);
-            if (a && nums[i] > 0)
+        for (int num : nums) {
+            map.put(num, 1);
+            if (a && num > 0)
                 a = false;
         }
         if (a)

@@ -1,5 +1,5 @@
 
-package Algorithm;
+package algorithm;
 
 public class S97 {
     /*

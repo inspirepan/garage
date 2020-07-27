@@ -1,6 +1,6 @@
-package Algorithm;
+package algorithm;
 
-import DataStructure.TreeNode;
+import dataStructure.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package Algorithm;
+package algorithm;
 
 import java.util.*;
 
@@ -160,8 +160,7 @@ public class S51_60 {
             return part;
         List<Integer> subpart = spiralO(matrix, start_row + 1, start_column + 1, opposite_row - 1,
                 oppposite_column - 1);
-        for (int i : subpart)
-            part.add(i);
+        part.addAll(subpart);
         return part;
     }
 
@@ -237,7 +236,6 @@ public class S51_60 {
         for (int i = 0; i < intervals.length; i++) {
             if (!S_in && intervals[i][1] >= nS) {
                 StartPoint = Math.min(intervals[i][0], nS);
-                S_in = true;
                 if (intervals[i][1] < nE) {
                     S_in = true;
                     if (i == intervals.length - 1) {
@@ -334,7 +332,7 @@ public class S51_60 {
                 int seq = residue / JieCheng[n - i - 3];
                 System.out.println(seq);
                 residue = residue % JieCheng[n - i - 3];
-                int number = resNum.remove(seq).intValue();
+                int number = resNum.remove(seq);
                 ans[i] = number;
             }
         }
