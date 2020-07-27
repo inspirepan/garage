@@ -8,7 +8,7 @@ import java.util.*;
 
 public class S17_30 {
     /*
-     * 17 这题参考评论区的一个算法来debug 太强了，使用LinkedList来轻松实现广度优先搜索
+     * 17 参考评论区一个算法，太强了，使用LinkedList来进行BFS
      */
     public List<String> letterCombinations(String digits) {
         LinkedList<String> ans = new LinkedList<>();
