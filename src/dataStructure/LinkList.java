@@ -1,6 +1,5 @@
 package dataStructure;
 
-
 public class LinkList {
     public ListNode headNode;
 
@@ -20,6 +19,5 @@ public class LinkList {
             }
         }
     }
-
 
 }

@@ -21,7 +21,8 @@ public class S17_30 {
             int x = Character.getNumericValue(digits.charAt(i));
             while (true) {
                 assert ans.peek() != null;
-                if (!(ans.peek().length() == i)) break;
+                if (!(ans.peek().length() == i))
+                    break;
                 System.out.println("peek= " + ans.peek());
                 System.out.println("ans1= " + ans);
                 String t = ans.remove();

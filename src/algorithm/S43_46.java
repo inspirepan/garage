@@ -100,7 +100,8 @@ public class S43_46 {
         for (int i = 1; i < nums.length; i++) {
             while (true) {
                 assert ans.peek() != null;
-                if (!(ans.peek().size() == i)) break;
+                if (!(ans.peek().size() == i))
+                    break;
                 List<Integer> t = ans.remove();
                 for (int j = 0; j < i + 1; j++) {
                     List<Integer> s = new ArrayList<>(t);
@@ -146,7 +147,8 @@ public class S43_46 {
             /* 把尚未插数的数组选出来 */
             while (true) {
                 assert ans.peek() != null;
-                if (!(ans.peek().size() == i - rep_t + 1)) break;
+                if (!(ans.peek().size() == i - rep_t + 1))
+                    break;
                 List<Integer> t = ans.remove();// t就是当前需要插数的List
 
                 /* 使用insertRepeat函数获取可以插入的方式 */
