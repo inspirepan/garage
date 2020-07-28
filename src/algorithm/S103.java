@@ -8,6 +8,7 @@ import java.util.List;
 import dataStructure.TreeNode;
 
 public class S103 {
+    /* 锯齿状层序遍历 */
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         Deque<TreeNode> queue = new ArrayDeque<>();
         int currentLevelCount;
