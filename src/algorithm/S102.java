@@ -14,7 +14,6 @@ public class S102 {
         List<List<Integer>> ans = new ArrayList<List<Integer>>();
         if (root == null)
             return ans;
-        ans.add(new ArrayList<>(Collections.singletonList(root.val)));
         queue.add(root);
         currentLevelCount = queue.size();
         while (currentLevelCount != 0) {
@@ -30,7 +29,6 @@ public class S102 {
             currentLevelCount = queue.size();
             ans.add(currentLevelResult);
         }
-        ans.remove(0);
         return ans;
     }
 }
