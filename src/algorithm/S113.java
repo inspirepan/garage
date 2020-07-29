@@ -30,12 +30,13 @@ public class S113 {
                 pathSumResult.add(copy);
                 singleResult.removeLast();
             }
+        } else {
+            singleResult.add(root.val);
+            if (root.left != null)
+                dfs(root.left, currentSum + root.val);
+            if (root.right != null)
+                dfs(root.right, currentSum + root.val);
+            singleResult.removeLast();
         }
-        singleResult.add(root.val);
-        if (root.left != null)
-            dfs(root.left, currentSum + root.val);
-        if (root.right != null)
-            dfs(root.right, currentSum + root.val);
-        singleResult.removeLast();
     }
 }
