@@ -3,6 +3,7 @@ package algorithm;
 import dataStructure.TreeNode;
 
 public class S111 {
+    /* 最小深度 */
     /* 根节点和叶子结点有区别 */
     public int minDepth(TreeNode root) {
         if (root == null)
