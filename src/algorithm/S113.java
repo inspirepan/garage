@@ -20,7 +20,7 @@ public class S113 {
         return pathSumResult;
     }
 
-    private boolean dfs(TreeNode root, int currentSum) {
+    private void dfs(TreeNode root, int currentSum) {
         if (root.left == null && root.right == null) {
             if (currentSum + root.val == sum) {
                 singleResult.add(root.val);
@@ -29,38 +29,13 @@ public class S113 {
                 copy.addAll(singleResult);
                 pathSumResult.add(copy);
                 singleResult.removeLast();
-                return true;
-            } else {
-                return false;
-            }
-        } else if (root.left == null) {
-            singleResult.add(root.val);
-            if (dfs(root.right, currentSum + root.val)) {
-                singleResult.removeLast();
-                return true;
-            } else {
-                singleResult.removeLast();
-                return false;
-            }
-        } else if (root.right == null) {
-            singleResult.add(root.val);
-            if (dfs(root.left, currentSum + root.val)) {
-                singleResult.removeLast();
-                return true;
-            } else {
-                singleResult.removeLast();
-                return false;
-            }
-        } else {
-            singleResult.add(root.val);
-            /* 这里一开始用了阻塞的||，导致只求出一个结果诶 */
-            if (dfs(root.left, currentSum + root.val) | dfs(root.right, currentSum + root.val)) {
-                singleResult.removeLast();
-                return true;
-            } else {
-                singleResult.removeLast();
-                return false;
             }
         }
+        singleResult.add(root.val);
+        if (root.left != null)
+            dfs(root.left, currentSum + root.val);
+        if (root.right != null)
+            dfs(root.right, currentSum + root.val);
+        singleResult.removeLast();
     }
 }
