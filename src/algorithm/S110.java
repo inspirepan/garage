@@ -1,6 +1,6 @@
 package algorithm;
 
-import dataStructure.TreeNode;
+import datastructure.TreeNode;
 
 public class S110 {
     public boolean isBalanced(TreeNode root) {

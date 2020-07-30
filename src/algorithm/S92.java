@@ -1,6 +1,6 @@
 package algorithm;
 
-import dataStructure.ListNode;
+import datastructure.ListNode;
 
 public class S92 {
 

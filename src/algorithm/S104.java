@@ -1,6 +1,6 @@
 package algorithm;
 
-import dataStructure.TreeNode;
+import datastructure.TreeNode;
 
 public class S104 {
     /* 二叉树最大深度 */

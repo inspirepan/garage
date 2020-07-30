@@ -2,7 +2,7 @@ package algorithm;
 
 import java.util.HashMap;
 
-import dataStructure.TreeNode;
+import datastructure.TreeNode;
 
 public class S105 {
     /* 从前序与中序遍历序列构造二叉树 */
@@ -18,8 +18,9 @@ public class S105 {
     }
 
     private TreeNode buildTreeWithIndex(int[] preorder, int[] inorder, int startPoint) {
-        if (preorder.length == 0)
+        if (preorder.length == 0) {
             return null;
+        }
         int rootVal = preorder[0];
         int rootIndex = indexMap.get(rootVal) - startPoint;
         int leftLength = rootIndex;

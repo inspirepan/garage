@@ -1,6 +1,6 @@
 package algorithm;
 
-import dataStructure.Node;
+import datastructure.Node;
 
 public class S116 {
     public Node connect(Node root) {

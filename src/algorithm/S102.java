@@ -2,7 +2,7 @@ package algorithm;
 
 import java.util.*;
 
-import dataStructure.TreeNode;
+import datastructure.TreeNode;
 
 public class S102 {
     /*

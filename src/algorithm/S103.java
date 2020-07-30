@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Deque;
 import java.util.List;
-import dataStructure.TreeNode;
+import datastructure.TreeNode;
 
 public class S103 {
     /* 锯齿状层序遍历 */

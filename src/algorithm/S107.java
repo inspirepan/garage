@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import dataStructure.TreeNode;
+import datastructure.TreeNode;
 
 public class S107 {
     /* 二叉树从底部开始层次遍历 */

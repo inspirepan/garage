@@ -1,6 +1,6 @@
 package algorithm;
 
-import dataStructure.ListNode;
+import datastructure.ListNode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
