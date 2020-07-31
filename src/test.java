@@ -6,10 +6,8 @@ import java.util.*;
 
 public class test {
     public static void main(String[] args) {
-        S105 s = new S105();
-        int[] pre = new int[] { 3, 9, 20, 15, 7 };
-        int[] in = new int[] { 9, 3, 15, 20, 7 };
-        TreeNode root = s.buildTree(pre, in);
+        S119 s = new S119();
+        s.getRow(5);
     }
 
     /* 输出二维数组 */
