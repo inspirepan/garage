@@ -1,12 +1,12 @@
 import java.util.Arrays;
 
-import algorithm.S127;
+import algorithm.*;
 import datastructure.ListNode;
 
 public class test {
     public static void main(String[] args) {
-        S127 s = new S127();
-        s.ladderLength("hit", "cog", Arrays.asList("hot", "dot", "dog","lot","log","cog"));
+        S128 s = new S128();
+        System.out.println(s.longestConsecutive(new int[]{1,2,0,1}));
     }
 
     /* 输出二维数组 */
