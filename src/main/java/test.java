@@ -1,12 +1,12 @@
-import algorithm.*;
+import java.util.Arrays;
+
+import algorithm.S127;
 import datastructure.ListNode;
 
-import java.util.*;
-
 public class test {
-    public static void main(String[] args) {
-        S119 s = new S119();
-        s.getRow(5);
+    public static void main(String args[]) {
+        S127 s = new S127();
+        s.ladderLength("hit", "cog", Arrays.asList("hot", "dot", "dog","lot","log","cog"));
     }
 
     /* 输出二维数组 */
