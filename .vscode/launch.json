@@ -9,7 +9,7 @@
             "name": "CodeLens (Launch) - test",
             "request": "launch",
             "mainClass": "test",
-            "projectName": "garage_c1ea5ff8",
+            "projectName": "garage",
             "console": "internalConsole"
         },
         {
