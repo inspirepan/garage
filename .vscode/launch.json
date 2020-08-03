@@ -1,12 +1,13 @@
 {
     "version": "0.2.0",
     "configurations": [
+        
         {
             "type": "java",
             "name": "CodeLens (Launch) - test",
             "request": "launch",
             "mainClass": "test",
-            "projectName": "garage_c1ea5ff8",
+            "projectName": "garage",
             "console": "internalConsole"
         },
         {
