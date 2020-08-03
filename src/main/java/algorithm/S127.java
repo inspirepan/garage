@@ -8,7 +8,7 @@ import java.util.*;
 public class S127 {
     /*
      * 完全参考的官方题解，
-     * 虽然是个无向图的广度优先遍历，但是 Queue，Pair，Map这些数据结构的调用实在不熟练
+     * 虽然是个无向图的广度优先遍历，但是 Queue，Pair，Map这些数据结构的调用实在不熟
      */
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
         int length = beginWord.length();
