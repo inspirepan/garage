@@ -12,10 +12,7 @@ public class S112 {
             return false;
         int currentSum = initialValue + root.val;
         if (root.left == null && root.right == null) {
-            if (currentSum == sum)
-                return true;
-            else
-                return false;
+            return currentSum == sum;
         } else if (root.left == null)
             return hasPathSumWithInitialValue(root.right, sum, currentSum);
         else if (root.right == null)

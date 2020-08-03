@@ -14,7 +14,6 @@ public class S119 {
             }
             System.out.println(Arrays.toString(dp));
         }
-        List<Integer> res = Arrays.asList(dp);
-        return res;
+        return Arrays.asList(dp);
     }
 }

@@ -7,7 +7,7 @@ import java.util.*;
 public class S51_60 {
 
     // 51
-    List<List<String>> ans51 = new LinkedList<>();
+    final List<List<String>> ans51 = new LinkedList<>();
 
     public static void printIntegerMatrix(int[][] matrix) {
         for (int[] k : matrix)

@@ -25,8 +25,7 @@ public class S113 {
             if (currentSum + root.val == sum) {
                 singleResult.add(root.val);
                 /* 这里要用深拷贝！！ */
-                LinkedList<Integer> copy = new LinkedList<Integer>();
-                copy.addAll(singleResult);
+                LinkedList<Integer> copy = new LinkedList<Integer>(singleResult);
                 pathSumResult.add(copy);
                 singleResult.removeLast();
             }

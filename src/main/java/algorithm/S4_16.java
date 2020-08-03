@@ -354,7 +354,7 @@ public class S4_16 {
             }
             if (stop)
                 break;
-            ans.append(strs[0].substring(i, i + 1));
+            ans.append(strs[0].charAt(i));
         }
         return ans.toString();
     }

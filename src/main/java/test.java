@@ -4,7 +4,7 @@ import algorithm.S127;
 import datastructure.ListNode;
 
 public class test {
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         S127 s = new S127();
         s.ladderLength("hit", "cog", Arrays.asList("hot", "dot", "dog","lot","log","cog"));
     }
