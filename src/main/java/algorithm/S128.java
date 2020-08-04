@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class S128 {
-    private Map<Integer, Integer> map = new HashMap<>();
+    private final Map<Integer, Integer> map = new HashMap<>();
     private int maxLength = 0;
 
     public int longestConsecutive(int[] nums) {
