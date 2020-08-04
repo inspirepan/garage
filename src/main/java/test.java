@@ -1,12 +1,23 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 
-import algorithm.*;
+import algorithm.S133;
 import datastructure.ListNode;
+import datastructure.Node;
 
 public class test {
     public static void main(String[] args) {
-        S128 s = new S128();
-        System.out.println(s.longestConsecutive(new int[]{1,2,0,1}));
+        S133 s = new S133();
+
+        Node node1 = new Node(1);
+        Node node2 = new Node(2);
+        Node node3 = new Node(3);
+        Node node4 = new Node(4);
+        node1.neighbors = new ArrayList<Node>(Arrays.asList(node2, node4));
+        node2.neighbors = new ArrayList<Node>(Arrays.asList(node1, node3));
+        node3.neighbors = new ArrayList<Node>(Arrays.asList(node2, node4));
+        node4.neighbors = new ArrayList<Node>(Arrays.asList(node1, node3));
+
     }
 
     /* 输出二维数组 */
