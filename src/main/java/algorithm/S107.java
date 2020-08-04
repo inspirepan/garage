@@ -14,7 +14,7 @@ public class S107 {
         if (root == null)
             return ans;
         LinkedList<TreeNode> queue = new LinkedList<>();
-        int currentLevelCount = 0;
+        int currentLevelCount;
         queue.offer(root);
         currentLevelCount = queue.size();
         while (currentLevelCount != 0) {

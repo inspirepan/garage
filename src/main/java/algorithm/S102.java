@@ -10,12 +10,11 @@ public class S102 {
      */
     public List<List<Integer>> levelOrder(TreeNode root) {
         LinkedList<TreeNode> queue = new LinkedList<>();
-        int currentLevelCount = 0;
-        List<List<Integer>> ans = new ArrayList<List<Integer>>();
+        List<List<Integer>> ans = new ArrayList<>();
         if (root == null)
             return ans;
         queue.add(root);
-        currentLevelCount = queue.size();
+        int currentLevelCount = queue.size();
         while (currentLevelCount != 0) {
             List<Integer> currentLevelResult = new ArrayList<>();
             for (int i = 0; i < currentLevelCount; i++) {

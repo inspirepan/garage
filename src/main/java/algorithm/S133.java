@@ -1,27 +1,23 @@
 package algorithm;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-
 import datastructure.Node;
 
+import java.util.*;
+
 public class S133 {
+    // 自己写的笨方法，还没优化过，但是耗时和官方的方法差不多
+    private final Map<Integer, Node> nodeMap = new HashMap<>();
+    private final Map<Integer, Boolean> finished = new HashMap<>();
+
     // 看了一遍题解后写的BFS
     public Node cloneGraph2(Node node) {
         if (node == null) {
-            return node;
+            return null;
         }
         Map<Node, Node> nodeMap2 = new HashMap<>();
         Queue<Node> queue = new LinkedList<>();
-        Node newNode;
-        if (!nodeMap2.containsKey(node)) {
-            newNode = new Node(node.val);
-            nodeMap2.put(node, newNode);
-        }
+        Node newNode = new Node(node.val);
+        nodeMap2.put(node, newNode);
         queue.offer(node);
         while (!queue.isEmpty()) {
             Node currNode = queue.poll();
@@ -36,13 +32,9 @@ public class S133 {
         return nodeMap2.get(node);
     }
 
-    // 自己写的笨方法，还没优化过，但是耗时和官方的方法差不多
-    private Map<Integer, Node> nodeMap = new HashMap<>();
-    private Map<Integer, Boolean> finished = new HashMap<>();
-
     public Node cloneGraph(Node node) {
         if (node == null)
-            return node;
+            return null;
         createCloneNodes(node);
 
         createCloneNeighbors(node);
@@ -60,7 +52,7 @@ public class S133 {
         }
         Node newNode = new Node(node.val);
         nodeMap.put(node.val, newNode);
-        node.neighbors.forEach(neighbor -> createCloneNodes(neighbor));
+        node.neighbors.forEach(this::createCloneNodes);
     }
 
     private void createCloneNeighbors(Node node) {

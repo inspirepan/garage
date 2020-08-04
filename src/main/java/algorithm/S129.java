@@ -4,7 +4,7 @@ import datastructure.TreeNode;
 
 public class S129 {
     /* 直观拼接 */
-    private StringBuilder sb = new StringBuilder();
+    private final StringBuilder sb = new StringBuilder();
     private int val = 0;
 
     public int sumNumbers(TreeNode root) {

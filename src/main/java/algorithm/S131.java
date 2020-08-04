@@ -5,8 +5,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class S131 {
-    private List<List<String>> result = new ArrayList<>();
-    private LinkedList<String> path = new LinkedList<>();
+    private final List<List<String>> result = new ArrayList<>();
+    private final LinkedList<String> path = new LinkedList<>();
     private String s;
 
     public List<List<String>> partition(String s) {
