@@ -8,10 +8,12 @@ public class S129 {
     private int val = 0;
 
     public int sumNumbers(TreeNode root) {
-        /*
-         * dfs(root); 
-         * return val;
-         */
+        dfs(root);
+        return val;
+
+    }
+
+    public int sumNumbers2(TreeNode root) {
         return dfs2(root, 0);
     }
 
