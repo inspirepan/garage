@@ -1,7 +1,9 @@
 package algorithm;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 
 public class S139 {
     /* 暴力动态规划，官方题解 */
@@ -44,10 +46,11 @@ public class S139 {
         return dp[length];
     }
 
-    /* 直接回溯，超时暴毙，需要剪枝 */
+    /* 直接回溯，超时暴毙，使用Map记录已经计算过的结果 */
     private String s;
     private int len;
     private HashSet<String> wordDictSet;
+    private Map<Integer, Boolean> resultMap = new HashMap<Integer,Boolean>();
 
     public boolean wordBreak(String s, List<String> wordDict) {
         if (s == null || s.length() == 0) {
@@ -63,14 +66,19 @@ public class S139 {
         if (start == len) {
             return true;
         }
+        if (resultMap.containsKey(start)) {
+            return resultMap.get(start);
+        }
         for (int i = start; i < len; i++) {
             String sub = s.substring(start, i + 1);
             if (wordDictSet.contains(sub)) {
                 if (dfs(i + 1)) {
+                    resultMap.put(i + 1, true);
                     return true;
                 }
             }
         }
+        resultMap.put(start,false);
         return false;
     }
 }
