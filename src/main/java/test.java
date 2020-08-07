@@ -1,10 +1,15 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import algorithm.S147;
+import datastructure.LinkList;
 import datastructure.ListNode;
 
 public class test {
     public static void main(String[] args) {
-        System.out.println(new StringBuilder().append("2").append(" ").append("dfd").toString());
+        S147 s = new S147();
+        LinkList l = new LinkList(new int[] {  4,3,2,6,1 });
+        print(s.insertionSortList(l.headNode));
     }
 
     /* 输出二维数组 */
@@ -15,14 +20,16 @@ public class test {
 
     /* 输出单链表 */
     public static void print(ListNode head) {
-        if (head == null) {
+        ListNode ptr = head;
+        if (ptr == null) {
             System.out.println("null");
             return;
         }
-        while (head != null) {
-            System.out.print(head.val + " ");
-            head = head.next;
+        while (ptr != null) {
+            System.out.print(ptr.val + " ");
+            ptr = ptr.next;
         }
+        System.out.println(" ");
     }
 
 }
