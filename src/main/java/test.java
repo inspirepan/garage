@@ -1,15 +1,12 @@
-import java.util.ArrayList;
 import java.util.Arrays;
 
-import algorithm.S147;
-import datastructure.LinkList;
+import algorithm.S151;
 import datastructure.ListNode;
 
 public class test {
     public static void main(String[] args) {
-        S147 s = new S147();
-        LinkList l = new LinkList(new int[] {  4,3,2,6,1 });
-        print(s.insertionSortList(l.headNode));
+        S151 s = new S151();
+        System.out.println(s.reverseWords("the sky is blue"));
     }
 
     /* 输出二维数组 */
