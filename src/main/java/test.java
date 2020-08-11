@@ -1,12 +1,14 @@
 import java.util.Arrays;
+import java.util.Collections;
 
 import algorithm.S151;
+import algorithm.S152;
 import datastructure.ListNode;
 
 public class test {
     public static void main(String[] args) {
-        S151 s = new S151();
-        System.out.println(s.reverseWords("the sky is blue"));
+        S152 s = new S152();
+        System.out.println(s.maxProduct(new int[]{0,2}));
     }
 
     /* 输出二维数组 */
