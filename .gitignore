@@ -1,2 +1,11 @@
 # Project exclude paths
 /out/
+src/main/resources/
+src/test/
+target
+.idea
+.settings
+.vscode
+garage.iml
+.classpath
+.project
