@@ -1,17 +1,17 @@
 package datastructure;
 
 public class LinkList {
-    public ListNode headNode;
+    public ListNode head;
 
     public LinkList() {
     }
 
     public LinkList(int[] initialData) {
         if (initialData.length == 0) {
-            this.headNode = new ListNode();
+            this.head = new ListNode();
         } else {
-            this.headNode = new ListNode(initialData[0]);
-            ListNode p = this.headNode;
+            this.head = new ListNode(initialData[0]);
+            ListNode p = this.head;
             for (int i = 1; i < initialData.length; i++) {
                 ListNode x = new ListNode(initialData[i]);
                 p.next = x;
