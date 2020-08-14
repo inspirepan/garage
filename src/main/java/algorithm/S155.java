@@ -1,27 +1,8 @@
 package algorithm;
 
-import java.util.LinkedList;
-
 public class S155 {
-    class MinStack {
+    public class MinStack {
 
-        class Node {
-            int val;
-            int min;
-            Node next;
-
-            Node(int val_, int min_) {
-                this.val = val_;
-                this.min = min_;
-                this.next = null;
-            }
-
-            Node(int val_, int min_, Node next_) {
-                this.val = val_;
-                this.min = min_;
-                this.next = next_;
-            }
-        }
 
         Node first;
         int minVal = Integer.MIN_VALUE;
@@ -68,6 +49,24 @@ public class S155 {
             } else {
                 return -1;
             }
+        }
+    }
+
+    public class Node {
+        int val;
+        int min;
+        Node next;
+
+        Node(int val_, int min_) {
+            this.val = val_;
+            this.min = min_;
+            this.next = null;
+        }
+
+        Node(int val_, int min_, Node next_) {
+            this.val = val_;
+            this.min = min_;
+            this.next = next_;
         }
     }
 }
