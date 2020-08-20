@@ -26,6 +26,7 @@ public class Twitter {
     public void postTweet(int userId, int tweetId) {
         timestamp++;
         Tweet oldHead = tweets.getOrDefault(userId, null);
+        // Tweet链表按顺序排列
         tweets.put(userId, new Tweet(userId, tweetId, timestamp, oldHead));
     }
 
@@ -62,7 +63,9 @@ public class Twitter {
      * Follower follows a followee. If the operation is invalid, it should be a no-op.
      */
     public void follow(int followerId, int followeeId) {
-        if (followeeId == followerId) return;
+        if (followeeId == followerId) {
+            return;
+        }
         Set<Integer> r = followMap.getOrDefault(followerId, new HashSet<>());
         r.add(followeeId);
         followMap.put(followerId, r);
@@ -72,7 +75,9 @@ public class Twitter {
      * Follower unfollows a followee. If the operation is invalid, it should be a no-op.
      */
     public void unfollow(int followerId, int followeeId) {
-        if (followeeId == followerId) return;
+        if (followeeId == followerId) {
+            return;
+        }
         Set<Integer> r = followMap.getOrDefault(followerId, new HashSet<>());
         r.remove(followeeId);
         followMap.put(followerId, r);
