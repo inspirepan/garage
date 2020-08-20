@@ -3,17 +3,17 @@ package algorithm;
 import datastructure.ListNode;
 
 public class S206 {
-    /** 
+    /**
      * 每次操作为
      * h
      * 1 -> 2 -> 3 -> 4
      * =>
-     *      h
+     * h
      * 2 -> 1 -> 3 -> 4
      * =>
-     *           h
+     * h
      * 3 -> 2 -> 1 -> 4
-    */
+     */
     public ListNode reverseList(ListNode head) {
         if (head == null) {
             return null;
@@ -30,13 +30,13 @@ public class S206 {
         }
         return dummy.next;
     }
-    
+
     /**
      * 每次操作为
      * p    c    n
      * 1 -> 2 -> 3 -> 4
      * =>
-     *      p    c    n
+     * p    c    n
      * 1 <- 2    3 -> 4
      */
     public ListNode reverseList2(ListNode head) {
@@ -50,6 +50,17 @@ public class S206 {
             print(curr);
         }
         return prev;
+    }
+
+
+    public ListNode reverseList3(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode last = reverseList3(head.next);
+        head.next.next = head;
+        head.next = null;
+        return last;
     }
 
     /* 输出单链表 */
