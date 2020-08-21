@@ -3,17 +3,6 @@ package algorithm;
 import java.util.HashMap;
 import java.util.Map;
 
-class Node {
-    int val;
-    Node next;
-    Node random;
-
-    public Node(int val) {
-        this.val = val;
-        this.next = null;
-        this.random = null;
-    }
-}
 
 public class S138 {
     public Node copyRandomList(Node head) {
@@ -32,5 +21,17 @@ public class S138 {
             ptr = ptr.next;
         }
         return nodeMap.get(head);
+    }
+
+    static class Node {
+        int val;
+        Node next;
+        Node random;
+
+        public Node(int val) {
+            this.val = val;
+            this.next = null;
+            this.random = null;
+        }
     }
 }
