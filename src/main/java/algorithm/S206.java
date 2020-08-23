@@ -26,7 +26,7 @@ public class S206 {
             node.next = dummy.next;
             dummy.next = node;
             head.next = nxt;
-            print(head);
+            head.print();
         }
         return dummy.next;
     }
@@ -47,7 +47,7 @@ public class S206 {
             curr.next = prev;
             prev = curr;
             curr = nxt;
-            print(curr);
+            curr.print();
         }
         return prev;
     }
@@ -61,19 +61,5 @@ public class S206 {
         head.next.next = head;
         head.next = null;
         return last;
-    }
-
-    /* 输出单链表 */
-    public static void print(ListNode head) {
-        ListNode ptr = head;
-        if (ptr == null) {
-            System.out.println("null");
-            return;
-        }
-        while (ptr != null) {
-            System.out.print(ptr.val + " ");
-            ptr = ptr.next;
-        }
-        System.out.println(" ");
     }
 }
