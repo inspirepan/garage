@@ -11,7 +11,8 @@ public class S152 {
                 max = min;
                 min = temp;
             }
-            max = Math.max(max * num, num); // 这一步是考虑0的情况
+            // 这一步是考虑0的情况
+            max = Math.max(max * num, num);
             min = Math.min(min * num, num);
             result = Math.max(max, result);
         }
