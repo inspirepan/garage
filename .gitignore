@@ -1,7 +1,6 @@
 # Project exclude paths
 /out/
 src/main/resources/
-src/test/
 target
 .idea
 .settings
