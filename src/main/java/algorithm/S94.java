@@ -2,9 +2,9 @@ package algorithm;
 
 import datastructure.TreeNode;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 
 /* 中序遍历 */
 public class S94 {
@@ -23,7 +23,7 @@ public class S94 {
 
     public List<Integer> inorderTraversal2(TreeNode root) {
         List<Integer> result2 = new ArrayList<>();
-        Stack<TreeNode> stack = new Stack<>();
+        var stack = new ArrayDeque<TreeNode>();
         while (root != null || !stack.isEmpty()) {
             if (root != null) {
                 stack.push(root);
