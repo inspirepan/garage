@@ -1,8 +1,5 @@
 package algorithm;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-
 import datastructure.TreeNode;
 
 public class S700 {
