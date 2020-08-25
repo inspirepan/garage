@@ -14,7 +14,9 @@ public class ListNode {
         this.next = null;
     }
 
-    /* 输出单链表 */
+    /**
+     * 输出单链表
+     */
     public void print() {
         System.out.println(val);
         ListNode ptr = next;

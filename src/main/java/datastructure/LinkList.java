@@ -1,5 +1,8 @@
 package datastructure;
 
+/**
+ * Only used for LeetCode
+ */
 public class LinkList {
     public ListNode head;
 

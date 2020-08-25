@@ -11,9 +11,4 @@ public class S201 {
         }
         return ans;
     }
-
-    public static void main(String[] args) {
-        System.out.println(rangeBitwiseAnd(19, 20));
-    }
-
 }
