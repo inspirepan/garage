@@ -7,7 +7,7 @@ import java.util.Map;
 
 /* 4.6 */
 
-public class S1_3 {
+public class L1_3 {
 
     /*
      * 1 哈希表

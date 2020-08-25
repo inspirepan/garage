@@ -2,7 +2,7 @@ package algorithm;
 
 import java.util.*;
 
-public class S62_78 {
+public class L62_78 {
     Stack<Integer> path;
     List<List<Integer>> res;
 

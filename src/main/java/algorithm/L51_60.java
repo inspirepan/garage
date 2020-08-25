@@ -4,7 +4,7 @@ import java.util.*;
 
 /* 4.19 */
 
-public class S51_60 {
+public class L51_60 {
 
     // 51
     final List<List<String>> ans51 = new LinkedList<>();

@@ -6,7 +6,7 @@ import java.util.*;
 
 /* 4.8 */
 
-public class S17_30 {
+public class L17_30 {
     /*
      * 17 参考评论区一个算法，太强了，使用LinkedList来进行BFS
      */

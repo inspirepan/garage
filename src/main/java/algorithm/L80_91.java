@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
 
-public class S80_91 {
+public class L80_91 {
 
     public static void printLinkList(ListNode head) {
         if (head == null) {

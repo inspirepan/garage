@@ -2,7 +2,7 @@ package algorithm;
 
 import java.util.*;
 
-public class S31_42 {
+public class L31_42 {
 
     // 32
     public int longestValidParentheses(String s) {
