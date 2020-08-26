@@ -2,37 +2,48 @@ package algorithm;
 
 public class Sort {
 
-    public static void QuickSort(int[] nums) {
-        QSort(nums, 0, nums.length - 1);
+    public static void quickSort(int[] nums) {
+        quickSortHelper(nums, 0, nums.length - 1);
     }
 
-    public static void QSort(int[] nums, int low, int high) {
-        // System.out.println("QS= " + Arrays.toString(nums));
+    private static void quickSortHelper(int[] nums, int low, int high) {
         if (low < high) {
-            int pivot_loc = Partition(nums, low, high);
-            QSort(nums, low, pivot_loc - 1);
-            QSort(nums, pivot_loc + 1, high);
-
+            int pivotLoc = partition(nums, low, high);
+            quickSortHelper(nums, low, pivotLoc - 1);
+            quickSortHelper(nums, pivotLoc + 1, high);
         }
     }
 
-    public static int Partition(int[] nums, int low, int high) {
+    private static int partition(int[] nums, int low, int high) {
         int t = nums[low];
-        // System.out.println("temp= " + t);
         while (low < high) {
-            while (low < high && nums[high] >= t)
+            while (low < high && nums[high] >= t) {
                 --high;
+            }
             nums[low] = nums[high];
-            // System.out.println("temp1= " + Arrays.toString(nums));
-            while (high > low && nums[low] <= t)
+            while (high > low && nums[low] <= t) {
                 ++low;
+            }
             nums[high] = nums[low];
-            // System.out.println("temp2= " + Arrays.toString(nums));
         }
         nums[low] = t;
-        // System.out.println("par= " + low);
-        // System.out.println("numsAfterPar= " + Arrays.toString(nums));
         return low;
+    }
+
+    public static void bubbleSort(int[] nums) {
 
     }
+
+    public static void selectionSort(int[] nums) {
+
+    }
+
+    public static void shellSort(int[] nums) {
+
+    }
+
+    public static void mergeSort(int[] nums) {
+
+    }
+
 }

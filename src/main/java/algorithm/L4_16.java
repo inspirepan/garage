@@ -367,7 +367,7 @@ public class L4_16 {
         if (nums.length <= 2)
             return new ArrayList<>();
         List<List<Integer>> ans = new ArrayList<>();
-        Sort.QuickSort(nums);
+        Sort.quickSort(nums);
         // Arrays.sort(nums);
         System.out.println(Arrays.toString(nums));
         for (int i = 0; i < nums.length; i++) {

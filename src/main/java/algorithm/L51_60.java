@@ -180,45 +180,7 @@ public class L51_60 {
     }
 
     // 56
-    public int[][] merge(int[][] intervals) {
-        if (intervals.length <= 1)
-            return intervals;
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int[] interval : intervals) {
-            int t = map.getOrDefault(interval[0], 0);
-            map.put(interval[0], t + 1);
-            int h = map.getOrDefault(interval[1], 0);
-            map.put(interval[1], h - 1);
-        }
-        Object[] keyArr = map.keySet().toArray();
-        Arrays.sort(keyArr);
-        boolean inInterval = false;// 状态
-        int sum = 0;// 求和
-        List<int[]> res = new ArrayList<>();// 记录答案
-        int[] ans = new int[2];
-        for (Object k : keyArr) {
-            int val = map.get(k);
-            if (val == 0) {
-                if (!inInterval) {
-                    ans[0] = (int) k;
-                    ans[1] = (int) k;
-                    res.add(ans.clone());
-                }
-                continue;
-            }
-            if (sum == 0 && !inInterval) {
-                ans[0] = (int) k;
-                inInterval = true;
-            }
-            sum += val;
-            if (sum == 0 && inInterval) {
-                ans[1] = (int) k;
-                inInterval = false;
-                res.add(ans.clone());
-            }
-        }
-        return res.toArray(new int[res.size()][]);
-    }
+
 
     // 57
     public int[][] insert(int[][] intervals, int[] newInterval) {
