@@ -221,60 +221,6 @@ public class L51_60 {
     }
 
 
-    public int[][] insert(int[][] intervals, int[] newInterval) {
-        int nS = newInterval[0];
-        int nE = newInterval[1];
-        if (intervals.length == 0) {
-            int[][] ans = new int[1][2];
-            ans[0] = newInterval;
-            return ans;
-        }
-        List<int[]> ans = new ArrayList<>();
-        int startPoint = 0;
-        boolean sIn = false;
-        boolean eIn = false;
-        for (int i = 0; i < intervals.length; i++) {
-            if (!sIn && intervals[i][1] >= nS) {
-                startPoint = Math.min(intervals[i][0], nS);
-                if (intervals[i][1] < nE) {
-                    sIn = true;
-                    if (i == intervals.length - 1) {
-                        ans.add(new int[]{startPoint, nE});
-                        break;
-                    }
-                    continue;
-                } else if (intervals[i][0] > nE) {
-                    sIn = true;
-                    eIn = true;
-                    ans.add(new int[]{nS, nE});
-                } else {
-                    ans.add(new int[]{startPoint, intervals[i][1]});
-                    sIn = true;
-                    eIn = true;
-                    continue;
-                }
-            }
-            if (!eIn && intervals[i][0] > nE) {
-                ans.add(new int[]{startPoint, nE});
-                eIn = true;
-            } else if (!eIn && intervals[i][1] >= nE) {
-                ans.add(new int[]{startPoint, intervals[i][1]});
-                eIn = true;
-                continue;
-            } else if (sIn && !eIn && intervals[i][1] < nE) {
-                if (i == intervals.length - 1) {
-                    ans.add(new int[]{startPoint, nE});
-                }
-                continue;
-            }
-            ans.add(intervals[i].clone());
-            if (i == intervals.length - 1 && !sIn && !eIn) {
-                ans.add(new int[]{nS, nE});
-            }
-        }
-        return ans.toArray(new int[ans.size()][]);
-    }
-
     // 58
     public int lengthOfLastWord(String s) {
         int l = s.length();
