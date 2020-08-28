@@ -1,7 +1,8 @@
 package algorithm;
 
-import java.util.Arrays;
-
+/**
+ * @author panjx
+ */
 public class S75 {
     public void sortColors(int[] nums) {
         int red = 0;
@@ -19,11 +20,5 @@ public class S75 {
                 i++;
             }
         }
-    }
-
-    public static void main(String[] args) {
-        int[] d = new int[]{2, 0, 1};
-        new S75().sortColors(d);
-        System.out.println(Arrays.toString(d));
     }
 }
