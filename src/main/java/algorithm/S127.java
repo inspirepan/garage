@@ -6,7 +6,7 @@ import org.apache.commons.lang3.tuple.Pair;
 import java.util.*;
 
 public class S127 {
-    /*
+    /**
      * 完全参考的官方题解，
      * 虽然是个无向图的广度优先遍历，但是 Queue，Pair，Map这些数据结构的调用实在不熟
      */
@@ -22,13 +22,13 @@ public class S127 {
             }
         });
         System.out.println(allComboDict);
-        Queue<Pair<String, Integer>> Q = new LinkedList<>();
-        Q.add(new ImmutablePair<>(beginWord, 1));
+        Queue<Pair<String, Integer>> q = new LinkedList<>();
+        q.add(new ImmutablePair<>(beginWord, 1));
         Map<String, Boolean> visited = new HashMap<>();
         visited.put(beginWord, true);
 
-        while (!Q.isEmpty()) {
-            Pair<String, Integer> node = Q.remove();
+        while (!q.isEmpty()) {
+            Pair<String, Integer> node = q.remove();
             String word = node.getKey();
             int level = node.getValue();
             for (int i = 0; i < length; i++) {
@@ -39,7 +39,7 @@ public class S127 {
                     }
                     if (!visited.containsKey(adjacentWord)) {
                         visited.put(adjacentWord, true);
-                        Q.add(new ImmutablePair<>(adjacentWord, level + 1));
+                        q.add(new ImmutablePair<>(adjacentWord, level + 1));
                     }
                 }
             }
