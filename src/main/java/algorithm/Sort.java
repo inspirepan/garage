@@ -1,5 +1,7 @@
 package algorithm;
 
+import java.util.Random;
+
 public class Sort {
 
     /**
@@ -45,6 +47,44 @@ public class Sort {
         nums[low] = t;
         return low;
     }
+
+
+    /**
+     * 随机快排
+     */
+    private static void randomQuickSortHelper(int[] nums, int low, int high) {
+        if (low < high) {
+            int pivotLoc = randomPartition(nums, low, high);
+            quickSortHelper(nums, low, pivotLoc - 1);
+            quickSortHelper(nums, pivotLoc + 1, high);
+        }
+    }
+
+    private static int randomPartition(int[] nums, int low, int high) {
+        int i = new Random().nextInt(high - low + 1) + low;
+        swap(nums, i, low);
+        return partition2(nums, low, high);
+    }
+
+    private static int partition2(int[] nums, int low, int high) {
+        int t = nums[low];
+        int h = high;
+        for (int j = high; j >= 0; j--) {
+            if (nums[j] > t) {
+                swap(nums, j, h--);
+            }
+        }
+        swap(nums, low, h);
+        return h;
+    }
+
+
+    private static void swap(int[] nums, int a, int b) {
+        int t = nums[a];
+        nums[a] = nums[b];
+        nums[b] = t;
+    }
+
 
     /**
      * 冒泡排序，O(n^2)
@@ -135,11 +175,14 @@ public class Sort {
         int i = start;
         int j = mid + 1;
         while (i < mid + 1 || j < end + 1) {
+            // 到边界
             if (i == mid + 1) {
                 copy[copyIndex++] = nums[j++];
             } else if (j == end + 1) {
                 copy[copyIndex++] = nums[i++];
-            } else if (nums[i] > nums[j]) {
+            }
+            // 都未到边界，按大小判断
+            else if (nums[i] > nums[j]) {
                 copy[copyIndex++] = nums[j++];
             } else {
                 copy[copyIndex++] = nums[i++];
