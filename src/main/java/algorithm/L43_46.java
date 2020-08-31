@@ -91,27 +91,7 @@ public class L43_46 {
         return steps;
     }
 
-    // 46
-    public List<List<Integer>> permute(int[] nums) {
-        LinkedList<List<Integer>> ans = new LinkedList<>();
-        if (nums.length == 0)
-            return ans;
-        ans.add(Collections.singletonList(nums[0]));
-        for (int i = 1; i < nums.length; i++) {
-            while (true) {
-                assert ans.peek() != null;
-                if (!(ans.peek().size() == i))
-                    break;
-                List<Integer> t = ans.remove();
-                for (int j = 0; j < i + 1; j++) {
-                    List<Integer> s = new ArrayList<>(t);
-                    s.add(j, nums[i]);
-                    ans.add(s);
-                }
-            }
-        }
-        return ans;
-    }
+
 
     /* 47 我做成了一组一组插入的BFS，感觉是个笨比方法，又臭又长，但是跟BFS一样很直观 */
     public List<List<Integer>> permuteUnique(int[] nums) {
@@ -201,33 +181,4 @@ public class L43_46 {
         }
     }
 
-    public List<List<Integer>> permuteDFS(int[] nums) {
-        n = nums.length;
-        if (n <= 0)
-            return res;
-        state = new boolean[n];
-        path = new Stack<>();
-        res = new LinkedList<>();
-        dfs(nums, 0);
-        return res;
-    }
-
-    public void dfs(int[] nums, int pos) {
-        if (pos == n) {
-            res.add(new LinkedList<>(path));
-            return;
-        }
-
-        for (int i = 0; i < n; i++) {
-            if (!state[i]) {
-                // 保存现场
-                state[i] = true;
-                path.push(nums[i]);
-                dfs(nums, pos + 1);
-                // 恢复现场
-                path.pop();
-                state[i] = false;
-            }
-        }
-    }
 }
