@@ -4,8 +4,8 @@ package algorithm;
  * 1286
  */
 public class CombinationIterator {
-
-    private int[] combination;
+    private final int[] combination;
+    private boolean hasNext = true;
     private final char[] charArr;
 
     public CombinationIterator(String characters, int combinationLength) {
@@ -14,39 +14,28 @@ public class CombinationIterator {
         for (int i = 0; i < combinationLength; i++) {
             combination[i] = i;
         }
-        combination[combinationLength - 1]--;
     }
 
     public String next() {
-        boolean hasNext = false;
-        for (int i = combination.length - 1; i >= 0; i--) {
+        var sb = new StringBuilder();
+        for (int i : combination) {
+            sb.append(charArr[i]);
+        }
+        int i = combination.length - 1;
+        for (; i >= 0; i--) {
             if (combination[i] != charArr.length - combination.length + i) {
-                int c = ++combination[i];
-                while (i + 1 < combination.length) {
-                    combination[++i] = ++c;
+                ++combination[i];
+                for (int j = i + 1; j < combination.length; j++) {
+                    combination[j] = combination[i] + j - i;
                 }
-                hasNext = true;
                 break;
             }
         }
-        if (hasNext) {
-            var sb = new StringBuilder();
-            for (int i : combination) {
-                sb.append(charArr[i]);
-            }
-            return sb.toString();
-        }
-        return null;
+        this.hasNext = i != -1;
+        return sb.toString();
     }
 
     public boolean hasNext() {
-        boolean ans = false;
-        for (int i = 1; i <= combination.length; i++) {
-            if (combination[combination.length - i] != charArr.length - i) {
-                ans = true;
-                break;
-            }
-        }
-        return ans;
+        return hasNext;
     }
 }
