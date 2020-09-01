@@ -56,8 +56,4 @@ public class S300 {
         }
         return ++end;
     }
-
-    public static void main(String[] args) {
-        System.out.println(new S300().lengthOfLIS(new int[]{4, 10, 4, 3, 8, 9}));
-    }
 }

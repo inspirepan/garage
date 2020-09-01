@@ -21,5 +21,4 @@ public class S322 {
         System.out.println(Arrays.toString(dp));
         return (dp[amount] == notFound) ? -1 : dp[amount];
     }
-
 }

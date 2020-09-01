@@ -31,19 +31,19 @@ public class S494 {
         for (int i : nums) {
             sum += i;
         }
-        if (sum < S || (sum + S) % 2 == 1) {
+        if (sum < S || ((sum + S) & 1) == 1) {
             return 0;
         }
-        int t = (sum + S) / 2;
+        int t = (sum + S) >> 1;
         int[] dp = new int[t + 1];
         dp[0] = 1;
-        for (int i = 1; i <= nums.length; i++) {
+        for (int num : nums) {
             for (int j = t; j >= 0; j--) {
-                if (j >= nums[i - 1]) {
+                if (j >= num) {
                     /* 两种选择，要么加上这个数，要么不加上。
                      * 不加上不会改变当前的和，因此 dp[j] = dp[j]
                      * 加上的话，就要再记上dp[j-nums[i-1]]的方法数 */
-                    dp[j] += dp[j - nums[i - 1]];
+                    dp[j] += dp[j - num];
                 }
             }
         }
