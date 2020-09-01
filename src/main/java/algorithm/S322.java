@@ -22,7 +22,4 @@ public class S322 {
         return (dp[amount] == notFound) ? -1 : dp[amount];
     }
 
-    public static void main(String[] args) {
-        System.out.println(new S322().coinChange(new int[]{1,2}, 3));
-    }
 }
