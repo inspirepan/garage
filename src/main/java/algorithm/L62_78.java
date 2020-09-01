@@ -191,34 +191,7 @@ public class L62_78 {
         return max;
     }
 
-    /* 72 动态规划, dp[i][j]表示word1前i个字符完全转换成word2前j个字符的最少步数 */
-    public int minDistance(String word1, String word2) {
-        int n = word1.length();
-        int m = word2.length();
-        if (n * m == 0) {
-            return n + m;
-        }
-        int[][] d = new int[n + 1][m + 1];
-        for (int i = 0; i < n + 1; i++) {
-            d[i][0] = i;
-        }
-        for (int j = 0; j < m + 1; j++) {
-            d[0][j] = j;
-        }
-        for (int i = 1; i < n + 1; i++) {
-            for (int j = 1; j < m + 1; j++) {
-                int left = d[i - 1][j] + 1;
-                int down = d[i][j - 1] + 1;
-                int leftDown = d[i - 1][j - 1];
-                if (word1.charAt(i - 1) != word2.charAt(j - 1)) {
-                    leftDown += 1;
-                }
-                d[i][j] = Math.min(left, Math.min(down, leftDown));
 
-            }
-        }
-        return d[n][m];
-    }
 
     /*
      * 73 矩阵置零 nice啊, 这次自己想出了标准答案,就是用首行首列做记录, 两个布尔变量用来判断首行首列本身的情况,最后还要单独处理[0][0]
