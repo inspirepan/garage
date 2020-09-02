@@ -105,9 +105,4 @@ public class S887 {
         }
         return ans;
     }
-
-    public static void main(String[] args) {
-        System.out.println(S887.superEggDrop2(2, 1));
-        System.out.println(S887.superEggDrop3(2, 1));
-    }
 }

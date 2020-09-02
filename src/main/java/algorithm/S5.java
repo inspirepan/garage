@@ -3,26 +3,31 @@ package algorithm;
 public class S5 {
     /**
      * 动态规划，很耗时
+     * O(N^2)，
      */
     public String longestPalindrome(String s) {
         int len = s.length();
         if (len < 2) {
             return s;
         }
+        // 从i到j的字符串是不是回文串
         boolean[][] dp = new boolean[len][len];
         int left = 0;
         int right = 1;
         for (int interval = 0; interval < len; interval++) {
             int j = 0;
             while (j + interval < len) {
+                // 单独的字符都是回文串
                 if (interval == 0) {
                     dp[j][j] = true;
                 }
+                // 两个连在一起的字符串是不是回文串（即两个字符是不是相同）
                 if (interval == 1 && s.charAt(j) == s.charAt(j + 1)) {
                     dp[j][j + 1] = true;
                     left = j;
                     right = j + 2;
                 }
+                // 扩散一次，记录结果
                 if (interval >= 2) {
                     boolean palindrome = dp[j + 1][j + interval - 1] && s.charAt(j) == s.charAt(j + interval);
                     dp[j][j + interval] = palindrome;
