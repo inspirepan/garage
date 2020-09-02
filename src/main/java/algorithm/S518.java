@@ -56,9 +56,5 @@ public class S518 {
         }
         return dp[coins.length - 1][amount];
     }
-
-    public static void main(String[] args) {
-        new S518().change2(5, new int[]{1, 2, 5});
-    }
 }
 

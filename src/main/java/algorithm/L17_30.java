@@ -12,17 +12,19 @@ public class L17_30 {
      */
     public List<String> letterCombinations(String digits) {
         LinkedList<String> ans = new LinkedList<>();
-        if (digits.length() == 0)
+        if (digits.length() == 0) {
             return ans;
-        String[] map = new String[] { "0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
+        }
+        String[] map = new String[]{"0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
         ans.add("");
         for (int i = 0; i < digits.length(); i++) {
             System.out.println("i= " + i);
             int x = Character.getNumericValue(digits.charAt(i));
             while (true) {
                 assert ans.peek() != null;
-                if (!(ans.peek().length() == i))
+                if (!(ans.peek().length() == i)) {
                     break;
+                }
                 System.out.println("peek= " + ans.peek());
                 System.out.println("ans1= " + ans);
                 String t = ans.remove();
@@ -40,37 +42,45 @@ public class L17_30 {
      */
     public List<List<Integer>> fourSum(int[] nums, int target) {
         List<List<Integer>> ans = new LinkedList<>();
-        if (nums.length < 4)
+        if (nums.length < 4) {
             return ans;
+        }
         Arrays.sort(nums);
         for (int i = 0; i < nums.length - 3; i++) {
-            if (nums[i] > target / 4)
+            if (nums[i] > target / 4) {
                 return ans;
-            if (i > 0 && nums[i] == nums[i - 1])
+            }
+            if (i > 0 && nums[i] == nums[i - 1]) {
                 continue;
+            }
             int newTarget = target - nums[i];
 
             for (int j = i + 1; j < nums.length; j++) {
-                if (nums[j] > newTarget / 3)
+                if (nums[j] > newTarget / 3) {
                     break;
-                if (j > i + 1 && nums[j] == nums[j - 1])
+                }
+                if (j > i + 1 && nums[j] == nums[j - 1]) {
                     continue;
+                }
                 int left = j + 1;
                 int right = nums.length - 1;
                 while (left < right) {
                     int sumThree = nums[j] + nums[left] + nums[right];
                     if (sumThree == newTarget) {
                         ans.add(Arrays.asList(nums[i], nums[j], nums[left], nums[right]));
-                        while (left < right && nums[left] == nums[left + 1])
+                        while (left < right && nums[left] == nums[left + 1]) {
                             left++;
-                        while (left < right && nums[right] == nums[right - 1])
+                        }
+                        while (left < right && nums[right] == nums[right - 1]) {
                             right--;
+                        }
                         left++;
                         right--;
-                    } else if (sumThree < newTarget)
+                    } else if (sumThree < newTarget) {
                         left++;
-                    else
+                    } else {
                         right--;
+                    }
                 }
             }
         }
@@ -92,20 +102,22 @@ public class L17_30 {
             p = p.next;
         }
         if (removeHead) {
-            if (head.next == null)
+            if (head.next == null) {
                 return null;// 注意这里返回空结点是用null，新建结点LeetCode的系统会默认构造成0
-            else
+            } else {
                 return head.next;
+            }
         }
         while (p.next != null) {
             p = p.next;
             q = q.next;
         }
         ListNode temp = q.next;
-        if (temp.next == null)
+        if (temp.next == null) {
             q.next = null;
-        else
+        } else {
             q.next = temp.next;
+        }
         return head;
     }
 
@@ -117,43 +129,48 @@ public class L17_30 {
     public boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();
         for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) == '(' || s.charAt(i) == '[' || s.charAt(i) == '{')
+            if (s.charAt(i) == '(' || s.charAt(i) == '[' || s.charAt(i) == '{') {
                 stack.push(s.charAt(i));
+            }
             if (s.charAt(i) == ')') {
-                if (!stack.empty() && stack.peek() == '(')
+                if (!stack.empty() && stack.peek() == '(') {
                     stack.pop();
-                else
+                } else {
                     return false;
+                }
             } else if (s.charAt(i) == ']') {
-                if (!stack.empty() && stack.peek() == '[')
+                if (!stack.empty() && stack.peek() == '[') {
                     stack.pop();
-                else
+                } else {
                     return false;
+                }
             } else if (s.charAt(i) == '}') {
-                if (!stack.empty() && stack.peek() == '{')
+                if (!stack.empty() && stack.peek() == '{') {
                     stack.pop();
-                else
+                } else {
                     return false;
+                }
             }
         }
         return stack.empty();
-
     }
 
     /*
      * 好吧这个只是看起来简洁，运行时间还不如上面那个， 不过上面那个太容易出错了，稍微没搞清楚就错了，还容易越界
      */
     public boolean isValid2(String s) {
-        if (s.length() == 0)
+        if (s.length() == 0) {
             return true;
+        }
         Stack<Character> stack = new Stack<>();
         char[] cstring = s.toCharArray();
         for (char c : cstring) {
             if (!stack.empty() && ((stack.peek() == '(' && c == ')') || (stack.peek() == '[' && c == ']')
                     || (stack.peek() == '{' && c == '}'))) {
                 stack.pop();
-            } else
+            } else {
                 stack.push(c);
+            }
         }
         return stack.empty();
     }
@@ -163,12 +180,14 @@ public class L17_30 {
      * 的链表如果用等号把两个结点取相等之后，改变一个的next另一个的next也会跟着改变！
      */
     public ListNode mergeTwoLists_RAW(ListNode l1, ListNode l2) {
-        if (l1 == null && l2 == null)
+        if (l1 == null && l2 == null) {
             return null;
-        if (l1 == null)
+        }
+        if (l1 == null) {
             return l2;
-        else if (l2 == null)
+        } else if (l2 == null) {
             return l1;
+        }
         ListNode p;
         ListNode q = new ListNode();
         if (l1.val <= l2.val) {
@@ -193,8 +212,9 @@ public class L17_30 {
         /*
          * 这个循环会在q.next==null或者p.next==null时结束，如果在前者结束， 说明已经把q完全输入到p中了，就是正确的，所以还要处理后者。
          */
-        if (p.next == null && q.next != null)
+        if (p.next == null && q.next != null) {
             p.next = q.next;
+        }
         if (l1.val <= l2.val) {
             /*
              * ListNode k = l1; while (k != null) { System.out.println(k.val); k = k.next; }
@@ -210,11 +230,11 @@ public class L17_30 {
 
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode first_node;
-        if (l1 == null)
+        if (l1 == null) {
             return l2;
-        else if (l2 == null)
+        } else if (l2 == null) {
             return l1;
-        else {
+        } else {
             ListNode p = new ListNode();
             first_node = p;
             while (l1 != null || l2 != null) {
@@ -244,14 +264,15 @@ public class L17_30 {
      */
     public List<String> generateParenthesis(int n) {
         List<String> ans = new LinkedList<>();
-        if (n == 0)
+        if (n == 0) {
             ans.add("");
-        else {
+        } else {
             for (int i = 0; i < n; i++) {
-                for (String left : generateParenthesis(i))
-                    for (String right : generateParenthesis(n - 1 - i))
+                for (String left : generateParenthesis(i)) {
+                    for (String right : generateParenthesis(n - 1 - i)) {
                         ans.add("(" + left + ")" + right);
-
+                    }
+                }
             }
         }
         return ans;
@@ -271,11 +292,13 @@ public class L17_30 {
             if (lists[i] != null) {
                 stopped[i] = 1;
                 rem += 1;
-            } else
+            } else {
                 stopped[i] = 0;
+            }
         }
-        if (rem == 0)
+        if (rem == 0) {
             return null;
+        }
         while (rem != 0) {
             rem = 0;
             int min_val = Integer.MAX_VALUE;
@@ -296,8 +319,9 @@ public class L17_30 {
             p = p.next;
             assert lists[min_index] != null;
             lists[min_index] = lists[min_index].next;
-            if (lists[min_index] == null)
+            if (lists[min_index] == null) {
                 rem -= 1;
+            }
         }
         return firstNode.next;
     }
@@ -305,8 +329,9 @@ public class L17_30 {
     // 分治
     public ListNode mergeKLists(ListNode[] lists) {
         int nums = lists.length;
-        if (nums == 0)
+        if (nums == 0) {
             return null;
+        }
         while (nums > 1) {
             int i;
             for (i = 0; i < nums / 2; i++) {
@@ -324,10 +349,11 @@ public class L17_30 {
 
     /* 24 */
     public ListNode swapPairs(ListNode head) {
-        if (head == null)
+        if (head == null) {
             return null;
-        else if (head.next == null)
+        } else if (head.next == null) {
             return head;
+        }
         ListNode p = new ListNode();
         ListNode q;
         ListNode f;
@@ -365,10 +391,12 @@ public class L17_30 {
      * 然后调用翻转链表的函数
      */
     public ListNode reverseKGroup(ListNode head, int k) {
-        if (k == 1)
+        if (k == 1) {
             return head;
-        if (head == null)
+        }
+        if (head == null) {
             return null;
+        }
 
         int count = 0;
         ListNode k_end = head;
@@ -376,17 +404,17 @@ public class L17_30 {
             k_end = k_end.next;
             count++;
         }
-        if (count < k - 1)
+        if (count < k - 1) {
             return head;
-        else {
+        } else {
             ListNode t = head.next;
             head.next = reverseKGroup(k_end.next, k);
             /*
              * 这里是将k个链表结点反转，要分情况讨论 分这么多情况的原因还是我太菜了，翻转要用三个指针，如果k只有4及以下，那会出现一堆空指针
              */
-            if (k == 2)
+            if (k == 2) {
                 k_end.next = head;
-            else if (k == 3) {
+            } else if (k == 3) {
                 k_end.next = t;
                 t.next = head;
             } else if (k == 4) {
@@ -419,7 +447,6 @@ public class L17_30 {
             }
             return k_end;
         }
-
     }
 
     // 26
@@ -432,7 +459,6 @@ public class L17_30 {
             }
         }
         return count + 1;
-
     }
 
     // 27
@@ -449,10 +475,12 @@ public class L17_30 {
 
     // 28
     public int strStr(String haystack, String needle) {
-        if (needle.length() == 0)
+        if (needle.length() == 0) {
             return 0;
-        if (haystack.length() == 0 || haystack.length() < needle.length())
+        }
+        if (haystack.length() == 0 || haystack.length() < needle.length()) {
             return -1;
+        }
 
         int[] nextval = KMP_nextval(needle);
         int i = 0;
@@ -462,14 +490,15 @@ public class L17_30 {
                     || Character.getNumericValue(needle.charAt(j)) == Character.getNumericValue(haystack.charAt(i))) {
                 i++;
                 j++;
-            } else
+            } else {
                 j = nextval[j];
+            }
         }
-        if (j == needle.length())
+        if (j == needle.length()) {
             return i - j;
-        else
+        } else {
             return -1;
-
+        }
     }
 
     public int[] KMP_nextval(String needle) {
@@ -481,37 +510,44 @@ public class L17_30 {
             if (j == -1 || Character.getNumericValue(needle.charAt(i)) == Character.getNumericValue(needle.charAt(j))) {
                 j++;
                 i++;
-                if (Character.getNumericValue(needle.charAt(i)) != Character.getNumericValue(needle.charAt(j)))
+                if (Character.getNumericValue(needle.charAt(i)) != Character.getNumericValue(needle.charAt(j))) {
                     nextval[i] = j;
-                else
+                } else {
                     nextval[i] = nextval[j];
-            } else
+                }
+            } else {
                 j = nextval[j];
+            }
         }
         return nextval;
     }
 
     // 29
     public int divide(int dividend, int divisor) {
-        if (dividend == Integer.MIN_VALUE && divisor == -1)
+        if (dividend == Integer.MIN_VALUE && divisor == -1) {
             return Integer.MAX_VALUE;
-        if (dividend == 0)
+        }
+        if (dividend == 0) {
             return 0;
-        if (divisor == 1)
+        }
+        if (divisor == 1) {
             return dividend;
+        }
         boolean lessthan0;
         lessthan0 = (dividend < 0 || divisor < 0) && (dividend > 0 || divisor > 0);
         long e = Math.abs((long) dividend);
         long s = Math.abs((long) divisor);
-        if (e < s)
+        if (e < s) {
             return 0;
+        }
         long ans = maxPartDivide(e, s);
         return lessthan0 ? (int) -ans : (int) ans;
     }
 
     public long maxPartDivide(long e, long s) {
-        if (e < s)
+        if (e < s) {
             return 0;
+        }
         long ans = 1;
         long t = s;
         int i = 0;
@@ -526,8 +562,9 @@ public class L17_30 {
     // 30
     public List<Integer> findSubstring_RAW(String s, String[] words) {
         List<Integer> ans = new ArrayList<>();
-        if (s == null || words == null || words.length == 0)
+        if (s == null || words == null || words.length == 0) {
             return ans;
+        }
         int nums = words.length;
         int len = words[0].length();
         int winLenth = nums * len;
@@ -540,15 +577,17 @@ public class L17_30 {
                 if (map.containsKey(sub)) {
                     int t = map.get(sub);
                     map.put(sub, t + 1);
-                } else
+                } else {
                     map.put(sub, 1);
+                }
             }
             for (String word : words) {
                 if (map.containsKey(word)) {
                     int t = map.get(word);
                     map.put(word, t - 1);
-                } else
+                } else {
                     break;
+                }
             }
             boolean a = true;
             /*
@@ -564,8 +603,9 @@ public class L17_30 {
                     break;
                 }
             }
-            if (a)
+            if (a) {
                 ans.add(i);
+            }
         }
         return ans;
     }
@@ -573,8 +613,9 @@ public class L17_30 {
     // 重新写一遍
     public List<Integer> findSubstring(String s, String[] words) {
         List<Integer> ans = new ArrayList<>();
-        if (s.length() == 0 || words.length == 0 || words[0].length() == 0)
+        if (s.length() == 0 || words.length == 0 || words[0].length() == 0) {
             return ans;
+        }
         int nums = words.length;
         int len = words[0].length();
         Map<String, Integer> map1 = new HashMap<>();
@@ -590,14 +631,17 @@ public class L17_30 {
                 if (map1.containsKey(split_word)) {
                     int m = map2.getOrDefault(split_word, 0);
                     map2.put(split_word, m + 1);
-                    if (map2.get(split_word) > map1.get(split_word))
+                    if (map2.get(split_word) > map1.get(split_word)) {
                         break;// 如果出现次数超过应该出现的次数
-                } else
+                    }
+                } else {
                     break;// 如果不匹配，就下一个子串 i+1
+                }
                 j++;
             }
-            if (j == nums)
+            if (j == nums) {
                 ans.add(i);
+            }
         }
         return ans;
     }
