@@ -4,31 +4,9 @@ import java.util.*;
 
 public class L31_42 {
 
-    // 32
-    public int longestValidParentheses(String s) {
-        if (s.length() <= 1)
-            return 0;
-        Stack<Integer> stack = new Stack<>();
-        stack.push(-1);
-        int max = 0;
-        for (int i = 0; i < s.length(); i++) {
-            System.out.println(stack);
-            if (s.charAt(i) == '(') {
-                stack.push(i);
-            } else if (s.charAt(i) == ')') {
-                stack.pop();
-                if (stack.empty()) {
-                    stack.push(i);
-                } else {
-                    max = Math.max(max, i - stack.peek());
-                }
-            }
-        }
-        return max;
-
-    }
-
-    // 33
+    /**
+     * 33
+     */
     public int search(int[] nums, int target) {
         if (nums.length == 0)
             return -1;
@@ -65,26 +43,28 @@ public class L31_42 {
         return left;
     }
 
-    // 34
+    /**
+     * 34
+     */
     public int[] searchRange(int[] nums, int target) {
         /* 特殊情况 */
         if (nums.length == 0)
-            return new int[] { -1, -1 };
+            return new int[]{-1, -1};
         if (nums.length == 1)
-            return target == nums[0] ? new int[] { 0, 0 } : new int[] { -1, -1 };
+            return target == nums[0] ? new int[]{0, 0} : new int[]{-1, -1};
         /* 双指针 */
         int left = 0;
         int right = nums.length - 1;
         /* 二分法 */
         while (left < right) {
             if (target > nums[right] || target < nums[left])
-                return new int[] { -1, -1 };
+                return new int[]{-1, -1};
             int med = (left + right) / 2;
             if (med == left) {
                 if (nums[med] == target)
-                    return nums[right] == target ? new int[] { left, right } : new int[] { left, left };
+                    return nums[right] == target ? new int[]{left, right} : new int[]{left, left};
                 else
-                    return nums[right] == target ? new int[] { right, right } : new int[] { -1, -1 };
+                    return nums[right] == target ? new int[]{right, right} : new int[]{-1, -1};
             }
             if (nums[med] == target) {
                 if ((nums[(med + left) / 2] != target) && ((med + left) / 2 != left))
@@ -96,7 +76,7 @@ public class L31_42 {
                         left++;
                     while (nums[right] != target)
                         right--;
-                    return new int[] { left, right };
+                    return new int[]{left, right};
                 }
             } else if (nums[med] > target) {
                 right = med;
@@ -104,10 +84,12 @@ public class L31_42 {
                 left = med;
             }
         }
-        return new int[] { left, right };
+        return new int[]{left, right};
     }
 
-    // 35
+    /**
+     * 35
+     */
     public int searchInsert(int[] nums, int target) {
         if (nums.length == 0)
             return 0;
@@ -135,14 +117,15 @@ public class L31_42 {
             }
         }
         return i;
-
     }
 
     /*
      * 37 用三个哈希表或者数组记录行列以及方块中数字的位置/出现过的数字
      */
 
-    /* 39 */
+    /**
+     * 39
+     */
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         if (candidates.length == 0)
             return null;
@@ -168,7 +151,9 @@ public class L31_42 {
         }
     }
 
-    /* 40 */
+    /**
+     * 40
+     */
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
         if (candidates.length == 0)
             return null;
@@ -178,7 +163,9 @@ public class L31_42 {
         return ans;
     }
 
-    /* 41 */
+    /**
+     * 41
+     */
     public int firstMissingPositive(int[] nums) {
         if (nums.length == 0)
             return 1;
@@ -200,8 +187,8 @@ public class L31_42 {
         }
     }
 
-    /*
-     * 42 韦恩图法，太秀了
+    /**
+     * 42 韦恩图法
      */
     public int trap(int[] height) {
         if (height.length < 2)
