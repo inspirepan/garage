@@ -5,45 +5,6 @@ import java.util.*;
 public class L31_42 {
 
     /**
-     * 33
-     */
-    public int search(int[] nums, int target) {
-        if (nums.length == 0)
-            return -1;
-        if (nums.length == 1)
-            return nums[0] == target ? 0 : -1;
-        int left = 0;
-        int right = nums.length - 1;
-        while (left < right) {
-            System.out.println(left + "" + right);
-            if (target == nums[left])
-                return left;
-            if (target == nums[right])
-                return right;
-            int med = (left + right) / 2;
-            if (target == nums[med])
-                return med;
-            if (target < nums[left] && target > nums[right])
-                return -1;
-            if (nums[med] > nums[left]) {
-                if (target > nums[med] || target < nums[left]) {
-                    left = med;
-                } else if (target < nums[med] && target > nums[left]) {
-                    right = med;
-                }
-            } else if (nums[med] < nums[left]) {
-                if (target > nums[med] && target < nums[right]) {
-                    left = med;
-                } else if (target < nums[med] || target > nums[right]) {
-                    right = med;
-                }
-            } else if (nums[med] == nums[left])
-                return -1;
-        }
-        return left;
-    }
-
-    /**
      * 34
      */
     public int[] searchRange(int[] nums, int target) {
