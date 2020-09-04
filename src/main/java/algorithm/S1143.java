@@ -19,8 +19,4 @@ public class S1143 {
         ArrayUtils.deepPrintArray(dp);
         return dp[len1][len2];
     }
-
-    public static void main(String[] args) {
-        System.out.println(S1143.longestCommonSubsequence("abcde", "ace"));
-    }
 }

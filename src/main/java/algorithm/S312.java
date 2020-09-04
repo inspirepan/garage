@@ -37,8 +37,4 @@ public class S312 {
         }
         return dp[0][length + 1];
     }
-
-    public static void main(String[] args) {
-        System.out.println(S312.maxCoins(new int[]{3, 1, 5, 8}));
-    }
 }

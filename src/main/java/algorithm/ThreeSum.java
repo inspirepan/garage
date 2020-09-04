@@ -6,6 +6,11 @@ import java.util.List;
 
 /**
  * 求和系列
+ * 使用双指针求两数之和
+ * 更多的数只能用循环遍历了
+ * 需要注意的是 1.排序后去重；2.剪枝掉大于1/4，1/3后面的部分
+ *
+ * @author panjx
  */
 public class ThreeSum {
 
@@ -60,6 +65,9 @@ public class ThreeSum {
         return result;
     }
 
+    /**
+     * 16 最接近的三数之和
+     */
     public int threeSumClosest(int[] nums, int target) {
         int min = Integer.MAX_VALUE;
         int ans = 0;
@@ -99,5 +107,68 @@ public class ThreeSum {
             }
         }
         return ans;
+    }
+
+    /**
+     * 18 四数之和
+     */
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+        List<List<Integer>> result = new ArrayList<>();
+        int len;
+        // 剪枝
+        if ((len = nums.length) < 4) {
+            return result;
+        }
+        Arrays.sort(nums);
+        for (int i = 0; i < len - 3; i++) {
+            if (i > 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }
+            // 到最大了
+            if (nums[i] + nums[i + 1] + nums[i + 2] + nums[i + 3] > target) {
+                break;
+            }
+            // 最大也不够大，继续加i
+            if (nums[i] + nums[len - 1] + nums[len - 2] + nums[len - 3] < target) {
+                continue;
+            }
+            for (int j = i + 1; j < len - 2; j++) {
+                if (j > i + 1 && nums[j] == nums[j - 1]) {
+                    continue;
+                }
+                if (nums[i] + nums[j] + nums[j + 1] + nums[j + 2] > target) {
+                    break;
+                }
+                // 还不够大，不用搜索两数之和，继续加j
+                if (nums[i] + nums[j] + nums[len - 2] + nums[len - 1] < target) {
+                    continue;
+                }
+                int currTarget = target - nums[i] - nums[j], left = j + 1, right = len - 1;
+                while (left < right) {
+                    if (nums[i] + nums[j] + nums[left] + nums[left + 1] > target) {
+                        break;
+                    }
+                    int sum = nums[left] + nums[right];
+                    if (sum == currTarget) {
+                        // Arrays.asList 居然比 List.of 快
+                        result.add(Arrays.asList(nums[i], nums[j], nums[left], nums[right]));
+                        left++;
+                        // 跳过重复项可以放在等于之后再执行！
+                        while (left < right && nums[left] == nums[left - 1]) {
+                            left++;
+                        }
+                        right--;
+                        while (left < right && nums[right] == nums[right + 1]) {
+                            right--;
+                        }
+                    } else if (sum < currTarget) {
+                        left++;
+                    } else {
+                        right--;
+                    }
+                }
+            }
+        }
+        return result;
     }
 }
