@@ -57,41 +57,7 @@ public class L80_91 {
 
     }
 
-    /* 82 这道题在本地跑是对的, LeetCode上跑是错的, 不知道为什么 */
-    public ListNode deleteDuplicates2(ListNode head) {
-        ListNode ans = new ListNode();
-        ans.next = head;
-        ListNode p = ans;
-        ListNode q = head;
-        if (head == null || q.next == null)
-            return head;
-        int val = q.val;
-        boolean del = q.next.val == val;
-        while (q.next != null) {
-            if (!del) {
-                if (q.next.val == val) {
-                    del = true;
-                    q = q.next;
-                } else {
-                    p.next = q;
-                    p = p.next;
-                    q = q.next;
-                    val = q.val;
-                }
-            } else {
-                if (q.next.val != val) {
-                    del = false;
-                    q = q.next;
-                    val = q.val;
-                } else {
-                    q = q.next;
-                    if (q.next == null)
-                        p.next = null;
-                }
-            }
-        }
-        return ans.next;
-    }
+
 
     // 83
     public ListNode deleteDuplicates(ListNode head) {
