@@ -4,7 +4,9 @@ import datastructure.ListNode;
 
 public class S92 {
 
-    /* 反转链表2 */
+    /**
+     * 反转链表2
+     */
     public ListNode reverseBetween(ListNode head, int m, int n) {
         ListNode before_head = new ListNode();
         before_head.next = head;
