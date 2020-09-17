@@ -3,7 +3,9 @@ package algorithm;
 import java.util.ArrayList;
 import java.util.List;
 
-/* 复原IP地址 采用深度优先搜索 可以转换为摆三个分隔点的问题 */
+/**
+ * 复原IP地址 采用深度优先搜索 可以转换为摆三个分隔点的问题
+ */
 public class S93 {
 
     private List<String> results;

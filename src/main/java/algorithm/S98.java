@@ -1,14 +1,17 @@
 package algorithm;
 
+import datastructure.TreeNode;
+
 import java.util.ArrayDeque;
 import java.util.Deque;
-
-import datastructure.TreeNode;
 
 public class S98 {
 
     long pre = Long.MIN_VALUE;
 
+    /**
+     * 本质是中序遍历
+     */
     public boolean isValidBST(TreeNode root) {
         if (root == null) {
             return true;
@@ -22,7 +25,9 @@ public class S98 {
         }
     }
 
-    /* 迭代 */
+    /**
+     * 迭代
+     */
     public boolean isValidBST2(TreeNode root) {
         long prev = Long.MIN_VALUE;
         TreeNode node = root;

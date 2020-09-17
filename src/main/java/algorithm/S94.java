@@ -6,7 +6,9 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
 
-/* 中序遍历 */
+/**
+ * 中序遍历
+ */
 public class S94 {
     private final List<Integer> result = new ArrayList<>();
 
