@@ -7,10 +7,6 @@ package algorithm;
  * @author panjx
  */
 public class S29 {
-    public static void main(String[] args) {
-        System.out.println(S29.divide(1100540749, -1090366779));
-    }
-
     public static int divide(int dividend, int divisor) {
         // 特殊情况
         if (dividend == Integer.MIN_VALUE && divisor == -1) return Integer.MAX_VALUE;

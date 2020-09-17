@@ -13,11 +13,6 @@ import java.util.List;
  * @author panjx
  */
 public class ThreeSum {
-
-    public static void main(String[] args) {
-        System.out.println(new ThreeSum().threeSumClosest(new int[]{-1, 1, 2, -4}, 1));
-    }
-
     /**
      * 15
      * 三数之和

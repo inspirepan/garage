@@ -8,10 +8,6 @@ import java.util.Deque;
  * 最开始的思路，只将左括号入栈，做不出来，无法处理整个数组扫描完之后剩余的左括号
  */
 public class S32 {
-    public static void main(String[] args) {
-        System.out.println(S32.longestValidParentheses("(()()"));
-    }
-
     public static int longestValidParentheses(String s) {
         if (s.length() < 2) {
             return 0;
