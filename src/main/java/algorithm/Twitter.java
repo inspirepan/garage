@@ -4,7 +4,7 @@ import java.util.*;
 
 
 /**
- * S355
+ * 355
  */
 public class Twitter {
 
