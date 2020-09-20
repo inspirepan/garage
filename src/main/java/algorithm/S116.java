@@ -5,7 +5,7 @@ import datastructure.Node;
 public class S116 {
     public Node connect(Node root) {
         if (root == null)
-            return root;
+            return null;
         else if (root.left == null)
             return root;
         root.left.next = root.right;
