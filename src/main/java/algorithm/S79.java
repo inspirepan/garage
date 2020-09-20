@@ -1,5 +1,10 @@
 package algorithm;
 
+/**
+ * 看到的另一种方法也很不错，先把board保存成全局变量，每次dfs往四周探前先把当前位置的字符变成‘#’，然后dfs如果遇到‘#’就跳过
+ * 这样子就不用维护visited数组了
+ * 四周探完了再改回来
+ */
 public class S79 {
     private boolean[][] visited;
 
