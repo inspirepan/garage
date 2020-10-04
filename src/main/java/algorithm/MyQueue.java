@@ -35,6 +35,7 @@ public class MyQueue {
                 s2.push(s1.pop());
             }
         }
+        assert s2.peek() != null;
         return s2.peek();
     }
 
