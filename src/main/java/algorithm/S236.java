@@ -7,7 +7,9 @@ public class S236 {
         if (root == null || root == p || root == q) {
             return root;
         }
-        if (root.left != null && root.right != null && (p == root.left && q == root.right || (p == root.right && q == root.left))) {
+        if (root.left != null
+                && root.right != null
+                && (p == root.left && q == root.right || (p == root.right && q == root.left))) {
             return root;
         }
         TreeNode left = lowestCommonAncestor(root.left, p, q);
