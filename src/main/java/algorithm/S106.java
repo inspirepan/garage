@@ -3,9 +3,6 @@ package algorithm;
 import datastructure.TreeNode;
 
 public class S106 {
-    public static void main(String[] args) {
-        new S106().buildTree(new int[]{1, 2, 3, 4}, new int[]{3, 2, 4, 1});
-    }
 
     public TreeNode buildTree(int[] inorder, int[] postorder) {
         int len = inorder.length;
