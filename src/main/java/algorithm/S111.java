@@ -3,8 +3,10 @@ package algorithm;
 import datastructure.TreeNode;
 
 public class S111 {
-    /* 最小深度 */
-    /* 根节点和叶子结点有区别 */
+    /**
+     * 最小深度
+     * 根节点和叶子结点有区别
+     */
     public int minDepth(TreeNode root) {
         if (root == null)
             return 0;
@@ -16,5 +18,4 @@ public class S111 {
             return minDepth(root.left) + 1;
         return Math.min(minDepth(root.left), minDepth(root.right)) + 1;
     }
-
 }

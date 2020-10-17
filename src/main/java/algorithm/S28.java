@@ -2,7 +2,6 @@ package algorithm;
 
 /**
  * KMP
- * 还没看
  *
  * @author panjx
  */

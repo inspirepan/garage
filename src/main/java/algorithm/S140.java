@@ -4,7 +4,7 @@ import java.util.*;
 
 public class S140 {
     private HashSet<String> wordDictSet;
-    private Map<String, List<String>> map = new HashMap<>();
+    private final Map<String, List<String>> map = new HashMap<>();
 
     public List<String> wordBreak(String s, List<String> wordDict) {
         this.wordDictSet = new HashSet<>(wordDict);
