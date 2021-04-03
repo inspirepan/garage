@@ -27,7 +27,7 @@ public class S47 {
             if (visited[i]) {
                 continue;
             }
-            // 加一个剪枝
+            // 加一个剪枝，如果与上一个相同，并且上一个没有访问过，就跳过这个（只有两个都用上才加进去）。
             if (i > 0 && nums[i] == nums[i - 1] && !visited[i - 1]) {
                 continue;
             }

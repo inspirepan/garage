@@ -29,6 +29,7 @@ public class S51 {
             result.add(solutionList);
             return;
         }
+        // 普通dfs，加一个检查条件，检查
         for (int col = 0; col < n; col++) {
             if (isValid(row, col)) {
                 var sb = new StringBuilder();

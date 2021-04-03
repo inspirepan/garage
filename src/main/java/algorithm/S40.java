@@ -33,7 +33,7 @@ public class S40 {
                 i++;
                 duplicateCount++;
             }
-            // 注意k的下标从1开始
+            // 注意k的下标从1开始，将重复的几个数dfs全部试一遍
             for (int k = 1; k <= duplicateCount; k++) {
                 if (target >= c * k) {
                     target -= c * k;

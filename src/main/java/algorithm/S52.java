@@ -8,7 +8,7 @@ public class S52 {
 
     public int totalNQueens(int n) {
         this.n = n;
-        this.board = new int[n];
+        this.board = new int[n];// 表示第i行中皇后的列值
         dfs(0);
         return count;
     }
@@ -23,6 +23,7 @@ public class S52 {
             if (isValid(row)) {
                 dfs(row + 1);
             }
+            // 不需要归位，因为循环下一次就会替换掉它
         }
     }
 
