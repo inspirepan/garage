@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class S6 {
+    /*
+    这道题的关键是行的数据是不重要的，只需要遍历一遍字符串，确定每一个字符所在的行就行了
+     */
     public static String convert(String s, int numRows) {
         if (numRows == 1) {
             return s;
@@ -12,6 +15,7 @@ public class S6 {
         for (int i = 0; i < numRows; i++) {
             result.add(new StringBuilder());
         }
+        // 每一行都设置一个StringBuilder
         int currRow = 0;
         boolean direction = true;
         for (char c : s.toCharArray()) {

@@ -5,6 +5,7 @@ import datastructure.TreeNode;
 import java.util.HashMap;
 import java.util.Map;
 
+// 看的题解
 public class S662r {
     int ans;
     Map<Integer, Integer> left;

@@ -1,10 +1,6 @@
 package algorithm;
 
 class S4 {
-    /**
-     * 做不出来
-     * 复制的评论区
-     */
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int m = nums1.length;
         int n = nums2.length;
@@ -17,10 +13,6 @@ class S4 {
 
     public int findKth(int[] nums1, int i, int[] nums2, int j, int k) {
         //i: nums1的起始位置 j: nums2的起始位置
-        if (i >= nums1.length) {
-            //nums1已经全部排除
-            return nums2[j + k - 1];
-        }
         if (j >= nums2.length) {
             //nums2已经全部排除
             return nums1[i + k - 1];

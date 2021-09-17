@@ -2,30 +2,10 @@ package algorithm;
 
 import datastructure.TreeNode;
 
-import java.util.HashMap;
 import java.util.LinkedList;
 
+// 自己写的
 public class S662 {
-
-    public static void main(String[] args) {
-        // 创建一个 HashMap
-        HashMap<String, Integer> prices = new HashMap<>();
-
-        // 往HashMap中添加映射项
-        prices.put("Shoes", 200);
-        prices.put("Bag", 300);
-        prices.put("Pant", 150);
-        System.out.println("HashMap: " + prices);
-
-        // 计算 Shirt 的值
-        int shirtPrice = prices.computeIfAbsent("Shirt", key -> 280);
-        shirtPrice = prices.computeIfAbsent("Shirt", key -> 2313120);
-        shirtPrice = prices.computeIfAbsent("Shirt", key -> 23123120);
-        System.out.println("Price of Shirt: " + shirtPrice);
-
-        // 输出更新后的HashMap
-        System.out.println("Updated HashMap: " + prices);
-    }
 
     public int widthOfBinaryTreeWRONG(TreeNode root) {
         //二叉树层序遍历 空节点用null加入列表，然后计算每一行的长度，会超时！！
