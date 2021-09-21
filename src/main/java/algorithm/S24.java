@@ -12,7 +12,7 @@ public class S24 {
             p.next = t.next;
             t.next = p.next.next;
             p.next.next = t;
-            p = p.next.next;
+            p = t;
         }
         return dHead.next;
     }

@@ -41,7 +41,7 @@ public class S30 {
                         // 已经出现次数+1
                         int times = map.getOrDefault(currWord, 0);
                         map.put(currWord, times + 1);
-                        // 如果已经出现的次数（map）大于dict中有的次数,窗口向前移
+                        // 如果已经出现的次数（map）大于dict中有的次数,窗口向前移，直到删除了适量的重复词
                         if (map.get(currWord) > dict.get(currWord)) {
                             removed = true;
                             int removeIndex = 0;
