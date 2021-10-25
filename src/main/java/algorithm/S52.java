@@ -8,7 +8,7 @@ public class S52 {
 
     public int totalNQueens(int n) {
         this.n = n;
-        this.board = new int[n];// 表示第i行中皇后的列值
+        this.board = new int[n];// 表示第i行中皇后的列值，不需要用二维数组了
         dfs(0);
         return count;
     }
