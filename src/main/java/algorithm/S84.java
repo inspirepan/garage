@@ -22,17 +22,20 @@ public class S84 {
             }
             stack.push(i);
         }
-        while (!stack.isEmpty() && stack.peek() != -1)
+        while (!stack.isEmpty() && stack.peek() != -1) {
             max = Math.max(max, heights[stack.pop()] * (heights.length - stack.peek() - 1));
+        }
         return max;
     }
 
     /**
-     * 这个太强了，从提交记录找的最快的2ms，思路是找到每个矩形左右第一个比它矮的★
+     * 这个太强了，从提交记录找的最快的2ms，思路是找到每个位置左右第一个比它矮的★
      */
     public int largestRectangleArea3(int[] heights) {
         int n = heights.length;
-        if (n == 0) return 0;
+        if (n == 0) {
+            return 0;
+        }
         // 左边第一个比当前索引矮的
         int[] left = new int[n];
         // 右边第一个比当前索引矮的
@@ -41,8 +44,10 @@ public class S84 {
         for (int i = 1; i < n; i++) {
             int j = i - 1;
             while (j >= 0 && heights[j] >= heights[i]) {
+                // jump to the first shorter height of index j
                 j = left[j];
             }
+            // set the first shorter height of index i = j
             left[i] = j;
         }
         System.out.println(Arrays.toString(left));
