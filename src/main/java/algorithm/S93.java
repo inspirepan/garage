@@ -20,25 +20,20 @@ public class S93 {
         return this.results;
     }
 
-    /**
-     * 回溯
-     *
-     * @param count 当前已经确定的数字
-     * @param i     下一个待处理字符的下标
-     */
     private void dfs93(int count, int i) {
         if (count == 4 && i == chars.length) {
             results.add(sb.toString());
             return;
         }
-        int remain_count = 4 - count;
-        int remain_chars = chars.length - i;
-        if (remain_count > remain_chars || remain_count * 3 < remain_chars) {
+        int remainCount = 4 - count;
+        int remainChars = chars.length - i;
+        // stop if remain numbers don't match
+        if (remainCount > remainChars || remainCount * 3 < remainChars) {
             return;
         }
         int len = sb.length();
-        int max_len = chars[i] == '0' ? 1 : 3;
-        for (int j = 0; j < max_len && i + j < chars.length; j++) {
+        int max = chars[i] == '0' ? 1 : 3;
+        for (int j = 0; j < max && i + j < chars.length; j++) {
             if (j == 2 && (chars[i] - '0') * 100 + (chars[i + 1] - '0') * 10 + (chars[i + 2] - '0') > 255) {
                 continue;
             }
