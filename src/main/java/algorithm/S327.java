@@ -3,9 +3,6 @@ package algorithm;
 import java.util.Arrays;
 
 public class S327 {
-    public static void main(String[] args) {
-        System.out.println(new S327().countRangeSum(new int[]{-2147483647, 0, -2147483647, 2147483647}, -564, 3864));
-    }
 
     public int countRangeSum(int[] nums, int lower, int upper) {
         int len = nums.length;

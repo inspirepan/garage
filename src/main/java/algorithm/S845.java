@@ -1,9 +1,6 @@
 package algorithm;
 
 public class S845 {
-    public static void main(String[] args) {
-        System.out.println(new S845().longestMountain(new int[]{5770,9921,1853,441,6808,8847,9186,3091,1524,2415}));
-    }
 
     public int longestMountain(int[] A) {
         if (A.length < 3) return 0;
