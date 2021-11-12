@@ -5,22 +5,20 @@ import datastructure.TreeNode;
 
 public class S109 {
     public TreeNode sortedListToBST(ListNode head) {
-        if (head == null) {
-            return null;
-        }
-        if (head.next == null) {
-            return new TreeNode(head.val);
-        }
-        ListNode slow = head, fast = head, slower = null;
-        while (fast != null && fast.next != null) {
-            slower = slow;
+        if (head == null) return null;
+        if (head.next == null) return new TreeNode(head.val);
+        ListNode slow = new ListNode();
+        ListNode fast = slow;
+        fast.next = head;
+        while (fast.next != null && fast.next.next != null) {
             fast = fast.next.next;
             slow = slow.next;
         }
-        slower.next = null;
-        TreeNode root = new TreeNode(slow.val);
+        ListNode mid = slow.next;
+        slow.next = null;
+        TreeNode root = new TreeNode(mid.val);
         root.left = sortedListToBST(head);
-        root.right = sortedListToBST(slow.next);
+        root.right = sortedListToBST(mid.next);
         return root;
     }
 }

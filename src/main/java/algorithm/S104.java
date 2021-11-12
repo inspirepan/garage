@@ -3,7 +3,6 @@ package algorithm;
 import datastructure.TreeNode;
 
 public class S104 {
-    /* 二叉树最大深度 */
     public int maxDepth(TreeNode root) {
         if (root == null)
             return 0;

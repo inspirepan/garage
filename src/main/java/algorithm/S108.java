@@ -7,13 +7,13 @@ public class S108 {
 
     public TreeNode sortedArrayToBST(int[] nums) {
         this.nums = nums;
-        return build(0, nums.length-1);
+        return build(0, nums.length - 1);
     }
 
     private TreeNode build(int start, int end) {
         if (start > end)
             return null;
-        int mid = start + (end-start) / 2;
+        int mid = (start + end) >>> 2;
         TreeNode root = new TreeNode(nums[mid]);
         root.left = build(start, mid - 1);
         root.right = build(mid + 1, end);

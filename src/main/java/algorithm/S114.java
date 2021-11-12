@@ -3,7 +3,6 @@ package algorithm;
 import datastructure.TreeNode;
 
 public class S114 {
-    /* 二叉树展开为链表 */
     public void flatten(TreeNode root) {
         if (root == null)
             return;
