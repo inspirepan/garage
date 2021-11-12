@@ -21,9 +21,9 @@ public class S85 {
     public int largestRectangleArea3(int[] heights) {
         int n = heights.length;
         if (n == 0) return 0;
-        // 左边第一个比当前索引矮的
+        // the first left less one of curr index
         int[] left = new int[n];
-        // 右边第一个比当前索引矮的
+        // the first right less one of curr index
         int[] right = new int[n];
         left[0] = -1;
         for (int i = 1; i < n; i++) {
