@@ -1,5 +1,6 @@
 package algorithm;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class Sort {
@@ -7,7 +8,6 @@ public class Sort {
     /**
      * 快排，O(n*logn)
      *
-     * @param nums
      */
     public static void quickSort(int[] nums) {
         quickSortHelper(nums, 0, nums.length - 1);
@@ -48,7 +48,6 @@ public class Sort {
         return low;
     }
 
-
     /**
      * 随机快排
      */
@@ -78,13 +77,11 @@ public class Sort {
         return h;
     }
 
-
     private static void swap(int[] nums, int a, int b) {
         int t = nums[a];
         nums[a] = nums[b];
         nums[b] = t;
     }
-
 
     /**
      * 冒泡排序，O(n^2)
@@ -122,13 +119,11 @@ public class Sort {
             nums[i] = min;
             nums[minIndex] = t;
         }
-
     }
 
     /**
      * 插入排序，O(n^2)
      *
-     * @param nums
      */
     public static void insertionSort(int[] nums) {
         int p = 1;
@@ -190,6 +185,4 @@ public class Sort {
         }
         System.arraycopy(copy, start, nums, start, end - start + 1);
     }
-
-
 }

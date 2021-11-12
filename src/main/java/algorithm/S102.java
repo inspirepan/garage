@@ -8,7 +8,6 @@ import java.util.Deque;
 import java.util.List;
 
 public class S102 {
-
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> result = new ArrayList<>();
         if (root == null) return result;
