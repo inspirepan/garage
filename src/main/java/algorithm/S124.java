@@ -19,9 +19,10 @@ public class S124 {
         }
         int left = Math.max(0, dfs(root.left));
         int right = Math.max(0, dfs(root.right));
-        /* 记录局部最大值 */
+        // 路径只有两种情况，root结点+左右子结点的最大单链，或者左右子树中的局部最大路径（不包括root）
+        // 局部最大路径
         this.max = Math.max(max, root.val + left + right);
-        /* 返回单边最大值 */
+        // 最大单链给上层用来计算
         return Math.max(left, right) + root.val;
     }
 }
