@@ -7,9 +7,7 @@ public class S129 {
         return dfs(root, 0);
     }
 
-    /**
-     * 加法计算
-     */
+    // not necessary to use StringBuilder
     private int dfs(TreeNode root, int sum) {
         if (root == null) {
             return 0;
