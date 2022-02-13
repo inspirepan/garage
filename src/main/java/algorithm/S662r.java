@@ -19,7 +19,8 @@ public class S662r {
 
     public void dfs(TreeNode root, int depth, int pos) {
         if (root == null) return;
-        left.computeIfAbsent(depth, x -> pos);// 如果不存在就加入
+        // 如果不存在就加入
+        left.computeIfAbsent(depth, x -> pos);
         ans = Math.max(ans, pos - left.get(depth) + 1);
         dfs(root.left, depth + 1, 2 * pos);
         dfs(root.right, depth + 1, 2 * pos + 1);
