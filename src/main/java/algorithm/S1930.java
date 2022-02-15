@@ -5,6 +5,7 @@ import java.util.*;
 public class S1930 {
     public int countPalindromicSubsequence(String s) {
         // 完成了，但是效率很低
+        // 思路其实是没问题的，就是忘记了Char可以用数组统计，不要用Hash结构统计
         HashMap<Character, List<Integer>> location = new HashMap<>();
         HashSet<String> result = new HashSet<>();
         for (int i = 0; i < s.length(); i++) {
