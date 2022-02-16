@@ -29,6 +29,7 @@ public class S1462 {
     }
 
     private void dfs(int i) {
+        // i是节点
         if (!map.containsKey(i) || dfsed.contains(i)) {
             // 如果没有这个课程或者已经搜过，跳过
             return;
