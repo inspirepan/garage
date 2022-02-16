@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.C14;
 
 public class S1446 {
     public int maxPower(String s) {

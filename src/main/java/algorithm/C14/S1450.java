@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.C14;
 
 public class S1450 {
     public int busyStudent(int[] startTime, int[] endTime, int queryTime) {

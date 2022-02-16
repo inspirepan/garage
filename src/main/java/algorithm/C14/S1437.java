@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.C14;
 
 public class S1437 {
     public boolean kLengthApart(int[] nums, int k) {
