@@ -7,6 +7,7 @@ import java.util.Map;
 
 public class S496 {
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
+        // 单调栈
         Map<Integer, Integer> map = new HashMap<>();
         Deque<Integer> stack = new ArrayDeque<>();
         for (int num : nums2) {
