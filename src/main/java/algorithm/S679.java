@@ -29,9 +29,11 @@ public class S679 {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 if (j != i) {
+                    // 随机选两个
                     List<Double> list2 = new ArrayList<>();
                     for (int k = 0; k < size; k++) {
                         if (k != i && k != j) {
+                            // 剩余的两个存到list中
                             list2.add(list.get(k));
                         }
                     }
@@ -57,8 +59,8 @@ public class S679 {
                         if (dfs(list2)) {
                             return true;
                         }
+                        // 移除运算结果
                         list2.remove(list2.size() - 1);
-
                     }
                 }
             }

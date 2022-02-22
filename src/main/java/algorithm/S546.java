@@ -7,62 +7,33 @@ import java.util.Map;
 
 public class S546 {
 
+    // 一定是每次尽可能移除更多的连续同色盒子，分数会更高
+    // 不好找DFS或者DP的思路啊，主要就是移除盒子之后，又会产生新的连续数组，但是也最多就产生一组
 
-    /* 记忆化回溯，会超时 */
-    private final Map<List<Integer>, Integer> map = new HashMap<>();
+    // 怎么递推状态啊
+    // 用f(l, r, k)表示移除区间[l, r]的元素、加上该区间右边等于arr[r]的k个元素组成的这个序列的最大积分
+    // 真的不会
+
+    int[][][] dp;
 
     public int removeBoxes(int[] boxes) {
-        int ans = removeBoxesHelper(boxes);
-        System.out.println(map);
-        return ans;
+        int length = boxes.length;
+        dp = new int[length][length][length];
+        return calculatePoints(boxes, 0, length - 1, 0);
     }
 
-    private int removeBoxesHelper(int[] boxes) {
-        List<Integer> boxesList = new ArrayList<>();
-        for (int box : boxes) {
-            boxesList.add(box);
+    public int calculatePoints(int[] boxes, int l, int r, int k) {
+        if (l > r) {
+            return 0;
         }
-        if (map.containsKey(boxesList)) {
-            return map.get(boxesList);
-        }
-        if (isSingleColor(boxes)) {
-            int ans = boxes.length * boxes.length;
-            map.put(boxesList, ans);
-            return ans;
-        }
-        int max = Integer.MIN_VALUE;
-        int start = 0;
-        int end = 0;
-        int currColor = boxes[0];
-        for (; end < boxes.length; end++) {
-            if (boxes[end] == currColor) {
-                continue;
-            }
-            int restLen = boxes.length - (end - start);
-            int[] restBoxes = new int[restLen];
-            System.arraycopy(boxes, 0, restBoxes, 0, start);
-            System.arraycopy(boxes, end, restBoxes, start, restLen - start);
-            int t = removeBoxesHelper(restBoxes) + (end - start) * (end - start);
-            max = Math.max(max, t);
-            start = end;
-            currColor = boxes[end];
-        }
-        map.put(boxesList, max);
-        return max;
-    }
-
-    private boolean isSingleColor(int[] boxes) {
-        if (boxes.length == 1) {
-            return true;
-        }
-        boolean result = true;
-        final int firstColor = boxes[0];
-        for (int i = 1; i < boxes.length; i++) {
-            if (boxes[i] != firstColor) {
-                result = false;
-                break;
+        if (dp[l][r][k] == 0) {
+            dp[l][r][k] = calculatePoints(boxes, l, r - 1, 0) + (k + 1) * (k + 1);
+            for (int i = l; i < r; i++) {
+                if (boxes[i] == boxes[r]) {
+                    dp[l][r][k] = Math.max(dp[l][r][k], calculatePoints(boxes, l, i, k + 1) + calculatePoints(boxes, i + 1, r - 1, 0));
+                }
             }
         }
-        return result;
+        return dp[l][r][k];
     }
 }

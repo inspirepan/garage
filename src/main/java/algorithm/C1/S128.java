@@ -21,7 +21,6 @@ public class S128 {
                 map.put(num - left, currentLength);
                 map.put(num + right, currentLength);
             }
-            System.out.println(map);
         }
         return maxLength;
     }

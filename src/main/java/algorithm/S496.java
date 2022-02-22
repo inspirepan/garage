@@ -1,9 +1,6 @@
 package algorithm;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class S496 {
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
@@ -16,7 +13,6 @@ public class S496 {
             }
             stack.push(num);
         }
-
         for (int i = 0; i < nums1.length; i++) {
             nums1[i] = map.getOrDefault(nums1[i], -1);
         }

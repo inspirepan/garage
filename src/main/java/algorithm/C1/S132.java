@@ -1,46 +1,45 @@
 package algorithm.C1;
 
-public class S132 {
+import java.util.Arrays;
 
-    /* 这个解法超出时间限制了 */
-    private int currCut = 0;
-    private int currMin = Integer.MAX_VALUE;
-    private String s;
+public class S132 {
+    char[] chars;
 
     public int minCut(String s) {
-        this.s = s;
-        dfs(0);
-        return this.currMin;
-    }
-
-    private void dfs(int start) {
-        if (start == s.length()) {
-            currMin = Math.min(currCut, currMin);
-            return;
-        }
-        for (int i = start; i < s.length(); i++) {
-            String s1 = s.substring(start, i + 1);
-            if (!isPalindrome(s1)) {
+        // 看了我之前写的，不行，这种求最少分割次数，肯定不能全遍历的，要贪心/动规
+        // 考虑动态规划，dp
+        // 做出来了，不过还是有点蠢，差不多是双重循环，没有对判断回文串做什么优化
+        // 继续优化的话，可以提前对s的回文子串做处理，记录每个位置i向两边扩展能到什么程度，
+        // 然后就可以加快isPalindrome的速度
+        // 懒得弄了
+        int len = s.length();
+        this.chars = s.toCharArray();
+        int[] dp = new int[len + 1];
+        Arrays.fill(dp, Integer.MAX_VALUE);
+        dp[0] = 0;
+        dp[1] = 0;
+        for (int i = 1; i < len; i++) {
+            if (isPalindrome(0, i)) {
+                dp[i + 1] = 0;
                 continue;
             }
-            this.currCut += 1;
-            dfs(i + 1);
-            this.currCut -= 1;
+            int k = i;
+            while (k > 0) {
+                if (isPalindrome(k, i)) {
+                    // {0,k-1} {k,i}
+                    dp[i + 1] = Math.min(dp[i + 1], dp[k] + 1);
+                }
+                k--;
+            }
         }
+        return dp[len];
     }
 
-    private boolean isPalindrome(String s) {
-        if (s == null || s.length() <= 1) {
-            return true;
-        }
-        int left = 0;
-        int right = s.length() - 1;
-        while (left < right) {
-            if (s.charAt(left) != s.charAt(right)) {
+    private boolean isPalindrome(int start, int end) {
+        while (start < end) {
+            if (chars[start++] != chars[end--]) {
                 return false;
             }
-            left++;
-            right--;
         }
         return true;
     }

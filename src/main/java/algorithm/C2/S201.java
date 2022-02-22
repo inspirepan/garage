@@ -12,3 +12,8 @@ public class S201 {
         return ans;
     }
 }
+
+// 101
+// 110
+// 111
+//=100

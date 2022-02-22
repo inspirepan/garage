@@ -11,32 +11,32 @@ public class S166 {
         if (numerator == 0) {
             return "0";
         }
-        StringBuilder fraction = new StringBuilder();
-        // If either one is negative (not both)
+        StringBuilder sb = new StringBuilder();
         if (numerator < 0 ^ denominator < 0) {
-            fraction.append("-");
+            sb.append("-");
         }
-        // Convert to Long or else abs(-2147483648) overflows
+
         long dividend = Math.abs(Long.valueOf(numerator));
         long divisor = Math.abs(Long.valueOf(denominator));
-        fraction.append(String.valueOf(dividend / divisor));
+        sb.append(String.valueOf(dividend / divisor));
         long remainder = dividend % divisor;
         if (remainder == 0) {
-            return fraction.toString();
+            return sb.toString();
         }
-        fraction.append(".");
+        sb.append(".");
+        // 用来记录循环开始的位置
         Map<Long, Integer> map = new HashMap<>();
         while (remainder != 0) {
             if (map.containsKey(remainder)) {
-                fraction.insert(map.get(remainder), "(");
-                fraction.append(")");
+                sb.insert(map.get(remainder), "(");
+                sb.append(")");
                 break;
             }
-            map.put(remainder, fraction.length());
+            map.put(remainder, sb.length());
             remainder *= 10;
-            fraction.append(String.valueOf(remainder / divisor));
+            sb.append(String.valueOf(remainder / divisor));
             remainder %= divisor;
         }
-        return fraction.toString();
+        return sb.toString();
     }
 }
