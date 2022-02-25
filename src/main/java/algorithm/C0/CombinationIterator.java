@@ -4,6 +4,7 @@ package algorithm.C0;
  * 1286
  */
 public class CombinationIterator {
+    // CombinationIterator
     private final int[] combination;
     private boolean hasNext = true;
     private final char[] charArr;
