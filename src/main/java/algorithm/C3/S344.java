@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.C3;
 
 public class S344 {
     public void reverseString(char[] s) {

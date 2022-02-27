@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.C3;
 
 public class S367 {
     public boolean isPerfectSquare(int num) {

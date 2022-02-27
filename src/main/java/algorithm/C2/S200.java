@@ -1,4 +1,4 @@
-package algorithm.C1;
+package algorithm.C2;
 
 public class S200 {
 

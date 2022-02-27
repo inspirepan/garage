@@ -1,4 +1,6 @@
-package algorithm.C2;
+package algorithm.C3;
+
+import java.util.Arrays;
 
 /**
  * @author panjx
@@ -37,7 +39,9 @@ public class S300 {
         tails[0] = nums[0];
         int end = 0;
         for (int num : nums) {
+            System.out.println(Arrays.toString(tails));
             if (num > tails[end]) {
+                // 如果当前数可以接入到tails中的序列中，那么长度+1，然后更改末尾
                 tails[++end] = num;
             } else {
                 int left = 0;

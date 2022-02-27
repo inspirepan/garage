@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.C3;
 
 public class S365 {
     public boolean canMeasureWater(int x, int y, int z) {
