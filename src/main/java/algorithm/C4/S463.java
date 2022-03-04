@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.C4;
 
 public class S463 {
     public int islandPerimeter(int[][] grid) {

@@ -1,41 +1,15 @@
 package algorithm.C3;
 
 public class S357 {
-    /**
-     * dfs
-     */
-    private final boolean[] visited = new boolean[10];
-    private int count = 1;
 
+    /**
+     * f(0)=1
+     * f(1)=10
+     * f(2)=9*9+f(1)
+     * f(3)=9*9*8+f(2)
+     * f(4)=9*9*8*7+f(3)
+     */
     public int countNumbersWithUniqueDigits(int n) {
-        for (int i = 1; i <= n; i++) {
-            dfs(0, i);
-        }
-        return count;
-    }
-
-    private void dfs(int s, int n) {
-        if (s == n) {
-            count++;
-            return;
-        }
-        for (int i = 0; i < 10; i++) {
-            if (s == 0 && i == 0) {
-                continue;
-            }
-            if (!visited[i]) {
-                visited[i] = true;
-                dfs(s + 1, n);
-                visited[i] = false;
-            }
-        }
-    }
-
-    /**
-     * 评论区的dp
-     * 害，是个锤子dp，就是找规律
-     */
-    public int countNumbersWithUniqueDigits2(int n) {
         if (n == 0) {
             return 1;
         }

@@ -22,28 +22,25 @@ public class Sort {
     }
 
     private static int partition(int[] nums, int low, int high) {
-
+        // 用第一个数t作为分界标志，t左边的都是小于t的，t右边的全部是大于t的
         int t = nums[low];
+        // 每次low和high向中间缩，找到第一个大于/小于的，然后交换位置，继续往中间缩
         while (low < high) {
-            /*
-             分别操作三个值，low位置的初始值（即本次操作的部分最左侧的值），从最右往左第一个小于初始值的值，从左往右第一个大于初始值的值
-             操作前：
-             t ------------ firstHigher ******** firstLower ++++++
-             一次操作后：
-             firstLower --- firstHigher ******** firstHigher +++++
-                             (low)              (high)
-             -号处值小于t，+号处值大于t，*号处未判断
-             继续迭代
-            */
+            // high：右边起第一个小于t的
             while (low < high && nums[high] >= t) {
                 --high;
             }
+            // 最左边放上刚刚找到的第一个小于t的
             nums[low] = nums[high];
+            // 左边起第一个大于t的
             while (high > low && nums[low] <= t) {
                 ++low;
             }
+            // high的地方放上刚刚找到的第一个大于t的
             nums[high] = nums[low];
+            // 这个时候，high右边全部是大于t的，low左边全部是小于t的
         }
+        // 当high==low的时候，就代表分边界已经完成了
         nums[low] = t;
         return low;
     }
@@ -123,6 +120,8 @@ public class Sort {
 
     /**
      * 插入排序，O(n^2)
+     * 外层遍历一遍
+     * 每一个数往回找到自己的位置插入
      *
      */
     public static void insertionSort(int[] nums) {

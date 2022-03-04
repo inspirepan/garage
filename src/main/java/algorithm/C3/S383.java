@@ -2,15 +2,12 @@ package algorithm.C3;
 
 public class S383 {
     public boolean canConstruct(String ransomNote, String magazine) {
-        int[] rec = new int[26];
-        for (char c : ransomNote.toCharArray()) {
-            rec[c - 'a']++;
-        }
+        int[] charMap = new int[26];
         for (char c : magazine.toCharArray()) {
-            rec[c - 'a']--;
+            charMap[c - 'a']++;
         }
-        for (int i : rec) {
-            if (i > 0) return false;
+        for (char c : ransomNote.toCharArray()) {
+            if (--charMap[c - 'a'] < 0) return false;
         }
         return true;
     }

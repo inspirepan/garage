@@ -6,11 +6,12 @@ public class S367 {
         int right = num;
         while (left <= right) {
             int mid = left + (right - left) / 2;
-            int temp = num / mid;
-            if (temp == mid) {
-                if (num % temp == 0) return true;
+            // mid*mid会越界啊
+            int t = num / mid;
+            if (t == mid) {
+                if (num % t == 0) return true;
                 left = mid + 1;
-            } else if (temp < mid) {
+            } else if (t < mid) {
                 right = mid - 1;
             } else {
                 left = mid + 1;
