@@ -6,12 +6,15 @@ public class S450 {
     public TreeNode deleteNode(TreeNode root, int key) {
         if (root == null) {
             return null;
-        } // 如果当前要删除当前节点
+        } // 删除当前节点
         else if (root.val == key) {
+            // 叶子节点直接删除
             if (root.left == null && root.right == null) {
                 root = null;
+            // 如果只有右子树
             } else if (root.left == null) {
                 root = root.right;
+            // 如果只有左子树
             } else if (root.right == null) {
                 root = root.left;
             } else {
@@ -21,7 +24,7 @@ public class S450 {
                 temp.left = root.left;
                 return temp;
             }
-        } // 去子节点中找要删除的点
+        } // 递归搜索
         else if (root.val > key) {
             root.left = deleteNode(root.left, key);
             return root;
