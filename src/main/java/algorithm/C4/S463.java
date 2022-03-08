@@ -1,9 +1,5 @@
 package algorithm.C4;
 
-import java.util.ArrayDeque;
-import java.util.Arrays;
-import java.util.Deque;
-
 public class S463 {
     public int islandPerimeter(int[][] grid) {
         // bfs还不如双重循环
