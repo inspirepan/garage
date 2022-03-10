@@ -68,16 +68,17 @@ public class S1584 {
             parent[pj] = pi;
         }
     }
-}
 
-class Edge {
-    int x;
-    int y;
-    int dis;
+    static class Edge {
+        int x;
+        int y;
+        int dis;
 
-    Edge(int[][] points, int i, int j) {
-        x = i;
-        y = j;
-        dis = Math.abs(points[i][0] - points[j][0]) + Math.abs(points[i][1] - points[j][1]);
+        Edge(int[][] points, int i, int j) {
+            x = i;
+            y = j;
+            dis = Math.abs(points[i][0] - points[j][0]) + Math.abs(points[i][1] - points[j][1]);
+        }
     }
 }
+

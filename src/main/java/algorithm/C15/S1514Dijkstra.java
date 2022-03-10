@@ -40,22 +40,23 @@ class S1514Dijkstra {
         }
         return prob[end];
     }
-}
 
-class Pair implements Comparable<Pair> {
-    double probability;
-    int node;
+    class Pair implements Comparable<Pair> {
+        double probability;
+        int node;
 
-    public Pair(double probability, int node) {
-        this.probability = probability;
-        this.node = node;
-    }
-    public int compareTo(Pair pair2) {
-        if (this.probability == pair2.probability) {
-            return this.node - pair2.node;
-        } else {
-            // 为了实现大顶堆，改成这种比较方式
-            return this.probability - pair2.probability > 0 ? -1 : 1;
+        public Pair(double probability, int node) {
+            this.probability = probability;
+            this.node = node;
+        }
+
+        public int compareTo(Pair pair2) {
+            if (this.probability == pair2.probability) {
+                return this.node - pair2.node;
+            } else {
+                // 为了实现大顶堆，改成这种比较方式
+                return this.probability - pair2.probability > 0 ? -1 : 1;
+            }
         }
     }
 }
