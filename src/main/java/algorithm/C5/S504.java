@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.C5;
 
 public class S504 {
     public String convertToBase7(int num) {

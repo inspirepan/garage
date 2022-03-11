@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.C5;
 
 import playground.ArrayUtils;
 
@@ -19,7 +19,6 @@ public class S516 {
                         Math.max(dp[i][j - 1], dp[i + 1][j]);
             }
         }
-        ArrayUtils.deepPrintArray(dp);
         return dp[0][len - 1];
     }
 

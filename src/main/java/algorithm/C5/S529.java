@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.C5;
 
 public class S529 {
     int[] dirX = new int[]{1, 1, 1, 0, 0, -1, -1, -1};

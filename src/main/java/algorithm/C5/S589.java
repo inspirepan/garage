@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.C5;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

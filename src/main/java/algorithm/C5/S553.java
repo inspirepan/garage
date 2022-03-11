@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.C5;
 
 public class S553 {
     public String optimalDivision(int[] nums) {
