@@ -6,29 +6,23 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 public class S530 {
-    /**
-     * 计算二叉搜索树任意两结点差值绝对值的最小值
-     */
     public int getMinimumDifference(TreeNode root) {
-        int minDifference = Integer.MAX_VALUE;
+        // 既然是BST，那么中序遍历然后找有序数组中的最小差值就可以了
+        int min = Integer.MAX_VALUE;
+        int prev = -10001;
         Deque<TreeNode> stack = new ArrayDeque<>();
         TreeNode node = root;
-        int prevVal = 0;
-        boolean first = true;
-        while (node != null || !stack.isEmpty()) {
+        while (!stack.isEmpty() || node != null) {
             while (node != null) {
                 stack.push(node);
                 node = node.left;
             }
             node = stack.pop();
-            if (first) {
-                first = false;
-            } else {
-                minDifference = Math.min(node.val - prevVal, minDifference);
-            }
-            prevVal = node.val;
+            if (node.val == prev) return 0;
+            min = Math.min(node.val - prev, min);
+            prev = node.val;
             node = node.right;
         }
-        return minDifference;
+        return min;
     }
 }
