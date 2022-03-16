@@ -9,15 +9,19 @@ public class Node {
     public Node right;
     public Node next;
     public List<Node> neighbors;
+    public List<Node> children;
 
     public Node() {
         val = 0;
-        neighbors = new ArrayList<Node>();
     }
 
     public Node(int _val) {
         val = _val;
-        neighbors = new ArrayList<Node>();
+    }
+
+    public Node(int _val, List<Node> _children) {
+        val = _val;
+        children = _children;
     }
 
     public Node(int _val, Node _left, Node _right, Node _next) {
