@@ -2,7 +2,7 @@ package algorithm;
 
 import java.util.Arrays;
 
-public class S838 {
+public class    S838 {
     public String pushDominoes(String dominoes) {
         // L...L  最终变成L
         // L...R  立直
