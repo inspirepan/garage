@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.C6;
 
 import java.util.Arrays;
 

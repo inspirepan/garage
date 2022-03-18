@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.C6;
 
 public class S647 {
     public int countSubstrings(String s) {

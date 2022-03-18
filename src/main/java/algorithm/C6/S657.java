@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.C6;
 
 public class S657 {
     public boolean judgeCircle(String moves) {

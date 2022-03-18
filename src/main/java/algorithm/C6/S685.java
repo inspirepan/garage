@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.C6;
 
 /**
  * 两种情况会有冗余的边：一个结点有两个父结点，图中存在环

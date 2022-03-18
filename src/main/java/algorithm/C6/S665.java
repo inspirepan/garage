@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.C6;
 
 public class S665 {
     public boolean checkPossibility(int[] nums) {
