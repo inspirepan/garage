@@ -1,5 +1,7 @@
 package algorithm.C5;
 
+import datastructure.Node;
+
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
@@ -19,10 +21,8 @@ public class S589 {
         for (Node child : node.children) helper(child, result);
     }
 
-    /**
-     * 迭代
-     */
     public List<Integer> preorder2(Node root) {
+        // 迭代
         List<Integer> result = new ArrayList<>();
         if (root == null) return result;
         Deque<Node> stack = new ArrayDeque<>();
@@ -30,26 +30,9 @@ public class S589 {
         while (!stack.isEmpty()) {
             Node node = stack.pop();
             result.add(node.val);
-            // 倒序插入节点
+            // 倒序
             for (int i = node.children.size() - 1; i >= 0; i--) stack.add(node.children.get(i));
         }
         return result;
-    }
-
-    class Node {
-        public int val;
-        public List<Node> children;
-
-        public Node() {
-        }
-
-        public Node(int val_) {
-            val = val_;
-        }
-
-        public Node(int val_, List<Node> children_) {
-            val = val_;
-            children = children_;
-        }
     }
 }
