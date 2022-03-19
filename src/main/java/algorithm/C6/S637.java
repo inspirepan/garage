@@ -14,34 +14,26 @@ public class S637 {
         if (root == null) {
             return result;
         }
-
-        int nextLevelCount = 0;
-        int prevLevelCount = 1;
-        int levelLeft = 1;
-        int sum = 0;
+        int count = 1;
         queue.offer(root);
         while (!queue.isEmpty()) {
-            if (levelLeft == 0) {
-                result.add(sum / (double) prevLevelCount);
-                levelLeft = nextLevelCount;
-                prevLevelCount = nextLevelCount;
-                sum = 0;
-                nextLevelCount = 0;
+            int nextCount = 0;
+            double sum = 0;
+            for (int i = 0; i < count; i++) {
+                TreeNode node = queue.poll();
+                sum += node.val;
+                if (node.left != null) {
+                    queue.offer(node.left);
+                    nextCount++;
+                }
+                if (node.right != null) {
+                    queue.offer(node.right);
+                    nextCount++;
+                }
             }
-
-            levelLeft--;
-            TreeNode curr = queue.poll();
-            sum += curr.val;
-            if (curr.left != null) {
-                queue.offer(curr.left);
-                nextLevelCount++;
-            }
-            if (curr.right != null) {
-                queue.offer(curr.right);
-                nextLevelCount++;
-            }
+            result.add(sum / (double) count);
+            count = nextCount;
         }
-        result.add(sum / (double) prevLevelCount);
         return result;
     }
 }
