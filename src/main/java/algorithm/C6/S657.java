@@ -2,16 +2,15 @@ package algorithm.C6;
 
 public class S657 {
     public boolean judgeCircle(String moves) {
-        int hori = 0;
-        int vert = 0;
+        int x = 0, y = 0;
         for (var c : moves.toCharArray()) {
             switch (c) {
-                case 'U' -> vert++;
-                case 'D' -> vert--;
-                case 'L' -> hori++;
-                case 'R' -> hori--;
+                case 'U' -> y++;
+                case 'D' -> y--;
+                case 'L' -> x++;
+                case 'R' -> x--;
             }
         }
-        return hori == 0 && vert == 0;
+        return x == 0 && y == 0;
     }
 }

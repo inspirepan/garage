@@ -8,23 +8,24 @@ import java.util.List;
 import java.util.Map;
 
 public class S652 {
-    // 其实思路很简单，就是序列化用map比较子串
-    Map<String, Integer> count;
-    List<TreeNode> ans;
+    // 比较树可以用序列化的方法
+    Map<String, Integer> count = new HashMap<>();
+    List<TreeNode> res = new ArrayList<>();
+
     public List<TreeNode> findDuplicateSubtrees(TreeNode root) {
-        count = new HashMap<>();
-        ans = new ArrayList<>();
-        collect(root);
-        return ans;
+        serialize(root);
+        return res;
     }
 
-    public String collect(TreeNode node) {
+    public String serialize(TreeNode node) {
         if (node == null) return "#";
-        String serial = node.val + "," + collect(node.left) + "," + collect(node.right);
+        var sb = new StringBuilder();
+        sb.append(node.val).append(",");
+        sb.append(serialize(node.left)).append(",").append(serialize(node.right));
+        String serial = sb.toString();
         count.put(serial, count.getOrDefault(serial, 0) + 1);
         if (count.get(serial) == 2)
-            ans.add(node);
+            res.add(node);
         return serial;
     }
-
 }

@@ -31,7 +31,7 @@ public class S638 {
     }
 
     private void dfs(List<Integer> spc, int[] currCount) {
-        // 如果当前组合购买的数量大于needs，不行]
+        // 如果当前组合购买的数量大于needs，不行
         if (visited.contains(spc)) return;
         visited.add(spc);
         // 当前开销

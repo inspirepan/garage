@@ -3,31 +3,29 @@ package algorithm.C6;
 import datastructure.TreeNode;
 
 public class S654 {
-    // 感觉没啥技术含量，找最大值就是靠遍历啊
     public TreeNode constructMaximumBinaryTree(int[] nums) {
-        return maxTree(nums, 0, nums.length - 1);
+        return helper(nums, 0, nums.length - 1);
     }
 
-    public TreeNode maxTree(int[] nums, int l, int r){
-        if(l > r){
-            return null;
-        }
-        //bond为当前数组中最大值的索引
-        int bond = findMax(nums, l, r);
-        TreeNode root = new TreeNode(nums[bond]);
-        root.left = maxTree(nums, l, bond - 1);
-        root.right = maxTree(nums, bond + 1, r);
-        return root;
+    public TreeNode helper(int[] nums, int l, int r) {
+        if (l > r) return null;
+        int partition = maxIndex(nums, l, r);
+        TreeNode node = new TreeNode(nums[partition]);
+        node.left = helper(nums, l, partition - 1);
+        node.right = helper(nums, partition + 1, r);
+        return node;
     }
-    //找最大值的索引
-    public int findMax(int[] nums, int l, int r){
-        int max = Integer.MIN_VALUE, maxIndex = l;
-        for(int i = l; i <= r; i++){
-            if(max < nums[i]){
-                max = nums[i];
-                maxIndex = i;
+
+    public int maxIndex(int[] nums, int l, int r) {
+        // 求数组[l,r]的最大值，没什么技巧，只能遍历
+        int max = Integer.MIN_VALUE, index = l;
+        while (l <= r) {
+            if (nums[l] > max) {
+                max = nums[l];
+                index = l;
             }
+            l++;
         }
-        return maxIndex;
+        return index;
     }
 }

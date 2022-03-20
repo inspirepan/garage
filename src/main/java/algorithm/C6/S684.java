@@ -1,13 +1,10 @@
 package algorithm.C6;
 
-/**
- * 并查集
- */
-
 public class S684 {
     private int[] pre;
 
     public int[] findRedundantConnection(int[][] edges) {
+        // 抄的
         int m = edges.length, rx, ry;
         if (m == 0) return null;
         pre = new int[m + 1];
