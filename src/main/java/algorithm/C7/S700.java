@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.C7;
 
 import datastructure.TreeNode;
 

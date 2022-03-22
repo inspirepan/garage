@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.C7;
 
 import java.util.Arrays;
 import java.util.HashSet;

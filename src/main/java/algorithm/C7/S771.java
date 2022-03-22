@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.C7;
 
 /**
  * 太久没写题又忘记了，对于char类型的计数不要用Map、Set，用数组

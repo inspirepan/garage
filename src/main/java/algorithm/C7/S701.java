@@ -1,18 +1,18 @@
-package algorithm;
+package algorithm.C7;
 
 import datastructure.TreeNode;
 
 public class S701 {
     public TreeNode insertIntoBST(TreeNode root, int val) {
-        if (root == null) {
-            return new TreeNode(val);
-        } else if (root.left == null && root.right == null) {
-            if (root.val < val) {
-                root.right = new TreeNode(val);
-            } else {
-                root.left = new TreeNode(val);
-            }
-        } else if (root.left == null && root.val > val) {
+        if (root == null) return new TreeNode(val);
+
+        if (root.left == null && root.right == null) {
+            if (root.val < val) root.right = new TreeNode(val);
+            else root.left = new TreeNode(val);
+            return root;
+        }
+
+        if (root.left == null && root.val > val) {
             root.left = new TreeNode(val);
         } else if (root.right == null && root.val < val) {
             root.right = new TreeNode(val);
