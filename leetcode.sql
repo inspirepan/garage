@@ -1,517 +1,519 @@
 -- 180 连续3个1
-select
-    distinct num as consecutivenums
-from
-    logs
-where
-    (id + 1, num) in (
-        select
+SELECT
+    DISTINCT num AS consecutivenums
+FROM
+    LOGS
+WHERE
+    (id + 1, num) IN (
+        SELECT
             *
-        from
-            logs
+        FROM
+            LOGS
     )
-    and (id + 2, num) in (
-        select
+    AND (id + 2, num) IN (
+        SELECT
             *
-        from
-            logs
+        FROM
+            LOGS
     );
 
 -- 181 比经理工资高的员工
-select
+SELECT
     a.name employee
-from
+FROM
     employee a
-    join employee b on a.managerid = b.id
-where
+    JOIN employee b ON a.managerid = b.id
+WHERE
     a.salary > b.salary;
 
 --182 数量大于2的email
-select
+SELECT
     email
-from
+FROM
     person
-group by
+GROUP BY
     email
-having
-    count(email) >= 2;
+HAVING
+    COUNT(email) >= 2;
 
 --183
-select
-    customers.name as customers
-from
+SELECT
+    customers.name AS customers
+FROM
     customers
-    left join orders on customers.id = orders.customerid
-where
-    orders.customerid is null;
+    LEFT JOIN orders ON customers.id = orders.customerid
+WHERE
+    orders.customerid IS NULL;
 
 --184
-select
-    d.name as department,
-    e.name as employee,
+SELECT
+    d.name AS department,
+    e.name AS employee,
     e.salary
-from
+FROM
     department d
-    left join employee e on d.id = e.departmentid
-where
-    (e.salary, e.departmentid) in (
-        select
-            max(salary),
+    LEFT JOIN employee e ON d.id = e.departmentid
+WHERE
+    (e.salary, e.departmentid) IN (
+        SELECT
+            MAX(salary),
             departmentid
-        from
+        FROM
             employee
-        group by
+        GROUP BY
             departmentid
     );
 
 --185
-select
-    d.name as department,
-    e.name as employee,
-    e.salary as salary
-from
+SELECT
+    d.name AS department,
+    e.name AS employee,
+    e.salary AS salary
+FROM
     department d
-    left join employee e on d.id = e.departmentid
-where
-    e.id in (
-        select
+    LEFT JOIN employee e ON d.id = e.departmentid
+WHERE
+    e.id IN (
+        SELECT
             e1.id
-        from
+        FROM
             employee e1
-            left join employee e2 on e1.departmentid = e2.departmentid
-            and e1.salary < e2.salary
-        group by
+            LEFT JOIN employee e2 ON e1.departmentid = e2.departmentid
+            AND e1.salary < e2.salary
+        GROUP BY
             e1.id
-        having
-            count(distinct e2.salary) <= 2
+        HAVING
+            COUNT(DISTINCT e2.salary) <= 2
     )
-    and e.departmentid in (
-        select
+    AND e.departmentid IN (
+        SELECT
             id
-        from
+        FROM
             department
     )
-order by
-    d.id asc,
-    e.salary desc;
+ORDER BY
+    d.id ASC,
+    e.salary DESC;
 
 --185 用函数
-select
+SELECT
     department,
     employee,
     salary
-from
+FROM
     (
-        select
-            d.name as department,
-            e.name as employee,
-            e.salary as salary,
-            dense_rank() over (
-                partition by departmentid
-                order by
-                    salary desc
-            ) as rk
-        from
+        SELECT
+            d.name AS department,
+            e.name AS employee,
+            e.salary AS salary,
+            DENSE_RANK() OVER (
+                PARTITION BY departmentid
+                ORDER BY
+                    salary DESC
+            ) AS rk
+        FROM
             employee e
-            left join department d on e.departmentid = d.id
+            LEFT JOIN department d ON e.departmentid = d.id
     ) m
-where
+WHERE
     rk <= 3;
 
 --196 注意删除的时候不能根据这个表select出来的记录删除，必须要嵌套一层select才能删除
-delete from
+DELETE FROM
     person
-where
-    id not in (
-        select
+WHERE
+    id NOT IN (
+        SELECT
             *
-        from
+        FROM
             (
-                select
-                    min(id)
-                from
+                SELECT
+                    MIN(id)
+                FROM
                     person
-                group by
+                GROUP BY
                     email
             ) t
     );
 
 --197
-select
+SELECT
     w1.id
-from
+FROM
     weather w1
-    join weather w2 on w1.recorddate = adddate(w2.recorddate, 1)
-where
+    JOIN weather w2 ON w1.recorddate = ADDDATE(w2.recorddate, 1)
+WHERE
     w1.temperature > w2.temperature;
 
 --511
-select
+SELECT
     player_id,
-    min(event_date) first_login
-from
+    MIN(event_date) first_login
+FROM
     activity
-group by
+GROUP BY
     player_id;
 
 --512
-select
+SELECT
     player_id,
     device_id
-from
+FROM
     activity
-where
-    (player_id, event_date) in (
-        select
+WHERE
+    (player_id, event_date) IN (
+        SELECT
             player_id,
-            min(event_date)
-        from
+            MIN(event_date)
+        FROM
             activity
-        group by
+        GROUP BY
             player_id
     );
 
 --534 通过连引一个表条件是日期比当前日期小的全部项
-select
+SELECT
     a1.player_id,
     a1.event_date,
-    sum(a2.games_played) games_played_so_far
-from
+    SUM(a2.games_played) games_played_so_far
+FROM
     activity a1
-    left join activity a2 on a1.player_id = a2.player_id
-    and a1.event_date >= a2.event_date
-group by
+    LEFT JOIN activity a2 ON a1.player_id = a2.player_id
+    AND a1.event_date >= a2.event_date
+GROUP BY
     a1.player_id,
     a1.event_date
-order by
+ORDER BY
     a1.player_id,
     a1.event_date;
 
 --550
-select
-    round(
-        count(distinct player_id) / (
-            select
-                count(distinct player_id)
-            from
+SELECT
+    ROUND(
+        COUNT(DISTINCT player_id) / (
+            SELECT
+                COUNT(DISTINCT player_id)
+            FROM
                 activity a2
         ),
         2
     ) fraction
-from
+FROM
     activity
-where
-    (player_id, event_date) in(
-        select
+WHERE
+    (player_id, event_date) IN (
+        SELECT
             player_id,
-            adddate(min(event_date), 1)
-        from
+            ADDDATE(MIN(event_date), 1)
+        FROM
             activity
-        group by
-            partition
+        GROUP BY
+            PARTITION
     );
 
 --570
-select
+SELECT
     m.name
-from
+FROM
     employee m
-    left join employee e on e.managerid = m.id
-group by
+    LEFT JOIN employee e ON e.managerid = m.id
+GROUP BY
     m.id
-having
-    count(e.id) >= 5;
+HAVING
+    COUNT(e.id) >= 5;
 
 --571 先把每一个数的asc_amount，desc_amount，total_num算出来
-select
-    avg(num) as median
-from
+SELECT
+    AVG(num) AS median
+FROM
     (
-        select
+        SELECT
             num,
-            sum(frequency) over(
-                order by
-                    num asc
+            SUM(frequency) OVER (
+                ORDER BY
+                    num ASC
             ) asc_amount,
-            sum(frequency) over(
-                order by
-                    num desc
+            SUM(frequency) OVER (
+                ORDER BY
+                    num DESC
             ) desc_amount,
-            sum(frequency) over() total_num
-        from
+            SUM(frequency) OVER () total_num
+        FROM
             numbers
     ) a
-where
+WHERE
     asc_amount >= total_num / 2
-    and desc_amount >= total_num / 2;
+    AND desc_amount >= total_num / 2;
 
 --574
-select
+SELECT
     c.name
-from
+FROM
     candidate c
-    join vote v on v.candidateid = c.id
-group by
+    JOIN vote v ON v.candidateid = c.id
+GROUP BY
     c.id
-having
-    count(*) >= all(
-        select
-            count(*)
-        from
+HAVING
+    COUNT(*) >= ALL (
+        SELECT
+            COUNT(*)
+        FROM
             vote
-        group by
+        GROUP BY
             candidateid
     );
 
 --577
-select
+SELECT
     e.name,
     b.bonus
-from
+FROM
     employee e
-    left join bonus b on e.empid = b.empid
-where
-    coalesce(b.bonus, 0) < 1000;
+    LEFT JOIN bonus b ON e.empid = b.empid
+WHERE
+    COALESCE(b.bonus, 0) < 1000;
 
 --578
-select
+SELECT
     question_id survey_log
-from
+FROM
     (
-        select
+        SELECT
             a.question_id,
             (
-                count(a.question_id) / (
-                    select
-                        count(*)
-                    from
+                COUNT(a.question_id) / (
+                    SELECT
+                        COUNT(*)
+                    FROM
                         surveylog b
-                    where
+                    WHERE
                         b.action = 'show'
-                        and b.question_id = a.question_id
+                        AND b.question_id = a.question_id
                 )
             ) rate
-        from
+        FROM
             surveylog a
-        where
+        WHERE
             a.action = 'answer'
-        group by
+        GROUP BY
             a.question_id
-        order by
-            rate desc,
-            a.question_id asc
-        limit
-            1 offset 0
+        ORDER BY
+            rate DESC,
+            a.question_id ASC
+        LIMIT
+            1 OFFSET 0
     ) result;
 
 --579 窗口函数不太会用
-select
+SELECT
     id,
-    month,
+    MONTH,
     salary
-from
+FROM
     (
-        select
+        SELECT
             id,
-            month,
-            sum(salary) over (
-                partition by id
-                order by
-                    month rows 2 preceding
-            ) as salary,
-            rank() over (
-                partition by id
-                order by
-                    month desc
-            ) as r
-        from
+            MONTH,
+            SUM(salary) OVER (
+                PARTITION BY id
+                ORDER BY
+                    MONTH ROWS 2 PRECEDING
+            ) AS salary,
+            RANK() OVER (
+                PARTITION BY id
+                ORDER BY
+                    MONTH DESC
+            ) AS r
+        FROM
             employee
     ) t
-where
+WHERE
     r > 1
-order by
+ORDER BY
     id,
-    month desc;
+    MONTH DESC;
 
 --580
-select
+SELECT
     dept_name,
-    count(s.student_id) student_number
-from
+    COUNT(s.student_id) student_number
+FROM
     department d
-    left join student s on s.dept_id = d.dept_id
-group by
+    LEFT JOIN student s ON s.dept_id = d.dept_id
+GROUP BY
     dept_name
-order by
-    student_nubmer desc,
+ORDER BY
+    student_nubmer DESC,
     dept_name;
 
 --584
-select
+SELECT
     name
-from
+FROM
     customer
-where
-    referee_id is null
-    or referee_id <> 2;
+WHERE
+    referee_id IS NULL
+    OR referee_id <> 2;
 
 --586
-select
-    distinct customer_number
-from
+SELECT
+    DISTINCT customer_number
+FROM
     orders
-group by
+GROUP BY
     customer_number
-order by
-    count(customer_number) desc
-limit
+ORDER BY
+    COUNT(customer_number) DESC
+LIMIT
     1;
 
-select
+SELECT
     customer_number
-from
+FROM
     orders
-group by
+GROUP BY
     customer_number
-having
-    count(order_number) >= all(
-        select
-            count(order_number)
-        from
+HAVING
+    COUNT(order_number) >= ALL (
+        SELECT
+            COUNT(order_number)
+        FROM
             orders
-        group by
+        GROUP BY
             customer_number
     );
 
 -- 595
-select
+SELECT
     name,
     population,
     area
-from
+FROM
     world
-where
+WHERE
     population >= 25000000
-    or area >= 3000000;
+    OR area >= 3000000;
 
 --596
-select
-    distinct class
-from
+SELECT
+    DISTINCT class
+FROM
     courses
-group by
+GROUP BY
     class
-having
-    count(student) >= 5;
+HAVING
+    COUNT(student) >= 5;
 
 --603
-select
-    distinct c1.seat_id
-from
+SELECT
+    DISTINCT c1.seat_id
+FROM
     cinema c1
-    join cinema c2 on c2.seat_id = c1.seat_id + 1
-    or c2.seat_id = c1.seat_id -1
-where
+    JOIN cinema c2 ON c2.seat_id = c1.seat_id + 1
+    OR c2.seat_id = c1.seat_id - 1
+WHERE
     c1.free = 1
-    and c2.free = 1;
+    AND c2.free = 1;
 
 --607
-select
+SELECT
     name
-from
+FROM
     salesperson
-where
-    sales_id not in (
-        select
+WHERE
+    sales_id NOT IN (
+        SELECT
             s.sales_id
-        from
+        FROM
             salesperson s
-            right join orders o on o.sales_id = s.sales_id
-            inner join company c on o.com_id = c.com_id
-        where
+            RIGHT JOIN orders o ON o.sales_id = s.sales_id
+            INNER JOIN company c ON o.com_id = c.com_id
+        WHERE
             c.name = 'RED'
     );
 
 --608
-select
+SELECT
     t.id,
-    case
-        when t.p_id is null then 'Root'
-        when t.id in (
-            select
+    CASE
+        WHEN t.p_id IS NULL THEN 'Root'
+        WHEN t.id IN (
+            SELECT
                 p_id
-            from
+            FROM
                 tree
-        ) then 'Inner'
-        else 'Leaf'
-    end as type
-from
+        ) THEN 'Inner'
+        ELSE 'Leaf'
+    END AS TYPE
+FROM
     tree t;
 
 --610
-select
+SELECT
     x,
     y,
     z,
-    case
-        when x + y > z
-        and y + z > x
-        and x + z > y then 'Yes'
-        else 'No'
-    end as triangle
-from
+    CASE
+        WHEN x + y > z
+        AND y + z > x
+        AND x + z > y THEN 'Yes'
+        ELSE 'No'
+    END AS triangle
+FROM
     triangle;
 
 --612
-select
-    round(
-        min(
-            sqrt(power(p1.x - p2.x, 2) + power(p1.y - p2.y, 2))
+SELECT
+    ROUND(
+        MIN(
+            SQRT(POWER(p1.x - p2.x, 2) + POWER(p1.y - p2.y, 2))
         ),
         2
     ) shortest
-from
+FROM
     point2d p1
-    left join point2d p2 on (p1.x, p1.y) <> (p2.x, p2.y);
+    LEFT JOIN point2d p2 ON (p1.x, p1.y) <> (p2.x, p2.y);
 
 --613
-select
-    min(abs(p1.x - p2.x)) shortest
-from
+SELECT
+    MIN(ABS(p1.x - p2.x)) shortest
+FROM
     point p1
-    left join point p2 on p1.x <> p2.x;
+    LEFT JOIN point p2 ON p1.x <> p2.x;
 
 --614
-select
+SELECT
     f1.follower,
-    count(distinct f2.follower) num
-from
+    COUNT(DISTINCT f2.follower) num
+FROM
     follow f1
-    join follow f2 on f2.followee = f1.follower
-group by
+    JOIN follow f2 ON f2.followee = f1.follower
+GROUP BY
     f1.follower
-order by
+ORDER BY
     f1.follower;
 
 --615
-select
-    distinct date_format(pay_date, '%Y-%m') pay_month,
+SELECT
+    DISTINCT DATE_FORMAT(pay_date, '%Y-%m') pay_month,
     department_id,
-    case
-        when a1 > a2 then 'higher'
-        when a1 < a2 then 'lower'
-        else 'same'
-    end as comparison
-from
+    CASE
+        WHEN a1 > a2 THEN 'higher'
+        WHEN a1 < a2 THEN 'lower'
+        ELSE 'same'
+    END AS comparison
+FROM
     (
-        select
+        SELECT
             e.department_id,
             pay_date,
-            avg(amount) over(partition by department_id, pay_date) a1,
-            avg(amount) over(partition by pay_date) a2
-        from
+            AVG(amount) OVER (PARTITION BY department_id, pay_date) a1,
+            AVG(amount) OVER (PARTITION BY pay_date) a2
+        FROM
             salary s
-            left join employee e on s.employee_id = e.employee_id
+            LEFT JOIN employee e ON s.employee_id = e.employee_id
     ) c
-order by
-    pay_month desc
+ORDER BY
+    pay_month DESC;
+
+--618
