@@ -34,7 +34,7 @@ FROM
 GROUP BY
     email
 HAVING
-    COUNT(email) >= 2;
+    count(email) >= 2;
 
 --183
 SELECT
@@ -56,7 +56,7 @@ FROM
 WHERE
     (e.salary, e.departmentid) IN (
         SELECT
-            MAX(salary),
+            max(salary),
             departmentid
         FROM
             employee
@@ -83,7 +83,7 @@ WHERE
         GROUP BY
             e1.id
         HAVING
-            COUNT(DISTINCT e2.salary) <= 2
+            count(DISTINCT e2.salary) <= 2
     )
     AND e.departmentid IN (
         SELECT
@@ -106,8 +106,8 @@ FROM
             d.name AS department,
             e.name AS employee,
             e.salary AS salary,
-            DENSE_RANK() OVER (
-                PARTITION BY departmentid
+            dense_rank() over (
+                PARTITION by departmentid
                 ORDER BY
                     salary DESC
             ) AS rk
@@ -128,7 +128,7 @@ WHERE
         FROM
             (
                 SELECT
-                    MIN(id)
+                    min(id)
                 FROM
                     person
                 GROUP BY
@@ -141,14 +141,14 @@ SELECT
     w1.id
 FROM
     weather w1
-    JOIN weather w2 ON w1.recorddate = ADDDATE(w2.recorddate, 1)
+    JOIN weather w2 ON w1.recorddate = adddate(w2.recorddate, 1)
 WHERE
     w1.temperature > w2.temperature;
 
 --511
 SELECT
     player_id,
-    MIN(event_date) first_login
+    min(event_date) first_login
 FROM
     activity
 GROUP BY
@@ -164,7 +164,7 @@ WHERE
     (player_id, event_date) IN (
         SELECT
             player_id,
-            MIN(event_date)
+            min(event_date)
         FROM
             activity
         GROUP BY
@@ -175,7 +175,7 @@ WHERE
 SELECT
     a1.player_id,
     a1.event_date,
-    SUM(a2.games_played) games_played_so_far
+    sum(a2.games_played) games_played_so_far
 FROM
     activity a1
     LEFT JOIN activity a2 ON a1.player_id = a2.player_id
@@ -189,10 +189,10 @@ ORDER BY
 
 --550
 SELECT
-    ROUND(
-        COUNT(DISTINCT player_id) / (
+    round(
+        count(DISTINCT player_id) / (
             SELECT
-                COUNT(DISTINCT player_id)
+                count(DISTINCT player_id)
             FROM
                 activity a2
         ),
@@ -204,7 +204,7 @@ WHERE
     (player_id, event_date) IN (
         SELECT
             player_id,
-            ADDDATE(MIN(event_date), 1)
+            adddate(min(event_date), 1)
         FROM
             activity
         GROUP BY
@@ -220,24 +220,24 @@ FROM
 GROUP BY
     m.id
 HAVING
-    COUNT(e.id) >= 5;
+    count(e.id) >= 5;
 
 --571 先把每一个数的asc_amount，desc_amount，total_num算出来
 SELECT
-    AVG(num) AS median
+    avg(num) AS median
 FROM
     (
         SELECT
             num,
-            SUM(frequency) OVER (
+            sum(frequency) over (
                 ORDER BY
                     num ASC
             ) asc_amount,
-            SUM(frequency) OVER (
+            sum(frequency) over (
                 ORDER BY
                     num DESC
             ) desc_amount,
-            SUM(frequency) OVER () total_num
+            sum(frequency) over () total_num
         FROM
             numbers
     ) a
@@ -254,9 +254,9 @@ FROM
 GROUP BY
     c.id
 HAVING
-    COUNT(*) >= ALL (
+    count(*) >= ALL (
         SELECT
-            COUNT(*)
+            count(*)
         FROM
             vote
         GROUP BY
@@ -271,7 +271,7 @@ FROM
     employee e
     LEFT JOIN bonus b ON e.empid = b.empid
 WHERE
-    COALESCE(b.bonus, 0) < 1000;
+    coalesce(b.bonus, 0) < 1000;
 
 --578
 SELECT
@@ -281,9 +281,9 @@ FROM
         SELECT
             a.question_id,
             (
-                COUNT(a.question_id) / (
+                count(a.question_id) / (
                     SELECT
-                        COUNT(*)
+                        count(*)
                     FROM
                         surveylog b
                     WHERE
@@ -314,13 +314,13 @@ FROM
         SELECT
             id,
             MONTH,
-            SUM(salary) OVER (
-                PARTITION BY id
+            sum(salary) over (
+                PARTITION by id
                 ORDER BY
-                    MONTH ROWS 2 PRECEDING
+                    MONTH ROWS 2 preceding
             ) AS salary,
-            RANK() OVER (
-                PARTITION BY id
+            rank() over (
+                PARTITION by id
                 ORDER BY
                     MONTH DESC
             ) AS r
@@ -336,7 +336,7 @@ ORDER BY
 --580
 SELECT
     dept_name,
-    COUNT(s.student_id) student_number
+    count(s.student_id) student_number
 FROM
     department d
     LEFT JOIN student s ON s.dept_id = d.dept_id
@@ -363,7 +363,7 @@ FROM
 GROUP BY
     customer_number
 ORDER BY
-    COUNT(customer_number) DESC
+    count(customer_number) DESC
 LIMIT
     1;
 
@@ -374,9 +374,9 @@ FROM
 GROUP BY
     customer_number
 HAVING
-    COUNT(order_number) >= ALL (
+    count(order_number) >= ALL (
         SELECT
-            COUNT(order_number)
+            count(order_number)
         FROM
             orders
         GROUP BY
@@ -402,7 +402,7 @@ FROM
 GROUP BY
     class
 HAVING
-    COUNT(student) >= 5;
+    count(student) >= 5;
 
 --603
 SELECT
@@ -429,21 +429,21 @@ WHERE
             RIGHT JOIN orders o ON o.sales_id = s.sales_id
             INNER JOIN company c ON o.com_id = c.com_id
         WHERE
-            c.name = 'RED'
+            c.name = 'red'
     );
 
 --608
 SELECT
     t.id,
     CASE
-        WHEN t.p_id IS NULL THEN 'Root'
+        WHEN t.p_id IS NULL THEN 'root'
         WHEN t.id IN (
             SELECT
                 p_id
             FROM
                 tree
-        ) THEN 'Inner'
-        ELSE 'Leaf'
+        ) THEN 'inner'
+        ELSE 'leaf'
     END AS TYPE
 FROM
     tree t;
@@ -456,17 +456,17 @@ SELECT
     CASE
         WHEN x + y > z
         AND y + z > x
-        AND x + z > y THEN 'Yes'
-        ELSE 'No'
+        AND x + z > y THEN 'yes'
+        ELSE 'no'
     END AS triangle
 FROM
     triangle;
 
 --612
 SELECT
-    ROUND(
-        MIN(
-            SQRT(POWER(p1.x - p2.x, 2) + POWER(p1.y - p2.y, 2))
+    round(
+        min(
+            sqrt(power(p1.x - p2.x, 2) + power(p1.y - p2.y, 2))
         ),
         2
     ) shortest
@@ -476,7 +476,7 @@ FROM
 
 --613
 SELECT
-    MIN(ABS(p1.x - p2.x)) shortest
+    min(abs(p1.x - p2.x)) shortest
 FROM
     point p1
     LEFT JOIN point p2 ON p1.x <> p2.x;
@@ -484,7 +484,7 @@ FROM
 --614
 SELECT
     f1.follower,
-    COUNT(DISTINCT f2.follower) num
+    count(DISTINCT f2.follower) num
 FROM
     follow f1
     JOIN follow f2 ON f2.followee = f1.follower
@@ -495,7 +495,7 @@ ORDER BY
 
 --615
 SELECT
-    DISTINCT DATE_FORMAT(pay_date, '%Y-%m') pay_month,
+    DISTINCT date_format(pay_date, '%y-%m') pay_month,
     department_id,
     CASE
         WHEN a1 > a2 THEN 'higher'
@@ -507,8 +507,8 @@ FROM
         SELECT
             e.department_id,
             pay_date,
-            AVG(amount) OVER (PARTITION BY department_id, pay_date) a1,
-            AVG(amount) OVER (PARTITION BY pay_date) a2
+            avg(amount) over (PARTITION by department_id, pay_date) a1,
+            avg(amount) over (PARTITION by pay_date) a2
         FROM
             salary s
             LEFT JOIN employee e ON s.employee_id = e.employee_id
@@ -516,4 +516,99 @@ FROM
 ORDER BY
     pay_month DESC;
 
---618
+--618 透视表 不会做
+-- max函数的作用是排除null值，不显示null，其实min也是可以的
+SELECT
+    max(
+        CASE
+            WHEN continent = 'America' THEN name
+            ELSE NULL
+        END
+    ) AS America,
+    max(
+        CASE
+            WHEN continent = 'Asia' THEN name
+            ELSE NULL
+        END
+    ) AS Asia,
+    max(
+        CASE
+            WHEN continent = 'Europe' THEN name
+            ELSE NULL
+        END
+    ) AS Europe
+FROM
+    (
+        SELECT
+            name,
+            continent,
+            row_number() over(
+                PARTITION by continent
+                ORDER BY
+                    name
+            ) AS 'rk'
+        FROM
+            student
+    ) t1
+GROUP BY
+    rk;
+
+--619
+SELECT
+    (
+        SELECT
+            num
+        FROM
+            MyNumbers
+        GROUP BY
+            num
+        HAVING
+            count(*) = 1
+        ORDER BY
+            num DESC
+        LIMIT
+            1
+    ) AS num;
+
+--620
+SELECT
+    id,
+    movie,
+    description,
+    rating
+FROM
+    cinema
+WHERE
+    description <> 'boring'
+    AND id % 2 = 1
+ORDER BY
+    rating DESC;
+
+--627
+UPDATE
+    salary
+SET
+    sex = IF(sex = 'm', 'f', 'm');
+
+UPDATE
+    salary
+SET
+    sex = CASE
+        sex
+        WHEN 'f' THEN 'm'
+        ELSE 'f'
+    END;
+
+--626 
+SELECT
+    a.id AS id,
+    IFNULL(
+        IF(mod(a.id, 2) = 0, b.student, c.student),
+        a.student
+    ) AS student
+FROM
+    seat a
+    LEFT JOIN seat b ON a.id = b.id + 1
+    LEFT JOIN seat c ON a.id = c.id - 1
+ORDER BY
+    a.id

@@ -7,7 +7,6 @@ public class S733 {
     public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
         final int[] dx = new int[]{1, -1, 0, 0};
         final int[] dy = new int[]{0, 0, 1, -1};
-
         Deque<int[]> queue = new ArrayDeque<>();
         int originColor = image[sr][sc];
         if (newColor == originColor) return image;
