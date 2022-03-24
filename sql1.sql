@@ -34,7 +34,7 @@ FROM
 GROUP BY
     email
 HAVING
-    count(email) >= 2;
+    COUNT(email) >= 2;
 
 --183
 SELECT
@@ -56,7 +56,7 @@ FROM
 WHERE
     (e.salary, e.departmentid) IN (
         SELECT
-            max(salary),
+            MAX(salary),
             departmentid
         FROM
             employee
@@ -83,7 +83,7 @@ WHERE
         GROUP BY
             e1.id
         HAVING
-            count(DISTINCT e2.salary) <= 2
+            COUNT(DISTINCT e2.salary) <= 2
     )
     AND e.departmentid IN (
         SELECT
@@ -128,7 +128,7 @@ WHERE
         FROM
             (
                 SELECT
-                    min(id)
+                    MIN(id)
                 FROM
                     person
                 GROUP BY
@@ -148,7 +148,7 @@ WHERE
 --511
 SELECT
     player_id,
-    min(event_date) first_login
+    MIN(event_date) first_login
 FROM
     activity
 GROUP BY
@@ -164,7 +164,7 @@ WHERE
     (player_id, event_date) IN (
         SELECT
             player_id,
-            min(event_date)
+            MIN(event_date)
         FROM
             activity
         GROUP BY
@@ -175,7 +175,7 @@ WHERE
 SELECT
     a1.player_id,
     a1.event_date,
-    sum(a2.games_played) games_played_so_far
+    SUM(a2.games_played) games_played_so_far
 FROM
     activity a1
     LEFT JOIN activity a2 ON a1.player_id = a2.player_id
@@ -190,9 +190,9 @@ ORDER BY
 --550
 SELECT
     round(
-        count(DISTINCT player_id) / (
+        COUNT(DISTINCT player_id) / (
             SELECT
-                count(DISTINCT player_id)
+                COUNT(DISTINCT player_id)
             FROM
                 activity a2
         ),
@@ -204,7 +204,7 @@ WHERE
     (player_id, event_date) IN (
         SELECT
             player_id,
-            adddate(min(event_date), 1)
+            adddate(MIN(event_date), 1)
         FROM
             activity
         GROUP BY
@@ -220,7 +220,7 @@ FROM
 GROUP BY
     m.id
 HAVING
-    count(e.id) >= 5;
+    COUNT(e.id) >= 5;
 
 --571 先把每一个数的asc_amount，desc_amount，total_num算出来
 SELECT
@@ -229,15 +229,15 @@ FROM
     (
         SELECT
             num,
-            sum(frequency) over (
+            SUM(frequency) over (
                 ORDER BY
                     num ASC
             ) asc_amount,
-            sum(frequency) over (
+            SUM(frequency) over (
                 ORDER BY
                     num DESC
             ) desc_amount,
-            sum(frequency) over () total_num
+            SUM(frequency) over () total_num
         FROM
             numbers
     ) a
@@ -254,9 +254,9 @@ FROM
 GROUP BY
     c.id
 HAVING
-    count(*) >= ALL (
+    COUNT(*) >= ALL (
         SELECT
-            count(*)
+            COUNT(*)
         FROM
             vote
         GROUP BY
@@ -281,9 +281,9 @@ FROM
         SELECT
             a.question_id,
             (
-                count(a.question_id) / (
+                COUNT(a.question_id) / (
                     SELECT
-                        count(*)
+                        COUNT(*)
                     FROM
                         surveylog b
                     WHERE
@@ -314,7 +314,7 @@ FROM
         SELECT
             id,
             MONTH,
-            sum(salary) over (
+            SUM(salary) over (
                 PARTITION by id
                 ORDER BY
                     MONTH ROWS 2 preceding
@@ -336,7 +336,7 @@ ORDER BY
 --580
 SELECT
     dept_name,
-    count(s.student_id) student_number
+    COUNT(s.student_id) student_number
 FROM
     department d
     LEFT JOIN student s ON s.dept_id = d.dept_id
@@ -363,7 +363,7 @@ FROM
 GROUP BY
     customer_number
 ORDER BY
-    count(customer_number) DESC
+    COUNT(customer_number) DESC
 LIMIT
     1;
 
@@ -374,9 +374,9 @@ FROM
 GROUP BY
     customer_number
 HAVING
-    count(order_number) >= ALL (
+    COUNT(order_number) >= ALL (
         SELECT
-            count(order_number)
+            COUNT(order_number)
         FROM
             orders
         GROUP BY
@@ -402,7 +402,7 @@ FROM
 GROUP BY
     class
 HAVING
-    count(student) >= 5;
+    COUNT(student) >= 5;
 
 --603
 SELECT
@@ -465,7 +465,7 @@ FROM
 --612
 SELECT
     round(
-        min(
+        MIN(
             sqrt(power(p1.x - p2.x, 2) + power(p1.y - p2.y, 2))
         ),
         2
@@ -476,7 +476,7 @@ FROM
 
 --613
 SELECT
-    min(abs(p1.x - p2.x)) shortest
+    MIN(abs(p1.x - p2.x)) shortest
 FROM
     point p1
     LEFT JOIN point p2 ON p1.x <> p2.x;
@@ -484,7 +484,7 @@ FROM
 --614
 SELECT
     f1.follower,
-    count(DISTINCT f2.follower) num
+    COUNT(DISTINCT f2.follower) num
 FROM
     follow f1
     JOIN follow f2 ON f2.followee = f1.follower
@@ -517,21 +517,21 @@ ORDER BY
     pay_month DESC;
 
 --618 透视表 不会做
--- max函数的作用是排除null值，不显示null，其实min也是可以的
+-- MAX函数的作用是排除null值，不显示null，其实MIN也是可以的
 SELECT
-    max(
+    MAX(
         CASE
             WHEN continent = 'America' THEN name
             ELSE NULL
         END
     ) AS America,
-    max(
+    MAX(
         CASE
             WHEN continent = 'Asia' THEN name
             ELSE NULL
         END
     ) AS Asia,
-    max(
+    MAX(
         CASE
             WHEN continent = 'Europe' THEN name
             ELSE NULL
@@ -563,7 +563,7 @@ SELECT
         GROUP BY
             num
         HAVING
-            count(*) = 1
+            COUNT(*) = 1
         ORDER BY
             num DESC
         LIMIT
