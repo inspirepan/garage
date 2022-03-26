@@ -3,13 +3,9 @@ package algorithm.C1;
 public class S155 {
     public class MinStack {
 
-
         Node first;
         int minVal = Integer.MIN_VALUE;
 
-        /**
-         * initialize your data structure here.
-         */
         public MinStack() {
             this.first = null;
         }
