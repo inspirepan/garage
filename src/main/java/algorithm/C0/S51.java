@@ -1,54 +1,58 @@
 package algorithm.C0;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class S51 {
-    private List<List<String>> result = new ArrayList<>();
-    private char[][] solution;
-    private int n;
+    List<List<String>> result = new ArrayList<>();
+    char[][] board;
 
-    public List<List<String>> solveNqueens(int n) {
-        this.n = n;
-        solution = new char[n][n];
-        for (int i = 0; i < solution.length; i++) {
-            for (int j = 0; j < solution[0].length; j++) {
-                solution[i][j] = '.';
-            }
-        }
-        solveNQueensHelper(0);
+    public List<List<String>> solveNQueens(int n) {
+        this.board = new char[n][n];
+        for (char[] row : board) Arrays.fill(row, '.');
+        dfs(0);
         return result;
     }
 
-    private void solveNQueensHelper(int row) {
-        if (row == n) {
-            var solutionList = new ArrayList<String>();
-            for (var line : solution) {
-                solutionList.add(String.valueOf(line));
+    private void dfs(int r) {
+        // 插入第r行的皇后
+        if (r == board.length) {
+            List<String> currBoard = new ArrayList<>();
+            for (char[] row : board) {
+                currBoard.add(new String(row));
             }
-            result.add(solutionList);
+            result.add(currBoard);
             return;
         }
-        // 普通dfs，加一个检查条件，检查
-        for (int col = 0; col < n; col++) {
-            if (isValid(row, col)) {
-                var sb = new StringBuilder();
-                solution[row][col] = 'Q';
-                solveNQueensHelper(row + 1);
-                solution[row][col] = '.';
+
+        for (int i = 0; i < board.length; i++) {
+            if (checkAvailable(r, i)) {
+                board[r][i] = 'Q';
+                dfs(r + 1);
+                board[r][i] = '.';
             }
         }
-
     }
 
-    private boolean isValid(int row, int col) {
-        for (int i = 0; i < row; i++) {
-            if (solution[i][col] == 'Q'
-                    || (col - row + i >= 0 && solution[i][col - row + i] == 'Q')
-                    || (col + row - i < n && solution[i][col + row - i] == 'Q')) {
-                return false;
-            }
+    private boolean checkAvailable(int r, int c) {
+        // 检查是否冲突
+        if (r == 0) return true;
+        // 检查列
+        for (int i = 0; i < r; i++) {
+            if (board[i][c] == 'Q') return false;
         }
+        // 检查斜线
+        int i = r - 1, j = c - 1;
+        while (i >= 0 && j >= 0) {
+            if (board[i--][j--] == 'Q') return false;
+        }
+        i = r - 1;
+        j = c + 1;
+        while (i >= 0 && j < board.length) {
+            if (board[i--][j++] == 'Q') return false;
+        }
+
         return true;
     }
 }

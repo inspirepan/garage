@@ -20,6 +20,7 @@ public class S525 {
             if (map.containsKey(sum)) {
                 res = Math.max(i - map.get(sum), res);
             } else {
+                // 保留最短的记录
                 map.put(sum, i);
             }
         }

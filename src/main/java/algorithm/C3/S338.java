@@ -2,13 +2,17 @@ package algorithm.C3;
 
 public class S338 {
     public int[] countBits(int n) {
-
-        int[] result = new int[n + 1];
-        for (int i = 0; i <= n; i++) {
-            result[i] = Integer.bitCount(i);
-            // 分成奇偶考虑
-                // result[i] = result[i&(i-1)] + 1;
+        int[] dp = new int[n + 1];
+        dp[0] = 0;
+        if (n == 0) return dp;
+        dp[1] = 1;
+        for (int i = 2; i <= n; i++) {
+            if ((i & 1) == 0) {
+                dp[i] = dp[i >>> 1];
+            } else {
+                dp[i] = dp[i >>> 1] + 1;
+            }
         }
-        return result;
+        return dp;
     }
 }
