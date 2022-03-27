@@ -4,6 +4,7 @@ import java.util.*;
 
 public class S49 {
     public List<List<String>> groupAnagrams(String[] strs) {
+        // 这里用的是排序之后的字符串作为key，也可以用质数相乘的方法作为key，设置26个字母对应的质数，用long类型，根据频率相乘作为key
         Map<String, List<String>> map = new HashMap<>();
         for (String s : strs) {
             char[] ch = s.toCharArray();

@@ -2,25 +2,21 @@ package algorithm.C6;
 
 public class S680 {
     public boolean validPalindrome(String s) {
-        // 从左右往里面缩
-        if (s.length() <= 2) return true;
-        char[] c = s.toCharArray();
-        int left = 0;
-        int right = s.length() - 1;
-        while (left < right) {
-            if (c[left] == c[right]) {
-                left++;
-                right--;
-            } else {
-                return helper(c, left + 1, right) || helper(c, left, right - 1);
-            }
-        }
-        return true;
+        return helper(s, false);
     }
 
-    private boolean helper(char[] c, int left, int right) {
-        while (left < right) {
-            if (c[left++] != c[right--]) return false;
+    private boolean helper(String s, boolean ignored) {
+        int l = 0;
+        int r = s.length() - 1;
+        while (l < r) {
+            if (s.charAt(l) == s.charAt(r)) {
+                l++;
+                r--;
+            } else {
+                if (ignored) return false;
+                else return helper(s.substring(l + 1, r + 1), true)
+                        || helper(s.substring(l, r), true);
+            }
         }
         return true;
     }

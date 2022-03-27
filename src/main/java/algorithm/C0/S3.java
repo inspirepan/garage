@@ -1,22 +1,21 @@
 package algorithm.C0;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class S3 {
     public int lengthOfLongestSubstring(String s) {
-        if (s.length() == 0) return 0;
-        HashMap<Character, Integer> map = new HashMap<>();
-        int maxLen = 0;
-        int left = -1;
+        int[] lastArr = new int[128];
+        Arrays.fill(lastArr, -1);
+        int max = 0;
+        int last = -1;
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
-            if (map.containsKey(c)) {
-                left = Math.max(left, map.get(c));
-            }
-            maxLen = Math.max(maxLen, i - left);
-            map.put(c, i);
+            last = Math.max(last, lastArr[c]);
+            max = Math.max(max, i - last);
+            lastArr[c] = i;
         }
-        return maxLen;
+        return max;
     }
 
     // 今天又重新自己写了一个滑动窗口 不错哦
