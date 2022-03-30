@@ -2,30 +2,43 @@ package algorithm.C3;
 
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.PriorityQueue;
 
 public class S347 {
     public int[] topKFrequent(int[] nums, int k) {
-        var map = new HashMap<Integer, Integer>();
-        for (int num : nums) {
-            map.put(num, map.getOrDefault(num, 0) + 1);
+        PriorityQueue<Number> pq = new PriorityQueue<>();
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int n : nums) {
+            map.put(n, map.getOrDefault(n, 0) + 1);
         }
-        var pq = new PriorityQueue<Integer>((Comparator.comparingInt(map::get)));
-        for (int num : map.keySet()) {
-            if (pq.size() < k) {
-                pq.offer(num);
-            } else {
-                if (map.get(num) > map.get(pq.peek())) {
-                    pq.poll();
-                    pq.offer(num);
-                }
-            }
+        for (var e : map.entrySet()) {
+            Number n = new Number(e.getKey(), e.getValue());
+            pq.offer(n);
         }
-        var res = new int[k];
-        for (int i = 0; i < res.length; i++) {
+        int[] res = new int[k];
+        int i = 0;
+        while (i < k) {
             assert !pq.isEmpty();
-            res[i] = pq.poll();
+            res[i++] = pq.poll().val;
         }
         return res;
+    }
+
+    public static class Number implements Comparable<Number> {
+        int val;
+        int freq;
+
+        public Number(int n, int freq) {
+            this.val = n;
+            this.freq = freq;
+        }
+
+        @Override
+        public int compareTo(Number o) {
+            if (this.freq == o.freq) return 0;
+            return this.freq < o.freq ? 1 : -1;
+        }
     }
 }

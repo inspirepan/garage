@@ -1,12 +1,9 @@
-package algorithm.C2;
+package algorithm.F2;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.List;
+import java.util.*;
 import java.util.stream.IntStream;
 
-public class S210 {
+public class S113 {
     public int[] findOrder(int numCourses, int[][] prerequisites) {
         if (prerequisites.length == 0) {
             return IntStream.range(0, numCourses).toArray();
@@ -31,7 +28,6 @@ public class S210 {
         }
         int[] res = new int[numCourses];
         int pos = 0;
-        // queue中只添加满足先修条件的课程
         while (!queue.isEmpty()) {
             int curr = queue.poll();
             res[pos++] = curr;

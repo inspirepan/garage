@@ -3,26 +3,28 @@ package algorithm.C1;
 import datastructure.TreeNode;
 
 public class S124 {
-    private int max = Integer.MIN_VALUE;
+    int max = Integer.MIN_VALUE;
 
     public int maxPathSum(TreeNode root) {
-        if (root == null) {
-            return 0;
-        }
-        dfs(root);
-        return this.max;
+        helper(root);
+        return max;
     }
 
-    private int dfs(TreeNode root) {
-        if (root == null) {
-            return 0;
+    private int helper(TreeNode node) {
+        // 返回往下的最大路径和
+        if (node == null) return 0;
+
+        if (node.left == null && node.right == null) {
+            max = Math.max(max, node.val);
+            return node.val;
         }
-        int left = Math.max(0, dfs(root.left));
-        int right = Math.max(0, dfs(root.right));
-        // 路径只有两种情况，root结点+左右子结点的最大单链，或者左右子树中的局部最大路径（不包括root）
-        // 局部最大路径
-        this.max = Math.max(max, root.val + left + right);
-        // 最大单链给上层用来计算
-        return Math.max(left, right) + root.val;
+
+        int l = helper(node.left);
+        int r = helper(node.right);
+        int result = Math.max(l, r);
+        result = Math.max(result + node.val, node.val);
+        max = Math.max(max, result);
+        max = Math.max(max, l + r + node.val);
+        return result;
     }
 }

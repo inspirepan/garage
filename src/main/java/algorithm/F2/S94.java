@@ -1,8 +1,8 @@
-package algorithm.C1;
+package algorithm.F2;
 
 import java.util.Arrays;
 
-public class S132 {
+public class S94 {
     public int minCut(String s) {
         // 可以提前判断一下每一个子串是不是回文串
         char[] c = s.toCharArray();

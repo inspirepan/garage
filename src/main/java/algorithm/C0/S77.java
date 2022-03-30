@@ -4,23 +4,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class S77 {
-    public List<List<Integer>> result = new ArrayList<>();
-    public List<Integer> path = new ArrayList<>();
+    List<List<Integer>> result = new ArrayList<>();
+    List<Integer> path = new ArrayList<>();
+
+    int N;
+    int K;
+    boolean[] used;
 
     public List<List<Integer>> combine(int n, int k) {
-        dfs(n, k, 1, 0);
+        N = n;
+        K = k;
+        used = new boolean[N];
+        dfs(1);
         return result;
     }
 
-    void dfs(int n, int k, int start, int len) {
-        if (len == k) {
-            result.add(new ArrayList<>(path));
+    private void dfs(int start) {
+        if (path.size() == K) {
+            result.add(new ArrayList<Integer>(path));
             return;
         }
-        for (int i = start; i <= n - k + len + 1; i++) {
+        for (int i = start; i <= N; i++) {
             path.add(i);
-            dfs(n, k, i + 1, len + 1);
-            path.remove(len);
+            dfs(i + 1);
+            path.remove(path.size() - 1);
         }
     }
 }

@@ -1,26 +1,6 @@
-package algorithm.C6;
+package algorithm.C2;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-public class S648 {
-
-    public String replaceWords(List<String> dictionary, String s) {
-        Trie trie = new Trie();
-        for (String root : dictionary) {
-            trie.insert(root);
-        }
-        String[] ss = s.trim().split("\\s+");
-        for (int i = 0; i < ss.length; i++) {
-            String prefix = trie.getPrefix(ss[i]);
-            if (prefix.length() > 0) {
-                ss[i] = prefix;
-            }
-        }
-        return String.join(" ", ss);
-    }
+public class S208 {
 
     class Trie {
 
@@ -69,23 +49,7 @@ public class S648 {
             return true;
         }
 
-        public String getPrefix(String word) {
-            int i = 0;
-            TrieNode p = root;
-            String prefix = "";
-            while (i < word.length()) {
-                int index = word.charAt(i++) - 'a';
-                if (p.children[index] == null) {
-                    break;
-                }
-                p = p.children[index];
-                if (p.isLeaf) {
-                    prefix = word.substring(0, i);
-                    break;
-                }
-            }
-            return prefix;
-        }
+
 
         class TrieNode {
             boolean isLeaf = false;

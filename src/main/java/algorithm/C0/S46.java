@@ -7,35 +7,29 @@ import java.util.List;
 
 public class S46 {
 
-    /**
-     * 维护一个boolean访问数组
-     */
-    List<List<Integer>> result;
-    List<Integer> path;
-    boolean[] visited;
+    List<List<Integer>> result = new ArrayList<>();
+    LinkedList<Integer> path = new LinkedList<>();
 
     public List<List<Integer>> permute(int[] nums) {
-        result = new ArrayList<>();
-        path = new ArrayList<>();
-        visited = new boolean[nums.length];
-        dfs(nums);
+        boolean[] used = new boolean[nums.length];
+        dfs(used, nums);
         return result;
     }
 
-    private void dfs(int[] nums) {
+    void dfs(boolean[] used, int[] nums) {
         if (path.size() == nums.length) {
             result.add(new ArrayList<>(path));
             return;
         }
+
         for (int i = 0; i < nums.length; i++) {
-            if (visited[i]) {
-                continue;
-            }
+            if (used[i]) continue;
+
+            used[i] = true;
             path.add(nums[i]);
-            visited[i] = true;
-            dfs(nums);
-            path.remove(path.size() - 1);
-            visited[i] = false;
+            dfs(used, nums);
+            used[i] = false;
+            path.removeLast();
         }
     }
 
@@ -47,7 +41,7 @@ public class S46 {
      */
     public List<List<Integer>> permute2(int[] nums) {
         result = new ArrayList<>();
-        path = new ArrayList<>();
+        path = new LinkedList<>();
         dfs(nums, 0);
         return result;
     }
