@@ -5,6 +5,7 @@ public class S684 {
 
     public int[] findRedundantConnection(int[][] edges) {
         // 抄的
+        // 自己重新写的在 F2.S118
         int m = edges.length, rx, ry;
         if (m == 0) return null;
         pre = new int[m + 1];
