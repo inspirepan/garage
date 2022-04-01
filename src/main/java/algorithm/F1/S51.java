@@ -38,25 +38,31 @@ public class S51 {
         for (int i = left; i <= right; i++) {
             temp[i] = nums[i];
         }
-
-        int i = left;
-        int j = mid + 1;
+        // 使用归并排序
+        int i = left; // 左边的指针
+        int j = mid + 1; // 右边的指针
 
         int count = 0;
         for (int k = left; k <= right; k++) {
-
             if (i == mid + 1) {
+                // 如果左边已经全部比较完
                 nums[k] = temp[j];
                 j++;
             } else if (j == right + 1) {
+                // 右边已经全部比较完毕
                 nums[k] = temp[i];
                 i++;
             } else if (temp[i] <= temp[j]) {
+                // 左边的小于右边的
+
                 nums[k] = temp[i];
                 i++;
             } else {
+                // 右边的小于左边的，交换
                 nums[k] = temp[j];
                 j++;
+                // 在i到mid这一部分都是大于j的，计数
+                // 注意左半部分和右半部分都是已经通过递归排好序的
                 count += (mid - i + 1);
             }
         }
