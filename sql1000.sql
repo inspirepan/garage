@@ -52,7 +52,7 @@ SELECT
 FROM
     Sales
 WHERE
-    (product_id, year) IN(
+    (product_id, year) IN (
         SELECT
             product_id,
             MIN(year)
@@ -65,8 +65,8 @@ WHERE
 --1075
 SELECT
     DISTINCT project_id,
-    round(
-        avg(e.experience_years) over(PARTITION by project_id),
+    ROUND(
+        AVG(e.experience_years) OVER (PARTITION BY project_id),
         2
     ) average_years
 FROM
@@ -96,7 +96,7 @@ FROM
     (
         SELECT
             project_id,
-            rank() over(
+            RANK() OVER (
                 ORDER BY
                     COUNT(employee_id) DESC
             ) AS ranking
@@ -116,7 +116,7 @@ FROM
     Project p
     JOIN Employee e ON p.employee_id = e.employee_id
 WHERE
-    (p.project_id, e.experience_years) IN(
+    (p.project_id, e.experience_years) IN (
         SELECT
             p.project_id,
             MAX(experience_years)
@@ -135,8 +135,8 @@ FROM
         SELECT
             a.project_id,
             a.employee_id,
-            dense_rank() over(
-                PARTITION by a.project_id
+            DENSE_RANK() OVER (
+                PARTITION BY a.project_id
                 ORDER BY
                     b.experience_years DESC
             ) ranking
@@ -154,7 +154,7 @@ FROM
     (
         SELECT
             seller_id,
-            dense_rank() over(
+            DENSE_RANK() OVER (
                 ORDER BY
                     SUM(price) DESC
             ) rk
@@ -208,7 +208,7 @@ WHERE
 SELECT
     a1.install_dt,
     COUNT(*) installs,
-    round(COUNT(a2.event_date) / COUNT(*), 2) Day1_retention
+    ROUND(COUNT(a2.event_date) / COUNT(*), 2) Day1_retention
 FROM
     (
         SELECT
@@ -220,7 +220,7 @@ FROM
             player_id
     ) a1
     LEFT JOIN Activity a2 ON a1.player_id = a2.player_id
-    AND a2.event_date = date(a1.install_dt + 1)
+    AND a2.event_date = DATE(a1.install_dt + 1)
 GROUP BY
     a1.install_dt;
 
@@ -231,7 +231,7 @@ SELECT
 FROM
     Books
 WHERE
-    datediff('2019-06-23', available_from) >= 30
+    DATEDIFF('2019-06-23', available_from) >= 30
     AND book_id NOT IN (
         SELECT
             book_id
@@ -279,8 +279,8 @@ FROM
             student_id,
             course_id,
             grade,
-            rank() over(
-                PARTITION by student_id
+            RANK() OVER (
+                PARTITION BY student_id
                 ORDER BY
                     grade DESC,
                     course_id ASC
@@ -294,7 +294,7 @@ WHERE
 --1113
 SELECT
     extra report_reason,
-    count(DISTINCT post_id) report_count
+    COUNT(DISTINCT post_id) report_count
 FROM
     Actions
 WHERE
@@ -313,7 +313,7 @@ FROM
     JOIN(
         SELECT
             event_type,
-            avg(occurences) avg_occ
+            AVG(occurences) avg_occ
         FROM
             EVENTS
         GROUP BY
@@ -324,7 +324,7 @@ WHERE
 GROUP BY
     business_id
 HAVING
-    count(*) > 1;
+    COUNT(*) > 1;
 
 --1127
 -- mine
@@ -338,19 +338,19 @@ SELECT
         ELSE 'none'
     END AS platform,
     total_amount,
-    IFNULL(count(DISTINCT user_id), 0) AS total_users
+    IFNULL(COUNT(DISTINCT user_id), 0) AS total_users
 FROM
     (
         SELECT
             user_id,
             spend_date,
-            sum(
+            SUM(
                 CASE
                     WHEN platform = 'mobile' THEN 1
                     ELSE 2
                 END
             ) AS platform_number,
-            IFNULL(sum(amount), 0) total_amount
+            IFNULL(SUM(amount), 0) total_amount
         FROM
             Spending
         GROUP BY
@@ -422,4 +422,21 @@ SELECT
 FROM
     tmp
     LEFT JOIN b ON tmp.spend_date = b.spend_date
-    AND tmp.platform = b.platform
+    AND tmp.platform = b.platform;
+
+--1132
+SELECT
+    ROUND(AVG(percent), 2) average_daily_percent
+FROM
+    (
+        SELECT
+            action_date,
+            COUNT(DISTINCT r.post_id) / COUNT(DISTINCT a.post_id) * 100 percent
+        FROM
+            Actions a
+            LEFT JOIN Removals r ON a.post_id = r.post_id
+        WHERE
+            extra = 'spam'
+        GROUP BY
+            action_date
+    ) T;
