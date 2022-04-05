@@ -2,30 +2,17 @@ package algorithm.C0;
 
 public class S45 {
     public int jump(int[] nums) {
-        int len = nums.length;
-        if (len == 1) {
-            return 0;
-        }
-        if (len == 0 || nums[0] == 0) {
-            return -1;
-        }
-        for (int i = 0; i < len - 1; i++) {
-            nums[i] += i;
-        }
-        int time = 0;
-        int target = len - 1;
-        while (target > 0) {
-            int prevTarget = target;
-            for (int j = target - 1; j >= 0; j--) {
-                if (nums[j] >= prevTarget) {
-                    target = j;
-                }
+        int end = 0;
+        int available = 0;
+        int steps = 0;
+        for (int i = 0; i < nums.length - 1; i++) {
+            //找能跳的最远的
+            available = Math.max(available, nums[i] + i);
+            if (i == end) { //遇到边界，就更新边界，并且步数加一
+                end = available;
+                steps++;
             }
-            if (target == prevTarget) {
-                return -1;
-            }
-            time++;
         }
-        return time;
+        return steps;
     }
 }

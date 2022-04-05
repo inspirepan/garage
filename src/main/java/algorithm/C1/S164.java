@@ -1,40 +1,42 @@
 package algorithm.C1;
 
+import java.util.Arrays;
+
 public class S164 {
     public int maximumGap(int[] nums) {
-        if (nums.length < 2) {
+        int n = nums.length;
+        if (n < 2) {
             return 0;
         }
-        int max = 0, min = 0;
-        for (int num : nums) {
-            max = Math.max(max, num);
-            min = Math.min(min, num);
-        }
-        int bucketSize = Math.max((max - min) / (nums.length - 1), 1);
-        Bucket[] buckets = new Bucket[(max - min) / bucketSize + 1];
-        for (int num : nums) {
-            int idx = (num - min) / bucketSize;
-            if (buckets[idx] == null) {
-                buckets[idx] = new Bucket();
-            }
-            buckets[idx].max = Math.max(num, buckets[idx].max);
-            buckets[idx].min = Math.min(num, buckets[idx].min);
-        }
-        int preMax = -1;
-        int maxGap = 0;
-        for (Bucket bucket : buckets) {
-            if (bucket != null && preMax != -1) {
-                maxGap = Math.max(maxGap, bucket.min - preMax);
-            }
-            if (bucket != null) {
-                preMax = bucket.max;
-            }
-        }
-        return maxGap;
-    }
+        long exp = 1;
+        int[] buffer = new int[n];
+        int maxVal = Arrays.stream(nums).max().getAsInt();
 
-    static class Bucket {
-        int min = Integer.MAX_VALUE;
-        int max = Integer.MIN_VALUE;
+        while (maxVal >= exp) {
+            int[] count = new int[10];
+            // 统计当前位的数据
+            for (int i = 0; i < n; i++) {
+                int digit = (nums[i] / (int) exp) % 10;
+                count[digit]++;
+            }
+            // 累加
+            for (int i = 1; i < 10; i++) {
+                count[i] += count[i - 1];
+            }
+            // 按照当前位的数字排序、填入buffer
+            for (int i = n - 1; i >= 0; i--) {
+                int digit = (nums[i] / (int) exp) % 10;
+                buffer[count[digit] - 1] = nums[i];
+                count[digit]--;
+            }
+            System.arraycopy(buffer, 0, nums, 0, n);
+            exp *= 10;
+        }
+        // 已经将nums排序好
+        int ret = 0;
+        for (int i = 1; i < n; i++) {
+            ret = Math.max(ret, nums[i] - nums[i - 1]);
+        }
+        return ret;
     }
 }

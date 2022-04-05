@@ -1,12 +1,10 @@
 package algorithm.C2;
 
-/**
- * 1是例外
- */
 public class S264 {
     public int nthUglyNumber(int n) {
         int p2 = 0, p3 = 0, p5 = 0;
         int[] dp = new int[n];
+        // 第一个丑数是1
         dp[0] = 1;
         for (int i = 1; i < n; i++) {
             // 选出最小的数字

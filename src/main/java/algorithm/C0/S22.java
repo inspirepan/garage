@@ -4,29 +4,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class S22 {
-    private final List<String> result = new ArrayList<>();
+    List<String> res = new ArrayList<>();
+    StringBuilder sb = new StringBuilder();
 
     public List<String> generateParenthesis(int n) {
-        dfs(0, "", n, 0, n);
-        return result;
+        if (n == 0) return res;
+        dfs(n, 0);
+        return res;
     }
 
-    private void dfs(int p, String path, int leftCount, int rightCount, int n) {
-        // 当前需要插入左括号和右括号的数量，每插入一个左的，左-1，右+1
-        // 位置总数是固定的，p代表插入位置
-        if (p == 2 * n) {
-            if (leftCount == 0 && rightCount == 0) {
-                result.add(path);
-            }
+    void dfs(int left, int right) {
+        if (left == 0 && right == 0) {
+            res.add(sb.toString());
             return;
         }
-        if (leftCount > 0) {
-            var s = path.concat("(");
-            dfs(p + 1, s, leftCount - 1, rightCount + 1, n);
+
+        if (left > 0) {
+            sb.append("(");
+            dfs(left - 1, right + 1);
+            sb.setLength(sb.length() - 1);
         }
-        if (rightCount > 0) {
-            var s = path.concat(")");
-            dfs(p + 1, s, leftCount, rightCount - 1, n);
+        if (right > 0) {
+            sb.append(")");
+            dfs(left, right - 1);
+            sb.setLength(sb.length() - 1);
         }
     }
 }

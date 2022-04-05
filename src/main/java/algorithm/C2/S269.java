@@ -6,22 +6,16 @@ public class S269 {
     public String alienOrder(String[] words) {
         // 每次比较相邻的两个单词，得到一条有向边
         // 然后再根据课程顺序那道题的方法给出一个排序就可以了
-
         // 有向边
         Map<Character, Set<Character>> map = new HashMap<>();
         // 入度
         Map<Character, Integer> indegree = new HashMap<>();
-
-        // 我也不知道为什么要把全部的字符加进去
-        // 看了下测试例子，实际上只要是合法的列表、出现过的字母都要加进去，只不过位置是随意的
-        // 如果要细化的话其实可以单独区分出来的，就是判断一下入度为0的这些个字母有没有跟他相关的边
         for (String word : words) {
             for (char c : word.toCharArray()) {
                 indegree.put(c, 0);
             }
         }
-
-        //只需要比较相邻的就可以了
+        //比较相邻的就可以了
         for (int i = 0; i < words.length - 1; i++) {
             String w1 = words[i];
             String w2 = words[i + 1];
@@ -46,8 +40,6 @@ public class S269 {
                 k++;
             }
         }
-        System.out.println(map);
-        System.out.println(indegree);
         var sb = new StringBuilder();
         Deque<Character> queue = new LinkedList<>();
         for (var e : indegree.entrySet()) {

@@ -3,20 +3,19 @@ package algorithm.C1;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class S187 {
     public List<String> findRepeatedDnaSequences(String s) {
-        var resultSet = new HashSet<String>();
-        var set = new HashSet<String>();
-        for (int i = 0; i <= s.length() - 10; i++) {
-            var sub = s.substring(i, i + 10);
-            if (set.contains(sub)) {
-                resultSet.add(sub);
-            } else {
-                set.add(sub);
+        Set<String> res = new HashSet<>();
+        Set<String> set = new HashSet<>();
+        for (int i = 0; i + 10 <= s.length(); i++) {
+            String temp = s.substring(i, i + 10);
+            if (set.contains(temp)) {
+                res.add(temp);
             }
+            set.add(temp);
         }
-        return new ArrayList<>(resultSet);
+        return new ArrayList<>(res);
     }
-
 }

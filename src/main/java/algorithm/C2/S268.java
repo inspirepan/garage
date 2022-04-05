@@ -2,11 +2,12 @@ package algorithm.C2;
 
 public class S268 {
     public int missingNumber(int[] nums) {
-        boolean[] rec = new boolean[nums.length + 1];
-        for (int num : nums) rec[num] = true;
-        for (int i = 0; i < rec.length; i++) {
-            if (!rec[i]) return i;
+        int x = 0;
+        for (int i = 0; i < nums.length; i++) {
+            x ^= i;
+            x ^= nums[i];
         }
-        return 0;
+        x ^= nums.length;
+        return x;
     }
 }

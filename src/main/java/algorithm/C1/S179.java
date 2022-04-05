@@ -4,18 +4,20 @@ import java.util.Arrays;
 
 public class S179 {
     public String largestNumber(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return "";
-        }
-        String[] strArray = new String[nums.length];
+        String[] ss = new String[nums.length];
+        boolean flag = false;
         for (int i = 0; i < nums.length; i++) {
-            strArray[i] = Integer.toString(nums[i]);
+            ss[i] = String.valueOf(nums[i]);
+            if (nums[i] > 0) flag = true;
         }
-        Arrays.sort(strArray, (s1, s2) -> (s2 + s1).compareTo(s1 + s2));
+        if (!flag) return "0";
+        Arrays.sort(ss, (o1, o2) -> {
+            return -(o1 + o2).compareTo(o2 + o1);
+        });
         var sb = new StringBuilder();
-        for (String s : strArray) {
+        for (String s : ss) {
             sb.append(s);
         }
-        return "0".equals(strArray[0]) ? "0" : sb.toString();
+        return sb.toString();
     }
 }

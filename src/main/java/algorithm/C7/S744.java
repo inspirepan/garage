@@ -2,7 +2,6 @@ package algorithm.C7;
 
 public class S744 {
     public char nextGreatestLetter(char[] letters, char target) {
-
         int len = letters.length;
         int l = 0;
         int r = len - 1;
@@ -13,6 +12,7 @@ public class S744 {
             else
                 l = mid + 1;
         }
-        return letters[l % len];
+        if (l == len) return letters[0];
+        else return letters[l];
     }
 }

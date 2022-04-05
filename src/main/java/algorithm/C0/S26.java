@@ -2,16 +2,14 @@ package algorithm.C0;
 
 public class S26 {
     public int removeDuplicates(int[] nums) {
+        int i = 0;
         int j = 0;
-        int mark = nums[0];
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] == mark) {
-                i++;
-            } else {
-                mark = nums[i];
-                nums[j] = mark;
-                j++;
-            }
+        int len = nums.length;
+        while (i < len) {
+            nums[j] = nums[i];
+            j++;
+            i++;
+            while (i < len && nums[i] == nums[i - 1]) i++;
         }
         return j;
     }
