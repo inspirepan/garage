@@ -2,54 +2,62 @@ package algorithm.C3;
 
 public class S306 {
     public boolean isAdditiveNumber(String num) {
-        // 数不能以0开头，感觉就用dfs做，至少三个数
-        // 忘了，前两个数是没有限制的
-
-        // 算法写出来了，有两个例子不能过，long都不够用，服了
         if (num.length() < 3) return false;
-
-        // 如果是0
+        // 先确定前两个数，考虑前导0
         if (num.charAt(0) == '0') {
-            for (int i = 2; i < num.length(); i++) {
-                //选第二个数
-                long sec = Long.parseLong(num.substring(1, i));
-                if (dfs(i, sec, sec, num)) return true;
+            // 第一个数必须是0
+            if (num.charAt(1) == '0') {
+                // 第二个数也是0
+                return helper(2, "0", "0", num);
+            } else {
+                for (int i = 2; i <= num.length(); i++) {
+                    String curr = num.substring(1, i);
+                    if (helper(i, curr, curr, num)) return true;
+                }
             }
-        } else {
-            // 双重循环前两个数
-            for (int i = 1; i < num.length() - 1; i++) {
-                // 第一个数[0,i-1]
-                long first = Long.parseLong(num.substring(0, i));
-                // 选第二个数，考虑0，[i,j-1]
-                if (num.charAt(i) == '0') {
-                    if (dfs(i + 1, 0, first, num)) return true;
-                } else {
-                    for (int j = i + 1; j < num.length(); j++) {
-                        long second = Long.parseLong(num.substring(i, j));
-                        if (dfs(j, second, second + first, num)) return true;
-                    }
+            return false;
+        }
+        // 选两个数
+        for (int i = 1; i < num.length(); i++) {
+            String first = num.substring(0, i);
+            // 考虑第二个数的0
+            if (num.charAt(i) == '0') {
+                if (helper(i + 1, first, "0", num)) return true;
+            } else {
+                for (int j = i + 1; j < num.length(); j++) {
+                    String sec = num.substring(i, j);
+                    if (helper(j, add(first, sec), sec, num)) return true;
                 }
             }
         }
         return false;
     }
 
-    private boolean dfs(int start, long lastNum, long expectNum, String num) {
-        if (start >= num.length()) return false;
-        // 如果剩余的数组合起来正好等于期望值，那么返回true
+    boolean helper(int start, String expect, String prev, String num) {
+        // i 当前起点
+        // expectSum 期望i开始的和
+        // prevNum 上一个数
+        int nextLen = expect.length();
+        if (nextLen + start > num.length()) return false;
+        if (!num.substring(start, start + nextLen).equals(expect)) return false;
+        if (start + nextLen == num.length()) return true;
+        return helper(start + nextLen, add(expect, prev), expect, num);
+    }
 
-        // 如果以0开头，那么下一个数只能是0
-        if (num.charAt(start) == '0') {
-            return expectNum == 0 && dfs(start + 1, 0, lastNum, num);
+    static String add(String a, String b) {
+        char[] ca = a.toCharArray();
+        char[] cb = b.toCharArray();
+        int i = ca.length - 1, j = cb.length - 1;
+        var sb = new StringBuilder();
+        int carry = 0;
+        while (i >= 0 || j >= 0 || carry > 0) {
+            int digit = carry;
+            if (i >= 0) digit += ca[i--] - '0';
+            if (j >= 0) digit += cb[j--] - '0';
+            carry = digit >= 10 ? 1 : 0;
+            digit = digit >= 10 ? digit - 10 : digit;
+            sb.append(digit);
         }
-        if (Long.parseLong(num.substring(start)) == expectNum) {
-            return true;
-        }
-        for (int i = start + 1; i < num.length(); i++) {
-            // 下一个数[start,i-1]
-            long curr = Long.parseLong(num.substring(start, i));
-            if (curr == expectNum && dfs(i, curr, lastNum + curr, num)) return true;
-        }
-        return false;
+        return sb.reverse().toString();
     }
 }

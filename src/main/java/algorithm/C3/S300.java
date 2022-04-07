@@ -2,60 +2,51 @@ package algorithm.C3;
 
 import java.util.Arrays;
 
-/**
- * @author panjx
- */
 public class S300 {
     public int lengthOfLIS(int[] nums) {
-        if (nums.length < 2) {
-            return nums.length;
-        }
-        int maxLen = 1;
-        // dp定义为能够加入第i个数的最长子串长度
-        int[] dp = new int[nums.length];
-        for (int i = 0; i < nums.length; i++) {
-            int highest = 0;
-            // 对于i之前的每一项，如果小于nums[i]，都可以成为上升子序列的一部分，因此求出最大值
-            for (int j = 0; j < i; j++) {
-                if (nums[i] > nums[j]) {
-                    highest = Math.max(highest, dp[j]);
+        int len = nums.length;
+        int[] dp = new int[len];
+        int end = 0;
+        dp[0] = nums[0];
+        for (int i = 1; i < len; i++) {
+            if (nums[i] > dp[end]) {
+                dp[++end] = nums[i];
+            } else {
+                // 往前找第一个大于的位置
+                // 因为是有序的，所以优化成二分
+                int k = end;
+                while (k >= 0 && dp[k] >= nums[i]) {
+                    k--;
                 }
+                dp[k + 1] = nums[i];
             }
-            dp[i] = highest + 1;
-            maxLen = Math.max(maxLen, dp[i]);
         }
-        return maxLen;
+        return end + 1;
     }
 
-    /**
-     * 看的题解
-     */
     public int lengthOfLIS2(int[] nums) {
         if (nums.length <= 1) {
             return nums.length;
         }
-        // tails的第i个表示在所有长度为i的上升子序列的末尾值中，最小的值
-        int[] tails = new int[nums.length];
-        tails[0] = nums[0];
+        int[] dp = new int[nums.length];
+        dp[0] = nums[0];
         int end = 0;
         for (int num : nums) {
-            System.out.println(Arrays.toString(tails));
-            if (num > tails[end]) {
-                // 如果当前数可以接入到tails中的序列中，那么长度+1，然后更改末尾
-                tails[++end] = num;
+            if (num > dp[end]) {
+                dp[++end] = num;
             } else {
                 int left = 0;
                 int right = end;
                 // 二分查找tails中第一个大于nums[i]的
                 while (left < right) {
                     int mid = left + (right - left) / 2;
-                    if (tails[mid] < num) {
+                    if (dp[mid] < num) {
                         left = mid + 1;
                     } else {
                         right = mid;
                     }
                 }
-                tails[left] = num;
+                dp[left] = num;
             }
         }
         return ++end;
