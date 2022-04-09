@@ -28,7 +28,7 @@ public class S329 {
             return dp[x][y];
         }
         // at least 1
-        ++dp[x][y];
+        dp[x][y] = 1;
         for (int[] dir : dirs) {
             int nx = x + dir[0], ny = y + dir[1];
             if (nx >= 0 && nx < m && ny >= 0 && ny < n)

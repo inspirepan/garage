@@ -4,28 +4,28 @@ import datastructure.ListNode;
 
 public class S328 {
     public ListNode oddEvenList(ListNode head) {
-        // 写法和HashMapResize的尾插法差不多哈
-        ListNode oHead = new ListNode();
-        ListNode o = oHead;
-        ListNode eHead = new ListNode();
-        ListNode e = eHead;
+        // 写法和HashMapResize的尾插法差不多哈`
+        ListNode odd = new ListNode();
+        ListNode a = odd;
+        ListNode even = new ListNode();
+        ListNode b = even;
         ListNode p = head;
-        boolean odd = true;
+        boolean isOdd = true;
         while (p != null) {
             ListNode next = p.next;
-            if (odd) {
-                o.next = p;
-                o = o.next;
+            if (isOdd) {
+                a.next = p;
+                a = a.next;
             } else {
-                e.next = p;
-                e = e.next;
+                b.next = p;
+                b = b.next;
             }
-            odd = !odd;
+            isOdd = !isOdd;
             p = next;
         }
 
-        o.next = eHead.next;
-        e.next = null;
-        return oHead.next;
+        a.next = even.next;
+        b.next = null;
+        return odd.next;
     }
 }

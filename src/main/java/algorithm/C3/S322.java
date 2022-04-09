@@ -6,19 +6,17 @@ public class S322 {
 
     public int coinChange(int[] coins, int amount) {
         int[] dp = new int[amount + 1];
+        Arrays.fill(dp, Integer.MAX_VALUE);
         dp[0] = 0;
-
-        int notFound = 99999;
-        for (int i = 1; i <= amount; i++) {
-            dp[i] = notFound;
-            for (int coin : coins) {
-                if (i < coin) {
-                    continue;
+        for (int coin : coins) {
+            int i = coin;
+            while (i <= amount) {
+                if (dp[i - coin] < Integer.MAX_VALUE) {
+                    dp[i] = Math.min(dp[i], dp[i - coin] + 1);
                 }
-                dp[i] = Math.min(dp[i], 1 + dp[i - coin]);
+                i++;
             }
         }
-        System.out.println(Arrays.toString(dp));
-        return (dp[amount] == notFound) ? -1 : dp[amount];
+        return dp[amount] == Integer.MAX_VALUE ? -1 : dp[amount];
     }
 }

@@ -29,4 +29,24 @@ public class S337 {
             }
         }
     }
+
+    // DFS的时候返回两个结果就好了
+    public int rob2(TreeNode root) {
+        int[] result = dfs(root);
+        return Math.max(result[0], result[1]);
+    }
+
+    int[] dfs(TreeNode node) {
+        if (node == null) {
+            return new int[]{0, 0};
+        }
+
+        int[] l = dfs(node.left);
+        int[] r = dfs(node.right);
+
+        int select = l[1] + r[1] + node.val;
+        int notSelect = Math.max(l[0], l[1]) + Math.max(r[0], r[1]);
+
+        return new int[]{select, notSelect};
+    }
 }
