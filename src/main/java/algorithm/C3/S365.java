@@ -6,56 +6,47 @@ import java.util.LinkedList;
 import java.util.Set;
 
 public class S365 {
-    // 数学方法
-    public boolean canMeasureWater(int x, int y, int z) {
-        if (x + y < z) {
-            return false;
+    // 求最大公约数，是否可以整除target
+    public boolean canMeasureWater(int x, int y, int target) {
+        if (target > x + y) return false;
+        if (target == 0) return true;
+
+        while (x != y) {
+            if (x > y) x -= y;
+            else y -= x;
         }
-        if (x == 0 || y == 0) {
-            return z == 0 || x + y == z;
-        }
-        return z % gcd(x, y) == 0;
+        return target % x == 0;
     }
 
-    public int gcd(int x, int y) {
-        int remainder = x % y;
-        while (remainder != 0) {
-            x = y;
-            y = remainder;
-            remainder = x % y;
-        }
-        return y;
-    }
-
-    //DFS 模拟每一个操作即可，用一个栈进行广度优先搜索，然后用一个Set来剪枝
+    //模拟每一个操作，用一个栈进行广度优先搜索，然后用一个Set来剪枝
     public boolean canMeasureWater2(int x, int y, int z) {
         Deque<int[]> stack = new LinkedList<int[]>();
         stack.push(new int[]{0, 0});
-        Set<Long> seen = new HashSet<Long>();
+        Set<Long> visited = new HashSet<Long>();
         while (!stack.isEmpty()) {
-            if (seen.contains(hash(stack.peek()))) {
+            if (visited.contains(hash(stack.peek()))) {
                 stack.pop();
                 continue;
             }
-            seen.add(hash(stack.peek()));
+            visited.add(hash(stack.peek()));
 
             int[] state = stack.pop();
-            int remain_x = state[0], remain_y = state[1];
-            if (remain_x == z || remain_y == z || remain_x + remain_y == z) {
+            int rx = state[0], ry = state[1];
+            if (rx == z || ry == z || rx + ry == z) {
                 return true;
             }
-            // 把 X 壶灌满。
-            stack.push(new int[]{x, remain_y});
-            // 把 Y 壶灌满。
-            stack.push(new int[]{remain_x, y});
-            // 把 X 壶倒空。
-            stack.push(new int[]{0, remain_y});
-            // 把 Y 壶倒空。
-            stack.push(new int[]{remain_x, 0});
-            // 把 X 壶的水灌进 Y 壶，直至灌满或倒空。
-            stack.push(new int[]{remain_x - Math.min(remain_x, y - remain_y), remain_y + Math.min(remain_x, y - remain_y)});
-            // 把 Y 壶的水灌进 X 壶，直至灌满或倒空。
-            stack.push(new int[]{remain_x + Math.min(remain_y, x - remain_x), remain_y - Math.min(remain_y, x - remain_x)});
+            // 把 X 壶灌满
+            stack.push(new int[]{x, ry});
+            // 把 Y 壶灌满
+            stack.push(new int[]{rx, y});
+            // 把 X 壶倒空
+            stack.push(new int[]{0, ry});
+            // 把 Y 壶倒空
+            stack.push(new int[]{rx, 0});
+            // 把 X 壶的水灌进 Y 壶，直至灌满或倒空
+            stack.push(new int[]{rx - Math.min(rx, y - ry), ry + Math.min(rx, y - ry)});
+            // 把 Y 壶的水灌进 X 壶，直至灌满或倒空
+            stack.push(new int[]{rx + Math.min(ry, x - rx), ry - Math.min(ry, x - rx)});
         }
         return false;
     }
