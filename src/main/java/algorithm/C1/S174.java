@@ -1,28 +1,47 @@
 package algorithm.C1;
 
+import java.util.Arrays;
+
 /**
  * @author panjx
  */
 public class S174 {
-    public int calculateMinimumHp(int[][] dungeon) {
+    public int calculateMinimumHP(int[][] dungeon) {
         int m = dungeon.length;
         int n = dungeon[0].length;
+
         int[][] dp = new int[m][n];
-        // 最后一间
-        dp[m - 1][n - 1] = dungeon[m - 1][n - 1] > 0 ? 1 : 1 - dungeon[m - 1][n - 1];
-        // 最后一列
+
+        if (dungeon[m - 1][n - 1] < 0) {
+            dp[m - 1][n - 1] = -dungeon[m - 1][n - 1] + 1;
+        } else {
+            dp[m - 1][n - 1] = 1;
+        }
         for (int i = m - 2; i >= 0; i--) {
-            // 最低也需要生命值为1
-            dp[i][n - 1] = Math.max(dp[i + 1][n - 1] - dungeon[i][n - 1], 1);
+            int curr = dungeon[i][n - 1];
+            if (curr < 0) {
+                dp[i][n - 1] = dp[i + 1][n - 1] - curr;
+            } else {
+                dp[i][n - 1] = Math.max(1, dp[i + 1][n - 1] - curr);
+            }
         }
-        // 最后一行
         for (int j = n - 2; j >= 0; j--) {
-            dp[m - 1][j] = Math.max(dp[m - 1][j + 1] - dungeon[m - 1][j], 1);
+            int curr = dungeon[m - 1][j];
+            if (curr < 0) {
+                dp[m - 1][j] = dp[m - 1][j + 1] - curr;
+            } else {
+                dp[m - 1][j] = Math.max(1, dp[m - 1][j + 1] - curr);
+            }
         }
+
         for (int i = m - 2; i >= 0; i--) {
             for (int j = n - 2; j >= 0; j--) {
-                // 计算最低需求用min，但是也不能低于1
-                dp[i][j] = Math.max(-dungeon[i][j] + Math.min(dp[i + 1][j], dp[i][j + 1]), 1);
+                int curr = dungeon[i][j];
+                if (curr < 0) {
+                    dp[i][j] = Math.min(dp[i + 1][j], dp[i][j + 1]) - curr;
+                } else {
+                    dp[i][j] = Math.max(1, Math.min(dp[i + 1][j], dp[i][j + 1]) - curr);
+                }
             }
         }
         return dp[0][0];

@@ -4,6 +4,7 @@ import java.util.*;
 
 public class S787 {
     public int findCheapestPrice(int n, int[][] flights, int src, int dst, int k) {
+        // Dijkstra
         Map<Integer, Map<Integer, Integer>> map = new HashMap<>();
         for (var flight : flights) {
             if (!map.containsKey(flight[0])) {

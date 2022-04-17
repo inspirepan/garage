@@ -1,29 +1,40 @@
 package algorithm.C0;
 
+import java.util.Arrays;
+
 public class S72 {
     /**
      * 编辑距离
      */
     public int minDistance(String word1, String word2) {
-        int len1 = word1.length();
-        int len2 = word2.length();
-        // w1前i个字符转换成w2前j个字符
-        int[][] dp = new int[len1 + 1][len2 + 1];
-        for (int i = 0; i <= len1; i++) {
+        char[] arr1 = word1.toCharArray();
+        char[] arr2 = word2.toCharArray();
+        int m = arr1.length;
+        int n = arr2.length;
+        int[][] dp = new int[m + 1][n + 1];
+        for (int[] k : dp) {
+            Arrays.fill(k, Integer.MAX_VALUE);
+        }
+        dp[0][0] = 0;
+        for (int i = 0; i <= m; i++) {
             dp[i][0] = i;
         }
-        for (int i = 1; i <= len2; i++) {
-            dp[0][i] = i;
+        for (int j = 0; j <= n; j++) {
+            dp[0][j] = j;
         }
-        for (int i = 1; i <= len1; i++) {
-            for (int j = 1; j <= len2; j++) {
-                if (word1.charAt(i - 1) == word2.charAt(j - 1)) {
-                    dp[i][j] = dp[i - 1][j - 1];
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (arr1[i] == arr2[j]) {
+                    dp[i + 1][j + 1] = Math.min(dp[i + 1][j + 1], dp[i][j]);
                 } else {
-                    dp[i][j] = Math.min(Math.min(dp[i - 1][j], dp[i][j - 1]), dp[i - 1][j - 1]) + 1;
+                    // 增删
+                    dp[i + 1][j + 1] = Math.min(dp[i + 1][j], dp[i][j + 1]) + 1;
+                    // 替换
+                    dp[i + 1][j + 1] = Math.min(dp[i][j] + 1, dp[i + 1][j + 1]);
                 }
             }
         }
-        return dp[len1][len2];
+        return dp[m][n];
     }
 }

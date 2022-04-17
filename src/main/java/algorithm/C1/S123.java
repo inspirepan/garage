@@ -2,14 +2,23 @@ package algorithm.C1;
 
 public class S123 {
     public int maxProfit(int[] prices) {
-        int dp_i10 = 0, dp_i11 = Integer.MIN_VALUE;
-        int dp_i20 = 0, dp_i21 = Integer.MIN_VALUE;
-        for (int price : prices) {
-            dp_i20 = Math.max(dp_i20, dp_i21 + price);
-            dp_i21 = Math.max(dp_i21, dp_i10 - price);
-            dp_i10 = Math.max(dp_i10, dp_i11 + price);
-            dp_i11 = Math.max(dp_i11, -price);
+        int len = prices.length;
+        int a = 0;
+        int b = -prices[0];
+        int c = 0;
+        int d = -prices[0];
+
+        for (int i = 1; i < len; i++) {
+            int p = prices[i];
+            // 持有0，完成2笔或者初始
+            a = Math.max(a, d + p);
+            // 持有第一笔，必然是-p
+            b = Math.max(b, -p);
+            // 卖出一笔后
+            c = Math.max(c, b + p);
+            // 持有第二笔
+            d = Math.max(d, c - p);
         }
-        return dp_i20;
+        return a;
     }
 }

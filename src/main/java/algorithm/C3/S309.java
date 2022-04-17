@@ -22,4 +22,17 @@ public class S309 {
         // 结果只考虑未持有股票的状态
         return Math.max(dp[len - 1][0], dp[len - 1][1]);
     }
+
+    public int maxProfit2(int[] prices) {
+        int a = 0;
+        int b = Integer.MIN_VALUE;
+        int c = 0;
+        for (int price : prices) {
+            int temp = c;
+            c = b + price;
+            b = Math.max(b, a - price);
+            a = Math.max(a, temp);
+        }
+        return Math.max(a, c);
+    }
 }
