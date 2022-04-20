@@ -13,24 +13,28 @@ import java.util.PriorityQueue;
  * @author panjx
  */
 public class S23 {
-    public ListNode mergeKListWithPq(ListNode[] lists) {
-        var pq = new PriorityQueue<ListNode>(Comparator.comparingInt(o -> o.val));
-        for (var list : lists) {
-            if (list != null) {
-                pq.offer(list);
+    class Solution {
+        public ListNode mergeKLists(ListNode[] lists) {
+            ListNode dummy = new ListNode();
+            ListNode p = dummy;
+            PriorityQueue<ListNode> pq = new PriorityQueue<>(new Comparator<ListNode>() {
+                @Override
+                public int compare(ListNode l1, ListNode l2) {
+                    return l1.val - l2.val;
+                }
+            });
+
+            for (ListNode l : lists) {
+                if (l != null) pq.offer(l);
             }
-        }
-        ListNode dummyHead = new ListNode();
-        ListNode p = dummyHead;
-        while (!pq.isEmpty()) {
-            var node = pq.poll();
-            p.next = node;
-            if (node.next != null) {
-                pq.offer(node.next);
+            while (!pq.isEmpty()) {
+                ListNode q = pq.poll();
+                p.next = q;
+                if (q.next != null) pq.offer(q.next);
+                p = p.next;
             }
-            p = p.next;
+            return dummy.next;
         }
-        return dummyHead.next;
     }
 
     public ListNode mergeKLists(ListNode[] lists) {
