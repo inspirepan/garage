@@ -2,7 +2,7 @@ package algorithm.C3;
 
 import java.util.*;
 
-public class S315 {
+public class S315bin {
     public List<Integer> countSmaller(int[] nums) {
         List<Integer> list = new ArrayList<>();
         List<Integer> res = new ArrayList<>();
