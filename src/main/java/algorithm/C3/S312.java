@@ -34,4 +34,30 @@ public class S312 {
         // 最终状态一定是只留下两端虚拟气球的
         return dp[0][length + 1];
     }
+
+    class Solution {
+        // 4.25自己独立写的
+        public int maxCoins(int[] nums) {
+            int len = nums.length;
+            int[][] dp = new int[len + 2][len + 2];
+            int[] b = new int[len + 2];
+            b[0] = 1;
+            b[len + 1] = 1;
+            System.arraycopy(nums, 0, b, 1, len);
+            for (int i = 1; i <= len; i++) {
+                dp[i - 1][i + 1] = b[i] * b[i - 1] * b[i + 1];
+            }
+
+            for (int k = 2; k <= len; k++) {
+                for (int i = 0; i + k <= len; i++) {
+                    int temp = 0;
+                    for (int j = i + 1; j <= i + k; j++) {
+                        temp = Math.max(temp, b[j] * b[i] * b[i + k + 1] + dp[i][j] + dp[j][i + k + 1]);
+                    }
+                    dp[i][i + k + 1] = temp;
+                }
+            }
+            return dp[0][len + 1];
+        }
+    }
 }

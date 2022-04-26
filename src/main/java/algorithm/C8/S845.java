@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.C8;
 
 public class S845 {
 

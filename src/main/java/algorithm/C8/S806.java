@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.C8;
 
 public class S806 {
     public int[] numberOfLines(int[] widths, String s) {

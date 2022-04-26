@@ -3,96 +3,58 @@ package algorithm.C3;
 import java.util.*;
 
 public class S327 {
-    public int countRangeSum(int[] nums, int lower, int upper) {
-        // 头一次学线段树
-        long sum = 0;
-        // 先计算前缀和
-        long[] preSum = new long[nums.length + 1];
-        for (int i = 0; i < nums.length; ++i) {
-            sum += nums[i];
-            preSum[i + 1] = sum;
-        }
+    class Solution {
+        // 算出前缀和
+        // 要么就是每个前缀和在low到up的范围内，表示0,n这段区间符合要求 情况1
+        // 要么就是两个前缀和之间的差在low到up的范围内，这一部分用归并排序的简化计算
+        int count = 0;
+        public int countRangeSum(int[] nums, int lower, int upper) {
 
-        Set<Long> allNumbers = new TreeSet<Long>();
-        for (long x : preSum) {
-            allNumbers.add(x);
-            allNumbers.add(x - lower);
-            allNumbers.add(x - upper);
+            int n = nums.length;
+            long[] pres = new long[n];
+            pres[0] = nums[0];
+            for(int i = 1; i < n; i++) pres[i] = pres[i - 1] + nums[i];
+            mergeSort(pres, 0, n, lower, upper);
+            return count;
         }
-        // 利用哈希表进行离散化
-        // TreeSet，全部数字按顺序放在values中
-        Map<Long, Integer> values = new HashMap<Long, Integer>();
-        int idx = 0;
-        for (long x : allNumbers) {
-            values.put(x, idx);
-            idx++;
-        }
+        public long[] mergeSort(long[] pres, int left, int right, int lower, int upper){
 
-        // 构建线段树
-        SegNode root = build(0, values.size() - 1);
-        int ret = 0;
+            if(left == right) return new long[0];
+            if(right - left == 1){
 
-        // 对于每一个前缀
-        for (long x : preSum) {
-            // 找到targetSum的上下限
-            int left = values.get(x - upper), right = values.get(x - lower);
-            // 使用线段树计算
-            ret += count(root, left, right);
-            // 将当前树插入到线段树中
-            insert(root, values.get(x));
-        }
-        return ret;
-    }
+                long last = pres[left];
+                if(last >= lower && last <= upper) count++; // 情况1
+                return new long[]{last};
+            }
 
-    // 可能出现的值
-    public SegNode build(int left, int right) {
-        SegNode node = new SegNode(left, right);
-        if (left == right) {
-            return node;
-        }
-        int mid = (left + right) / 2;
-        node.lchild = build(left, mid);
-        node.rchild = build(mid + 1, right);
-        return node;
-    }
+            int mid = (left + right) / 2;
+            long[] ls = mergeSort(pres, left, mid, lower, upper);
+            int ln = ls.length;
+            long[] rs = mergeSort(pres, mid, right, lower, upper);
+            int rn = rs.length;
 
-    public int count(SegNode root, int left, int right) {
-        // 如果不在这个区间内
-        if (left > root.hi || right < root.lo) {
-            return 0;
-        }
-        // 如果完全在这个区间内
-        if (left <= root.lo && root.hi <= right) {
-            return root.add;
-        }
-        // 找孩子区间
-        return count(root.lchild, left, right) + count(root.rchild, left, right);
-    }
+            int cn = ln + rn;
+            long[] copy = new long[cn];
 
-    // 插入计数
-    public void insert(SegNode root, int val) {
-        root.add++;
-        if (root.lo == root.hi) {
-            return;
-        }
-        int mid = (root.lo + root.hi) / 2;
-        if (val <= mid) {
-            insert(root.lchild, val);
-        } else {
-            insert(root.rchild, val);
+            int l = 0, r1 = 0, r2 = 0;
+            while(l < ln && r1 < rn){
+
+                while(r1 < rn && rs[r1] < lower + ls[l]) r1++;
+                r2 = r1 > r2 ? r1 : r2;
+                while(r2 < rn && rs[r2] <= upper + ls[l]) r2++;
+                count += r2 - r1;
+                l++;
+            }
+            int p = 0;
+            l = r1 = 0;
+            while(p < cn){
+
+                if(l < ln && (r1 >= rn || ls[l] < rs[r1])) copy[p++] = ls[l++];
+                else copy[p++] = rs[r1++];
+            }
+            return copy;
         }
     }
 
-    class SegNode {
-        int lo, hi, add;
-        SegNode lchild, rchild;
 
-        public SegNode(int left, int right) {
-            lo = left;
-            hi = right;
-            add = 0;
-            lchild = null;
-            rchild = null;
-        }
-    }
 }

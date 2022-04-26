@@ -3,124 +3,114 @@ package algorithm.C1;
 /* LRUCache */
 class S146 {
     class LRUCache {
-        private int N;
-        Node head;
-        Node tail;
-        int K = 10;
-        int tableSize = 2 << K;
-        Node[] table = new Node[tableSize];
+
+        Entry head = new Entry();
+        Entry tail = new Entry();
+        final int THRESHOLD;
+        Entry[] tables;
         int size = 0;
 
         public LRUCache(int capacity) {
-            this.N = capacity;
-            head = new Node();
-            tail = new Node();
-            head.next = tail;
-            tail.prev = head;
+            this.THRESHOLD = capacity;
+            head.lNext = tail;
+            tail.lPrev = head;
+            this.tables = new Entry[1 << 10];
         }
 
         public int get(int key) {
-            int index = key & (tableSize - 1);
-            Node e = table[index];
-            while (e != null) {
-                if (e.key == key) {
-                    upToHead(e);
-                    return e.val;
+            // find
+            int hash = key & ((1 << 10) - 1);
+            Entry p = tables[hash];
+            while (p != null) {
+                if (p.key == key) {
+                    moveToHead(p);
+                    return p.value;
                 }
-                e = e.hashNext;
+                p = p.next;
             }
             return -1;
         }
 
+        void moveToHead(Entry e) {
+            e.lNext.lPrev = e.lPrev;
+            e.lPrev.lNext = e.lNext;
+            e.lNext = head.lNext;
+            e.lPrev = head;
+            head.lNext.lPrev = e;
+            head.lNext = e;
+        }
+
+        void insertToHead(Entry e) {
+            e.lNext = head.lNext;
+            e.lPrev = head;
+            head.lNext.lPrev = e;
+            head.lNext = e;
+        }
+
         public void put(int key, int value) {
-            Node n = new Node(key, value);
-            // hash
-            int index = key & (tableSize - 1);
-            Node e = table[index];
-            boolean found = false;
-            if (e == null) {
-                table[index] = n;
-            } else if (e.key == key) {
-                found = true;
-                e.val = value;
-                upToHead(e);
-            } else {
-                while (e.hashNext != null) {
-                    e = e.hashNext;
-                    if (e.key == key) {
-                        found = true;
-                        e.val = value;
-                        upToHead(e);
-                        break;
-                    }
+            int hash = key & ((1 << 10) - 1);
+            Entry p = tables[hash];
+            Entry prev = null;
+            while (p != null) {
+                if (p.key == key) {
+                    p.value = value;
+                    moveToHead(p);
+                    return;
                 }
-                // assert new node
-                if (!found) {
-                    e.hashNext = n;
-                    n.hashPrev = e;
-                }
+                prev = p;
+                p = p.next;
             }
-            if (found) return;
-            // lru list head
-            n.prev = head;
-            n.next = head.next;
-            head.next.prev = n;
-            head.next = n;
-            // capacity
-            if (size == N) {
-                // remove tail;
+            Entry n = new Entry(key, value);
+            n.next = null;
+            n.prev = prev;
+            if (prev == null) {
+                tables[hash] = n;
+            } else {
+                prev.next = n;
+            }
+            insertToHead(n);
+            if (++size > THRESHOLD) {
                 removeTail();
-            } else {
-                size++;
             }
         }
 
-        private void upToHead(Node e) {
-            // move e to list head
-            e.prev.next = e.next;
-            e.next.prev = e.prev;
-            head.next.prev = e;
-            e.next = head.next;
-            head.next = e;
-            e.prev = head;
-        }
-
-        private void removeTail() {
-            // remove from lru list
-            Node remove = tail.prev;
-            tail.prev = tail.prev.prev;
-            tail.prev.next = tail;
+        void removeTail() {
+            Entry r = tail.lPrev;
+            // remove from lru
+            r.lPrev.lNext = tail;
+            tail.lPrev = r.lPrev;
             // remove from hash
-            if (remove.hashNext == null && remove.hashPrev == null) table[remove.key & (tableSize - 1)] = null;
-            else if (remove.hashPrev == null) {
-                table[remove.key & (tableSize - 1)] = remove.hashNext;
-                remove.hashNext.hashPrev = null;
-            } else if (remove.hashNext == null) {
-                remove.hashPrev.hashNext = null;
+            int hash = r.key & ((1 << 10) - 1);
+            if (r.next == null && r.prev == null) {
+                tables[hash] = null;
+            } else if (r.prev == null) {
+                tables[hash] = r.next;
+                r.next.prev = null;
+            } else if (r.next == null) {
+                r.prev.next = null;
             } else {
-                Node prev = remove.hashPrev;
-                Node next = remove.hashNext;
-                prev.hashNext = next;
-                next.hashPrev = prev;
+                r.prev.next = r.next;
+                r.next.prev = r.prev;
             }
+            size--;
         }
 
-        class Node {
+        class Entry {
             int key;
-            int val;
-            Node next;
-            Node prev;
+            int value;
+            Entry next;
+            Entry prev;
+            Entry lNext;
+            Entry lPrev;
 
-            Node hashNext;
-            Node hashPrev;
-
-            Node() {
-
+            Entry() {
+                this.key = 0;
+                this.value = 0;
             }
 
-            Node(int _key, int _val) {
-                this.key = _key;
-                this.val = _val;
+            Entry(int k, int v) {
+                this.key = k;
+                this.value = v;
             }
         }
     }
