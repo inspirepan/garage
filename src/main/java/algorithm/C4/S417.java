@@ -33,9 +33,11 @@ public class S417 {
             queue.offer(new int[]{m - 1, i});
         }
         bfs(heights, m, n, queue, atl);
+
         List<List<Integer>> result = new ArrayList<>();
         for (int i = 0; i < m; i++)
-            for (int j = 0; j < n; j++) if (pac[i][j] == 1 && atl[i][j] == 1) result.add(List.of(i, j));
+            for (int j = 0; j < n; j++)
+                if (pac[i][j] == 1 && atl[i][j] == 1) result.add(List.of(i, j));
         return result;
     }
 
