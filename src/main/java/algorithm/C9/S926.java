@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.C9;
 
 public class S926 {
     public int minFlipsMonoIncr(String s) {

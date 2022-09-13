@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.C9;
 
 public class S905 {
     class Solution {

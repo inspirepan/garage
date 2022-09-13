@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.C9;
 
 public class S980 {
     private int count = 0;
