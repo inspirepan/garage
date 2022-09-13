@@ -4,7 +4,9 @@ import datastructure.ListNode;
 
 public class S24 {
     public ListNode reverseList(ListNode head) {
-        if (head == null) return null;
+        if (head == null) {
+            return null;
+        }
         ListNode dummy = new ListNode();
         dummy.next = head;
         ListNode p = head;

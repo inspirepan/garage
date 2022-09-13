@@ -40,7 +40,9 @@ public class S677 {
         }
 
         private int getSum(TrieNode p) {
-            if (p == null) return 0;
+            if (p == null) {
+                return 0;
+            }
             int sum = p.val;
             for (TrieNode child : p.children) {
                 sum += getSum(child);

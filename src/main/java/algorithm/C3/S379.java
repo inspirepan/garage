@@ -1,6 +1,7 @@
 package algorithm.C3;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.LinkedList;
 
 public class S379 {
     class PhoneDirectory {

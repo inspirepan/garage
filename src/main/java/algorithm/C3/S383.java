@@ -7,7 +7,9 @@ public class S383 {
             charMap[c - 'a']++;
         }
         for (char c : ransomNote.toCharArray()) {
-            if (--charMap[c - 'a'] < 0) return false;
+            if (--charMap[c - 'a'] < 0) {
+                return false;
+            }
         }
         return true;
     }

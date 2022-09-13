@@ -11,7 +11,9 @@ public class S1101 {
         for (int[] log : logs) {
             if (!uf.isConnected(log[1], log[2])) {
                 uf.union(log[1], log[2]);
-                if (uf.groups == 1) return log[0];
+                if (uf.groups == 1) {
+                    return log[0];
+                }
             }
         }
         return -1;

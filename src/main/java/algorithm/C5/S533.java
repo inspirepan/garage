@@ -1,6 +1,7 @@
 package algorithm.C5;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class S533 {
     // 某行某列要求target个，还是一样的方法，统计满足要求的行，记录这一行的全部B所在的列，然后再按列找

@@ -17,10 +17,12 @@ public class S555 {
             String rev = new StringBuilder(strs[i]).reverse().toString();
             // 翻转
             int len = strs[i].length();
-            for (String s : new String[]{strs[i], rev}) {
+            for (String s : new String[] {strs[i], rev}) {
                 for (int j = 0; j < len; j++) {
                     // 考虑当前字符串的每一个字符
-                    if (s.charAt(j) < max) continue;
+                    if (s.charAt(j) < max) {
+                        continue;
+                    }
                     //
                     StringBuilder tmp = new StringBuilder(s.substring(j));
                     for (int k = i + 1; k < strs.length; k++) {
@@ -29,7 +31,7 @@ public class S555 {
                     for (int k = 0; k < i; k++) {
                         tmp.append(strs[k]);
                     }
-                    tmp.append(s.substring(0, j));
+                    tmp.append(s, 0, j);
                     if (ans.compareTo(tmp.toString()) < 0) {
                         ans = tmp.toString();
                     }

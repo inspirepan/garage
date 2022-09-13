@@ -1,7 +1,5 @@
 package algorithm;
 
-import java.util.*;
-
 public class S1112 {
     public int[] relativeSortArray(int[] arr1, int[] arr2) {
         // 桶排序

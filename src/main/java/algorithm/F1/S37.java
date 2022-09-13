@@ -7,16 +7,22 @@ public class S37 {
     public class Codec {
 
         public String serialize(TreeNode root) {
-            if (root == null) return "#";
+            if (root == null) {
+                return "#";
+            }
             return new StringBuilder().append(root.val).append("(").append(serialize(root.left))
-                    .append(",").append(serialize(root.right)).append(")").toString();
+                .append(",").append(serialize(root.right)).append(")").toString();
         }
 
         public TreeNode deserialize(String data) {
             System.out.println(data);
             // 反序列化比较难诶
-            if (data.equals("#")) return null;
-            if (!data.contains("(")) return new TreeNode(Integer.parseInt(data));
+            if (data.equals("#")) {
+                return null;
+            }
+            if (!data.contains("(")) {
+                return new TreeNode(Integer.parseInt(data));
+            }
             int left = data.indexOf("(");
             TreeNode root = new TreeNode(Integer.parseInt(data.substring(0, left)));
             // 找到中间的分割逗号

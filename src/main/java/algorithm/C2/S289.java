@@ -2,12 +2,14 @@ package algorithm.C2;
 
 public class S289 {
     public void gameOfLife(int[][] board) {
-        if (board.length == 0 || board[0].length == 0) return;
+        if (board.length == 0 || board[0].length == 0) {
+            return;
+        }
         int m = board.length;
         int n = board[0].length;
         int[][] dp = new int[m][n];
-        int[] dx = new int[]{-1, 1, 0, 0, -1, -1, 1, 1};
-        int[] dy = new int[]{0, 0, -1, 1, -1, 1, -1, 1};
+        int[] dx = new int[] {-1, 1, 0, 0, -1, -1, 1, 1};
+        int[] dy = new int[] {0, 0, -1, 1, -1, 1, -1, 1};
         // 先遍历一遍，每一个活细胞把周围一圈都+1
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
@@ -26,9 +28,13 @@ public class S289 {
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (board[i][j] == 1) {
-                    if (dp[i][j] < 2 || dp[i][j] > 3) board[i][j] = 0;
+                    if (dp[i][j] < 2 || dp[i][j] > 3) {
+                        board[i][j] = 0;
+                    }
                 } else {
-                    if (dp[i][j] == 3) board[i][j] = 1;
+                    if (dp[i][j] == 3) {
+                        board[i][j] = 1;
+                    }
                 }
             }
         }

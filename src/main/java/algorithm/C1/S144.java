@@ -1,11 +1,10 @@
 package algorithm.C1;
 
+import datastructure.TreeNode;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
-
-import datastructure.TreeNode;
 
 public class S144 {
     public List<Integer> preorderTraversal(TreeNode root) {

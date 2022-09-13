@@ -1,6 +1,8 @@
 package algorithm.C7;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
 
 public class S760 {
     public int[] anagramMappings(int[] nums1, int[] nums2) {

@@ -2,8 +2,6 @@ package algorithm.C7;
 
 import datastructure.ListNode;
 
-import java.util.List;
-
 public class S725 {
     public ListNode[] splitListToParts(ListNode head, int k) {
         int count = 0;

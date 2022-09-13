@@ -7,17 +7,21 @@ public class S61 {
         Arrays.sort(nums);
         int i = 0;
         // 0的数量
-        while(i<nums.length && nums[i]==0){
+        while (i < nums.length && nums[i] == 0) {
             i++;
         }
         // 4个以上的0
-        if(i>=4) return true;
+        if (i >= 4) {
+            return true;
+        }
         // 0之后重复的
         int p = i;
-        while(p<4){
-            if(nums[p]==nums[p+1]) return false;
+        while (p < 4) {
+            if (nums[p] == nums[p + 1]) {
+                return false;
+            }
             p++;
         }
-        return nums[4] - nums[i] <=4;
+        return nums[4] - nums[i] <= 4;
     }
 }

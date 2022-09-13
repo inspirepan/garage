@@ -1,8 +1,5 @@
 package algorithm.C15;
 
-import java.util.LinkedList;
-import java.util.List;
-
 public class S1594 {
     public int maxProductPath(int[][] grid) {
         final int MOD = 1000000000 + 7;

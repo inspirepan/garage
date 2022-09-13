@@ -22,7 +22,7 @@ public class S1496 {
             } else if (c == 'S') {
                 y--;
             }
-            if (map.containsKey(x)&&map.get(x).contains(y)) {
+            if (map.containsKey(x) && map.get(x).contains(y)) {
                 return true;
             }
             Set<Integer> temp = map.getOrDefault(x, new HashSet<>());

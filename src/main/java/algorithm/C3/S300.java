@@ -1,7 +1,5 @@
 package algorithm.C3;
 
-import java.util.Arrays;
-
 public class S300 {
     public int lengthOfLIS(int[] nums) {
         int len = nums.length;

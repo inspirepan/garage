@@ -7,7 +7,9 @@ public class S565 {
         int max = 0;
         int visit = 1;
         for (int i = 0; i < nums.length; i++) {
-            if (visited[i] != 0) continue;
+            if (visited[i] != 0) {
+                continue;
+            }
             // 没有访问过的节点
             int k = i;
             int length = 0;

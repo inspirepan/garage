@@ -8,7 +8,9 @@ import java.util.Map;
 public class S249 {
     public List<List<String>> groupStrings(String[] strings) {
         List<List<String>> res = new ArrayList<>();
-        if (strings.length == 0) return res;
+        if (strings.length == 0) {
+            return res;
+        }
 
         Map<String, List<String>> map = new HashMap<>();
 
@@ -18,7 +20,9 @@ public class S249 {
             int dist = pattern[0] - 'a';
             for (int i = 0; i < pattern.length; i++) {
                 pattern[i] -= dist;
-                if (pattern[i] < 'a') pattern[i] += 26;
+                if (pattern[i] < 'a') {
+                    pattern[i] += 26;
+                }
             }
             String p = new String(pattern);
             var list = map.getOrDefault(p, new ArrayList<>());

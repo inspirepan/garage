@@ -1,6 +1,7 @@
 package algorithm.C3;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class S305 {
     public List<Integer> numIslands2(int m, int n, int[][] positions) {
@@ -9,8 +10,8 @@ public class S305 {
         // 并查集，每次加入陆地后，将四周的union在一起
         UnionFind uf = new UnionFind(m * n);
         List<Integer> result = new ArrayList<>();
-        int[] dx = new int[]{-1, 0, 0, 1};
-        int[] dy = new int[]{0, -1, 1, 0};
+        int[] dx = new int[] {-1, 0, 0, 1};
+        int[] dy = new int[] {0, -1, 1, 0};
         boolean[] isLand = new boolean[m * n];
         for (int[] pos : positions) {
             int curr = pos[0] * n + pos[1];
@@ -23,7 +24,9 @@ public class S305 {
             for (int i = 0; i < 4; i++) {
                 int nx = pos[0] + dx[i];
                 int ny = pos[1] + dy[i];
-                if (nx < 0 || nx >= m || ny < 0 || ny >= n) continue;
+                if (nx < 0 || nx >= m || ny < 0 || ny >= n) {
+                    continue;
+                }
                 int next = nx * n + ny;
                 // 注意不要重复union，不然count会出错
                 if (isLand[next] && !uf.isConnected(curr, next)) {

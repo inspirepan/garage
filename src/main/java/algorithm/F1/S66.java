@@ -4,11 +4,15 @@ public class S66 {
     public int strToInt(String str) {
         str = str.trim();
         char[] chars = str.toCharArray();
-        if (chars.length == 0) return 0;
+        if (chars.length == 0) {
+            return 0;
+        }
         int i = 0;
         boolean isNegative = false;
         if (chars[0] == '+' || chars[0] == '-') {
-            if (chars[0] == '-') isNegative = true;
+            if (chars[0] == '-') {
+                isNegative = true;
+            }
             i = 1;
         }
         long result = 0;

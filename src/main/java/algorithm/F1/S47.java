@@ -2,7 +2,9 @@ package algorithm.F1;
 
 public class S47 {
     public int maxValue(int[][] grid) {
-        if (grid.length == 0 || grid[0].length == 0) return 0;
+        if (grid.length == 0 || grid[0].length == 0) {
+            return 0;
+        }
         int m = grid.length;
         int n = grid[0].length;
         int[][] dp = new int[m][n];

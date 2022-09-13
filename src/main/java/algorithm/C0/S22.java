@@ -8,7 +8,9 @@ public class S22 {
     StringBuilder sb = new StringBuilder();
 
     public List<String> generateParenthesis(int n) {
-        if (n == 0) return res;
+        if (n == 0) {
+            return res;
+        }
         dfs(n, 0);
         return res;
     }

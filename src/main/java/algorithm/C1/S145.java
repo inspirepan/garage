@@ -1,12 +1,11 @@
 package algorithm.C1;
 
+import datastructure.TreeNode;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 import java.util.Stack;
-
-import datastructure.TreeNode;
 
 public class S145 {
     /* 迭代 */

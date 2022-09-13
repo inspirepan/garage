@@ -1,7 +1,5 @@
 package algorithm.C7;
 
-import java.util.*;
-
 public class S740 {
     public int deleteAndEarn(int[] nums) {
         // 选取任意个数，选取的数可以重复，但是不能有相邻的

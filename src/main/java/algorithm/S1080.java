@@ -6,14 +6,20 @@ public class S1080 {
     int limit;
 
     public TreeNode sufficientSubset(TreeNode root, int limit) {
-        if (root == null) return null;
+        if (root == null) {
+            return null;
+        }
         this.limit = limit;
-        if (limit > dfs(root, 0)) return null;
+        if (limit > dfs(root, 0)) {
+            return null;
+        }
         return root;
     }
 
     int dfs(TreeNode node, int sum) {
-        if (node == null) return Integer.MIN_VALUE;
+        if (node == null) {
+            return Integer.MIN_VALUE;
+        }
         if (node.left == null && node.right == null) {
             return node.val + sum;
         }

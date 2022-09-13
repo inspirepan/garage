@@ -1,7 +1,5 @@
 package algorithm.C5;
 
-import java.util.Arrays;
-
 public class S592 {
     public String fractionAddition(String e) {
         // 从字符串提取分数、通分计算、分子分母最大公约数
@@ -13,10 +11,14 @@ public class S592 {
             // 分子和分母的范围是[1,10]
             // 分子可能是负数
             int start = i;
-            while (i < e.length() && e.charAt(i) != '/') i++;
+            while (i < e.length() && e.charAt(i) != '/') {
+                i++;
+            }
             int numerator = Integer.parseInt(e.substring(start, i++));
             start = i++;
-            while (i < e.length() && e.charAt(i) != '+' && e.charAt(i) != '-') i++;
+            while (i < e.length() && e.charAt(i) != '+' && e.charAt(i) != '-') {
+                i++;
+            }
             int denominator = Integer.parseInt(e.substring(start, i));
             calculate(res, numerator, denominator);
         }
@@ -24,7 +26,7 @@ public class S592 {
         simplify(res);
         // 这道题用StringBuilder只需要1ms，用字符串相加要5ms，差别好大
         var sb = new StringBuilder();
-        sb.append(String.valueOf(res[0])).append("/").append(String.valueOf(res[1]));
+        sb.append(res[0]).append("/").append(res[1]);
         return sb.toString();
     }
 

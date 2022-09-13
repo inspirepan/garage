@@ -1,7 +1,6 @@
 package algorithm.C5;
 
 import datastructure.Node;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,11 +12,14 @@ public class S590 {
     }
 
     private void helper(Node node, List<Integer> res) {
-        if (node == null) return;
-        if (node.children != null)
+        if (node == null) {
+            return;
+        }
+        if (node.children != null) {
             for (Node child : node.children) {
                 helper(child, res);
             }
+        }
         res.add(node.val);
     }
 }

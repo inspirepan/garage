@@ -9,23 +9,23 @@ public class S1456 {
         List<Integer> list = new ArrayList<>();
         char[] c = s.toCharArray();
         for (int i = 0; i < c.length; i++) {
-            if(c[i]=='a'||c[i]=='e'||c[i]=='i'||c[i]=='o'||c[i]=='u'){
+            if (c[i] == 'a' || c[i] == 'e' || c[i] == 'i' || c[i] == 'o' || c[i] == 'u') {
                 list.add(i);
             }
         }
-        if(list.size()==0) {
+        if (list.size() == 0) {
             return 0;
         }
         int left = 0;
         int right = 0;
         int max = 1;
 
-        while(right<list.size()){
-            if(list.get(right)-list.get(left)<k){
-                max = Math.max(max,right-left+1);
+        while (right < list.size()) {
+            if (list.get(right) - list.get(left) < k) {
+                max = Math.max(max, right - left + 1);
                 // 扩大窗口
                 right++;
-            }else{
+            } else {
                 // 右移窗口
                 right++;
                 left++;

@@ -21,7 +21,9 @@ public class S356 {
         int sum = minX + maxX;
 
         for (int[] p : points) {
-            if (!map.containsKey(sum - p[0]) || !map.get(sum - p[0]).contains(p[1])) return false;
+            if (!map.containsKey(sum - p[0]) || !map.get(sum - p[0]).contains(p[1])) {
+                return false;
+            }
         }
         return true;
     }

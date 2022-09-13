@@ -4,7 +4,9 @@ public class S413 {
 
     public int numberOfArithmeticSlices(int[] nums) {
         int len = nums.length;
-        if (len < 2) return 0;
+        if (len < 2) {
+            return 0;
+        }
         // 末尾
         int[] dp = new int[len];
         int count = 0;

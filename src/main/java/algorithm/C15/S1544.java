@@ -2,7 +2,9 @@ package algorithm.C15;
 
 public class S1544 {
     public String makeGood(String s) {
-        if (s.length() == 0) return s;
+        if (s.length() == 0) {
+            return s;
+        }
         final int DIST = 'a' - 'A';
         StringBuilder sb = new StringBuilder(s);
         int len = -1;

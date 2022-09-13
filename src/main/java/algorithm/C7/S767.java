@@ -17,7 +17,9 @@ public class S767 {
         int size = 0;
         for (int n : count) {
             size = Math.max(size, n);
-            if (n * 2 > arr.length + 1) return "";
+            if (n * 2 > arr.length + 1) {
+                return "";
+            }
         }
         // 开始填空，用一个二维数组填空
         List<StringBuilder> temp = new ArrayList<>();
@@ -26,13 +28,15 @@ public class S767 {
         }
         // 要先添加最大的元素
         PriorityQueue<int[]> pq = new PriorityQueue<>((o1, o2) -> {
-            if (o1[1] == o2[1]) return o1[0] > o2[0] ? -1 : 1;
+            if (o1[1] == o2[1]) {
+                return o1[0] > o2[0] ? -1 : 1;
+            }
             return o1[1] > o2[1] ? -1 : 1;
         });
 
         for (int i = 0; i < 26; i++) {
             if (count[i] > 0) {
-                pq.offer(new int[]{i, count[i]});
+                pq.offer(new int[] {i, count[i]});
             }
         }
         int index = 0;

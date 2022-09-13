@@ -16,7 +16,9 @@ public class S10 {
                         // 0个
                         dp[i][j] = dp[i][j - 2];
                         if (match(arr1, arr2, i - 1, j - 2)) {
-                            if (dp[i - 1][j]) dp[i][j] = true;
+                            if (dp[i - 1][j]) {
+                                dp[i][j] = true;
+                            }
                         }
                     } else {
                         if (match(arr1, arr2, i - 1, j - 1)) {
@@ -30,8 +32,12 @@ public class S10 {
         }
 
         boolean match(char[] arr1, char[] arr2, int a, int b) {
-            if (a < 0) return false;
-            if (arr2[b] == '.') return true;
+            if (a < 0) {
+                return false;
+            }
+            if (arr2[b] == '.') {
+                return true;
+            }
             return arr1[a] == arr2[b];
         }
     }

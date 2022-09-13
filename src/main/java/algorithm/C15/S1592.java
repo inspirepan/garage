@@ -1,15 +1,21 @@
 package algorithm.C15;
 
-import java.util.Arrays;
-
 public class S1592 {
     public String reorderSpaces(String text) {
         String[] words = text.trim().split("\\s+");
         int num = words.length - 1;
         int spaceCount = 0;
-        for (int i = 0; i < text.length(); i++) if (text.charAt(i) == ' ') spaceCount++;
-        if (spaceCount == 0) return text;
-        if (num == 0) return words[0].concat(" ".repeat(spaceCount));
+        for (int i = 0; i < text.length(); i++) {
+            if (text.charAt(i) == ' ') {
+                spaceCount++;
+            }
+        }
+        if (spaceCount == 0) {
+            return text;
+        }
+        if (num == 0) {
+            return words[0].concat(" ".repeat(spaceCount));
+        }
 
         var sb = new StringBuilder();
         for (String word : words) {

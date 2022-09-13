@@ -2,7 +2,6 @@ package algorithm.C0;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 
 public class S40 {
@@ -22,8 +21,12 @@ public class S40 {
             return;
         }
         for (int i = start; i < c.length; i++) {
-            if (i > start && c[i] == c[i - 1]) continue;
-            if (c[i] > target) continue;
+            if (i > start && c[i] == c[i - 1]) {
+                continue;
+            }
+            if (c[i] > target) {
+                continue;
+            }
 
             target -= c[i];
             path.add(c[i]);

@@ -23,7 +23,9 @@ public class S46 {
         }
 
         for (int i = 0; i < nums.length; i++) {
-            if (used[i]) continue;
+            if (used[i]) {
+                continue;
+            }
 
             used[i] = true;
             path.add(nums[i]);
@@ -35,7 +37,6 @@ public class S46 {
 
     /**
      * 题解中看到的交换位置做法
-     *
      * @param nums 数组
      * @return 全排列
      */

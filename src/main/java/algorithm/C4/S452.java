@@ -1,12 +1,13 @@
 package algorithm.C4;
 
-import java.security.cert.PolicyNode;
 import java.util.Arrays;
 
 public class S452 {
     public int findMinArrowShots(int[][] points) {
         // 按照初始位置排序
-        if (points.length <= 1) return points.length;
+        if (points.length <= 1) {
+            return points.length;
+        }
         Arrays.sort(points, (a, b) -> a[0] > b[0] ? 1 : -1);
         long end = points[0][1];
         int count = 1;

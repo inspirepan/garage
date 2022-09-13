@@ -1,7 +1,6 @@
 package algorithm.C8;
 
 import java.util.Arrays;
-import java.util.Map;
 
 public class S873 {
     public int lenLongestFibSubseq(int[] arr) {
@@ -11,7 +10,9 @@ public class S873 {
         int len = arr.length;
         int max = 0;
         int[][] dp = new int[len][len];
-        for (int[] row : dp) Arrays.fill(row, 2);
+        for (int[] row : dp) {
+            Arrays.fill(row, 2);
+        }
         // 因为是有序的
         for (int i = 2; i < len; i++) {
             int curr = arr[i];

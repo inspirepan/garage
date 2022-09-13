@@ -1,9 +1,7 @@
 package algorithm.C5;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class S514 {
     public int findRotateSteps(String ring, String key) {

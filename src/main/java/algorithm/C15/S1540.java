@@ -1,9 +1,5 @@
 package algorithm.C15;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-
 public class S1540 {
     public boolean canConvertString(String s, String t, int k) {
         if (s.length() != t.length()) {
@@ -16,7 +12,9 @@ public class S1540 {
                 continue;
             }
             int dist = (int) t.charAt(i) - (int) s.charAt(i);
-            if (dist > k) return false;
+            if (dist > k) {
+                return false;
+            }
             if (dist < 0) {
                 dist += 26;
             }

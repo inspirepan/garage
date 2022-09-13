@@ -8,7 +8,9 @@ public class S477 {
         for (int i = 0; i < 32; i++) {
             int count1 = 0;
             for (int j = 0; j < nums.length; j++) {
-                if ((nums[j] & pattern) > 0) count1++;
+                if ((nums[j] & pattern) > 0) {
+                    count1++;
+                }
             }
             pattern <<= 1;
             sum += count1 * (nums.length - count1);

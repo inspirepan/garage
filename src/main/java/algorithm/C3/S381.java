@@ -1,6 +1,10 @@
 package algorithm.C3;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 public class S381 {
     class RandomizedCollection {
@@ -24,7 +28,9 @@ public class S381 {
         }
 
         public boolean remove(int val) {
-            if (!map.containsKey(val)) return false;
+            if (!map.containsKey(val)) {
+                return false;
+            }
             // 最后一个元素就是val
             if (list.get(list.size() - 1) == val) {
                 list.remove(list.size() - 1);

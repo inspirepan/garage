@@ -3,6 +3,7 @@ package algorithm.F1;
 public class S51 {
     class Solution {
         int[] temp;
+
         // 自己写的归并排序的版本，注意不要重复创建temp数组
         public int reversePairs(int[] nums) {
             int[] copy = new int[nums.length];

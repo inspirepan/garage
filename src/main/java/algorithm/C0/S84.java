@@ -1,7 +1,5 @@
 package algorithm.C0;
 
-import java.util.ArrayDeque;
-import java.util.Arrays;
 import java.util.Deque;
 import java.util.LinkedList;
 
@@ -61,7 +59,9 @@ public class S84 {
             stack.push(i);
         }
         int k = stack.size();
-        while (k-- > 0) left[stack.pop()] = -1;
+        while (k-- > 0) {
+            left[stack.pop()] = -1;
+        }
         for (int i = 0; i < len; i++) {
             while (!stack.isEmpty() && heights[stack.peek()] > heights[i]) {
                 right[stack.pop()] = i;
@@ -69,7 +69,9 @@ public class S84 {
             stack.push(i);
         }
         k = stack.size();
-        while (k-- > 0) right[stack.pop()] = len;
+        while (k-- > 0) {
+            right[stack.pop()] = len;
+        }
         int max = 0;
         for (int i = 0; i < len; i++) {
             max = Math.max(max, heights[i] * (right[i] - left[i] - 1));

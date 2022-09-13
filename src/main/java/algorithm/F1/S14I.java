@@ -2,8 +2,12 @@ package algorithm.F1;
 
 public class S14I {
     public int cuttingRope(int n) {
-        if (n == 1) return 1;
-        if (n == 2) return 1;
+        if (n == 1) {
+            return 1;
+        }
+        if (n == 2) {
+            return 1;
+        }
         int[] dp = new int[n + 1];
         dp[0] = 0;
         dp[1] = 1;

@@ -13,7 +13,9 @@ public class S670 {
         boolean founded = false;
         //
         for (int i = 0; i < c.length - 1; i++) {
-            if (c[i] == '9') continue;
+            if (c[i] == '9') {
+                continue;
+            }
             index1 = i;
             char max = (char) (c[i] + 1);
             int k = i + 1;
@@ -25,7 +27,9 @@ public class S670 {
                 }
                 k++;
             }
-            if (founded) break;
+            if (founded) {
+                break;
+            }
         }
         if (founded) {
             char t = c[index1];

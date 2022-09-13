@@ -1,6 +1,10 @@
 package algorithm.C3;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
 
 public class S398 {
     class Solution {
@@ -39,7 +43,9 @@ public class S398 {
             for (int i = 0; i < arr.length; i++) {
                 if (arr[i] == target) {
                     count++;
-                    if (random.nextInt(count) == 0) res = i;
+                    if (random.nextInt(count) == 0) {
+                        res = i;
+                    }
                 }
             }
             return res;

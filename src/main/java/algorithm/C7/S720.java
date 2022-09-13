@@ -11,7 +11,9 @@ public class S720 {
         String result = "";
         for (String s : words) {
             if (s.length() == 1 || set.contains(s.substring(0, s.length() - 1))) {
-                if (s.length() > result.length()) result = s;
+                if (s.length() > result.length()) {
+                    result = s;
+                }
                 set.add(s);
             }
         }

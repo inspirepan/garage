@@ -1,7 +1,5 @@
 package algorithm.C14;
 
-import java.util.Arrays;
-
 public class S1497 {
     public boolean canArrange(int[] arr, int k) {
         // 检查每个数除以k的余数

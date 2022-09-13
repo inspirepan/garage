@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class S386 {
-    private List<Integer> result = new ArrayList<>();
+    private final List<Integer> result = new ArrayList<>();
     private int n;
 
     public List<Integer> lexicalOrder(int n) {

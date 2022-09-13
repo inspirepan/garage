@@ -10,8 +10,12 @@ public class S421 {
         // 两个数不同的位置最多
         // 还是字典树，第一轮遍历用来构建字典树
         // 第二轮遍历用来针对每一个数扫字典树，
-        if (nums.length == 0) return 0;
-        if (nums.length == 1) return 0;
+        if (nums.length == 0) {
+            return 0;
+        }
+        if (nums.length == 1) {
+            return 0;
+        }
         root = new TrieNode();
         int max = 0;
         for (int i = 1; i < nums.length; i++) {
@@ -21,21 +25,20 @@ public class S421 {
         return max;
     }
 
-    private class TrieNode {
-        TrieNode left; // 0
-        TrieNode right; // 1
-    }
-
     private void insert(int n) {
         int i = 31;
         TrieNode p = root;
         while (i-- > 0) {
             int bit = (n >> i) & 1;
             if (bit == 1) {
-                if (p.right == null) p.right = new TrieNode();
+                if (p.right == null) {
+                    p.right = new TrieNode();
+                }
                 p = p.right;
             } else {
-                if (p.left == null) p.left = new TrieNode();
+                if (p.left == null) {
+                    p.left = new TrieNode();
+                }
                 p = p.left;
             }
         }
@@ -65,5 +68,10 @@ public class S421 {
             }
         }
         return x;
+    }
+
+    private class TrieNode {
+        TrieNode left; // 0
+        TrieNode right; // 1
     }
 }

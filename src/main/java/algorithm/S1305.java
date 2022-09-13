@@ -1,7 +1,6 @@
 package algorithm;
 
 import datastructure.TreeNode;
-
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
@@ -16,7 +15,9 @@ public class S1305 {
             Deque<TreeNode> stack1 = new ArrayDeque<>();
             Deque<TreeNode> stack2 = new ArrayDeque<>();
 
-            if (root1 == null && root2 == null) return res;
+            if (root1 == null && root2 == null) {
+                return res;
+            }
             TreeNode node1 = root1;
             TreeNode node2 = root2;
             while ((!stack1.isEmpty() || node1 != null) || (!stack2.isEmpty() || node2 != null)) {

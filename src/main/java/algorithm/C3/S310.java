@@ -1,11 +1,18 @@
 package algorithm.C3;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 public class S310 {
     public List<Integer> findMinHeightTrees(int n, int[][] edges) {
-        if (n == 1) return List.of(0);
-        if (n == 2) return List.of(0, 1);
+        if (n == 1) {
+            return List.of(0);
+        }
+        if (n == 2) {
+            return List.of(0, 1);
+        }
         Queue<Integer> queue = new LinkedList<>();
         int[] indegrees = new int[n];
         List<List<Integer>> map = new ArrayList<>();
@@ -22,8 +29,9 @@ public class S310 {
         }
         // 如果入度为1，加入删除队列
         for (int i = 0; i < n; i++) {
-            if (indegrees[i] == 1)
+            if (indegrees[i] == 1) {
                 queue.offer(i);
+            }
         }
         // 循环删除
         while (!queue.isEmpty()) {
@@ -34,8 +42,9 @@ public class S310 {
                 level.add(node);
                 for (int next : map.get(node)) {
                     indegrees[next]--;
-                    if (indegrees[next] == 1)
+                    if (indegrees[next] == 1) {
                         queue.offer(next);
+                    }
                 }
             }
         }

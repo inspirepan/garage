@@ -5,11 +5,11 @@ public class S58I {
         s = s.trim();
         String[] ss = s.split("\\s+");
         var sb = new StringBuilder();
-        for(int i = ss.length-1;i>=0;i--){
+        for (int i = ss.length - 1; i >= 0; i--) {
             sb.append(ss[i]);
             sb.append(" ");
         }
-        sb.setLength(sb.length()-1);
+        sb.setLength(sb.length() - 1);
         return sb.toString();
     }
 }

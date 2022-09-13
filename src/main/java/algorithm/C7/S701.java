@@ -4,11 +4,16 @@ import datastructure.TreeNode;
 
 public class S701 {
     public TreeNode insertIntoBST(TreeNode root, int val) {
-        if (root == null) return new TreeNode(val);
+        if (root == null) {
+            return new TreeNode(val);
+        }
 
         if (root.left == null && root.right == null) {
-            if (root.val < val) root.right = new TreeNode(val);
-            else root.left = new TreeNode(val);
+            if (root.val < val) {
+                root.right = new TreeNode(val);
+            } else {
+                root.left = new TreeNode(val);
+            }
             return root;
         }
 

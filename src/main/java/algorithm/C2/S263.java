@@ -2,7 +2,9 @@ package algorithm.C2;
 
 public class S263 {
     public boolean isUgly(int n) {
-        if (n <= 0) return false;
+        if (n <= 0) {
+            return false;
+        }
 
         while (n % 2 == 0) {
             n /= 2;

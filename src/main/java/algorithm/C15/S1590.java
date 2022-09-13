@@ -12,7 +12,9 @@ public class S1590 {
             count = (count + (long) nums[i]) % p;
         }
         int remove = (int) count % p;
-        if (remove == 0) return 0;
+        if (remove == 0) {
+            return 0;
+        }
         // 需要在nums中找到一个最短的子数组的和
         int minLen = len;
         long sum = 0;

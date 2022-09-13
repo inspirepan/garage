@@ -4,7 +4,9 @@ import datastructure.TreeNode;
 
 public class S156 {
     public TreeNode upsideDownBinaryTree(TreeNode root) {
-        if (root == null) return null;
+        if (root == null) {
+            return null;
+        }
 
         return helper(root, null, null);
     }

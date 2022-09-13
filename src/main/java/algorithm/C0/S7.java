@@ -10,9 +10,13 @@ public class S7 {
         int res = 0;
         while (x > 0) {
             // 每一步都要判断越界
-            if (res > Integer.MAX_VALUE / 10) return 0;
+            if (res > Integer.MAX_VALUE / 10) {
+                return 0;
+            }
             res *= 10;
-            if (res > Integer.MAX_VALUE - x % 10) return 0;
+            if (res > Integer.MAX_VALUE - x % 10) {
+                return 0;
+            }
             res += x % 10;
             x /= 10;
         }

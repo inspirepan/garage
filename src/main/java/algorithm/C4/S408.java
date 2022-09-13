@@ -12,7 +12,9 @@ public class S408 {
                 i++;
                 j++;
             } else if (ac[j] >= '0' && ac[j] <= '9') {
-                if (ac[j] == '0') return false;
+                if (ac[j] == '0') {
+                    return false;
+                }
                 // 读取数字
                 int start = j;
                 while (j < ac.length && (ac[j] >= '0' && ac[j] <= '9')) {

@@ -14,7 +14,9 @@ public class S455 {
                 while (i + j < s.length && g[i] > s[i + j]) {
                     j++;
                 }
-            } else i++;
+            } else {
+                i++;
+            }
         }
         return i;
     }

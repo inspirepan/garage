@@ -1,6 +1,7 @@
 package algorithm.C5;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 public class S547 {
     public int findCircleNum(int[][] isConnected) {
@@ -9,7 +10,9 @@ public class S547 {
         boolean[] searched = new boolean[n];
         int result = 0;
         for (int i = 0; i < n; i++) {
-            if (searched[i]) continue;
+            if (searched[i]) {
+                continue;
+            }
             searched[i] = true;
             result++;
             Deque<Integer> queue = new ArrayDeque<>();

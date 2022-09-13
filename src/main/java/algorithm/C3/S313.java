@@ -4,7 +4,9 @@ import java.util.PriorityQueue;
 
 public class S313 {
     public int nthSuperUglyNumber(int n, int[] primes) {
-        if (n == 1) return 1;
+        if (n == 1) {
+            return 1;
+        }
         // prime是质数，求primes各种组合中第n个，1固定第一个
         // 可以用PriorityQueue，然后每次都是第一个乘以第二个，或者第一个数的平方
         // 不对 那我怎么确定第n个呢
@@ -21,7 +23,9 @@ public class S313 {
                 queue.add(prime * res);
             }
             res = queue.poll();
-            while (!queue.isEmpty() && res == queue.peek()) queue.poll();
+            while (!queue.isEmpty() && res == queue.peek()) {
+                queue.poll();
+            }
         }
         return (int) res;
     }

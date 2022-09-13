@@ -10,7 +10,9 @@ public class S266 {
         boolean flag = false;
         for (int i = 0; i < 128; i++) {
             if ((cnt[i] & 1) == 1) {
-                if (flag) return false;
+                if (flag) {
+                    return false;
+                }
                 flag = true;
             }
         }

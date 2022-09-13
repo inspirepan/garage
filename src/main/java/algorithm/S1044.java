@@ -25,8 +25,11 @@ public class S1044 {
             while (l < r) {
                 int mid = l + r + 1 >> 1;
                 String t = check(s, mid);
-                if (t.length() != 0) l = mid;
-                else r = mid - 1;
+                if (t.length() != 0) {
+                    l = mid;
+                } else {
+                    r = mid - 1;
+                }
                 ans = t.length() > ans.length() ? t : ans;
             }
             return ans;
@@ -38,7 +41,9 @@ public class S1044 {
             for (int i = 1; i + len - 1 <= n; i++) {
                 int j = i + len - 1;
                 long cur = h[j] - h[i - 1] * p[j - i + 1];
-                if (set.contains(cur)) return s.substring(i - 1, j);
+                if (set.contains(cur)) {
+                    return s.substring(i - 1, j);
+                }
                 set.add(cur);
             }
             return "";

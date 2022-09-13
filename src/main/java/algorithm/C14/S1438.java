@@ -26,8 +26,8 @@ public class S1438 {
                 continue;
             }
             // 移出左边的数
-            maxQueue.remove((Integer) nums[left]);
-            minQueue.remove((Integer) nums[left]);
+            maxQueue.remove(nums[left]);
+            minQueue.remove(nums[left]);
             left++;
             right++;
         }

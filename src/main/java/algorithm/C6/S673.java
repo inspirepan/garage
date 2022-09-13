@@ -9,7 +9,9 @@ public class S673 {
         // 需要两个状态记录数组，一个记录包含nums[i]的递增子序列的最大长度，一个记录对应长度的数量
 
         int len = nums.length;
-        if (len <= 1) return len;
+        if (len <= 1) {
+            return len;
+        }
         int[] dp = new int[len];
         int[] count = new int[len];
         Arrays.fill(dp, 1);
@@ -29,12 +31,16 @@ public class S673 {
                         count[i] += count[j];
                     }
                 }
-                if (dp[i] > maxCount) maxCount = dp[i];
+                if (dp[i] > maxCount) {
+                    maxCount = dp[i];
+                }
             }
         }
         int result = 0;
         for (int i = 0; i < len; i++) {
-            if (maxCount == dp[i]) result += count[i];
+            if (maxCount == dp[i]) {
+                result += count[i];
+            }
         }
         return result;
     }

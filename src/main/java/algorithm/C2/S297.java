@@ -1,10 +1,9 @@
 package algorithm.C2;
 
+import datastructure.TreeNode;
 import java.util.Arrays;
 import java.util.Deque;
 import java.util.LinkedList;
-
-import datastructure.TreeNode;
 
 public class S297 {
     public class Codec {

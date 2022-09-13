@@ -1,7 +1,5 @@
 package algorithm;
 
-import java.util.Arrays;
-
 public class S1861 {
     public char[][] rotateTheBox(char[][] box) {
         // 首先只需要一行一行的考虑

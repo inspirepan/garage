@@ -5,8 +5,12 @@ import java.util.Deque;
 
 public class S59I {
     public int[] maxSlidingWindow(int[] nums, int k) {
-        if (k == 0) return new int[0];
-        if (nums.length == 0) return new int[0];
+        if (k == 0) {
+            return new int[0];
+        }
+        if (nums.length == 0) {
+            return new int[0];
+        }
         int len = nums.length;
         int[] result = new int[len - k + 1];
         Deque<Integer> queue = new ArrayDeque<>();

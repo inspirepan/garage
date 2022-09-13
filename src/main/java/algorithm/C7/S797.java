@@ -1,6 +1,7 @@
 package algorithm.C7;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class S797 {
     class Solution {

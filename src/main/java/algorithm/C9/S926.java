@@ -10,12 +10,16 @@ public class S926 {
         int count = 0;
 
         for (int i = 0; i < len; i++) {
-            if (c[i] == '1') count++;
+            if (c[i] == '1') {
+                count++;
+            }
             left1[i + 1] = count;
         }
         count = 0;
         for (int i = len - 1; i >= 0; i--) {
-            if (c[i] == '0') count++;
+            if (c[i] == '0') {
+                count++;
+            }
             right0[i] = count;
         }
         int min = len;

@@ -11,8 +11,12 @@ public class S671 {
     }
 
     private long helper(TreeNode node) {
-        if (node == null) return NOT_FOUND;
-        if (node.left == null) return NOT_FOUND;
+        if (node == null) {
+            return NOT_FOUND;
+        }
+        if (node.left == null) {
+            return NOT_FOUND;
+        }
         if (node.left.val == node.right.val) {
             return Math.min(helper(node.left), helper(node.right));
         }

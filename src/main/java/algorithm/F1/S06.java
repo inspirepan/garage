@@ -11,7 +11,9 @@ public class S06 {
             p = p.next;
         }
         int[] result = new int[size];
-        if (size == 0) return result;
+        if (size == 0) {
+            return result;
+        }
         p = head;
         while (p != null) {
             result[--size] = p.val;

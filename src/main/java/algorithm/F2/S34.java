@@ -8,7 +8,9 @@ public class S34 {
         }
 
         for (int i = 0; i < words.length - 1; i++) {
-            if (compare(words[i], words[i + 1], orders) > 0) return false;
+            if (compare(words[i], words[i + 1], orders) > 0) {
+                return false;
+            }
         }
         return true;
     }
@@ -18,13 +20,20 @@ public class S34 {
         int j = 0;
 
         while (i < a.length() || j < b.length()) {
-            if (i >= a.length()) return -1;
-            if (j >= b.length()) return 1;
+            if (i >= a.length()) {
+                return -1;
+            }
+            if (j >= b.length()) {
+                return 1;
+            }
             char a1 = a.charAt(i++);
             char b1 = b.charAt(j++);
             int cmp = o[a1 - 'a'] - o[b1 - 'a'];
-            if (cmp > 0) return 1;
-            else if (cmp < 0) return -1;
+            if (cmp > 0) {
+                return 1;
+            } else if (cmp < 0) {
+                return -1;
+            }
         }
         return 0;
     }

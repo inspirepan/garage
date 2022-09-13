@@ -21,8 +21,8 @@ public class S1448 {
         if (node.left != null) {
             helper(node.left, Math.max(max, node.val));
         }
-        if( node.right!=null){
-            helper(node.right,Math.max(max,node.val));
+        if (node.right != null) {
+            helper(node.right, Math.max(max, node.val));
         }
     }
 }

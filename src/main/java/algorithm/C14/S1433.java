@@ -13,7 +13,9 @@ public class S1433 {
 
         int i = 0;
         while (i < chars.length) {
-            if (chars[i] > chars1[i]) break;
+            if (chars[i] > chars1[i]) {
+                break;
+            }
 
             if (chars[i] <= chars1[i]) {
                 i++;
@@ -22,14 +24,15 @@ public class S1433 {
 
         int j = 0;
         while (j < chars.length) {
-            if (chars[j] < chars1[j]) break;
+            if (chars[j] < chars1[j]) {
+                break;
+            }
 
             if (chars[j] >= chars1[j]) {
                 j++;
             }
         }
 
-        if (i == chars.length || j == chars.length) return true;
-        return false;
+        return i == chars.length || j == chars.length;
     }
 }

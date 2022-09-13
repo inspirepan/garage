@@ -8,8 +8,9 @@ public class S1556 {
         while (i >= 0) {
             count++;
             if (count == 3) {
-                if (i != 0)
+                if (i != 0) {
                     sb.insert(i, '.');
+                }
                 count = 0;
             }
             i--;

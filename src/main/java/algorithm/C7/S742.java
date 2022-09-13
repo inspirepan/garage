@@ -1,11 +1,9 @@
 package algorithm.C7;
 
 import datastructure.TreeNode;
-
 import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
-import java.util.Queue;
 
 public class S742 {
 
@@ -13,10 +11,16 @@ public class S742 {
     public int findClosestLeaf(TreeNode root, int k) {
         // 转换成图，二叉树每个节点最多3个邻居
         // 注意根节点的特殊性
-        if (root == null) return 0;
-        if (root.left == null && root.right == null) return root.val;
+        if (root == null) {
+            return 0;
+        }
+        if (root.left == null && root.right == null) {
+            return root.val;
+        }
         int[][] graph = new int[1001][3];
-        for (int[] n : graph) Arrays.fill(n, -1);
+        for (int[] n : graph) {
+            Arrays.fill(n, -1);
+        }
         dfs(root, -1, graph);
         // bfs找到最近的叶子节点
         Deque<Integer> queue = new ArrayDeque<>();
@@ -35,13 +39,17 @@ public class S742 {
                     }
                 }
             }
-            if (neighborCount == 1 && node != root.val) return node;
+            if (neighborCount == 1 && node != root.val) {
+                return node;
+            }
         }
         return -1;
     }
 
     private void dfs(TreeNode root, int parent, int[][] graph) {
-        if (root == null) return;
+        if (root == null) {
+            return;
+        }
         graph[root.val][0] = parent;
         graph[root.val][1] = val(root.left);
         graph[root.val][2] = val(root.right);

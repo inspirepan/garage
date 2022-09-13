@@ -17,6 +17,6 @@ public class S1512 {
 
     // 排列组合公式都快忘了
     private int C2(int i) {
-        return i*(i-1)/2;
+        return i * (i - 1) / 2;
     }
 }

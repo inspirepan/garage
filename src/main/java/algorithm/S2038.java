@@ -18,8 +18,11 @@ public class S2038 {
             }
             int t = p - q - 2;
             if (t > 0) {
-                if (isA) countA += t;
-                else countB += t;
+                if (isA) {
+                    countA += t;
+                } else {
+                    countB += t;
+                }
             }
             isA = !isA;
         }

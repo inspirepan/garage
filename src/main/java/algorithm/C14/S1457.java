@@ -1,13 +1,13 @@
 package algorithm.C14;
 
 import datastructure.TreeNode;
-
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
 
 public class S1457 {
 
     private int count = 0;
-    private Set<Integer> set = new HashSet<>();
+    private final Set<Integer> set = new HashSet<>();
 
     public int pseudoPalindromicPaths(TreeNode root) {
         // 统计所有根节点到叶子节点的路径，然后判断每个路径是不是伪回文路径

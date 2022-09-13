@@ -1,8 +1,6 @@
 package algorithm.C7;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class S765 {
     public int minSwapsCouples(int[] row) {
@@ -17,10 +15,16 @@ public class S765 {
         for (int i = 0; i < n; i++) {
             int first = row[i << 1] >>> 1;
             int second = row[(i << 1) + 1] >>> 1;
-            if (couples[first][0] == -1) couples[first][0] = i;
-            else couples[first][1] = i;
-            if (couples[second][0] == -1) couples[second][0] = i;
-            else couples[second][1] = i;
+            if (couples[first][0] == -1) {
+                couples[first][0] = i;
+            } else {
+                couples[first][1] = i;
+            }
+            if (couples[second][0] == -1) {
+                couples[second][0] = i;
+            } else {
+                couples[second][1] = i;
+            }
         }
         UnionFind uf = new UnionFind(n);
         for (int[] couple : couples) {

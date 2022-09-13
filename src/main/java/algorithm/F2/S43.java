@@ -1,8 +1,10 @@
 package algorithm.F2;
 
 import datastructure.TreeNode;
-
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.List;
 
 public class S43 {
     class CBTInserter {
@@ -17,7 +19,9 @@ public class S43 {
             level = 0;
             levelCount = 0;
             list.add(new ArrayList<>());
-            if (r == null) return;
+            if (r == null) {
+                return;
+            }
             Deque<TreeNode> queue = new ArrayDeque<>();
             queue.offer(r);
             while (!queue.isEmpty()) {
@@ -29,8 +33,12 @@ public class S43 {
                     level++;
                     levelCount = 0;
                 }
-                if (node.left != null) queue.offer(node.left);
-                if (node.right != null) queue.offer(node.right);
+                if (node.left != null) {
+                    queue.offer(node.left);
+                }
+                if (node.right != null) {
+                    queue.offer(node.right);
+                }
                 size++;
             }
         }

@@ -9,7 +9,9 @@ public class S227 {
         int operator = PLUS;
         StringBuilder number = new StringBuilder();
         for (char c : s.toCharArray()) {
-            if (c == ' ') continue;
+            if (c == ' ') {
+                continue;
+            }
             if (c == '+' || c == '-' || c == '*' || c == '/') {
                 switch (operator) {
                     case PLUS -> operand = Integer.parseInt(number.toString());

@@ -5,7 +5,9 @@ import java.util.Arrays;
 public class S213 {
     public int rob(int[] nums) {
         int len = nums.length;
-        if (len == 1) return nums[0];
+        if (len == 1) {
+            return nums[0];
+        }
         int[] f = new int[len];
         f[1] = nums[0];
         for (int i = 1; i < len - 1; i++) {

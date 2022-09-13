@@ -24,7 +24,7 @@ public class S34 {
         }
         // not found
         if (left >= nums.length || nums[left] != target) {
-            return new int[]{-1, -1};
+            return new int[] {-1, -1};
         }
         // search right boundary
         int left2 = left;
@@ -39,7 +39,7 @@ public class S34 {
                 right2 = mid;
             }
         }
-        return new int[]{left, left2 - 1};
+        return new int[] {left, left2 - 1};
     }
 
     /**
@@ -59,7 +59,7 @@ public class S34 {
             }
         }
         if (left >= nums.length || nums[left] != target) {
-            return new int[]{-1, -1};
+            return new int[] {-1, -1};
         }
         int left2 = left;
         int right2 = nums.length - 1;
@@ -73,6 +73,6 @@ public class S34 {
                 left2 = mid + 1;
             }
         }
-        return new int[]{left, right2};
+        return new int[] {left, right2};
     }
 }

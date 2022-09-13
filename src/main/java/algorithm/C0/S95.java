@@ -1,16 +1,16 @@
 package algorithm.C0;
 
 import datastructure.TreeNode;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class S95 {
     public List<TreeNode> generateTrees(int n) {
-        if (n == 0)
+        if (n == 0) {
             return new ArrayList<>();
-        else
+        } else {
             return generateTrees(1, n);
+        }
     }
 
     private List<TreeNode> generateTrees(int start, int end) {

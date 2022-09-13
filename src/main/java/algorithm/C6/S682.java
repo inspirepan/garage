@@ -1,6 +1,5 @@
 package algorithm.C6;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 
 public class S682 {
@@ -21,7 +20,9 @@ public class S682 {
             }
             i++;
         }
-        for (int k : list) sum += k;
+        for (int k : list) {
+            sum += k;
+        }
         return sum;
     }
 }

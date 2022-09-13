@@ -14,8 +14,12 @@ public class S368 {
         Arrays.sort(nums);
         // 用一个List数组来保存结果
         int len = nums.length;
-        if (len == 0) return null;
-        if (len == 1) return List.of(nums[0]);
+        if (len == 0) {
+            return null;
+        }
+        if (len == 1) {
+            return List.of(nums[0]);
+        }
         // 还是用双重List代替数组，不过要注意初始化的问题，在每次循环中都先add一下
         List<LinkedList<Integer>> dp = new ArrayList<>();
         var t0 = new LinkedList<Integer>();
@@ -40,7 +44,9 @@ public class S368 {
                         t2.add(current);
                         dp.set(i, t2);
                         // 更新最长的结果
-                        if (t2.size() > ans.size()) ans = t2;
+                        if (t2.size() > ans.size()) {
+                            ans = t2;
+                        }
                     }
                 }
                 k++;

@@ -6,7 +6,9 @@ public class S785 {
         UnionFind uf = new UnionFind(2 * n);
         for (int i = 0; i < n; i++) {
             for (int node : graph[i]) {
-                if (uf.isConnected(i, node)) return false;
+                if (uf.isConnected(i, node)) {
+                    return false;
+                }
                 uf.union(i, node + n);
                 uf.union(i + n, node);
             }

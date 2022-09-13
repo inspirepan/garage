@@ -11,12 +11,16 @@ public class S1576 {
                 char d = 'a';
                 if (i > 0) {
                     d = (char) (chars[i - 1] + 1);
-                    if (d == '{') d = 'a';
+                    if (d == '{') {
+                        d = 'a';
+                    }
                 }
                 if (i < chars.length - 1 && d == chars[i + 1]) {
                     d = (char) (chars[i + 1] + 1);
                     // 考虑z+1可能会变成{
-                    if (d == '{') d = 'a';
+                    if (d == '{') {
+                        d = 'a';
+                    }
                 }
                 chars[i] = d;
             }

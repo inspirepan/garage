@@ -21,7 +21,9 @@ public class S526 {
             return;
         }
         for (int i = 1; i <= n; i++) {
-            if (visited[i]) continue;
+            if (visited[i]) {
+                continue;
+            }
             if ((i == index + 1) || (i > index + 1 && i % (index + 1) == 0) || (i < index + 1 && (index + 1) % i == 0)) {
                 visited[i] = true;
                 dfs(index + 1, visited);

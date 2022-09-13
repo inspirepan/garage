@@ -10,7 +10,9 @@ public class S708 {
         Node q = head;
         while (q.next.val >= q.val) {
             q = q.next;
-            if (q == head) break;
+            if (q == head) {
+                break;
+            }
         }
         int max = q.val;
         int min = q.next.val;
@@ -47,5 +49,4 @@ public class S708 {
         }
     }
 
-    ;
 }

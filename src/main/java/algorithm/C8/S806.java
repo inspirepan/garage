@@ -12,6 +12,6 @@ public class S806 {
                 x += widths[c - 'a'];
             }
         }
-        return new int[]{y, x};
+        return new int[] {y, x};
     }
 }

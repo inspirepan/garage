@@ -1,8 +1,5 @@
 package algorithm.C3;
 
-import java.util.Iterator;
-import java.util.LinkedList;
-
 public class S390 {
     public int lastRemaining(int n) {
         // 每一次操作会让每一个数之间的距离翻倍

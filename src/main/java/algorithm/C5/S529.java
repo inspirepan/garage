@@ -5,8 +5,8 @@ import java.util.List;
 
 public class S529 {
 
-    static final int[] dx = new int[]{-1, -1, -1, 0, 0, 1, 1, 1};
-    static final int[] dy = new int[]{-1, 0, 1, -1, 1, -1, 0, 1};
+    static final int[] dx = new int[] {-1, -1, -1, 0, 0, 1, 1, 1};
+    static final int[] dy = new int[] {-1, 0, 1, -1, 1, -1, 0, 1};
 
     public char[][] updateBoard(char[][] board, int[] click) {
         int x = click[0];
@@ -25,12 +25,15 @@ public class S529 {
                 int nx = x + dx[i], ny = y + dy[i];
                 if (nx >= 0 && nx < m && ny >= 0 && ny < n) {
                     char c = board[nx][ny];
-                    if (c == 'M') mCount++;
-                    else if (c <= '9' && c >= '1') continue;
-                    else if (c == 'B') continue;
-                    else {
+                    if (c == 'M') {
+                        mCount++;
+                    } else if (c <= '9' && c >= '1') {
+                        continue;
+                    } else if (c == 'B') {
+                        continue;
+                    } else {
                         // E 需要在标记xy之后，去递归
-                        search.add(new int[]{nx, ny});
+                        search.add(new int[] {nx, ny});
                     }
                 }
             }
@@ -40,7 +43,9 @@ public class S529 {
                 for (var next : search) {
                     updateBoard(board, next);
                 }
-            } else board[x][y] = Character.forDigit(mCount, 10);
+            } else {
+                board[x][y] = Character.forDigit(mCount, 10);
+            }
         }
         return board;
     }

@@ -1,7 +1,6 @@
 package algorithm.C5;
 
 import datastructure.TreeNode;
-
 import java.util.ArrayDeque;
 import java.util.Deque;
 
@@ -18,7 +17,9 @@ public class S530 {
                 node = node.left;
             }
             node = stack.pop();
-            if (node.val == prev) return 0;
+            if (node.val == prev) {
+                return 0;
+            }
             min = Math.min(node.val - prev, min);
             prev = node.val;
             node = node.right;

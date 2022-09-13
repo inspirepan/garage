@@ -12,7 +12,9 @@ public class S1560 {
         List<Integer> result = new ArrayList<>();
         if (dest > start) {
             int i = start;
-            while (i <= dest) result.add(i++);
+            while (i <= dest) {
+                result.add(i++);
+            }
         } else if (dest == start) {
             result.add(dest);
         } else {

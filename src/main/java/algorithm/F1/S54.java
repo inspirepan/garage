@@ -1,7 +1,6 @@
 package algorithm.F1;
 
 import datastructure.TreeNode;
-
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
@@ -10,7 +9,9 @@ import java.util.List;
 public class S54 {
 
     public int kthLargest(TreeNode root, int k) {
-        if (root == null) return 0;
+        if (root == null) {
+            return 0;
+        }
         List<Integer> list = new ArrayList<>();
         Deque<TreeNode> stack = new ArrayDeque<>();
         TreeNode node = root;
@@ -23,7 +24,9 @@ public class S54 {
             list.add(node.val);
             node = node.right;
         }
-        if (k > list.size()) return 0;
+        if (k > list.size()) {
+            return 0;
+        }
         return list.get(list.size() - k);
     }
 }

@@ -5,15 +5,17 @@ import java.util.Deque;
 
 public class S59II {
     class MaxQueue {
-        private Deque<Integer> queue = new ArrayDeque<>();
-        private Deque<Integer> max = new ArrayDeque<>();
+        private final Deque<Integer> queue = new ArrayDeque<>();
+        private final Deque<Integer> max = new ArrayDeque<>();
 
         public MaxQueue() {
 
         }
 
         public int max_value() {
-            if (queue.isEmpty()) return -1;
+            if (queue.isEmpty()) {
+                return -1;
+            }
             return max.peek();
         }
 
@@ -26,7 +28,9 @@ public class S59II {
         }
 
         public int pop_front() {
-            if (queue.isEmpty()) return -1;
+            if (queue.isEmpty()) {
+                return -1;
+            }
             int val = queue.poll();
             if (max.peek() == val) {
                 max.poll();

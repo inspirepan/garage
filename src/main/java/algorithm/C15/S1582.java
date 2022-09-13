@@ -9,8 +9,9 @@ public class S1582 {
             int special = -1, k = 0;
             while (k < n) {
                 if (mat[i][k] == 1) {
-                    if (special == -1) special = k;
-                    else {
+                    if (special == -1) {
+                        special = k;
+                    } else {
                         special = -1;
                         break;
                     }
@@ -28,7 +29,9 @@ public class S1582 {
                     }
                     j++;
                 }
-                if (is) count++;
+                if (is) {
+                    count++;
+                }
             }
         }
         return count;

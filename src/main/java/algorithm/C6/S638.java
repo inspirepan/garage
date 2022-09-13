@@ -32,11 +32,15 @@ public class S638 {
 
     private void dfs(List<Integer> spc, int[] currCount) {
         // 如果当前组合购买的数量大于needs，不行
-        if (visited.contains(spc)) return;
+        if (visited.contains(spc)) {
+            return;
+        }
         visited.add(spc);
         // 当前开销
         int currPrice = 0;
-        for (int k = 0; k < spc.size(); k++) currPrice += spc.get(k) * special.get(k).get(n);
+        for (int k = 0; k < spc.size(); k++) {
+            currPrice += spc.get(k) * special.get(k).get(n);
+        }
         int[] remain = new int[n];
         for (int i = 0; i < n; i++) {
             remain[i] = needs[i] - currCount[i];
@@ -55,10 +59,14 @@ public class S638 {
             }
             if (ok) {
                 spc.set(k, spc.get(k) + 1);
-                for (int i = 0; i < n; i++) currCount[i] += sp.get(i);
+                for (int i = 0; i < n; i++) {
+                    currCount[i] += sp.get(i);
+                }
                 dfs(spc, currCount);
                 spc.set(k, spc.get(k) - 1);
-                for (int i = 0; i < n; i++) currCount[i] -= sp.get(i);
+                for (int i = 0; i < n; i++) {
+                    currCount[i] -= sp.get(i);
+                }
             }
         }
     }

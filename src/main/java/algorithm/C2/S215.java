@@ -1,7 +1,6 @@
 package algorithm.C2;
 
 import java.util.PriorityQueue;
-import java.util.Random;
 
 /**
  * @author panjx

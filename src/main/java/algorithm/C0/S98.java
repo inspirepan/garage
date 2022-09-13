@@ -1,7 +1,6 @@
 package algorithm.C0;
 
 import datastructure.TreeNode;
-
 import java.util.ArrayDeque;
 import java.util.Deque;
 
@@ -16,10 +15,12 @@ public class S98 {
         if (root == null) {
             return true;
         } else {
-            if (!isValidBST(root.left))
+            if (!isValidBST(root.left)) {
                 return false;
-            if (root.val <= pre)
+            }
+            if (root.val <= pre) {
                 return false;
+            }
             pre = root.val;
             return isValidBST(root.right);
         }

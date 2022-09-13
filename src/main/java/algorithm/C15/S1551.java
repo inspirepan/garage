@@ -2,7 +2,9 @@ package algorithm.C15;
 
 public class S1551 {
     public int minOperations(int n) {
-        if (n <= 1) return 0;
+        if (n <= 1) {
+            return 0;
+        }
         if ((n & 1) == 0) {
             // 1 3 5 7 1+3 1+3+5
             return n * n / 4;

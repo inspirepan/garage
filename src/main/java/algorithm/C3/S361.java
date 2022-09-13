@@ -20,7 +20,9 @@ public class S361 {
                         p++;
                     }
                     count = 0;
-                } else if (grid[i][j] == 'E') count++;
+                } else if (grid[i][j] == 'E') {
+                    count++;
+                }
                 j++;
             }
         }
@@ -37,7 +39,9 @@ public class S361 {
                         p++;
                     }
                     count = 0;
-                } else if (grid[i][j] == 'E') count++;
+                } else if (grid[i][j] == 'E') {
+                    count++;
+                }
                 i++;
             }
         }

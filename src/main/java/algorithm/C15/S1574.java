@@ -1,7 +1,5 @@
 package algorithm.C15;
 
-import java.util.Arrays;
-
 public class S1574 {
     public int findLengthOfShortestSubarray(int[] arr) {
         //判断左边递增左右边界 以及右边
@@ -13,7 +11,9 @@ public class S1574 {
         while (right - 1 >= 0 && arr[right - 1] <= arr[right]) {
             right--;
         }
-        if (right == 0) return 0;
+        if (right == 0) {
+            return 0;
+        }
         int ans = Integer.MAX_VALUE;
         for (int i = 0; i <= left; i++) {
             int p = binarySearch(arr, right, arr[i]);

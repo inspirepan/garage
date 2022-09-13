@@ -1,8 +1,14 @@
 package algorithm.C4;
 
 public class S400 {
+    private static long digitCount(int k) {
+        return k * (long) (Math.pow(10, k) - Math.pow(10, k - 1));
+    }
+
     public int findNthDigit(int n) {
-        if (n < 10) return n;
+        if (n < 10) {
+            return n;
+        }
         //找规律，1-9  10-99 *2 100*999 *3 1000-9999 *4 ...
         int k = 1;
         while (n > digitCount(k)) {
@@ -20,10 +26,6 @@ public class S400 {
             number /= 10;
         }
         return (int) number % 10;
-    }
-
-    private static long digitCount(int k) {
-        return k * (long) (Math.pow(10, k) - Math.pow(10, k - 1));
     }
 
     public int findNthDigit2(int n) {

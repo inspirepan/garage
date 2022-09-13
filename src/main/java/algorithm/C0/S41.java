@@ -18,12 +18,16 @@ public class S41 {
                 }
                 while (nums[i] >= 1 && nums[i] <= len) {
                     // 如果i或者nums[i]-1的位置已经是正确的数，就不管了
-                    if (nums[i] == i + 1 || nums[nums[i] - 1] == nums[i]) break;
+                    if (nums[i] == i + 1 || nums[nums[i] - 1] == nums[i]) {
+                        break;
+                    }
                     swap(nums, i, nums[i] - 1);
                 }
             }
             for (int i = 0; i < len; i++) {
-                if (nums[i] != i + 1) return i + 1;
+                if (nums[i] != i + 1) {
+                    return i + 1;
+                }
             }
             return len + 1;
         }

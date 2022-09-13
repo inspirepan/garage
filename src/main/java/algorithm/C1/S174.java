@@ -1,7 +1,5 @@
 package algorithm.C1;
 
-import java.util.Arrays;
-
 /**
  * @author panjx
  */

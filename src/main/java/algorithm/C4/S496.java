@@ -1,6 +1,9 @@
 package algorithm.C4;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.Map;
 
 public class S496 {
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {

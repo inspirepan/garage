@@ -1,8 +1,6 @@
 package algorithm.C5;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class S593 {
@@ -14,18 +12,27 @@ public class S593 {
         list.add(p3);
         list.add(p4);
         list.sort((o1, o2) -> {
-            if (o1[0] == o2[0]) return o1[1] - o2[1];
+            if (o1[0] == o2[0]) {
+                return o1[1] - o2[1];
+            }
             return o1[0] - o2[0];
         });
         // 四条边
         int len = distance(list.get(0), list.get(1));
-        if (len == 0) return false;
-        if (distance(list.get(1), list.get(3)) != len) return false;
-        if (distance(list.get(3), list.get(2)) != len) return false;
-        if (distance(list.get(2), list.get(0)) != len) return false;
+        if (len == 0) {
+            return false;
+        }
+        if (distance(list.get(1), list.get(3)) != len) {
+            return false;
+        }
+        if (distance(list.get(3), list.get(2)) != len) {
+            return false;
+        }
+        if (distance(list.get(2), list.get(0)) != len) {
+            return false;
+        }
         // 对角线
-        if (distance(list.get(0), list.get(3)) != 2 * len) return false;
-        return true;
+        return distance(list.get(0), list.get(3)) == 2 * len;
     }
 
     private int distance(int[] n1, int[] n2) {

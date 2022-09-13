@@ -9,7 +9,9 @@ public class S26 {
             nums[j] = nums[i];
             j++;
             i++;
-            while (i < len && nums[i] == nums[i - 1]) i++;
+            while (i < len && nums[i] == nums[i - 1]) {
+                i++;
+            }
         }
         return j;
     }

@@ -1,6 +1,10 @@
 package algorithm.C7;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class S743dijkstra {
     public int networkDelayTime(int[][] times, int n, int k) {
@@ -19,7 +23,7 @@ public class S743dijkstra {
             int dest = time[1];
             int pathLen = time[2];
             var list = map.getOrDefault(source, new ArrayList<>());
-            list.add(new Integer[]{dest, pathLen});
+            list.add(new Integer[] {dest, pathLen});
             map.put(source, list);
         }
         while (true) {
@@ -28,15 +32,21 @@ public class S743dijkstra {
             int minDest = 1;
             int nextCount = 0;
             for (int i = 1; i <= n; i++) {
-                if (satisfied[i] == 0) continue;
+                if (satisfied[i] == 0) {
+                    continue;
+                }
                 // 每一个已经最短的节点
-                if (!map.containsKey(i)) continue;
+                if (!map.containsKey(i)) {
+                    continue;
+                }
                 var nextNodeList = map.get(i);
                 for (Integer[] next : nextNodeList) {
                     // 往下的下一个节点
                     int dest = next[0];
                     int time = next[1];
-                    if (satisfied[dest] == 1) continue;
+                    if (satisfied[dest] == 1) {
+                        continue;
+                    }
                     nextCount++;
                     if (distance[dest] == -1) {
                         distance[dest] = distance[i] + time;
@@ -49,7 +59,9 @@ public class S743dijkstra {
                     }
                 }
             }
-            if (nextCount == 0) break;
+            if (nextCount == 0) {
+                break;
+            }
             // 选出最近的加入satisfied
             satisfied[minDest] = 1;
             // 还有没有可以加入的新节点
@@ -58,14 +70,20 @@ public class S743dijkstra {
             if (map.containsKey(minDest)) {
                 var list = map.get(minDest);
                 for (Integer[] next : list) {
-                    if (satisfied[next[0]] == 0) nextCount++;
+                    if (satisfied[next[0]] == 0) {
+                        nextCount++;
+                    }
                 }
             }
-            if (nextCount == 0) break;
+            if (nextCount == 0) {
+                break;
+            }
         }
         int max = 0;
         for (int i = 1; i <= n; i++) {
-            if (distance[i] == -1) return -1;
+            if (distance[i] == -1) {
+                return -1;
+            }
             max = Math.max(distance[i], max);
         }
         return max;

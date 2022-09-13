@@ -14,7 +14,9 @@ public class S254 {
     }
 
     void dfs(int n, int x) {
-        if (n == 1) return;
+        if (n == 1) {
+            return;
+        }
         if (!path.isEmpty()) {
             path.add(n);
             res.add(new ArrayList<>(path));

@@ -5,8 +5,12 @@ import datastructure.TreeNode;
 
 public class S109 {
     public TreeNode sortedListToBST(ListNode head) {
-        if (head == null) return null;
-        if (head.next == null) return new TreeNode(head.val);
+        if (head == null) {
+            return null;
+        }
+        if (head.next == null) {
+            return new TreeNode(head.val);
+        }
         ListNode slow = new ListNode();
         ListNode fast = slow;
         fast.next = head;

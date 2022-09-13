@@ -4,7 +4,9 @@ import java.util.Arrays;
 
 public class S259 {
     public int threeSumSmaller(int[] nums, int target) {
-        if (nums.length < 3) return 0;
+        if (nums.length < 3) {
+            return 0;
+        }
         Arrays.sort(nums);
         int ans = 0;
         for (int i = 0; i < nums.length - 2; i++) {

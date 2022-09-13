@@ -12,17 +12,23 @@ public class S420n {
     }
 
     private long findNext(long r, int n) {
-        if (r * 10 <= n) return r * 10;
+        if (r * 10 <= n) {
+            return r * 10;
+        }
         r += 1;
         if (r % 10 == 0) {
-            while (r % 10 == 0) r /= 10;
+            while (r % 10 == 0) {
+                r /= 10;
+            }
             return r;
         }
         if (r > n) {
             r /= 10;
             r += 1;
             if (r % 10 == 0) {
-                while (r % 10 == 0) r /= 10;
+                while (r % 10 == 0) {
+                    r /= 10;
+                }
             }
         }
         return r;

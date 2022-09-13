@@ -1,7 +1,6 @@
 package algorithm.C15;
 
 import java.util.LinkedList;
-import java.util.List;
 
 public class S1536 {
     public int minSwaps(int[][] grid) {

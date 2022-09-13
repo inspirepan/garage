@@ -16,7 +16,9 @@ public class S735 {
                     stack.pop();
                 }
                 if (!stack.isEmpty() && stack.peek() > 0) {
-                    if (stack.peek() == -i) stack.pop(); // 一样大，爆炸
+                    if (stack.peek() == -i) {
+                        stack.pop(); // 一样大，爆炸
+                    }
                     // 否则保留peek的行星
                 } else {
                     // 否则添加i

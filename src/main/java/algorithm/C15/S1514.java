@@ -1,6 +1,9 @@
 package algorithm.C15;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class S1514 {
     double[] succProb;
@@ -20,10 +23,10 @@ public class S1514 {
         for (int i = 0; i < edges.length; i++) {
             // 每个结点：下一个结点、对应边的序号
             var list0 = map.getOrDefault(edges[i][0], new ArrayList<>());
-            list0.add(new int[]{edges[i][1], i});
+            list0.add(new int[] {edges[i][1], i});
             map.put(edges[i][0], list0);
             var list1 = map.getOrDefault(edges[i][1], new ArrayList<>());
-            list1.add(new int[]{edges[i][0], i});
+            list1.add(new int[] {edges[i][0], i});
             map.put(edges[i][1], list1);
         }
         dfs(start, end, 1);

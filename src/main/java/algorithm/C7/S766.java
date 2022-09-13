@@ -2,7 +2,9 @@ package algorithm.C7;
 
 public class S766 {
     public boolean isToeplitzMatrix(int[][] matrix) {
-        if (matrix.length == 0 || matrix[0].length == 0) return false;
+        if (matrix.length == 0 || matrix[0].length == 0) {
+            return false;
+        }
         int m = matrix.length;
         int n = matrix[0].length;
         for (int i = 0; i < m; i++) {
@@ -10,7 +12,9 @@ public class S766 {
             int x = i + 1;
             int y = 1;
             while (x < m && y < n) {
-                if (matrix[x][y] != curr) return false;
+                if (matrix[x][y] != curr) {
+                    return false;
+                }
                 x++;
                 y++;
             }
@@ -20,7 +24,9 @@ public class S766 {
             int x = 1;
             int y = j + 1;
             while (x < m && y < n) {
-                if (matrix[x][y] != curr) return false;
+                if (matrix[x][y] != curr) {
+                    return false;
+                }
                 x++;
                 y++;
             }

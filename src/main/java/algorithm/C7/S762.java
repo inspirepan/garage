@@ -13,7 +13,9 @@ public class S762 {
     }
 
     boolean isPrime(int n) {
-        if (map.containsKey(n)) return map.get(n);
+        if (map.containsKey(n)) {
+            return map.get(n);
+        }
         boolean flag = true;
         for (int i = 2; i <= n / 2; i++) {
             if (n % i == 0) {
@@ -30,7 +32,9 @@ public class S762 {
 
         int count = 0;
         while (left <= right) {
-            if (isPrime(Integer.bitCount(left++))) count++;
+            if (isPrime(Integer.bitCount(left++))) {
+                count++;
+            }
         }
         return count;
     }

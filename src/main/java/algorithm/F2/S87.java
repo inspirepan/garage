@@ -4,10 +4,15 @@ public class S87 {
     public int numDistinct(String s, String t) {
         int len1 = s.length();
         int len2 = t.length();
-        if (len1 < len2) return 0;
+        if (len1 < len2) {
+            return 0;
+        }
         if (len1 == len2) {
-            if (t.equals(s)) return 1;
-            else return 0;
+            if (t.equals(s)) {
+                return 1;
+            } else {
+                return 0;
+            }
         }
         char[] c1 = s.toCharArray();
         char[] c2 = t.toCharArray();

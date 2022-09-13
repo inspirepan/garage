@@ -4,9 +4,9 @@ package algorithm.C1;
 class S146 {
     class LRUCache {
 
+        final int THRESHOLD;
         Entry head = new Entry();
         Entry tail = new Entry();
-        final int THRESHOLD;
         Entry[] tables;
         int size = 0;
 

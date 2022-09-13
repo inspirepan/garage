@@ -35,7 +35,9 @@ public class S224 {
                     } else if (c == '-') {
                         op.push(c);
                         // 因为有负数的形式，所以对于第一个数，补一个0
-                        if (i > 0 && (arr[i - 1] == '(')) nums.push(0);
+                        if (i > 0 && (arr[i - 1] == '(')) {
+                            nums.push(0);
+                        }
                     } else if (c == '(') {
                         op.push(c);
                     } else {

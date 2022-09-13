@@ -5,7 +5,9 @@ public class S1550 {
         int len = arr.length;
         int i = 0;
         while (i < len - 2) {
-            if ((arr[i] & 1) == 1 && (arr[i + 1] & 1) == 1 && (arr[i + 2] & 1) == 1) return true;
+            if ((arr[i] & 1) == 1 && (arr[i + 1] & 1) == 1 && (arr[i + 2] & 1) == 1) {
+                return true;
+            }
             i++;
         }
         return false;

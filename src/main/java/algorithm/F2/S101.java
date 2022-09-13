@@ -3,13 +3,21 @@ package algorithm.F2;
 public class S101 {
     public boolean canPartition(int[] nums) {
         int sum = 0;
-        for (int n : nums) sum += n;
-        if ((sum & 1) == 1) return false;
+        for (int n : nums) {
+            sum += n;
+        }
+        if ((sum & 1) == 1) {
+            return false;
+        }
         int target = sum >>> 1;
         // if exist subsequence of nums that sums == target
         for (int n : nums) {
-            if (n == target) return true;
-            if (n > target) return false;
+            if (n == target) {
+                return true;
+            }
+            if (n > target) {
+                return false;
+            }
         }
 
         // 01背包

@@ -2,7 +2,6 @@ package algorithm.C4;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 public class S420 {
     // 这样写超时了，毕竟我是从1开始往后找的，完全就是模拟的
@@ -26,20 +25,27 @@ public class S420 {
         //         如果大于n，那么移除最后一位，然后最后一位+1   1194 -> 1195 -> 119 + (1) -> 120 如果要进位、就在进位完成之后删除全部末尾的0
         //
         number.add(0);
-        if (getNumber(number) <= n) return;
+        if (getNumber(number) <= n) {
+            return;
+        }
         number.removeLast();
         addOne(number);
         if (number.get(number.size() - 1) == 0) {
             int p = number.size() - 1;
-            while (p >= 0 && number.get(p) == 0)
+            while (p >= 0 && number.get(p) == 0) {
                 p--;
-            if (p == -1) return; // 说明999不能变成9990，题目数据有误
+            }
+            if (p == -1) {
+                return; // 说明999不能变成9990，题目数据有误
+            }
             // 移除p之后的
             int k = 0;
             var it = number.iterator();
             while (it.hasNext()) {
                 it.next();
-                if (k++ > p) it.remove();
+                if (k++ > p) {
+                    it.remove();
+                }
             }
         } else {
             if (getNumber(number) > n) {
@@ -47,15 +53,20 @@ public class S420 {
                 addOne(number);
                 if (number.get(number.size() - 1) == 0) {
                     int p = number.size() - 1;
-                    while (p >= 0 && number.get(p) == 0)
+                    while (p >= 0 && number.get(p) == 0) {
                         p--;
-                    if (p == -1) return;
+                    }
+                    if (p == -1) {
+                        return;
+                    }
                     // 移除p之后的
                     int k = 0;
                     var it = number.iterator();
                     while (it.hasNext()) {
                         it.next();
-                        if (k++ > p) it.remove();
+                        if (k++ > p) {
+                            it.remove();
+                        }
                     }
                 }
             }

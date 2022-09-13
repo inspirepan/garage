@@ -1,14 +1,16 @@
 package algorithm.C7;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
 
 public class S764 {
     public int orderOfLargestPlusSign(int n, int[][] mines) {
         Set<Integer> banned = new HashSet<>();
         int[][] dp = new int[n][n];
 
-        for (int[] mine : mines)
+        for (int[] mine : mines) {
             banned.add(mine[0] * n + mine[1]);
+        }
         int max = 0, count;
 
         for (int x = 0; x < n; ++x) {

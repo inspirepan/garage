@@ -1,7 +1,5 @@
 package algorithm;
 
-import java.util.Arrays;
-
 public class S1066 {
 
     int minDistance = Integer.MAX_VALUE;
@@ -31,10 +29,14 @@ public class S1066 {
         int[] curr = workers[w];
 
         for (int i = 0; i < used.length; i++) {
-            if (used[i]) continue;
+            if (used[i]) {
+                continue;
+            }
 
             int nextDist = distance + Math.abs(curr[0] - bikes[i][0]) + Math.abs(curr[1] - bikes[i][1]);
-            if (nextDist > minDistance) continue;
+            if (nextDist > minDistance) {
+                continue;
+            }
             used[i] = true;
             dfs(w + 1, nextDist);
             used[i] = false;

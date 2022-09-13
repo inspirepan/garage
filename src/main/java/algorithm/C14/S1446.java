@@ -6,15 +6,15 @@ public class S1446 {
         int max = 1;
         char c = s.charAt(0);
         for (int i = 1; i < s.length(); i++) {
-            if(s.charAt(i)==c){
+            if (s.charAt(i) == c) {
                 count++;
-            }else{
+            } else {
                 c = s.charAt(i);
-                max = Math.max(max,count);
+                max = Math.max(max, count);
                 count = 1;
             }
         }
-        max = Math.max(max,count);
+        max = Math.max(max, count);
         return max;
     }
 }

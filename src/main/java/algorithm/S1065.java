@@ -1,7 +1,5 @@
 package algorithm;
 
-import datastructure.TreeNode;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,16 +38,6 @@ public class S1065 {
 
         TrieNode root = new TrieNode();
 
-        public class TrieNode {
-
-            TrieNode[] children = new TrieNode[26];
-            boolean isLeaf = false;
-
-            TrieNode() {
-
-            }
-        }
-
         Trie() {
 
         }
@@ -59,11 +47,23 @@ public class S1065 {
             TrieNode node = root;
             while (i < word.length()) {
                 char c = word.charAt(i);
-                if (node.children[c - 'a'] == null) node.children[c - 'a'] = new TrieNode();
+                if (node.children[c - 'a'] == null) {
+                    node.children[c - 'a'] = new TrieNode();
+                }
                 node = node.children[c - 'a'];
                 i++;
             }
             node.isLeaf = true;
+        }
+
+        public class TrieNode {
+
+            TrieNode[] children = new TrieNode[26];
+            boolean isLeaf = false;
+
+            TrieNode() {
+
+            }
         }
     }
 }

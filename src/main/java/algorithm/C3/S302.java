@@ -6,8 +6,8 @@ public class S302 {
     int minY;
     int maxX = 0;
     int maxY = 0;
-    int[] dx = new int[]{-1, 1, 0, 0};
-    int[] dy = new int[]{0, 0, -1, 1};
+    int[] dx = new int[] {-1, 1, 0, 0};
+    int[] dy = new int[] {0, 0, -1, 1};
 
     public int minArea(char[][] image, int x, int y) {
         // 本身就一个中等难度，要求是O(mn)必须用二分比较难，
@@ -23,7 +23,9 @@ public class S302 {
         if (x < 0 || x >= image.length || y < 0 || y >= image[0].length) {
             return;
         }
-        if (image[x][y] != '1') return;
+        if (image[x][y] != '1') {
+            return;
+        }
         image[x][y] = '2';
         minX = Math.min(minX, x);
         minY = Math.min(minY, y);

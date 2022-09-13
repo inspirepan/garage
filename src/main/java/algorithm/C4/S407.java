@@ -18,7 +18,7 @@ public class S407 {
                     // 最外圈的
                     if (i == 0 || i == m - 1 || j == 0 || j == n - 1) {
                         // 索引，高度
-                        pq.offer(new int[]{i * n + j, heightMap[i][j]});
+                        pq.offer(new int[] {i * n + j, heightMap[i][j]});
                         visit[i][j] = true;
                     }
                 }
@@ -37,7 +37,7 @@ public class S407 {
                         if (curr[1] > heightMap[nx][ny]) {
                             res += curr[1] - heightMap[nx][ny];
                         }
-                        pq.offer(new int[]{nx * n + ny, Math.max(heightMap[nx][ny], curr[1])});
+                        pq.offer(new int[] {nx * n + ny, Math.max(heightMap[nx][ny], curr[1])});
                         visit[nx][ny] = true;
                     }
                 }

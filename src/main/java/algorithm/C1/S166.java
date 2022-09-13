@@ -18,7 +18,7 @@ public class S166 {
 
         long dividend = Math.abs(Long.valueOf(numerator));
         long divisor = Math.abs(Long.valueOf(denominator));
-        sb.append(String.valueOf(dividend / divisor));
+        sb.append(dividend / divisor);
         long remainder = dividend % divisor;
         if (remainder == 0) {
             return sb.toString();
@@ -34,7 +34,7 @@ public class S166 {
             }
             map.put(remainder, sb.length());
             remainder *= 10;
-            sb.append(String.valueOf(remainder / divisor));
+            sb.append(remainder / divisor);
             remainder %= divisor;
         }
         return sb.toString();

@@ -1,7 +1,5 @@
 package algorithm.C15;
 
-import java.util.Collections;
-
 public class S1539 {
     public int findKthPositive(int[] arr, int k) {
         // 正整数

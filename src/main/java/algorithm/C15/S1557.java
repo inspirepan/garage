@@ -1,6 +1,7 @@
 package algorithm.C15;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class S1557 {
     public List<Integer> findSmallestSetOfVertices(int n, List<List<Integer>> edges) {
@@ -11,7 +12,9 @@ public class S1557 {
         }
         List<Integer> result = new ArrayList<>();
         for (int i = 0; i < n; i++) {
-            if (node[i] == 0) result.add(i);
+            if (node[i] == 0) {
+                result.add(i);
+            }
         }
         return result;
     }

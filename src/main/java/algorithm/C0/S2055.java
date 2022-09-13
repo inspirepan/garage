@@ -1,6 +1,6 @@
 package algorithm.C0;
 
-import java.util.*;
+import java.util.TreeMap;
 
 public class S2055 {
     public int[] platesBetweenCandles2(String s, int[][] queries) {
@@ -33,13 +33,18 @@ public class S2055 {
         }
         int[] result = new int[queries.length];
         // 如果蜡烛数量小于等于两个
-        if (index <= 2) return result;
+        if (index <= 2) {
+            return result;
+        }
         for (int i = 0; i < queries.length; i++) {
             int l = queries[i][0], r = queries[i][1];
             int lc = right[l];
             int rc = left[r];
-            if (lc == -1 || rc == -1 || lc >= rc) result[i] = 0;
-            else result[i] = rc - lc - (candleIndex[rc] - candleIndex[lc]);
+            if (lc == -1 || rc == -1 || lc >= rc) {
+                result[i] = 0;
+            } else {
+                result[i] = rc - lc - (candleIndex[rc] - candleIndex[lc]);
+            }
         }
         return result;
     }
@@ -52,9 +57,15 @@ public class S2055 {
         // 用一个结构来记录全部的蜡烛的坐标，以及它是第几个蜡烛（0开始）
         TreeMap<Integer, Integer> treeMap = new TreeMap<>();
         int candleIndex = 0;
-        for (int i = 0; i < len; i++) if (c[i] == '|') treeMap.put(i, candleIndex++);
+        for (int i = 0; i < len; i++) {
+            if (c[i] == '|') {
+                treeMap.put(i, candleIndex++);
+            }
+        }
         int[] result = new int[queries.length];
-        if (treeMap.size() < 2) return result;
+        if (treeMap.size() < 2) {
+            return result;
+        }
         for (int i = 0; i < result.length; i++) {
             int[] query = queries[i];
             int left = query[0], right = query[1];

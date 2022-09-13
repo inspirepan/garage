@@ -6,7 +6,9 @@ public class S563 {
     int tiltSum = 0;
 
     public int findTilt(TreeNode root) {
-        if (root == null) return 0;
+        if (root == null) {
+            return 0;
+        }
         helper(root);
         return tiltSum;
     }
@@ -14,7 +16,9 @@ public class S563 {
     private int helper(TreeNode node) {
         // 返回树以及子树的和
         // 将树的val修改成坡度
-        if (node == null) return 0;
+        if (node == null) {
+            return 0;
+        }
         int left = helper(node.left);
         int right = helper(node.right);
         int temp = node.val;

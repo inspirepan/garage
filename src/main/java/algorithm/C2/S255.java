@@ -11,7 +11,9 @@ public class S255 {
         Deque<Integer> stack = new ArrayDeque<>();
         int currRootVal = Integer.MIN_VALUE;
         for (int j : preorder) {
-            if (j < currRootVal) return false;
+            if (j < currRootVal) {
+                return false;
+            }
             while (!stack.isEmpty() && j > stack.peek()) {
                 currRootVal = stack.pop();
             }

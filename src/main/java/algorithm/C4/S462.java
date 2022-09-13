@@ -11,9 +11,14 @@ public class S462 {
         // 找数组中位数
         Arrays.sort(nums);
         int mid = 0;
-        if (nums.length <= 1) return 0;
-        if ((nums.length & 1) == 1) mid = nums[nums.length / 2];
-        else mid = (nums[nums.length / 2] + nums[nums.length / 2 - 1]) / 2;
+        if (nums.length <= 1) {
+            return 0;
+        }
+        if ((nums.length & 1) == 1) {
+            mid = nums[nums.length / 2];
+        } else {
+            mid = (nums[nums.length / 2] + nums[nums.length / 2 - 1]) / 2;
+        }
         int result = 0;
         for (int num : nums) {
             result += Math.abs(num - mid);

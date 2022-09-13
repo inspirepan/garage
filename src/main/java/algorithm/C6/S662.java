@@ -1,9 +1,7 @@
 package algorithm.C6;
 
 import datastructure.TreeNode;
-
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.Map;
 
 public class S662 {
@@ -18,7 +16,9 @@ public class S662 {
     }
 
     private void dfs(TreeNode node, int depth, int pos) {
-        if (node == null) return;
+        if (node == null) {
+            return;
+        }
         int left = pos;
         // 每层最左边的节点序号
         if (map.containsKey(depth)) {

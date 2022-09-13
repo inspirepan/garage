@@ -75,7 +75,9 @@ public class S43 {
      * 参考答案
      */
     public String multiply2(String num1, String num2) {
-        if ("0".equals(num1) || "0".equals(num2)) return "0";
+        if ("0".equals(num1) || "0".equals(num2)) {
+            return "0";
+        }
         int len1 = num1.length();
         int len2 = num2.length();
         int[] temp = new int[len1 + len2];
@@ -92,7 +94,9 @@ public class S43 {
         }
         StringBuilder sb = new StringBuilder();
         // 这么做是因为只有可能第0位是0？11*11=121 99*99=9801
-        if (temp[0] != 0) sb.append(temp[0]);
+        if (temp[0] != 0) {
+            sb.append(temp[0]);
+        }
         for (int i = 1; i <= len1 + len2 - 1; i++) {
             sb.append(temp[i]);
         }

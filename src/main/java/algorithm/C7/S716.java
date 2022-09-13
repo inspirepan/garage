@@ -1,29 +1,15 @@
 package algorithm.C7;
 
-import java.security.SecureRandom;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.TreeMap;
 
 public class S716 {
     class MaxStack {
-
-        class Node {
-            int val;
-            Node next;
-            Node prev;
-
-            public Node(int val) {
-                this.val = val;
-            }
-        }
 
         int max = Integer.MIN_VALUE;
         Node head = new Node(0);
         Node tail = new Node(0);
         List<Node> list = new ArrayList<>();
-
         public MaxStack() {
             // 栈好说，维护一个链表、有栈顶元素就可以了
             // 维护一个有序列表，使用二分搜索找增删的节点，o(logn)
@@ -49,9 +35,13 @@ public class S716 {
             while (left < right) {
                 int mid = left + (right - left) / 2;
                 int midVal = list.get(mid).val;
-                if (midVal > x) right = mid;
-                else if (midVal < x) left = mid + 1;
-                else right = mid;
+                if (midVal > x) {
+                    right = mid;
+                } else if (midVal < x) {
+                    left = mid + 1;
+                } else {
+                    right = mid;
+                }
             }
             return left;
         }
@@ -64,7 +54,9 @@ public class S716 {
             // list
             int index = search(val);
             list.remove(index);
-            if (list.size() > 0) max = list.get(list.size() - 1).val;
+            if (list.size() > 0) {
+                max = list.get(list.size() - 1).val;
+            }
             return val;
         }
 
@@ -83,8 +75,20 @@ public class S716 {
             n.next.prev = n.prev;
             n.prev.next = n.next;
             list.remove(index);
-            if (list.size() > 0) max = list.get(list.size() - 1).val;
+            if (list.size() > 0) {
+                max = list.get(list.size() - 1).val;
+            }
             return t;
+        }
+
+        class Node {
+            int val;
+            Node next;
+            Node prev;
+
+            public Node(int val) {
+                this.val = val;
+            }
         }
     }
 }

@@ -1,7 +1,5 @@
 package algorithm.F2;
 
-import java.util.Arrays;
-
 public class S104 {
 
 

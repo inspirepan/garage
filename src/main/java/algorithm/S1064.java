@@ -12,8 +12,12 @@ public class S1064 {
                 left = mid + 1;
             }
         }
-        if (left == arr.length) return -1;
-        if (arr[left] == left) return left;
+        if (left == arr.length) {
+            return -1;
+        }
+        if (arr[left] == left) {
+            return left;
+        }
         return -1;
     }
 }

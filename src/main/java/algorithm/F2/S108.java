@@ -1,6 +1,12 @@
 package algorithm.F2;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class S108 {
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
@@ -32,8 +38,12 @@ public class S108 {
             }
         }
         // 如果相连
-        if (map.get(beginWord).contains(endWord)) return 2;
-        if (!map.containsKey(endWord)) return 0;
+        if (map.get(beginWord).contains(endWord)) {
+            return 2;
+        }
+        if (!map.containsKey(endWord)) {
+            return 0;
+        }
 
         // 开始bfs
         Set<String> used = new HashSet<>();
@@ -45,15 +55,21 @@ public class S108 {
             int nextCount = 0;
             for (int i = 0; i < currCount; i++) {
                 String curr = queue.poll();
-                if (!map.containsKey(curr)) continue;
+                if (!map.containsKey(curr)) {
+                    continue;
+                }
                 var set = map.get(curr);
-                if (set.size() == 0) continue;
+                if (set.size() == 0) {
+                    continue;
+                }
                 if (set.contains(endWord)) {
                     return length + 1;
                 }
                 for (String next : set) {
                     // 下一个
-                    if (used.contains(next)) continue;
+                    if (used.contains(next)) {
+                        continue;
+                    }
                     // 添加到queue
                     queue.offer(next);
                     nextCount++;
@@ -68,11 +84,15 @@ public class S108 {
 
     private boolean neighbor(String a, String b) {
         int count = 0;
-        if (a.length() != b.length()) return false;
+        if (a.length() != b.length()) {
+            return false;
+        }
         for (int i = 0; i < a.length(); i++) {
             if (a.charAt(i) != b.charAt(i)) {
                 count++;
-                if (count > 1) return false;
+                if (count > 1) {
+                    return false;
+                }
             }
         }
         return count == 1;

@@ -5,6 +5,9 @@ import java.util.Deque;
 
 public class S317 {
     class Solution {
+        int[] dx = new int[] {1, -1, 0, 0};
+        int[] dy = new int[] {0, 0, 1, -1};
+
         public int shortestDistance(int[][] grid) {
             int m = grid.length;
             int n = grid[0].length;
@@ -25,15 +28,14 @@ public class S317 {
             int min = Integer.MAX_VALUE;
             for (int i = 0; i < m; i++) {
                 for (int j = 0; j < n; j++) {
-                    if (dp[i][j] == -1) continue;
+                    if (dp[i][j] == -1) {
+                        continue;
+                    }
                     min = Math.min(dp[i][j], min);
                 }
             }
             return min == Integer.MAX_VALUE ? -1 : min;
         }
-
-        int[] dx = new int[]{1, -1, 0, 0};
-        int[] dy = new int[]{0, 0, 1, -1};
 
         void bfs(int x, int y, int[][] grid, int[][] res) {
 
@@ -47,7 +49,9 @@ public class S317 {
                     for (int i = 0; i < 4; i++) {
                         int nx = dx[i] + curr.x;
                         int ny = dy[i] + curr.y;
-                        if (nx >= grid.length || nx < 0 || ny >= grid[0].length || ny < 0) continue;
+                        if (nx >= grid.length || nx < 0 || ny >= grid[0].length || ny < 0) {
+                            continue;
+                        }
                         if (grid[nx][ny] == 0 && res[nx][ny] == 0) {
                             res[nx][ny] = curr.distance + 1;
                             queue.offer(new Node(nx, ny, curr.distance + 1));
@@ -60,7 +64,9 @@ public class S317 {
         void getDistance(int[][] res, int[][] dp) {
             for (int i = 0; i < res.length; i++) {
                 for (int j = 0; j < res[0].length; j++) {
-                    if (dp[i][j] == -1) continue;
+                    if (dp[i][j] == -1) {
+                        continue;
+                    }
                     if (res[i][j] == 0) {
                         dp[i][j] = -1;
                         continue;

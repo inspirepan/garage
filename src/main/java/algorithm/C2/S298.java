@@ -6,14 +6,20 @@ public class S298 {
     int max = 1;
 
     public int longestConsecutive(TreeNode root) {
-        if (root == null) return 0;
+        if (root == null) {
+            return 0;
+        }
         helper(root);
         return max;
     }
 
     int helper(TreeNode node) {
-        if (node == null) return 0;
-        if (node.left == null && node.right == null) return 1;
+        if (node == null) {
+            return 0;
+        }
+        if (node.left == null && node.right == null) {
+            return 1;
+        }
         int l = helper(node.left);
         int r = helper(node.right);
         int res = 1;

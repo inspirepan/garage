@@ -8,7 +8,9 @@ public class S654 {
     }
 
     public TreeNode helper(int[] nums, int l, int r) {
-        if (l > r) return null;
+        if (l > r) {
+            return null;
+        }
         int partition = maxIndex(nums, l, r);
         TreeNode node = new TreeNode(nums[partition]);
         node.left = helper(nums, l, partition - 1);

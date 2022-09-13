@@ -9,13 +9,16 @@ public class S443 {
         int p = 0;
         // 常量的空间记录重复字符个数
         while (i < chars.length) {
-            if (chars[i] == curr) count++;
-            else {
+            if (chars[i] == curr) {
+                count++;
+            } else {
                 // 填入新字母和计数
                 chars[p++] = curr;
                 if (count > 1) {
                     String k = String.valueOf(count);
-                    for (char c : k.toCharArray()) chars[p++] = c;
+                    for (char c : k.toCharArray()) {
+                        chars[p++] = c;
+                    }
                 }
                 // 更新新的字符信息
                 count = 1;
@@ -27,7 +30,9 @@ public class S443 {
         chars[p++] = curr;
         if (count > 1) {
             String k = String.valueOf(count);
-            for (char c : k.toCharArray()) chars[p++] = c;
+            for (char c : k.toCharArray()) {
+                chars[p++] = c;
+            }
         }
         return p;
     }

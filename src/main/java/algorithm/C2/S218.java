@@ -1,6 +1,12 @@
 package algorithm.C2;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.PriorityQueue;
 
 public class S218 {
     // 复制题解
@@ -20,7 +26,7 @@ public class S218 {
             // 如果当前建筑左边界小于boundary
             // pq放入右边界和高度
             while (idx < n && buildings[idx][0] <= boundary) {
-                pq.offer(new int[]{buildings[idx][1], buildings[idx][2]});
+                pq.offer(new int[] {buildings[idx][1], buildings[idx][2]});
                 idx++;
             }
             // 将右边界小于当前boundary的建筑出列
@@ -43,8 +49,8 @@ public class S218 {
             List<int[]> ps = new ArrayList<>();
             for (int[] b : bs) {
                 int l = b[0], r = b[1], h = b[2];
-                ps.add(new int[]{l, h, -1});
-                ps.add(new int[]{r, h, 1});
+                ps.add(new int[] {l, h, -1});
+                ps.add(new int[] {r, h, 1});
             }
             /**
              * 先严格按照横坐标进行「从小到大」排序
@@ -53,9 +59,13 @@ public class S218 {
              * 2. 如果同样都是左端点，则按照高度「从大到小」进行处理（将高度增加到优先队列中）
              * 3. 如果同样都是右端点，则按照高度「从小到大」进行处理（将高度从优先队列中删掉）
              */
-            Collections.sort(ps, (a, b)->{
-                if (a[0] != b[0]) return a[0] - b[0];
-                if (a[2] != b[2]) return a[2] - b[2];
+            Collections.sort(ps, (a, b) -> {
+                if (a[0] != b[0]) {
+                    return a[0] - b[0];
+                }
+                if (a[2] != b[2]) {
+                    return a[2] - b[2];
+                }
                 if (a[2] == -1) {
                     return b[1] - a[1];
                 } else {
@@ -64,7 +74,7 @@ public class S218 {
             });
             // 记录进行了删除操作的高度，以及删除次数
             Map<Integer, Integer> map = new HashMap<>();
-            PriorityQueue<Integer> q = new PriorityQueue<>((a,b)->b-a);
+            PriorityQueue<Integer> q = new PriorityQueue<>((a, b) -> b - a);
             int prev = 0;
             q.add(prev);
             for (int[] p : ps) {
@@ -78,8 +88,11 @@ public class S218 {
                 while (!q.isEmpty()) {
                     int peek = q.peek();
                     if (map.containsKey(peek)) {
-                        if (map.get(peek) == 1) map.remove(peek);
-                        else map.put(peek, map.get(peek) - 1);
+                        if (map.get(peek) == 1) {
+                            map.remove(peek);
+                        } else {
+                            map.put(peek, map.get(peek) - 1);
+                        }
                         q.poll();
                     } else {
                         break;

@@ -1,8 +1,5 @@
 package algorithm;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.TreeMap;
 
 public class S1094 {
@@ -17,7 +14,9 @@ public class S1094 {
         int sum = 0;
         for (int n : map.values()) {
             sum += n;
-            if (sum > capacity) return false;
+            if (sum > capacity) {
+                return false;
+            }
         }
         return true;
     }

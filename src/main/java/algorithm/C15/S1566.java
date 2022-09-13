@@ -15,7 +15,9 @@ public class S1566 {
                     }
                 }
             }
-            if (contains) return true;
+            if (contains) {
+                return true;
+            }
             i++;
         }
         return false;

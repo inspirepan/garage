@@ -1,6 +1,5 @@
 package algorithm.C2;
 
-import javax.swing.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,13 +17,21 @@ public class S291 {
 
     boolean helper(int i, int j, char[] parr, char[] sarr) {
 
-        if (i == parr.length && j == sarr.length) return true;
-        if (i >= parr.length && j < sarr.length) return false;
-        if (i < parr.length && j >= sarr.length) return false;
+        if (i == parr.length && j == sarr.length) {
+            return true;
+        }
+        if (i >= parr.length && j < sarr.length) {
+            return false;
+        }
+        if (i < parr.length && j >= sarr.length) {
+            return false;
+        }
 
         if (map1.containsKey(parr[i])) {
             String t = map1.get(parr[i]);
-            if (j + t.length() > sarr.length) return false;
+            if (j + t.length() > sarr.length) {
+                return false;
+            }
             if (substring(sarr, j, j + t.length()).equals(t)) {
                 return helper(i + 1, j + t.length(), parr, sarr);
             }
@@ -37,8 +44,9 @@ public class S291 {
                 }
                 map1.put(parr[i], t);
                 map2.put(t, parr[i]);
-                if (helper(i + 1, k, parr, sarr)) return true;
-                else {
+                if (helper(i + 1, k, parr, sarr)) {
+                    return true;
+                } else {
                     map2.remove(t);
                     map1.remove(parr[i]);
                 }

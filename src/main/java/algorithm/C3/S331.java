@@ -12,11 +12,15 @@ public class S331 {
         if (ss.length == 1) {
             return ss[0].equals("#");
         }
-        if (ss[0].equals("#")) return false;
+        if (ss[0].equals("#")) {
+            return false;
+        }
         // 根节点
         stack.push(2);
         for (int i = 1; i < ss.length; i++) {
-            if (stack.isEmpty()) return false;
+            if (stack.isEmpty()) {
+                return false;
+            }
             if (stack.peek() == 2) {
                 // 当前在栈顶节点的左孩子
                 stack.set(0, 1);
@@ -25,7 +29,9 @@ public class S331 {
                 stack.pop();
             }
             // 如果当前是数字，插入一个节点
-            if (!ss[i].equals("#")) stack.push(2);
+            if (!ss[i].equals("#")) {
+                stack.push(2);
+            }
         }
         return stack.isEmpty();
     }

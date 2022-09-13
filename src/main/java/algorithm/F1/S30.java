@@ -32,12 +32,16 @@ public class S30 {
         }
 
         public int top() {
-            if (dummyHead.next == null) return 0;
+            if (dummyHead.next == null) {
+                return 0;
+            }
             return dummyHead.next.val;
         }
 
         public int min() {
-            if (dummyHead.next == null) return 0;
+            if (dummyHead.next == null) {
+                return 0;
+            }
             return dummyHead.next.min;
         }
 

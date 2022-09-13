@@ -1,10 +1,10 @@
 package algorithm.C6;
 
-import java.util.Arrays;
-
 public class S659 {
     public boolean isPossible(int[] nums) {
-        if (nums.length == 0) return false;
+        if (nums.length == 0) {
+            return false;
+        }
         // 记录数字频率
         int size = nums[nums.length - 1] - nums[0] + 1;
         int[] count = new int[size];
@@ -21,12 +21,18 @@ public class S659 {
                 j++;
             }
             // 如果数量不足3个，说明会有i剩余，false
-            if (j < i + 2) return false;
+            if (j < i + 2) {
+                return false;
+            }
             count[i] = 0;
             i++;
         }
         // 剩余的数量
-        for (int k : count) if (k > 0) return false;
+        for (int k : count) {
+            if (k > 0) {
+                return false;
+            }
+        }
         return true;
     }
 }

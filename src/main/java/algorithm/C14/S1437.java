@@ -12,7 +12,9 @@ public class S1437 {
         while (end >= 0 && nums[end] == 0) {
             end--;
         }
-        if (end <= start) return true;
+        if (end <= start) {
+            return true;
+        }
         for (int i = start + 1; i <= end; i++) {
             if (nums[i] == 1) {
                 if (count < k) {

@@ -11,10 +11,7 @@ public class S794 {
         if (isWinner(board, 'X') && charCount(board, 'X') - charCount(board, 'O') != 1) {
             return false;
         }
-        if (isWinner(board, 'O') && charCount(board, 'X') != charCount(board, 'O')) {
-            return false;
-        }
-        return true;
+        return !isWinner(board, 'O') || charCount(board, 'X') == charCount(board, 'O');
     }
 
     public int charCount(String[] board, char c) {

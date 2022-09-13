@@ -6,7 +6,9 @@ public class S809 {
         public int expressiveWords(String s, String[] words) {
             int count = 0;
             for (String word : words) {
-                if (check(s, word)) count++;
+                if (check(s, word)) {
+                    count++;
+                }
             }
             return count;
         }
@@ -30,8 +32,12 @@ public class S809 {
                     count2++;
                 }
 
-                if (count1 > count2) return false;
-                if (count1 < count2 && count2 < 3) return false;
+                if (count1 > count2) {
+                    return false;
+                }
+                if (count1 < count2 && count2 < 3) {
+                    return false;
+                }
             }
             return a == arr1.length;
         }

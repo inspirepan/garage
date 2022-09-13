@@ -1,10 +1,7 @@
 package algorithm.C15;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class S1559 {
-    private final int[][] nexts = new int[][]{{1, 0}, {0, -1}, {-1, 0}, {0, 1}};
+    private final int[][] nexts = new int[][] {{1, 0}, {0, -1}, {-1, 0}, {0, 1}};
 
     public boolean containsCycle(char[][] grid) {
         // 维护一个visited结构保存已经访问过的节点
@@ -13,9 +10,13 @@ public class S1559 {
         // 每次从一个节点出发，广度搜索，不需要保存路径长度，如果访问到了之前的节点，那么就存在环
 
         int m = grid.length;
-        if (m <= 1) return false;
+        if (m <= 1) {
+            return false;
+        }
         int n = grid[0].length;
-        if (n <= 1) return false;
+        if (n <= 1) {
+            return false;
+        }
 
         boolean[][] visited = new boolean[m][n];
         for (int i = 0; i < m; i++) {
@@ -24,7 +25,9 @@ public class S1559 {
                     // 如果访问过
                     continue;
                 }
-                if (search(grid, visited, i, j, -2, -2)) return true;
+                if (search(grid, visited, i, j, -2, -2)) {
+                    return true;
+                }
             }
         }
         return false;
@@ -39,10 +42,14 @@ public class S1559 {
         for (int k = 0; k < 4; k++) {
             int nextI = i + nexts[k][0];
             int nextJ = j + nexts[k][1];
-            if (nextI == fromI && nextJ == fromJ) continue;
+            if (nextI == fromI && nextJ == fromJ) {
+                continue;
+            }
             if (nextI >= 0 && nextI < m && nextJ >= 0 && nextJ < n) {
                 if (grid[i][j] == grid[nextI][nextJ]) {
-                    if (visited[nextI][nextJ]) return true;
+                    if (visited[nextI][nextJ]) {
+                        return true;
+                    }
                     ok[k] = true;
                 }
             }
@@ -50,7 +57,9 @@ public class S1559 {
         // 根据之前记录的可选方向，往下搜
         for (int k = 0; k < 4; k++) {
             if (ok[k]) {
-                if (search(grid, visited, i + nexts[k][0], j + nexts[k][1], i, j)) return true;
+                if (search(grid, visited, i + nexts[k][0], j + nexts[k][1], i, j)) {
+                    return true;
+                }
             }
         }
         return false;

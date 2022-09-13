@@ -4,7 +4,9 @@ import java.util.Arrays;
 
 public class S917 {
     public String reverseOnlyLetters(String s) {
-        if (s.length() <= 1) return s;
+        if (s.length() <= 1) {
+            return s;
+        }
         int left = 0;
         int right = s.length() - 1;
         char[] chars = s.toCharArray();
@@ -28,8 +30,9 @@ public class S917 {
     }
 
     private boolean isLetter(char c) {
-        if (c <= 'z' && c >= 'a') return true;
-        if (c <= 'Z' && c >= 'A') return true;
-        return false;
+        if (c <= 'z' && c >= 'a') {
+            return true;
+        }
+        return c <= 'Z' && c >= 'A';
     }
 }

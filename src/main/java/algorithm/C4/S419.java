@@ -11,28 +11,38 @@ public class S419 {
         for (char[] currRow : board) {
             int k = 0;
             while (k < n) {
-                if (currRow[k] == '.') k++;
-                else {
+                if (currRow[k] == '.') {
+                    k++;
+                } else {
                     int start = k;
-                    while (k < n && currRow[k] == 'X') k++;
-                    if (k - start > 1) count++;
+                    while (k < n && currRow[k] == 'X') {
+                        k++;
+                    }
+                    if (k - start > 1) {
+                        count++;
+                    }
                 }
             }
         }
         for (int i = 0; i < n; i++) {
             int k = 0;
             while (k < m) {
-                if (board[k][i] == '.') k++;
-                else {
+                if (board[k][i] == '.') {
+                    k++;
+                } else {
                     int start = k;
-                    while (k < m && board[k][i] == 'X') k++;
-                    if (k - start > 1) count++;
+                    while (k < m && board[k][i] == 'X') {
+                        k++;
+                    }
+                    if (k - start > 1) {
+                        count++;
+                    }
                 }
             }
         }
         // 统计孤立的1*1
-        final int[] dx = new int[]{0, 0, 1, -1};
-        final int[] dy = new int[]{1, -1, 0, 0};
+        final int[] dx = new int[] {0, 0, 1, -1};
+        final int[] dy = new int[] {1, -1, 0, 0};
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (board[i][j] == 'X') {
@@ -45,7 +55,9 @@ public class S419 {
                             break;
                         }
                     }
-                    if (!hasX) count++;
+                    if (!hasX) {
+                        count++;
+                    }
                 }
             }
         }

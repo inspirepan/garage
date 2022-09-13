@@ -1,13 +1,11 @@
 package algorithm;
 
-import java.util.Arrays;
 import java.util.Random;
 
 public class Sort {
 
     /**
      * 快排，O(n*logn)
-     *
      */
     public static void quickSort(int[] nums) {
         quickSortHelper(nums, 0, nums.length - 1);
@@ -82,7 +80,6 @@ public class Sort {
 
     /**
      * 冒泡排序，O(n^2)
-     *
      * @param nums 数组
      */
     public static void bubbleSort(int[] nums) {
@@ -99,7 +96,6 @@ public class Sort {
 
     /**
      * 选择排序，O(n^2)
-     *
      * @param nums 数组
      */
     public static void selectionSort(int[] nums) {
@@ -122,7 +118,6 @@ public class Sort {
      * 插入排序，O(n^2)
      * 外层遍历一遍
      * 每一个数往回找到自己的位置插入
-     *
      */
     public static void insertionSort(int[] nums) {
         int p = 1;
@@ -149,7 +144,6 @@ public class Sort {
      * 归并排序，时间O(n*logn)，空间O(n)
      * 分成两半，递归排序好，然后再双指针排序合并。
      * 优化：当递归到长度小于一定大小时，换用其他排序方法比如插入排序。
-     *
      * @param nums 输入
      */
     public static void mergeSort(int[] nums) {

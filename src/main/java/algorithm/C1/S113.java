@@ -1,9 +1,8 @@
 package algorithm.C1;
 
+import datastructure.TreeNode;
 import java.util.LinkedList;
 import java.util.List;
-
-import datastructure.TreeNode;
 
 public class S113 {
     private LinkedList<Integer> singleResult;
@@ -14,8 +13,9 @@ public class S113 {
         this.sum = sum;
         pathSumResult = new LinkedList<List<Integer>>();
         singleResult = new LinkedList<Integer>();
-        if (root == null)
+        if (root == null) {
             return pathSumResult;
+        }
         this.dfs(root, 0);
         return pathSumResult;
     }
@@ -31,10 +31,12 @@ public class S113 {
             }
         } else {
             singleResult.add(root.val);
-            if (root.left != null)
+            if (root.left != null) {
                 dfs(root.left, currentSum + root.val);
-            if (root.right != null)
+            }
+            if (root.right != null) {
                 dfs(root.right, currentSum + root.val);
+            }
             singleResult.removeLast();
         }
     }

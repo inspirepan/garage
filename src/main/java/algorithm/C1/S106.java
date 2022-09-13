@@ -27,7 +27,7 @@ public class S106 {
         int leftTreeLength = rootIndex - inLeft;
         int rightTreeLength = inRight - rootIndex;
         root.left = helper(inorder, postorder, inLeft, inLeft + leftTreeLength - 1, postLeft,
-                postLeft + leftTreeLength - 1);
+            postLeft + leftTreeLength - 1);
         root.right = helper(inorder, postorder, inRight - rightTreeLength + 1, inRight, postRight - rightTreeLength, postRight - 1);
         return root;
     }

@@ -37,7 +37,9 @@ public class S759 {
             }
         }
         List<Interval> availableTime = new ArrayList<>();
-        if (workTime.size() == 1) return availableTime;
+        if (workTime.size() == 1) {
+            return availableTime;
+        }
         for (int i = 0; i < workTime.size() - 1; i++) {
             availableTime.add(new Interval(workTime.get(i).end, workTime.get(i + 1).start));
         }

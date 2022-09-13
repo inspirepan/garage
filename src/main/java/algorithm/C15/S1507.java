@@ -1,7 +1,5 @@
 package algorithm.C15;
 
-import java.util.Queue;
-
 public class S1507 {
     public String reformatDate(String date) {
         String[] d = date.split(" ");

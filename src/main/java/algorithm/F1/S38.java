@@ -22,9 +22,13 @@ public class S38 {
             return;
         }
         for (int i = 0; i < chars.length; i++) {
-            if (used[i]) continue;
+            if (used[i]) {
+                continue;
+            }
             // 之前剪枝剪错了，应该是前一个和这个一样、并且没有使用过，才剪掉
-            if (i > 0 && chars[i] == chars[i - 1] && !used[i - 1]) continue;
+            if (i > 0 && chars[i] == chars[i - 1] && !used[i - 1]) {
+                continue;
+            }
             used[i] = true;
             sb.append(chars[i]);
             dfs(used, chars);

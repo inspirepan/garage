@@ -2,8 +2,12 @@ package algorithm.C3;
 
 public class S340 {
     public int lengthOfLongestSubstringKDistinct(String s, int k) {
-        if (k == 0) return 0;
-        if (s.length() == 0) return 0;
+        if (k == 0) {
+            return 0;
+        }
+        if (s.length() == 0) {
+            return 0;
+        }
         int[] count = new int[256];
         int types = 0;
         char[] arr = s.toCharArray();

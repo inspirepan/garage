@@ -12,7 +12,9 @@ public class S119 {
         Map<Integer, Integer> downMap = new HashMap<>();
         int max = 0;
         for (int n : nums) {
-            if (upMap.containsKey(n)) continue;
+            if (upMap.containsKey(n)) {
+                continue;
+            }
             // 尝试把上下连接起来
             int up = n;
             int down = n;

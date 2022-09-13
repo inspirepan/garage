@@ -19,7 +19,9 @@ public class S1593 {
 
         for (int i = start + 1; i <= s.length(); i++) {
             String sub = s.substring(start, i);
-            if (set.contains(sub)) continue;
+            if (set.contains(sub)) {
+                continue;
+            }
             set.add(sub);
             dfs(i, s, set);
             set.remove(sub);

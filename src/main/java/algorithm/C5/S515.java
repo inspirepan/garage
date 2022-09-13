@@ -1,7 +1,6 @@
 package algorithm.C5;
 
 import datastructure.TreeNode;
-
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
@@ -10,7 +9,9 @@ import java.util.List;
 public class S515 {
     public List<Integer> largestValues(TreeNode root) {
         List<Integer> result = new ArrayList<>();
-        if (root == null) return result;
+        if (root == null) {
+            return result;
+        }
         Deque<TreeNode> queue = new ArrayDeque<>();
         queue.push(root);
         int levelSum = 1;

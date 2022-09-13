@@ -1,12 +1,15 @@
 package algorithm.F1;
 
 import datastructure.TreeNode;
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class S32III {
     public List<List<Integer>> levelOrder(TreeNode root) {
-        if (root == null) return new ArrayList<>();
+        if (root == null) {
+            return new ArrayList<>();
+        }
         List<List<Integer>> list = new ArrayList<>();
         LinkedList<TreeNode> currLevel = new LinkedList<>();
         currLevel.offer(root);

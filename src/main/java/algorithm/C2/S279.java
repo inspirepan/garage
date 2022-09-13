@@ -1,10 +1,5 @@
 package algorithm.C2;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 public class S279 {
 
     public int numSquares(int n) {
@@ -15,9 +10,13 @@ public class S279 {
             k++;
         }
         // k 是最大的范围内的完全平方数
-        if (dp[n] == 1) return 1;
+        if (dp[n] == 1) {
+            return 1;
+        }
         for (int i = 2; i <= n; i++) {
-            if (dp[i] == 1) continue;
+            if (dp[i] == 1) {
+                continue;
+            }
             int min = Integer.MAX_VALUE;
             for (int j = 1; j * j <= i; j++) {
                 min = Math.min(min, dp[i - j * j]);

@@ -20,8 +20,8 @@ public class S65 {
         //   0000
         //   0001
 
-        while(b!=0){
-            int carry = (a&b)<<1;
+        while (b != 0) {
+            int carry = (a & b) << 1;
             a = a ^ b;
             b = carry;
         }

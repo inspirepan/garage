@@ -9,7 +9,9 @@ public class S373 {
     public List<List<Integer>> kSmallestPairs(int[] nums1, int[] nums2, int k) {
         List<List<Integer>> res = new ArrayList<>();
         int m = nums1.length, n = nums2.length;
-        if (m == 0 || n == 0) return res;
+        if (m == 0 || n == 0) {
+            return res;
+        }
         // 利用一个数组来保存nums1中每个元素对应的最小组合的nums2下标，初始值为0，因为刚开始每个元素对应的最小组合肯定是对面的第一个元素
         int[] index2arr = new int[m];
         // 外层最多遍历k次，获取前k个最小值
@@ -18,7 +20,9 @@ public class S373 {
             // 遍历每个nums1元素对应nums2最小可用组合，并获取最小组合
             for (int i = 1; i < m; i++) {
                 // 没有可用的index2
-                if (index2arr[i] == n) continue;
+                if (index2arr[i] == n) {
+                    continue;
+                }
 
                 // 最小的组合
                 if (index2arr[index1] == n || nums1[index1] + nums2[index2arr[index1]] > nums1[i] + nums2[index2arr[i]]) {
@@ -27,7 +31,9 @@ public class S373 {
                 }
             }
             // 循环全部index1也找不到合适的index2
-            if (index2arr[index1] == n) break;
+            if (index2arr[index1] == n) {
+                break;
+            }
             // 答案中添加当前组合
             res.add(Arrays.asList(nums1[index1], nums2[index2arr[index1]]));
             index2arr[index1]++;
@@ -42,7 +48,7 @@ public class S373 {
         int m = Math.min(nums1.length, k), n = nums2.length;
         // 最多k个
         for (int i = 0; i < m; ++i) {
-            pq.offer(new int[]{i, 0});
+            pq.offer(new int[] {i, 0});
         }
         List<List<Integer>> ans = new ArrayList<>();
         while (k-- > 0 && !pq.isEmpty()) {

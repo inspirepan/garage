@@ -1,6 +1,16 @@
 package algorithm.C7;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class S721bfs {
     // 记忆化广搜还是超时了
@@ -15,7 +25,9 @@ public class S721bfs {
             String name = a.get(0);
             var list = map.getOrDefault(name, new ArrayList<>());
             Set<String> emails = new HashSet<>();
-            for (int i = 1; i < a.size(); i++) emails.add(a.get(i));
+            for (int i = 1; i < a.size(); i++) {
+                emails.add(a.get(i));
+            }
             list.add(emails);
             map.put(name, list);
         }
@@ -66,7 +78,9 @@ public class S721bfs {
                         // 与这个email关联的全部索引
                         var list = map.get(email);
                         for (int m : list) {
-                            if (groups[m] == -1) queue.offer(m);
+                            if (groups[m] == -1) {
+                                queue.offer(m);
+                            }
                         }
                     }
                 }
@@ -75,7 +89,9 @@ public class S721bfs {
         }
         // 根据分组建立新的list，使用HashSet去重
         List<Set<String>> resultUnsorted = new ArrayList<>();
-        for (int k = 0; k < groupIndex; k++) resultUnsorted.add(new HashSet<>());
+        for (int k = 0; k < groupIndex; k++) {
+            resultUnsorted.add(new HashSet<>());
+        }
         for (int i = 0; i < size; i++) {
             int group = groups[i];
             Set<String> emails = emailSets.get(i);

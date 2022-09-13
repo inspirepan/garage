@@ -6,7 +6,7 @@ public class S731c {
     class MyCalendarTwo {
         // 抄的，很漂亮，比我自己蠢蠢去判断强太多了，开始一个就+1，结束一个就-1，那么按时间线统计，只要大于等于3就是要3个在同时活跃的
 
-        private TreeMap<Integer, Integer> calendar;
+        private final TreeMap<Integer, Integer> calendar;
 
         public MyCalendarTwo() {
             calendar = new TreeMap<>();
@@ -32,7 +32,9 @@ public class S731c {
                     calendar.put(start, calendar.get(start) - 1);
                     calendar.put(end, calendar.get(end) + 1);
 
-                    if (calendar.get(start) == 0) calendar.remove(start);
+                    if (calendar.get(start) == 0) {
+                        calendar.remove(start);
+                    }
 
                     return false;
                 }

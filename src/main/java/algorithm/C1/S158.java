@@ -5,6 +5,10 @@ import java.util.Queue;
 
 public class S158 {
 
+    private int read4(char[] buf4) {
+        return 0;
+    }
+
     class Solution {
 
         Queue<Character> last = new LinkedList<>();
@@ -38,9 +42,5 @@ public class S158 {
             }
             return i;
         }
-    }
-
-    private int read4(char[] buf4) {
-        return 0;
     }
 }

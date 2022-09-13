@@ -9,19 +9,27 @@ public class S820 {
     public int minimumLengthEncoding(String[] words) {
         // 后缀字典树
         Trie trie = new Trie();
-        for (String word : words) trie.insert(word);
+        for (String word : words) {
+            trie.insert(word);
+        }
         helper(trie.root, 0);
         return sum;
     }
 
     private void helper(TrieNode node, int length) {
-        if (node == null) return;
+        if (node == null) {
+            return;
+        }
 
         List<TrieNode> childList = new ArrayList<>();
         for (TrieNode child : node.children) {
-            if (child != null) childList.add(child);
+            if (child != null) {
+                childList.add(child);
+            }
         }
-        if (childList.size() == 0 && node.isLeaf) sum += length + 1;
+        if (childList.size() == 0 && node.isLeaf) {
+            sum += length + 1;
+        }
 
         for (TrieNode child : childList) {
             helper(child, length + 1);

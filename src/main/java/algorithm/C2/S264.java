@@ -10,9 +10,15 @@ public class S264 {
             // 选出最小的数字
             dp[i] = Math.min(dp[p2] * 2, Math.min(dp[p3] * 3, dp[p5] * 5));
             // 将该数字对应的指针向前移动一步。
-            if (dp[i] == dp[p2] * 2) p2++;
-            if (dp[i] == dp[p3] * 3) p3++;
-            if (dp[i] == dp[p5] * 5) p5++;
+            if (dp[i] == dp[p2] * 2) {
+                p2++;
+            }
+            if (dp[i] == dp[p3] * 3) {
+                p3++;
+            }
+            if (dp[i] == dp[p5] * 5) {
+                p5++;
+            }
         }
         return dp[n - 1];
     }

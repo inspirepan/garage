@@ -1,7 +1,11 @@
 package algorithm.C6;
 
-import java.security.interfaces.RSAKey;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class S611 {
     public int triangleNumber(int[] nums) {
@@ -13,10 +17,16 @@ public class S611 {
         // length, count
         Map<Integer, Integer> map = new HashMap<>();
         int result = 0;
-        for (int num : nums) if (num > 0) map.put(num, map.getOrDefault(num, 0) + 1);
+        for (int num : nums) {
+            if (num > 0) {
+                map.put(num, map.getOrDefault(num, 0) + 1);
+            }
+        }
         // 等边
         for (int count : map.values()) {
-            if (count >= 3) result += count * (count - 1) * (count - 2) / 6;
+            if (count >= 3) {
+                result += count * (count - 1) * (count - 2) / 6;
+            }
         }
         // 长度列表，1<=num<=1000
         int[] sumList = new int[1001];
@@ -29,8 +39,11 @@ public class S611 {
         for (var e : map.entrySet()) {
             if (e.getValue() >= 2) {
                 int temp = 0;
-                if (e.getKey() > 500) temp = len;
-                else temp = sumList[e.getKey() * 2];
+                if (e.getKey() > 500) {
+                    temp = len;
+                } else {
+                    temp = sumList[e.getKey() * 2];
+                }
                 result += e.getValue() * (e.getValue() - 1) / 2 * (temp - e.getValue());
             }
         }
@@ -61,7 +74,9 @@ public class S611 {
     public int triangleNumber2(int[] nums) {
         // 看的双指针
         // 和我开始的思路差不多，先固定最大的，然后固定第二个
-        if (nums.length < 3) return 0;
+        if (nums.length < 3) {
+            return 0;
+        }
         Arrays.sort(nums);
         int len = nums.length;
         // 只要两个小数和比大数大即可 故倒叙遍历

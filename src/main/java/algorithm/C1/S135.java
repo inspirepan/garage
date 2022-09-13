@@ -1,9 +1,6 @@
 package algorithm.C1;
 
-import java.util.Arrays;
-
 public class S135 {
-
 
 
     public int candy(int[] ratings) {

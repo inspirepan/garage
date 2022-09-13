@@ -1,11 +1,10 @@
 package algorithm.C3;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-
 public class S334 {
     public boolean increasingTriplet(int[] nums) {
-        if (nums.length < 3) return false;
+        if (nums.length < 3) {
+            return false;
+        }
         int max = Integer.MAX_VALUE;
         int min = Integer.MAX_VALUE;
         for (int num : nums) {
@@ -32,7 +31,9 @@ public class S334 {
             } else {
                 if (n > tails[end]) {
                     tails[++end] = n;
-                    if (end == 3) return true;
+                    if (end == 3) {
+                        return true;
+                    }
                 } else {
                     int left = 0;
                     int right = end + 1;

@@ -8,17 +8,19 @@ public class S112 {
     }
 
     private boolean hasPathSumWithInitialValue(TreeNode root, int sum, int initialValue) {
-        if (root == null)
+        if (root == null) {
             return false;
+        }
         int currentSum = initialValue + root.val;
         if (root.left == null && root.right == null) {
             return currentSum == sum;
-        } else if (root.left == null)
+        } else if (root.left == null) {
             return hasPathSumWithInitialValue(root.right, sum, currentSum);
-        else if (root.right == null)
+        } else if (root.right == null) {
             return hasPathSumWithInitialValue(root.left, sum, currentSum);
+        }
 
         return hasPathSumWithInitialValue(root.left, sum, currentSum)
-                || hasPathSumWithInitialValue(root.right, sum, currentSum);
+            || hasPathSumWithInitialValue(root.right, sum, currentSum);
     }
 }

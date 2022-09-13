@@ -1,13 +1,15 @@
 package algorithm.C6;
 
-import java.util.Arrays;
-
 public class S634 {
 
     public int findDerangement(int n) {
         long[] dp = new long[n + 1];
-        if (n <= 1) return 0;
-        if (n == 2) return 1;
+        if (n <= 1) {
+            return 0;
+        }
+        if (n == 2) {
+            return 1;
+        }
         dp[1] = 0;
         dp[2] = 1;
         final int MOD = 1000000007;

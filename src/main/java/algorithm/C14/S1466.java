@@ -1,6 +1,10 @@
 package algorithm.C14;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Queue;
 
 public class S1466 {
     public int minReorder(int n, int[][] connections) {
@@ -10,9 +14,13 @@ public class S1466 {
         //存储有向图的顶点以及关联的弧
         int ans = 0;
         for (int[] e : connections) {
-            if (!graph.containsKey(e[0])) graph.put(e[0], new HashSet<int[]>());
+            if (!graph.containsKey(e[0])) {
+                graph.put(e[0], new HashSet<int[]>());
+            }
             graph.get(e[0]).add(e);
-            if (!graph.containsKey(e[1])) graph.put(e[1], new HashSet<int[]>());
+            if (!graph.containsKey(e[1])) {
+                graph.put(e[1], new HashSet<int[]>());
+            }
             graph.get(e[1]).add(e);
         }
         vertex.offer(0);

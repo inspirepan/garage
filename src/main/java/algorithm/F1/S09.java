@@ -18,7 +18,9 @@ public class S09 {
 
         public int deleteHead() {
             if (stack2.isEmpty()) {
-                if (stack1.isEmpty()) return -1;
+                if (stack1.isEmpty()) {
+                    return -1;
+                }
                 while (!stack1.isEmpty()) {
                     stack2.push(stack1.pop());
                 }

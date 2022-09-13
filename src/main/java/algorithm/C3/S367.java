@@ -9,7 +9,9 @@ public class S367 {
             // mid*mid会越界啊
             int t = num / mid;
             if (t == mid) {
-                if (num % t == 0) return true;
+                if (num % t == 0) {
+                    return true;
+                }
                 left = mid + 1;
             } else if (t < mid) {
                 right = mid - 1;

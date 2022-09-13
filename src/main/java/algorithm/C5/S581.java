@@ -24,7 +24,9 @@ public class S581 {
             }
             stack.push(i);
         }
-        if (max <= min) return 0;
+        if (max <= min) {
+            return 0;
+        }
         return max - min + 1;
     }
 }

@@ -6,8 +6,9 @@ public class S35 {
         int right = nums.length;
         while (left < right) {
             int mid = left + (right - left >>> 1);
-            if (nums[mid] == target) return mid;
-            else if (nums[mid] > target) {
+            if (nums[mid] == target) {
+                return mid;
+            } else if (nums[mid] > target) {
                 right = mid;
             } else {
                 left = mid + 1;

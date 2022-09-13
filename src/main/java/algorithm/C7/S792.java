@@ -1,6 +1,11 @@
 package algorithm.C7;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 public class S792 {
     // 实际情况就是字典树费力不讨好，效率还不如直接排序，应该是words规模不够大，字典树作用不大
@@ -20,8 +25,9 @@ public class S792 {
             int sz = q.size();
             for (int i = 0; i < sz; i++) {
                 String str = q.poll();
-                if (str.length() == 1) cnt++;
-                else {
+                if (str.length() == 1) {
+                    cnt++;
+                } else {
                     m.get(str.charAt(1)).offer(str.substring(1));
                 }
             }
@@ -48,11 +54,6 @@ public class S792 {
     }
 
     class Trie {
-        class TrieNode {
-            TrieNode[] children = new TrieNode[26];
-            int count = 0;
-        }
-
         TrieNode root = new TrieNode();
 
         void add(String s) {
@@ -96,8 +97,15 @@ public class S792 {
                     left = mid + 1;
                 }
             }
-            if (left == list.size()) return null;
+            if (left == list.size()) {
+                return null;
+            }
             return list.get(left);
+        }
+
+        class TrieNode {
+            TrieNode[] children = new TrieNode[26];
+            int count = 0;
         }
     }
 }

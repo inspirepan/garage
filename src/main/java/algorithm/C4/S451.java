@@ -1,7 +1,5 @@
 package algorithm.C4;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.PriorityQueue;
 
 public class S451 {
@@ -42,13 +40,16 @@ public class S451 {
 
         @Override
         public int compareTo(CharNode o) {
-            if (o.freq == this.freq) return this.c - o.c;
-            else return this.freq > o.freq ? -1 : 1;
+            if (o.freq == this.freq) {
+                return this.c - o.c;
+            } else {
+                return this.freq > o.freq ? -1 : 1;
+            }
         }
 
         @Override
         public String toString() {
-            return String.valueOf(c) + " " + freq;
+            return c + " " + freq;
         }
     }
 }

@@ -1,8 +1,5 @@
 package algorithm.C15;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
-
 public class S1513 {
     public int numSub(String s) {
         String[] ss = s.split("0");
@@ -11,7 +8,7 @@ public class S1513 {
         long count = 0;
         long mod = 1000000007;
         for (String value : ss) {
-            count = (count + singleSub((long) value.length())) % mod;
+            count = (count + singleSub(value.length())) % mod;
         }
         return (int) count;
     }

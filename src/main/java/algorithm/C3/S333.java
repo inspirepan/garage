@@ -2,14 +2,14 @@ package algorithm.C3;
 
 import datastructure.TreeNode;
 
-import java.util.Arrays;
-
 public class S333 {
     int ans = 1;
 
     public int largestBSTSubtree(TreeNode root) {
         // dfs的过程中需要保留子树的最大值和最小值，以及数量，以及是否为BST
-        if (root == null) return 0;
+        if (root == null) {
+            return 0;
+        }
         dfs(root);
         return ans;
     }
@@ -20,7 +20,7 @@ public class S333 {
         // 树最大值
         // 树最小值
         if (node.left == null && node.right == null) {
-            return new int[]{1, 1, node.val, node.val};
+            return new int[] {1, 1, node.val, node.val};
         }
         int isBST = 0;
         int count = 1;

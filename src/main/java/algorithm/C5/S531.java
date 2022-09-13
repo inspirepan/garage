@@ -15,7 +15,9 @@ public class S531 {
                     if (++count > 1) {
                         countRow[i] = -1;
                         break;
-                    } else countRow[i] = j;
+                    } else {
+                        countRow[i] = j;
+                    }
                 }
             }
         }
@@ -24,11 +26,16 @@ public class S531 {
             int singleRow = -1;
             for (int i = 0; i < m; i++) {
                 if (picture[i][j] == 'B') {
-                    if (++count > 1) break;
-                    else singleRow = i;
+                    if (++count > 1) {
+                        break;
+                    } else {
+                        singleRow = i;
+                    }
                 }
             }
-            if (count == 1 && countRow[singleRow] == j) single++;
+            if (count == 1 && countRow[singleRow] == j) {
+                single++;
+            }
         }
         return single;
     }

@@ -11,14 +11,18 @@ public class S524 {
                 if (ss.length() > len) {
                     result = ss;
                     len = ss.length();
-                } else if (ss.length() == len && ss.compareTo(result) < 0) result = ss;
+                } else if (ss.length() == len && ss.compareTo(result) < 0) {
+                    result = ss;
+                }
             }
         }
         return result;
     }
 
     private boolean checkSubSequence(String k, String s) {
-        if (k.length() < s.length()) return false;
+        if (k.length() < s.length()) {
+            return false;
+        }
         int i = 0;
         int j = 0;
         while (j < s.length() && i < k.length()) {

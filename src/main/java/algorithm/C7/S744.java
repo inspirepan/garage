@@ -7,12 +7,16 @@ public class S744 {
         int r = len - 1;
         while (l <= r) {
             int mid = l + (r - l) / 2;
-            if (target < letters[mid])
+            if (target < letters[mid]) {
                 r = mid - 1;
-            else
+            } else {
                 l = mid + 1;
+            }
         }
-        if (l == len) return letters[0];
-        else return letters[l];
+        if (l == len) {
+            return letters[0];
+        } else {
+            return letters[l];
+        }
     }
 }

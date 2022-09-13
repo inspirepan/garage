@@ -7,8 +7,10 @@ public class S475 {
         //
         Arrays.sort(houses);
         Arrays.sort(heaters);
-        if (heaters.length == 1) return Math.max(Math.abs(heaters[0] - houses[0]),
+        if (heaters.length == 1) {
+            return Math.max(Math.abs(heaters[0] - houses[0]),
                 Math.abs(heaters[0] - houses[houses.length - 1]));
+        }
         int i = 0;
         int j = 0;
         int radius = 0;

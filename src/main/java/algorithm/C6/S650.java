@@ -15,7 +15,9 @@ public class S650 {
     }
 
     private int helper(int n) {
-        if (map.containsKey(n)) return map.get(n);
+        if (map.containsKey(n)) {
+            return map.get(n);
+        }
         // 探索每一个因数
         // 至少有一个1
         int temp = n;

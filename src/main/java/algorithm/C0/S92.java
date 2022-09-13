@@ -7,9 +7,9 @@ public class S92 {
     /**
      * 反转链表2
      *
-     *  12345
-     *  21345
-     *  32145
+     * 12345
+     * 21345
+     * 32145
      */
     public ListNode reverseBetween(ListNode head, int m, int n) {
         ListNode dummyHead = new ListNode();

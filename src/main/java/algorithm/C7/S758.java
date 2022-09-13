@@ -15,11 +15,11 @@ public class S758 {
             int end = trie.searchMax(arr, i);
             if (end >= i) {
                 if (match.size() == 0) {
-                    match.add(new int[]{i, end});
+                    match.add(new int[] {i, end});
                 } else {
                     int lastEnd = match.get(match.size() - 1)[1];
                     if (lastEnd + 1 < i) {
-                        match.add(new int[]{i, end});
+                        match.add(new int[] {i, end});
                     } else {
                         match.get(match.size() - 1)[1] = Math.max(lastEnd, end);
                     }
@@ -45,11 +45,6 @@ public class S758 {
     }
 
     class Trie {
-        class TrieNode {
-            boolean isLeaf = false;
-            TrieNode[] children = new TrieNode[26];
-        }
-
         TrieNode root = new TrieNode();
 
         void insert(String word) {
@@ -85,6 +80,11 @@ public class S758 {
                 i++;
             }
             return ans;
+        }
+
+        class TrieNode {
+            boolean isLeaf = false;
+            TrieNode[] children = new TrieNode[26];
         }
     }
 }

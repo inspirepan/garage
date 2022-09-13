@@ -1,7 +1,5 @@
 package algorithm.C4;
 
-import java.util.Arrays;
-
 public class S424 {
     public int characterReplacement(String s, int k) {
         int res = 0;

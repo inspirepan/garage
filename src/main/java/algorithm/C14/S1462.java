@@ -1,10 +1,15 @@
 package algorithm.C14;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class S1462 {
-    private Map<Integer, Set<Integer>> map = new HashMap<>();
-    private Set<Integer> dfsed = new HashSet<>();
+    private final Map<Integer, Set<Integer>> map = new HashMap<>();
+    private final Set<Integer> dfsed = new HashSet<>();
 
     public List<Boolean> checkIfPrerequisite(int numCourses, int[][] prerequisites, int[][] queries) {
         // 使用Set记录子节点

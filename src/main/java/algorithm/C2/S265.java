@@ -14,7 +14,9 @@ public class S265 {
             for (int j = 0; j < k; j++) {
                 int min = Integer.MAX_VALUE;
                 for (int s = 0; s < k; s++) {
-                    if (s == j) continue;
+                    if (s == j) {
+                        continue;
+                    }
                     min = Math.min(min, dp[i - 1][s]);
                 }
                 dp[i][j] = currCost[j] + min;

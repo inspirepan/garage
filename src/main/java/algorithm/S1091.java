@@ -2,20 +2,25 @@ package algorithm;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.zip.GZIPInputStream;
 
 public class S1091 {
-    int[] dx = new int[]{-1, -1, -1, 0, 0, 1, 1, 1};
-    int[] dy = new int[]{-1, 0, 1, -1, 1, -1, 0, 1};
+    int[] dx = new int[] {-1, -1, -1, 0, 0, 1, 1, 1};
+    int[] dy = new int[] {-1, 0, 1, -1, 1, -1, 0, 1};
 
     public int shortestPathBinaryMatrix(int[][] grid) {
         int n = grid.length;
-        if (n == 0) return -1;
-        if (grid[0][0] == 1 || grid[n - 1][n - 1] == 1) return -1;
-        if (n == 1) return 1;
+        if (n == 0) {
+            return -1;
+        }
+        if (grid[0][0] == 1 || grid[n - 1][n - 1] == 1) {
+            return -1;
+        }
+        if (n == 1) {
+            return 1;
+        }
 
         Queue<int[]> queue = new LinkedList<>();
-        queue.offer(new int[]{0, 0});
+        queue.offer(new int[] {0, 0});
         grid[0][0] = 2;
         int step = 1;
         while (!queue.isEmpty()) {
@@ -30,7 +35,7 @@ public class S1091 {
                             return step;
                         }
                         grid[nx][ny] = 2;
-                        queue.offer(new int[]{nx, ny});
+                        queue.offer(new int[] {nx, ny});
                     }
                 }
             }

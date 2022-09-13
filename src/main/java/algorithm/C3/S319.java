@@ -8,12 +8,15 @@ public class S319 {
         // 相当于说是统计n及以下有几个因数是奇数的数
         // 奇数的情况只可能是平方数，那就是统计root n等于几
 
-        if (n == 1) return 1;
+        if (n == 1) {
+            return 1;
+        }
         long left = 1, right = n;
         while (left < right) {
             long mid = left + (right - left) / 2;
-            if (mid * mid == n) return (int) mid;
-            else if (mid * mid > n) {
+            if (mid * mid == n) {
+                return (int) mid;
+            } else if (mid * mid > n) {
                 right = mid;
             } else {
                 left = mid + 1;

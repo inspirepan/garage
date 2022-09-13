@@ -19,7 +19,7 @@ public class S1140 {
         int sum = 0;
         // 在i之前的石碓都被取走、M=j的情况下，先取能够拿到的最大值
         int[][] dp = new int[len][len + 1];
-         // 倒着来
+        // 倒着来
         for (int i = len - 1; i >= 0; i--) {
             sum += piles[i];
             for (int m = len; m >= 1; m--) {

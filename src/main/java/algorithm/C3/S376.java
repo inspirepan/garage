@@ -4,7 +4,9 @@ public class S376 {
     public int wiggleMaxLength(int[] nums) {
         // 单纯双重循环dp效率很低，好像效果不太好，可以考虑剪枝?
         int len = nums.length;
-        if (len == 1) return 1;
+        if (len == 1) {
+            return 1;
+        }
         int[][] dp = new int[len][2];
         // 对于dp[i] 表示加入nums[i]后的子序列最长长度，分成两种，一种是nums[i]位于谷，另一种是位于峰
         int max = 0;

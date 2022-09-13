@@ -2,9 +2,15 @@ package algorithm.C2;
 
 public class S276 {
     public int numWays(int n, int k) {
-        if (n == 1) return k;
-        if (n == 0) return 0;
-        if (n == 2) return k * k;
+        if (n == 1) {
+            return k;
+        }
+        if (n == 0) {
+            return 0;
+        }
+        if (n == 2) {
+            return k * k;
+        }
         // 0 代表当前位置与上一个颜色不同的方案数量
         // 1 代表当前位置与上一个颜色相同的方案数量
         int[][] dp = new int[n][2];

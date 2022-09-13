@@ -5,16 +5,22 @@ import java.util.Arrays;
 public class S473 {
     public boolean makesquare(int[] matchsticks) {
         int len = matchsticks.length;
-        if (len < 4) return false;
+        if (len < 4) {
+            return false;
+        }
         // 求总和
         int sum = 0;
-        for (int m : matchsticks) sum += m;
-        if (sum % 4 != 0) return false;
+        for (int m : matchsticks) {
+            sum += m;
+        }
+        if (sum % 4 != 0) {
+            return false;
+        }
         int target = sum / 4;
         // 边长
         Arrays.sort(matchsticks);
         // 从大边往下找
-        int[] targets = new int[]{target, target, target, target};
+        int[] targets = new int[] {target, target, target, target};
         return dfs(matchsticks, len - 1, targets);
     }
 
@@ -31,10 +37,16 @@ public class S473 {
         }
         int curr = matches[i];
         for (int a = 0; a < 4; a++) {
-            if (targets[a] < curr) continue;
-            if (a > 0 && targets[a] == targets[a - 1]) continue;
+            if (targets[a] < curr) {
+                continue;
+            }
+            if (a > 0 && targets[a] == targets[a - 1]) {
+                continue;
+            }
             targets[a] -= curr;
-            if (dfs(matches, i - 1, targets)) return true;
+            if (dfs(matches, i - 1, targets)) {
+                return true;
+            }
             targets[a] += curr;
         }
         return false;

@@ -8,12 +8,17 @@ public class S658 {
         int left = 0;
         int right = arr.length - 1;
         while (right - left >= k) {
-            if (x - arr[left] > arr[right] - x) left++;
-            else right--;
+            if (x - arr[left] > arr[right] - x) {
+                left++;
+            } else {
+                right--;
+            }
         }
         // left+k-1=right
         List<Integer> result = new ArrayList<>();
-        while (left <= right) result.add(arr[left++]);
+        while (left <= right) {
+            result.add(arr[left++]);
+        }
         return result;
     }
 }

@@ -14,8 +14,6 @@ public class S1461 {
             right++;
         }
         // 必然是包括2^k种不同的排列的
-        if (set.size() == Math.pow(2, k))
-            return true;
-        return false;
+        return set.size() == Math.pow(2, k);
     }
 }

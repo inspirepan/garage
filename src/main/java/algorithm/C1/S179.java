@@ -8,9 +8,13 @@ public class S179 {
         boolean flag = false;
         for (int i = 0; i < nums.length; i++) {
             ss[i] = String.valueOf(nums[i]);
-            if (nums[i] > 0) flag = true;
+            if (nums[i] > 0) {
+                flag = true;
+            }
         }
-        if (!flag) return "0";
+        if (!flag) {
+            return "0";
+        }
         Arrays.sort(ss, (o1, o2) -> {
             return -(o1 + o2).compareTo(o2 + o1);
         });

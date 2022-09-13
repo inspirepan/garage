@@ -9,17 +9,19 @@ public class S375 {
         for (int i = n; i >= 1; --i) {
             for (int j = i; j <= n; ++j) {
                 // [i, j]
-                if (i == j)
+                if (i == j) {
                     dp[i][j] = 0;
-                else if (i + 2 == j)
+                } else if (i + 2 == j) {
                     dp[i][j] = i + 1;
-                else if (i + 1 == j)
+                } else if (i + 1 == j) {
                     dp[i][j] = i;
-                else {
+                } else {
                     dp[i][j] = Integer.MAX_VALUE;
                     for (int x = i; x <= j; ++x)
-                        // 不是很懂什么时候建立的初始值
+                    // 不是很懂什么时候建立的初始值
+                    {
                         dp[i][j] = Math.min(dp[i][j], Math.max(dp[i][x - 1], dp[x + 1][j]) + x);
+                    }
                 }
             }
         }

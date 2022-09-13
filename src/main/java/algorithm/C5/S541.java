@@ -2,7 +2,9 @@ package algorithm.C5;
 
 public class S541 {
     public String reverseStr(String s, int k) {
-        if (k <= 1) return s;
+        if (k <= 1) {
+            return s;
+        }
         char[] c = s.toCharArray();
         int i = 0;
         while (i < s.length()) {

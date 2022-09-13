@@ -4,7 +4,9 @@ import datastructure.ListNode;
 
 public class S234 {
     public boolean isPalindrome(ListNode head) {
-        if (head == null) return false;
+        if (head == null) {
+            return false;
+        }
         ListNode dummy = new ListNode();
         dummy.next = head;
         var slow = dummy;
@@ -17,7 +19,9 @@ public class S234 {
         while (slow.next != null) {
             dummy = dummy.next;
             slow = slow.next;
-            if (slow.val != dummy.val) return false;
+            if (slow.val != dummy.val) {
+                return false;
+            }
         }
         return true;
     }
@@ -26,7 +30,9 @@ public class S234 {
      * 翻转dummy之后的部分
      */
     private void reverse(ListNode dummy) {
-        if (dummy.next == null) return;
+        if (dummy.next == null) {
+            return;
+        }
         ListNode p = dummy.next;
         while (p.next != null) {
             // 把p的next插入到dummy后面

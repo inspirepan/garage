@@ -1,6 +1,5 @@
 package algorithm.C3;
 
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
@@ -37,7 +36,9 @@ public class S347 {
 
         @Override
         public int compareTo(Number o) {
-            if (this.freq == o.freq) return 0;
+            if (this.freq == o.freq) {
+                return 0;
+            }
             return this.freq < o.freq ? 1 : -1;
         }
     }

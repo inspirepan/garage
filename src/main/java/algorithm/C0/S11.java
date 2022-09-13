@@ -10,8 +10,11 @@ public class S11 {
         while (left < right) {
             int curr = Math.min(height[left], height[right]) * (right - left);
             max = Math.max(max, curr);
-            if (height[left] < height[right]) left++;
-            else right--;
+            if (height[left] < height[right]) {
+                left++;
+            } else {
+                right--;
+            }
         }
         return max;
     }

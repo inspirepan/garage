@@ -11,7 +11,9 @@ public class S447 {
         // 统计每一个point到其他point的距离，同一个距离有n个的话，那么有n(n-1)的回旋镖
         List<Map<Integer, Integer>> maps = new ArrayList<>();
         int len = points.length;
-        for (int i = 0; i < len; i++) maps.add(new HashMap<>());
+        for (int i = 0; i < len; i++) {
+            maps.add(new HashMap<>());
+        }
         for (int i = 0; i < len; i++) {
             for (int j = i + 1; j < len; j++) {
                 int dx = points[i][0] - points[j][0];

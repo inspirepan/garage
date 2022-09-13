@@ -10,9 +10,11 @@ public class S387 {
         int min = len;
         for (int i = 0; i < len; i++) {
             char c = s.charAt(i);
-            if (location[c - 'a'] == len) continue;
-            else if (location[c - 'a'] != len + 1) location[c - 'a'] = len;
-            else {
+            if (location[c - 'a'] == len) {
+                continue;
+            } else if (location[c - 'a'] != len + 1) {
+                location[c - 'a'] = len;
+            } else {
                 location[c - 'a'] = i;
             }
         }

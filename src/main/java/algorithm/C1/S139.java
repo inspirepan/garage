@@ -1,9 +1,6 @@
 package algorithm.C1;
 
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 
 public class S139 {
     public boolean wordBreak(String s, List<String> wordDict) {

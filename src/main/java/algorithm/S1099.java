@@ -16,7 +16,9 @@ public class S1099 {
     }
 
     public int twoSumLessThanK2(int[] nums, int k) {
-        if (nums.length < 2) return -1;
+        if (nums.length < 2) {
+            return -1;
+        }
         Arrays.sort(nums);
         int right = nums.length - 1;
         int left = 0;

@@ -1,8 +1,12 @@
 package algorithm.C3;
 
 import datastructure.TreeNode;
-
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class S314 {
     List<List<Integer>> result = new ArrayList<>();
@@ -11,7 +15,9 @@ public class S314 {
     Map<Integer, List<Integer>> map = new HashMap<>();
 
     public List<List<Integer>> verticalOrder(TreeNode root) {
-        if (root == null) return result;
+        if (root == null) {
+            return result;
+        }
 
         // 层序
         Deque<Node> queue = new ArrayDeque<>();

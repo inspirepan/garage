@@ -14,7 +14,9 @@ public class S623 {
     }
 
     private void helper(TreeNode node, int val, int depth, int curr) {
-        if (node == null) return;
+        if (node == null) {
+            return;
+        }
         if (curr == depth - 1) {
             TreeNode newLeft = new TreeNode(val);
             TreeNode newRight = new TreeNode(val);

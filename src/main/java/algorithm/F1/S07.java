@@ -9,7 +9,9 @@ public class S07 {
     }
 
     private TreeNode helper(int[] preorder, int pl, int pr, int[] inorder, int il, int ir) {
-        if (pl > pr || il > ir) return null;
+        if (pl > pr || il > ir) {
+            return null;
+        }
         if (pl == pr && il == ir) {
             return new TreeNode(preorder[pl]);
         }
@@ -26,7 +28,9 @@ public class S07 {
     private int find(int[] inorder, int il, int ir, int target) {
         // [il, ir]
         while (il <= ir) {
-            if (inorder[il] == target) return il;
+            if (inorder[il] == target) {
+                return il;
+            }
             il++;
         }
         return -1;

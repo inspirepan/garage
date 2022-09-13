@@ -9,16 +9,20 @@ public class S540 {
             int mid = left + (right - left >>> 1);
             if ((mid & 1) == 0) {
                 // 遇到边界就结束了
-                if (mid == nums.length - 1) return nums[mid];
-                if (nums[mid] == nums[mid + 1])
+                if (mid == nums.length - 1) {
+                    return nums[mid];
+                }
+                if (nums[mid] == nums[mid + 1]) {
                     left = mid + 1;
-                else
+                } else {
                     right = mid;
+                }
             } else {
-                if (nums[mid] == nums[mid + 1])
+                if (nums[mid] == nums[mid + 1]) {
                     right = mid;
-                else
+                } else {
                     left = mid + 1;
+                }
             }
         }
         return nums[left];
@@ -31,15 +35,17 @@ public class S540 {
         while (left < right) {
             int mid = left + (right - left >>> 1);
             if ((mid & 1) == 0) {
-                if (nums[mid] == nums[mid + 1])
+                if (nums[mid] == nums[mid + 1]) {
                     left = mid + 1;
-                else
+                } else {
                     right = mid;
+                }
             } else {
-                if (nums[mid] == nums[mid + 1])
+                if (nums[mid] == nums[mid + 1]) {
                     right = mid;
-                else
+                } else {
                     left = mid + 1;
+                }
             }
         }
         return nums[left];

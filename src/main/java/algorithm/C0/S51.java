@@ -10,7 +10,9 @@ public class S51 {
 
     public List<List<String>> solveNQueens(int n) {
         this.board = new char[n][n];
-        for (char[] row : board) Arrays.fill(row, '.');
+        for (char[] row : board) {
+            Arrays.fill(row, '.');
+        }
         dfs(0);
         return result;
     }
@@ -37,20 +39,28 @@ public class S51 {
 
     private boolean checkAvailable(int r, int c) {
         // 检查是否冲突
-        if (r == 0) return true;
+        if (r == 0) {
+            return true;
+        }
         // 检查列
         for (int i = 0; i < r; i++) {
-            if (board[i][c] == 'Q') return false;
+            if (board[i][c] == 'Q') {
+                return false;
+            }
         }
         // 检查斜线
         int i = r - 1, j = c - 1;
         while (i >= 0 && j >= 0) {
-            if (board[i--][j--] == 'Q') return false;
+            if (board[i--][j--] == 'Q') {
+                return false;
+            }
         }
         i = r - 1;
         j = c + 1;
         while (i >= 0 && j < board.length) {
-            if (board[i--][j++] == 'Q') return false;
+            if (board[i--][j++] == 'Q') {
+                return false;
+            }
         }
 
         return true;

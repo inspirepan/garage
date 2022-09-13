@@ -6,7 +6,9 @@ import java.util.Map;
 public class S35 {
     public Node copyRandomList(Node head) {
         Map<Node, Node> map = new HashMap<>();
-        if (head == null) return null;
+        if (head == null) {
+            return null;
+        }
         Node n = new Node(head.val);
         map.put(head, n);
         Node p = n;

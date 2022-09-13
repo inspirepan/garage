@@ -1,8 +1,8 @@
 package algorithm.C4;
 
 import datastructure.TreeNode;
-
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class S437 {
     // sum, count;
@@ -19,7 +19,9 @@ public class S437 {
     }
 
     private void dfs(TreeNode node, int sum) {
-        if (node == null) return;
+        if (node == null) {
+            return;
+        }
 
         sum += node.val;
         if (map.containsKey(sum - targetSum)) {

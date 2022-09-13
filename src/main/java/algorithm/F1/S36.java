@@ -2,7 +2,9 @@ package algorithm.F1;
 
 public class S36 {
     public Node treeToDoublyList(Node root) {
-        if (root == null) return null;
+        if (root == null) {
+            return null;
+        }
         // 摊平
         Node[] nodes = helper(root);
         // 连接首尾

@@ -10,8 +10,12 @@ public class S348 {
         }
 
         public int move(int row, int col, int player) {
-            if (matrix.length == 0) return 0;
-            if (matrix[row][col] != 0) return 0;
+            if (matrix.length == 0) {
+                return 0;
+            }
+            if (matrix[row][col] != 0) {
+                return 0;
+            }
             matrix[row][col] = player;
             boolean colCheck = true;
             for (int i = 0; i < matrix.length; i++) {
@@ -20,7 +24,9 @@ public class S348 {
                     break;
                 }
             }
-            if (colCheck) return player;
+            if (colCheck) {
+                return player;
+            }
             boolean rowCheck = true;
             for (int j = 0; j < matrix[0].length; j++) {
                 if (matrix[row][j] != player) {
@@ -28,7 +34,9 @@ public class S348 {
                     break;
                 }
             }
-            if (rowCheck) return player;
+            if (rowCheck) {
+                return player;
+            }
             if (row == col) {
                 boolean crossCheck = true;
                 for (int i = 0; i < matrix.length; i++) {
@@ -37,7 +45,9 @@ public class S348 {
                         break;
                     }
                 }
-                if (crossCheck) return player;
+                if (crossCheck) {
+                    return player;
+                }
             }
             if (row + col == matrix.length - 1) {
                 boolean crossCheck = true;
@@ -47,7 +57,9 @@ public class S348 {
                         break;
                     }
                 }
-                if (crossCheck) return player;
+                if (crossCheck) {
+                    return player;
+                }
             }
             return 0;
         }

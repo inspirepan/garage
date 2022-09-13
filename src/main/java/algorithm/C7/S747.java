@@ -13,8 +13,12 @@ public class S747 {
             }
         }
         for (int i = 0; i < nums.length; i++) {
-            if (i == index) continue;
-            if (nums[i] * 2 > max) return -1;
+            if (i == index) {
+                continue;
+            }
+            if (nums[i] * 2 > max) {
+                return -1;
+            }
         }
         return index;
     }

@@ -6,8 +6,9 @@ import java.util.Map;
 
 public class S138 {
     public Node copyRandomList(Node head) {
-        if (head == null)
+        if (head == null) {
             return null;
+        }
         Map<Node, Node> nodeMap = new HashMap<>();
         Node ptr = head;
         while (ptr != null) {

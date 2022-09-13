@@ -1,7 +1,5 @@
 package algorithm.C15;
 
-import javax.accessibility.AccessibleValue;
-
 public class S1518 {
     public int numWaterBottles(int numBottles, int numExchange) {
         int total = numBottles;

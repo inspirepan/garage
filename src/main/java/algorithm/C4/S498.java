@@ -10,7 +10,9 @@ public class S498 {
         int m = mat.length;
         int n = mat[0].length;
         int[] result = new int[m * n];
-        if (m == 0 || n == 0) return result;
+        if (m == 0 || n == 0) {
+            return result;
+        }
         while (p < m * n) {
             result[p++] = mat[i][j];
             // 更新ij

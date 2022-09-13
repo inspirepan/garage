@@ -1,6 +1,8 @@
 package algorithm.C3;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class S315bin {
     public List<Integer> countSmaller(int[] nums) {
@@ -22,8 +24,11 @@ public class S315bin {
         int l = 0, r = list.size();
         while (l < r) {
             int mid = l + (r - l) / 2;
-            if (list.get(mid) >= target) r = mid;
-            else l = mid + 1;
+            if (list.get(mid) >= target) {
+                r = mid;
+            } else {
+                l = mid + 1;
+            }
         }
         return l;
     }

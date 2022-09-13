@@ -1,7 +1,6 @@
 package algorithm.C9;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -15,7 +14,7 @@ public class S937 {
         String[] ans = new String[logs.length];
         int index = logs.length - 1;
         List<String> alphabetLogs = new ArrayList<>();
-        for (int i = logs.length - 1; i >= 0;    i--) {
+        for (int i = logs.length - 1; i >= 0; i--) {
             String log = logs[i];
             int idx = log.indexOf(' ');
             if (Character.isAlphabetic(log.charAt(idx + 1))) {
@@ -27,8 +26,10 @@ public class S937 {
         Collections.sort(alphabetLogs, (o1, o2) -> {
             int idx1 = o1.indexOf(' ');
             int idx2 = o2.indexOf(' ');
-            int cmp = o1.substring(idx1 + 1, o1.length()).compareTo(o2.substring(idx2 + 1, o2.length()));
-            if (cmp != 0) return cmp;
+            int cmp = o1.substring(idx1 + 1).compareTo(o2.substring(idx2 + 1));
+            if (cmp != 0) {
+                return cmp;
+            }
             return o1.substring(0, idx1).compareTo(o2.substring(0, idx2));
         });
         index = 0;

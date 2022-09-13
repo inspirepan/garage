@@ -11,10 +11,10 @@ public class S450 {
             // 叶子节点直接删除
             if (root.left == null && root.right == null) {
                 root = null;
-            // 如果只有右子树
+                // 如果只有右子树
             } else if (root.left == null) {
                 root = root.right;
-            // 如果只有左子树
+                // 如果只有左子树
             } else if (root.right == null) {
                 root = root.left;
             } else {

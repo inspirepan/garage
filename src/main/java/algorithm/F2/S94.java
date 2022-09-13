@@ -19,7 +19,9 @@ public class S94 {
                     isPalindrome[left][right] = true;
                     left--;
                     right++;
-                } else break;
+                } else {
+                    break;
+                }
             }
         }
         // even
@@ -31,7 +33,9 @@ public class S94 {
                     isPalindrome[left][right] = true;
                     left--;
                     right++;
-                } else break;
+                } else {
+                    break;
+                }
             }
         }
 

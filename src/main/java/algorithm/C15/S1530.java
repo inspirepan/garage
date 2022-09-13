@@ -2,8 +2,6 @@ package algorithm.C15;
 
 import datastructure.TreeNode;
 
-import java.util.Arrays;
-
 public class S1530 {
 
     private int count = 0;

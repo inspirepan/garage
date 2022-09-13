@@ -12,7 +12,9 @@ public class S21 {
             while (r >= 0 && (nums[r] & 1) == 0) {
                 r--;
             }
-            if (l > r) return nums;
+            if (l > r) {
+                return nums;
+            }
             swap(l, r, nums);
             l++;
             r--;

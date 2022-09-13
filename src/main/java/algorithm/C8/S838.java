@@ -14,26 +14,32 @@ public class S838 {
         // 边界情况 *R *L R* L*
         int left = 0;
         int right = len - 1;
-        while (left < len && dominoes.charAt(left) == '.')
+        while (left < len && dominoes.charAt(left) == '.') {
             left++;
-        while (right >= 0 && dominoes.charAt(right) == '.')
+        }
+        while (right >= 0 && dominoes.charAt(right) == '.') {
             right--;
+        }
         // 没有LR
-        if (left == len || right == -1)
+        if (left == len || right == -1) {
             return new String(result);
+        }
         if (dominoes.charAt(left) == 'L') {
             int k = left;
-            while (k >= 0)
+            while (k >= 0) {
                 result[k--] = 'L';
+            }
         }
         if (dominoes.charAt(right) == 'R') {
             int k = right;
-            while (k < len)
+            while (k < len) {
                 result[k++] = 'R';
+            }
         }
         // left到right
-        if (left == right)
+        if (left == right) {
             return new String(result);
+        }
         int i = left;
         while (i <= right) {
             int last = i;
@@ -44,13 +50,15 @@ public class S838 {
             if (prev == 'L' && curr == 'L') {
                 // LL
                 int k = i;
-                while (k >= last)
+                while (k >= last) {
                     result[k--] = 'L';
+                }
             } else if (prev == 'R' && curr == 'R') {
                 // RR
                 int k = i;
-                while (k >= last)
+                while (k >= last) {
                     result[k--] = 'R';
+                }
             } else if (prev == 'R' && curr == 'L') {
                 // RL
                 int l = last;
@@ -61,8 +69,9 @@ public class S838 {
                 }
             }
             // LR不用管
-            if (i == right)
+            if (i == right) {
                 break;
+            }
         }
         return new String(result);
     }

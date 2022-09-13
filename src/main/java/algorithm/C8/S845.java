@@ -3,7 +3,9 @@ package algorithm.C8;
 public class S845 {
 
     public int longestMountain(int[] A) {
-        if (A.length < 3) return 0;
+        if (A.length < 3) {
+            return 0;
+        }
         int start = 0;
         int prev = A[0];
         int max = 0;

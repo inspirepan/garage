@@ -17,7 +17,9 @@ public class S672 {
         // 5： 13
         Set<String> set = new HashSet<>();
         n = Math.min(n, 6);
-        if (presses == 0) return 1;
+        if (presses == 0) {
+            return 1;
+        }
         int[] ops = new int[4];
         if (presses >= 1) {
             for (int i = 0; i < 4; i++) {
@@ -43,7 +45,9 @@ public class S672 {
                 ops[i] = 1;
             }
         }
-        if (presses >= 4) set.add(helper(ops, n));
+        if (presses >= 4) {
+            set.add(helper(ops, n));
+        }
         return set.size();
     }
 

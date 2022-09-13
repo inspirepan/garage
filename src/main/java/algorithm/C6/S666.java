@@ -6,10 +6,12 @@ import java.util.Map;
 public class S666 {
     private int res;
     // depth+pos, value
-    private Map<Integer, Integer> map = new HashMap();
+    private final Map<Integer, Integer> map = new HashMap();
 
     public int pathSum(int[] nums) {
-        if (nums == null || nums.length == 0) return -1;
+        if (nums == null || nums.length == 0) {
+            return -1;
+        }
         for (int num : nums) {
             int d = num / 100;
             int p = (num / 10) % 10;
@@ -22,11 +24,19 @@ public class S666 {
     }
 
     private void dfs(int i, int pathSum) {
-        if (!map.containsKey(i)) return;
+        if (!map.containsKey(i)) {
+            return;
+        }
         pathSum += map.get(i);
         if (!map.containsKey(2 * i) && !map.containsKey(2 * i + 1))  // 叶子
+        {
             res += pathSum;
-        if (map.containsKey(2 * i)) dfs(2 * i, pathSum);
-        if (map.containsKey(2 * i + 1)) dfs(2 * i + 1, pathSum);
+        }
+        if (map.containsKey(2 * i)) {
+            dfs(2 * i, pathSum);
+        }
+        if (map.containsKey(2 * i + 1)) {
+            dfs(2 * i + 1, pathSum);
+        }
     }
 }

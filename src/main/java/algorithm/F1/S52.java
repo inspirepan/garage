@@ -4,7 +4,9 @@ import datastructure.ListNode;
 
 public class S52 {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        if (headA == null || headB == null) return null;
+        if (headA == null || headB == null) {
+            return null;
+        }
         int lenA = 0;
         int lenB = 0;
         ListNode dummyA = new ListNode();
@@ -37,7 +39,9 @@ public class S52 {
         while (p.next != null) {
             p = p.next;
             q = q.next;
-            if (p == q) return p;
+            if (p == q) {
+                return p;
+            }
         }
         return null;
     }

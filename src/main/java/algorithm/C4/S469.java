@@ -9,8 +9,12 @@ public class S469 {
         // 要么顺时针要么逆时针
         // 不会做
         int len = points.size();
-        if (len < 3) return false;
-        if (len == 3) return true;
+        if (len < 3) {
+            return false;
+        }
+        if (len == 3) {
+            return true;
+        }
 
         for (int i = 1; i < len; i++) {
 

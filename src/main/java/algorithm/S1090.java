@@ -24,7 +24,9 @@ public class S1090 {
             if (c <= useLimit) {
                 res += curr.value;
                 count.put(curr.label, c);
-                if (++k == numWanted) break;
+                if (++k == numWanted) {
+                    break;
+                }
             }
         }
         return res;

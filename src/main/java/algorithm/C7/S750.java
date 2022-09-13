@@ -2,7 +2,9 @@ package algorithm.C7;
 
 public class S750 {
     public int countCornerRectangles(int[][] grid) {
-        if (grid.length == 1 || grid[0].length == 1) return 0;
+        if (grid.length == 1 || grid[0].length == 1) {
+            return 0;
+        }
         int m = grid.length;
         int n = grid[0].length;
         // 感觉就是暴力啊，数据量不大，mn都小于200
@@ -17,7 +19,9 @@ public class S750 {
                 int[] t2 = grid[j];
                 int k = 0;
                 for (int l = 0; l < n; l++) {
-                    if (t1[l] == 1 && t2[l] == 1) k++;
+                    if (t1[l] == 1 && t2[l] == 1) {
+                        k++;
+                    }
                 }
 
                 count += k * (k - 1) / 2;

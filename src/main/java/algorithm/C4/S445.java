@@ -1,10 +1,8 @@
 package algorithm.C4;
 
 import datastructure.ListNode;
-
 import java.util.Deque;
 import java.util.LinkedList;
-import java.util.List;
 
 public class S445 {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {

@@ -17,10 +17,14 @@ public class S556 {
         while (p >= 1) {
             int numP = chars[p] - '0';
             int numNext = chars[p - 1] - '0';
-            if (numNext < numP) break;
+            if (numNext < numP) {
+                break;
+            }
             p--;
         }
-        if (p == 0) return -1;
+        if (p == 0) {
+            return -1;
+        }
         // 找到第一个大于它的
         int q = len - 1;
         while (q > p && (chars[q] - '0' <= chars[p - 1] - '0')) {

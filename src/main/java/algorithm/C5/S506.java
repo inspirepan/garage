@@ -18,10 +18,15 @@ public class S506 {
         for (int i = 0; i < score.length; i++) {
             String v;
             int rank = map.get(score[i]);
-            if (rank == 1) v = "Gold Medal";
-            else if (rank == 2) v = "Silver Medal";
-            else if (rank == 3) v = "Bronze Medal";
-            else v = String.valueOf(rank);
+            if (rank == 1) {
+                v = "Gold Medal";
+            } else if (rank == 2) {
+                v = "Silver Medal";
+            } else if (rank == 3) {
+                v = "Bronze Medal";
+            } else {
+                v = String.valueOf(rank);
+            }
             result[i] = v;
         }
         return result;

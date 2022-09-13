@@ -1,11 +1,12 @@
 package algorithm.C4;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 public class S474 {
+    int max = 0;
+
     public int findMaxForm2(String[] strs, int m, int n) {
         if (strs.length == 0) {
             return 0;
@@ -30,21 +31,26 @@ public class S474 {
         return dp[m][n];
     }
 
-    int max = 0;
-
     public int findMaxForm(String[] strs, int m, int n) {
         // 挑最多个数组中的元素，限制是m个0和n个1
         List<int[]> count = new ArrayList<>();
         // 统计strs中的每个元素的1和0数量，然后dfs超时了
         for (String s : strs) {
             int count1 = 0;
-            for (char c : s.toCharArray()) if (c == '1') count1++;
+            for (char c : s.toCharArray()) {
+                if (c == '1') {
+                    count1++;
+                }
+            }
             int count0 = s.length() - count1;
-            count.add(new int[]{count0, count1});
+            count.add(new int[] {count0, count1});
         }
         Collections.sort(count, (a, b) -> {
-            if (a[0] == b[0]) return a[1] > b[1] ? 1 : -1;
-            else return a[0] > b[0] ? 1 : -1;
+            if (a[0] == b[0]) {
+                return a[1] > b[1] ? 1 : -1;
+            } else {
+                return a[0] > b[0] ? 1 : -1;
+            }
         });
         dfs(count, 0, 0, 0, m, n, 0);
         return max;
@@ -53,7 +59,9 @@ public class S474 {
     private void dfs(List<int[]> count, int index, int sum0, int sum1, int m, int n, int choosed) {
         max = Math.max(choosed, max);
 
-        if (index == count.size()) return;
+        if (index == count.size()) {
+            return;
+        }
         int curr0 = count.get(index)[0];
         int curr1 = count.get(index)[1];
         if (sum0 + curr0 <= m && sum1 + curr1 <= n) {

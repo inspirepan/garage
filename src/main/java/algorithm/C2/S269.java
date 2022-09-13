@@ -1,6 +1,11 @@
 package algorithm.C2;
 
-import java.util.*;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Set;
 
 public class S269 {
     public String alienOrder(String[] words) {
@@ -27,7 +32,9 @@ public class S269 {
                 char c2 = w2.charAt(k);
                 if (c1 == c2) {
                     // 原字母序有误
-                    if (k == minLen - 1 && w1.length() > w2.length()) return "";
+                    if (k == minLen - 1 && w1.length() > w2.length()) {
+                        return "";
+                    }
                 } else {
                     Set<Character> set = map.getOrDefault(c1, new HashSet<>());
                     if (!set.contains(c2)) {
@@ -62,7 +69,9 @@ public class S269 {
         }
 
         for (var val : indegree.values()) {
-            if (val > 0) return "";
+            if (val > 0) {
+                return "";
+            }
         }
         return sb.toString();
     }

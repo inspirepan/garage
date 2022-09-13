@@ -23,10 +23,14 @@ public class S676 {
         }
 
         public boolean search(String searchWord) {
-            if (!map.containsKey(searchWord.length())) return false;
+            if (!map.containsKey(searchWord.length())) {
+                return false;
+            }
             var t = map.get(searchWord.length());
             for (String dict : t) {
-                if (magic(dict, searchWord)) return true;
+                if (magic(dict, searchWord)) {
+                    return true;
+                }
             }
             return false;
         }
@@ -36,7 +40,9 @@ public class S676 {
             boolean mod = false;
             while (i < a.length()) {
                 if (a.charAt(i) != b.charAt(i)) {
-                    if (mod) return false;
+                    if (mod) {
+                        return false;
+                    }
                     mod = true;
                 }
                 i++;

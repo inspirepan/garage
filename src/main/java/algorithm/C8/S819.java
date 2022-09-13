@@ -15,7 +15,9 @@ public class S819 {
                 while (i < paragraph.length() && !isLetter(paragraph.charAt(i))) {
                     i++;
                 }
-                if (i == paragraph.length()) break;
+                if (i == paragraph.length()) {
+                    break;
+                }
                 int k = i;
                 while (i < paragraph.length() && isLetter(paragraph.charAt(i))) {
                     i++;

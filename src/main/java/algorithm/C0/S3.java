@@ -1,7 +1,6 @@
 package algorithm.C0;
 
 import java.util.Arrays;
-import java.util.HashMap;
 
 public class S3 {
     public int lengthOfLongestSubstring(String s) {

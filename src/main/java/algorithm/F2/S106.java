@@ -1,7 +1,5 @@
 package algorithm.F2;
 
-import java.util.HexFormat;
-
 public class S106 {
     public boolean isBipartite(int[][] graph) {
         // 二分图
@@ -16,7 +14,9 @@ public class S106 {
         for (int i = 0; i < len; i++) {
             int[] node = graph[i];
             for (int j = 0; j < node.length; j++) {
-                if (g.connected(i, node[j])) return false;
+                if (g.connected(i, node[j])) {
+                    return false;
+                }
                 g.union(i, node[j] + len);
                 g.union(i + len, node[j]);
             }

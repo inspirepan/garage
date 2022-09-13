@@ -10,7 +10,9 @@ public class S562 {
             int curr = 0;
             int j = 0;
             while (j < n) {
-                while (j < n && row[j] == 0) j++;
+                while (j < n && row[j] == 0) {
+                    j++;
+                }
                 while (j < n && row[j] == 1) {
                     j++;
                     curr++;
@@ -24,7 +26,9 @@ public class S562 {
             int curr = 0;
             int i = 0;
             while (i < m) {
-                while (i < m && mat[i][j] == 0) i++;
+                while (i < m && mat[i][j] == 0) {
+                    i++;
+                }
                 while (i < m && mat[i][j] == 1) {
                     i++;
                     curr++;

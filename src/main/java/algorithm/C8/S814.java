@@ -4,10 +4,15 @@ import datastructure.TreeNode;
 
 public class S814 {
     public TreeNode pruneTree(TreeNode root) {
-        if (root == null) return root;
+        if (root == null) {
+            return root;
+        }
         if (root.left == null && root.right == null) {
-            if (root.val == 0) return null;
-            else return root;
+            if (root.val == 0) {
+                return null;
+            } else {
+                return root;
+            }
         }
         TreeNode left = pruneTree(root.left);
         TreeNode right = pruneTree(root.right);

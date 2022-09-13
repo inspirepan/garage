@@ -12,14 +12,23 @@ public class S415 {
         // 最后要reverse一下
         while (i >= 0 || j >= 0) {
             int digit = 0;
-            if (i >= 0) digit += (c1[i--] - '0');
-            if (j >= 0) digit += (c2[j--] - '0');
+            if (i >= 0) {
+                digit += (c1[i--] - '0');
+            }
+            if (j >= 0) {
+                digit += (c2[j--] - '0');
+            }
             digit += carry;
-            sb.append(String.valueOf(digit % 10));
-            if (digit >= 10) carry = 1;
-            else carry = 0;
+            sb.append(digit % 10);
+            if (digit >= 10) {
+                carry = 1;
+            } else {
+                carry = 0;
+            }
         }
-        if (carry == 1) sb.append("1");
+        if (carry == 1) {
+            sb.append("1");
+        }
         return sb.reverse().toString();
     }
 }

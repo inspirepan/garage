@@ -1,7 +1,6 @@
 package algorithm.C1;
 
 import datastructure.Node;
-
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -16,7 +15,9 @@ public class S117 {
      * 用一个dummy和node表示下一层的结点，迭代到下一层就是就是dummy.next
      */
     public Node connect(Node root) {
-        if (root == null) return null;
+        if (root == null) {
+            return null;
+        }
         Node cur = root;
         while (cur != null) {
             Node dummy = new Node();
@@ -61,17 +62,26 @@ public class S117 {
         if (node.left != null && node.right != null) {
             node.left.next = node.right;
             node.right.next = nxt;
-        } else if (node.left != null) node.left.next = nxt;
-        else if (node.right != null) node.right.next = nxt;
+        } else if (node.left != null) {
+            node.left.next = nxt;
+        } else if (node.right != null) {
+            node.right.next = nxt;
+        }
     }
 
     private Node findNext(Node node) {
         Node temp = node.next;
         Node nxt;
-        while (temp != null && temp.left == null && temp.right == null) temp = temp.next;
-        if (temp == null) nxt = null;
-        else if (temp.left != null) nxt = temp.left;
-        else nxt = temp.right;
+        while (temp != null && temp.left == null && temp.right == null) {
+            temp = temp.next;
+        }
+        if (temp == null) {
+            nxt = null;
+        } else if (temp.left != null) {
+            nxt = temp.left;
+        } else {
+            nxt = temp.right;
+        }
         return nxt;
     }
 }

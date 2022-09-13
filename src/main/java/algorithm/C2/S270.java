@@ -10,13 +10,20 @@ public class S270 {
     public int closestValue(TreeNode root, double target) {
         prev = Integer.MIN_VALUE + root.val + (int) target;
         inorder(root, target);
-        if (found) return ans;
-        else return prev;
+        if (found) {
+            return ans;
+        } else {
+            return prev;
+        }
     }
 
     void inorder(TreeNode node, double target) {
-        if (found) return;
-        if (node.left != null) inorder(node.left, target);
+        if (found) {
+            return;
+        }
+        if (node.left != null) {
+            inorder(node.left, target);
+        }
         if (node.val >= target && prev < target) {
             found = true;
             if (node.val - target > target - prev) {
@@ -27,6 +34,8 @@ public class S270 {
         }
         prev = node.val;
 
-        if (node.right != null) inorder(node.right, target);
+        if (node.right != null) {
+            inorder(node.right, target);
+        }
     }
 }

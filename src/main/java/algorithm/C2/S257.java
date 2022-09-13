@@ -1,7 +1,6 @@
 package algorithm.C2;
 
 import datastructure.TreeNode;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -16,7 +15,9 @@ public class S257 {
     }
 
     void dfs(TreeNode node) {
-        if (node == null) return;
+        if (node == null) {
+            return;
+        }
         if (node.left == null && node.right == null) {
             var sb = new StringBuilder();
             for (Integer i : path) {

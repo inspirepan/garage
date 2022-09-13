@@ -2,12 +2,14 @@ package algorithm.F1;
 
 public class S29 {
     public int[] spiralOrder(int[][] matrix) {
-        if (matrix.length == 0 || matrix[0].length == 0) return new int[0];
+        if (matrix.length == 0 || matrix[0].length == 0) {
+            return new int[0];
+        }
         int m = matrix.length;
         int n = matrix[0].length;
         int[] result = new int[m * n];
         int index = 0;
-        final int[][] directions = new int[][]{{0, 1}, {1, 0}, {0, -1}, {-1, -0}}; // 右 下 左 上
+        final int[][] directions = new int[][] {{0, 1}, {1, 0}, {0, -1}, {-1, -0}}; // 右 下 左 上
         int dir = 0; // 向右开始
         int x = 0;
         int y = 0;
@@ -15,7 +17,9 @@ public class S29 {
         while (index < m * n) {
             result[index++] = matrix[x][y];
             // 更新下一个坐标
-            if (index == m * n) break;
+            if (index == m * n) {
+                break;
+            }
             if (dir == 3 && x == boarder + 1 && y == boarder) {
                 // 当向上转到这一圈的左上角
                 boarder++;
@@ -28,8 +32,11 @@ public class S29 {
                     y = nY;
                     break;
                 }
-                if (dir == 3) dir = 0;
-                else dir++;
+                if (dir == 3) {
+                    dir = 0;
+                } else {
+                    dir++;
+                }
             }
         }
         return result;

@@ -7,7 +7,9 @@ public class S50 {
             count[c]++;
         }
         for (char c : s.toCharArray()) {
-            if (count[c] == 1) return c;
+            if (count[c] == 1) {
+                return c;
+            }
         }
         return ' ';
     }

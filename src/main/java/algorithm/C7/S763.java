@@ -1,6 +1,10 @@
 package algorithm.C7;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class S763 {
     public List<Integer> partitionLabels(String s) {
@@ -26,8 +30,9 @@ public class S763 {
         Map<Integer, Integer> map = new HashMap<>();
         List<Integer> res = new ArrayList<>();
         for (int i = 0; i < 26; i++) {
-            if (left[i] != -1)
+            if (left[i] != -1) {
                 map.put(left[i], right[i]);
+            }
         }
         int l = 0;
         int r = map.get(l);
@@ -47,7 +52,9 @@ public class S763 {
             }
             // l = r+1
             res.add(r - start + 1);
-            if (r == arr.length - 1) break;
+            if (r == arr.length - 1) {
+                break;
+            }
         }
         return res;
     }

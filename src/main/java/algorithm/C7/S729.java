@@ -15,11 +15,15 @@ public class S729 {
         public boolean book(int start, int end) {
             Integer less = map.floorKey(start);
             if (less != null) {
-                if (map.get(less) > start) return false;
+                if (map.get(less) > start) {
+                    return false;
+                }
             }
             Integer higher = map.ceilingKey(start);
             if (higher != null) {
-                if (higher < end) return false;
+                if (higher < end) {
+                    return false;
+                }
             }
             map.put(start, end);
             return true;
@@ -39,11 +43,15 @@ public class S729 {
 
             Event last = set.floor(e);
             if (last != null) {
-                if (last.end > start) return false;
+                if (last.end > start) {
+                    return false;
+                }
             }
             Event next = set.ceiling(e);
             if (next != null) {
-                if (next.start < end) return false;
+                if (next.start < end) {
+                    return false;
+                }
             }
             set.add(e);
             return true;

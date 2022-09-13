@@ -9,7 +9,9 @@ public class S118 {
         UnionFind uf = new UnionFind(n);
         for (var edge : edges) {
             int a = edge[0] - 1, b = edge[1] - 1;
-            if (uf.isConnected(a, b)) return edge;
+            if (uf.isConnected(a, b)) {
+                return edge;
+            }
             uf.union(a, b);
         }
         return new int[2];

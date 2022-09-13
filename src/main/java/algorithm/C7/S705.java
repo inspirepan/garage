@@ -1,7 +1,6 @@
 package algorithm.C7;
 
 import java.util.LinkedList;
-import java.util.List;
 
 public class S705 {
 
@@ -9,7 +8,7 @@ public class S705 {
 
         private final int F = 13;
         private final int SIZE = (int) Math.pow(2, F);
-        private LinkedList<Integer>[] table = new LinkedList[SIZE];
+        private final LinkedList<Integer>[] table = new LinkedList[SIZE];
 
         public MyHashSet() {
 
@@ -29,22 +28,34 @@ public class S705 {
                     break;
                 }
             }
-            if (!flag) list.add(key);
+            if (!flag) {
+                list.add(key);
+            }
         }
 
         public void remove(int key) {
             var list = table[key & (SIZE - 1)];
-            if (list == null) return;
+            if (list == null) {
+                return;
+            }
             var it = list.iterator();
             while (it.hasNext()) {
-                if (it.next() == key) it.remove();
+                if (it.next() == key) {
+                    it.remove();
+                }
             }
         }
 
         public boolean contains(int key) {
             var list = table[key & (SIZE - 1)];
-            if (list == null) return false;
-            for (int n : list) if (n == key) return true;
+            if (list == null) {
+                return false;
+            }
+            for (int n : list) {
+                if (n == key) {
+                    return true;
+                }
+            }
             return false;
         }
     }

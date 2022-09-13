@@ -1,7 +1,5 @@
 package algorithm.C7;
 
-import java.util.Arrays;
-
 public class S754 {
     public int reachNumber(int target) {
         // 1 2 3 4 5 6 7 8 9
@@ -11,7 +9,9 @@ public class S754 {
         int i = 1;
         while (true) {
             sum += i;
-            if (sum == target || (sum - target) % 2 == 0) return i;
+            if (sum == target || (sum - target) % 2 == 0) {
+                return i;
+            }
             i++;
         }
     }

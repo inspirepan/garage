@@ -18,7 +18,7 @@ public class S1589 {
         Arrays.sort(nums);
         long res = 0;
         for (int i = 0; i < nums.length; i++) {
-            res += (long)nums[i] * counts[i];
+            res += (long) nums[i] * counts[i];
         }
         return (int) (res % 1_000_000_007);
     }

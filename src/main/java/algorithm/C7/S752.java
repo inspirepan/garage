@@ -9,12 +9,18 @@ public class S752 {
     public int openLock(String[] deadends, String target) {
         // 强行广搜，效果还是不错的 65%
         Set<String> set = new HashSet<>();
-        for (String d : deadends) set.add(d);
+        for (String d : deadends) {
+            set.add(d);
+        }
 
         // if target or start is deadend
-        if (set.contains(target) || set.contains("0000")) return -1;
+        if (set.contains(target) || set.contains("0000")) {
+            return -1;
+        }
         // if target is start
-        if ("0000".equals(target)) return 0;
+        if ("0000".equals(target)) {
+            return 0;
+        }
         // BFS
         Deque<String> queue = new ArrayDeque<>();
         queue.offer("0000");
@@ -27,8 +33,12 @@ public class S752 {
                 String curr = queue.poll();
                 String[] nexts = getNext(curr);
                 for (String next : nexts) {
-                    if (target.equals(next)) return step;
-                    if (set.contains(next) || visited.contains(next)) continue;
+                    if (target.equals(next)) {
+                        return step;
+                    }
+                    if (set.contains(next) || visited.contains(next)) {
+                        continue;
+                    }
                     nextSize++;
                     visited.add(next);
                     queue.offer(next);

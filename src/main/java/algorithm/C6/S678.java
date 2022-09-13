@@ -11,13 +11,19 @@ public class S678 {
                 min++;
                 max++;
             } else if (c == '*') {
-                if (min > 0) min--; // 用作右括号
+                if (min > 0) {
+                    min--; // 用作右括号
+                }
                 max++; // 用作左括号
             } else if (c == ')') {
-                if (min > 0) min--;
+                if (min > 0) {
+                    min--;
+                }
                 max--;
             }
-            if (max < 0) return false; // 即使全部都用作左括号，左括号数量还是不够
+            if (max < 0) {
+                return false; // 即使全部都用作左括号，左括号数量还是不够
+            }
         }
         return min == 0; // 全部用作右括号，还是不够消除左括号
     }

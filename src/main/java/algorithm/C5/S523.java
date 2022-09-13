@@ -21,7 +21,9 @@ public class S523 {
                 // check各种倍数的k与sum的组合
                 int v = (max - sum) / k;
                 while (sum + v * k >= min) {
-                    if (set.contains(sum + v * k)) return true;
+                    if (set.contains(sum + v * k)) {
+                        return true;
+                    }
                     v--;
                 }
             }

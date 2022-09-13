@@ -4,14 +4,20 @@ public class S1100 {
 
     public int numKLenSubstrNoRepeats(String s, int k) {
         char[] arr = s.toCharArray();
-        if (arr.length < k) return 0;
+        if (arr.length < k) {
+            return 0;
+        }
         int[] count = new int[26];
         boolean flag = true;
         for (int i = 0; i < k; i++) {
-            if (++count[arr[i] - 'a'] == 2) flag = false;
+            if (++count[arr[i] - 'a'] == 2) {
+                flag = false;
+            }
         }
         int res = 0;
-        if (!flag) res++;
+        if (!flag) {
+            res++;
+        }
         int right = k;
         int left = 0;
         while (right < arr.length) {
@@ -27,7 +33,9 @@ public class S1100 {
                     break;
                 }
             }
-            if (flag2) res++;
+            if (flag2) {
+                res++;
+            }
         }
         return res;
     }

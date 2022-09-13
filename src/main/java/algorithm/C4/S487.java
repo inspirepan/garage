@@ -16,7 +16,9 @@ public class S487 {
                     zero = 1;
                 } else {
                     // left左缩
-                    while (left < right && nums[left] != 0) left++;
+                    while (left < right && nums[left] != 0) {
+                        left++;
+                    }
                     left++;
                     zero = 0;
                 }

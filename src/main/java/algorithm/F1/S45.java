@@ -19,15 +19,21 @@ public class S45 {
                 while (p < o1.length() && p < o2.length() && o1.charAt(p) == o2.charAt(p)) {
                     p++;
                 }
-                if (p == o1.length() && p == o2.length()) return 0;
+                if (p == o1.length() && p == o2.length()) {
+                    return 0;
+                }
                 if (p == o1.length()) {
                     // 比较 o1 和 o2 p往后
                     return compare(o1, o2.substring(p));
                 } else if (p == o2.length()) {
                     return compare(o1.substring(p), o2);
-                } else if (o1.charAt(p) > o2.charAt(p)) return 1;
-                else if (o1.charAt(p) == o2.length()) return 0;
-                else return -1;
+                } else if (o1.charAt(p) > o2.charAt(p)) {
+                    return 1;
+                } else if (o1.charAt(p) == o2.length()) {
+                    return 0;
+                } else {
+                    return -1;
+                }
             }
         });
 

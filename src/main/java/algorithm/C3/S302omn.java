@@ -15,11 +15,15 @@ public class S302omn {
     private int searchColumns(char[][] image, int i, int j, int top, int bottom, boolean whiteToBlack) {
         while (i != j) {
             int k = top, mid = (i + j) / 2;
-            while (k < bottom && image[k][mid] == '0') ++k;
+            while (k < bottom && image[k][mid] == '0') {
+                ++k;
+            }
             if (k < bottom == whiteToBlack) // k < bottom means the column mid has black pixel
+            {
                 j = mid; //search the boundary in the smaller half
-            else
+            } else {
                 i = mid + 1; //search the boundary in the greater half
+            }
         }
         return i;
     }
@@ -27,13 +31,18 @@ public class S302omn {
     private int searchRows(char[][] image, int i, int j, int left, int right, boolean whiteToBlack) {
         while (i != j) {
             int k = left, mid = (i + j) / 2;
-            while (k < right && image[mid][k] == '0') ++k;
+            while (k < right && image[mid][k] == '0') {
+                ++k;
+            }
             if (k < right == whiteToBlack)
-                // 如果这一列没有黑的 (whiteToBlack==false的话)
+            // 如果这一列没有黑的 (whiteToBlack==false的话)
+            {
                 j = mid;
-            else
-                // 如果这一列有黑的
+            } else
+            // 如果这一列有黑的
+            {
                 i = mid + 1;
+            }
         }
         return i;
     }

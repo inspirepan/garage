@@ -20,7 +20,9 @@ public class S267 {
         int single = 0;
         for (int i = 0; i < 128; i++) {
             if ((cnt[i] & 1) == 1) {
-                if (flag) return res;
+                if (flag) {
+                    return res;
+                }
                 flag = true;
                 single = i;
             }
@@ -36,7 +38,9 @@ public class S267 {
     void build() {
         if (path.size() == len) {
             var sb = new StringBuilder();
-            for (char c : path) sb.append(c);
+            for (char c : path) {
+                sb.append(c);
+            }
             res.add(sb.toString());
             return;
         }

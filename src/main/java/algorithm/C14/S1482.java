@@ -1,8 +1,5 @@
 package algorithm.C14;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
-
 public class S1482 {
     public int minDays(int[] bloomDay, int m, int k) {
         if (m * k > bloomDay.length) {
@@ -18,7 +15,7 @@ public class S1482 {
             int mid = left + (right - left) / 2;
             int count = count(bloomDay, mid, k);
             if (count >= m) {
-                right = mid ;
+                right = mid;
             } else {
                 left = mid + 1;
             }

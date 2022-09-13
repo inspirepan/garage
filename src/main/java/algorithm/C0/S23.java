@@ -1,7 +1,6 @@
 package algorithm.C0;
 
 import datastructure.ListNode;
-
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
@@ -9,34 +8,9 @@ import java.util.PriorityQueue;
  * 有序合并K链表
  * 1. 使用优先队列
  * 2. 归并法
- *
  * @author panjx
  */
 public class S23 {
-    class Solution {
-        public ListNode mergeKLists(ListNode[] lists) {
-            ListNode dummy = new ListNode();
-            ListNode p = dummy;
-            PriorityQueue<ListNode> pq = new PriorityQueue<>(new Comparator<ListNode>() {
-                @Override
-                public int compare(ListNode l1, ListNode l2) {
-                    return l1.val - l2.val;
-                }
-            });
-
-            for (ListNode l : lists) {
-                if (l != null) pq.offer(l);
-            }
-            while (!pq.isEmpty()) {
-                ListNode q = pq.poll();
-                p.next = q;
-                if (q.next != null) pq.offer(q.next);
-                p = p.next;
-            }
-            return dummy.next;
-        }
-    }
-
     public ListNode mergeKLists(ListNode[] lists) {
         return mergeKListsHelper(lists, 0, lists.length - 1);
     }
@@ -74,5 +48,33 @@ public class S23 {
             p = p.next;
         }
         return d.next;
+    }
+
+    class Solution {
+        public ListNode mergeKLists(ListNode[] lists) {
+            ListNode dummy = new ListNode();
+            ListNode p = dummy;
+            PriorityQueue<ListNode> pq = new PriorityQueue<>(new Comparator<ListNode>() {
+                @Override
+                public int compare(ListNode l1, ListNode l2) {
+                    return l1.val - l2.val;
+                }
+            });
+
+            for (ListNode l : lists) {
+                if (l != null) {
+                    pq.offer(l);
+                }
+            }
+            while (!pq.isEmpty()) {
+                ListNode q = pq.poll();
+                p.next = q;
+                if (q.next != null) {
+                    pq.offer(q.next);
+                }
+                p = p.next;
+            }
+            return dummy.next;
+        }
     }
 }

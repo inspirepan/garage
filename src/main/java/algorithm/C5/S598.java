@@ -6,7 +6,9 @@ public class S598 {
         int minX = m;
         int minY = n;
         for (int[] op : ops) {
-            if (op[0] == 0 || op[1] == 0) continue;
+            if (op[0] == 0 || op[1] == 0) {
+                continue;
+            }
             minX = Math.min(minX, op[0]);
             minY = Math.min(minY, op[1]);
         }

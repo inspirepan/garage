@@ -28,7 +28,7 @@ public class S1103 {
             int n = grid[0].length;
             int left = 1;
             int right = Math.min(grid[0][0], grid[m - 1][n - 1]);
-            int[] dirs = new int[]{0, 1, 0, -1, 0};
+            int[] dirs = new int[] {0, 1, 0, -1, 0};
             int result = 0;
             while (left <= right) {
                 int mid = (left + right) / 2;
@@ -45,19 +45,9 @@ public class S1103 {
     }
 
     class Solution2 {
-        int[][] dirs = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+        int[][] dirs = new int[][] {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
         int R;
         int C;
-
-        private class Point {
-            int p;
-            int w;
-
-            public Point(int p, int w) {
-                this.p = p;
-                this.w = w;
-            }
-        }
 
         public int maximumMinimumPath(int[][] grid) {
             R = grid.length;
@@ -76,12 +66,14 @@ public class S1103 {
                 int r = cur.p / C;
                 int c = cur.p % C;
 
-                if (visited[r][c])
+                if (visited[r][c]) {
                     continue;
+                }
                 visited[r][c] = true;
 
-                if (r == R - 1 && c == C - 1)
+                if (r == R - 1 && c == C - 1) {
                     return cur.w;
+                }
 
                 for (int i = 0; i < 4; ++i) {
                     int nextr = r + dirs[i][0];
@@ -98,6 +90,16 @@ public class S1103 {
 
         public boolean isValid(int r, int c) {
             return r >= 0 && c >= 0 && r < R && c < C;
+        }
+
+        private class Point {
+            int p;
+            int w;
+
+            public Point(int p, int w) {
+                this.p = p;
+                this.w = w;
+            }
         }
     }
 }

@@ -6,15 +6,21 @@ import java.util.List;
 import java.util.Map;
 
 public class S401 {
+    private final Map<Integer, List<Integer>> map = new HashMap<>();
+
     public List<String> readBinaryWatch(int turnedOn) {
-        if (turnedOn == 0) return List.of("0:00");
+        if (turnedOn == 0) {
+            return List.of("0:00");
+        }
         // 分配二进制的1
         // 时钟至少0个1，最多3个1，分钟最少0个1，最多6个1
         // 分钟要补0
         List<String> result = new ArrayList<>();
 
         for (int i = 0; i <= turnedOn; i++) {
-            if (i > 3) break;
+            if (i > 3) {
+                break;
+            }
             // i分配给时钟
             List<Integer> hours = hourList(i);
             List<Integer> minutes = minuteList(turnedOn - i);
@@ -23,9 +29,13 @@ public class S401 {
                     var sb = new StringBuilder();
                     sb.append(hour);
                     sb.append(":");
-                    if (minute == 0) sb.append("00");
-                    else if (minute < 10) sb.append("0").append(minute);
-                    else sb.append(minute);
+                    if (minute == 0) {
+                        sb.append("00");
+                    } else if (minute < 10) {
+                        sb.append("0").append(minute);
+                    } else {
+                        sb.append(minute);
+                    }
                     result.add(sb.toString());
                 }
             }
@@ -43,10 +53,10 @@ public class S401 {
         };
     }
 
-    private Map<Integer, List<Integer>> map = new HashMap<>();
-
     private List<Integer> minuteList(int turnedOn) {
-        if (map.containsKey(turnedOn)) return map.get(turnedOn);
+        if (map.containsKey(turnedOn)) {
+            return map.get(turnedOn);
+        }
         // 6个二进制位，只接受0-59
         List<Integer> result = new ArrayList<>();
         for (int i = 0; i < 60; i++) {

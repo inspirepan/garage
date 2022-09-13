@@ -1,7 +1,5 @@
 package algorithm.C7;
 
-import java.util.Comparator;
-import java.util.LinkedList;
 import java.util.PriorityQueue;
 
 public class S703 {
@@ -12,12 +10,16 @@ public class S703 {
 
         public KthLargest(int k, int[] nums) {
             this.k = k;
-            for (int n : nums) add(n);
+            for (int n : nums) {
+                add(n);
+            }
         }
 
         public int add(int val) {
             pq.offer(val);
-            if (pq.size() > k) pq.poll();
+            if (pq.size() > k) {
+                pq.poll();
+            }
             return pq.peek();
         }
     }

@@ -1,6 +1,12 @@
 package algorithm;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class S2039 {
     public int networkBecomesIdle(int[][] edges, int[] patience) {
@@ -48,8 +54,9 @@ public class S2039 {
         int maxTime = 0;
         for (int i = 0; i < n; i++) {
             int p = patience[i], d = dist[i];
-            if (p >= 2 * d) maxTime = Math.max(maxTime, 2 * d);
-            else {
+            if (p >= 2 * d) {
+                maxTime = Math.max(maxTime, 2 * d);
+            } else {
                 int time = 2 * d + (2 * d - 1) / p * p;
                 maxTime = Math.max(maxTime, time);
             }

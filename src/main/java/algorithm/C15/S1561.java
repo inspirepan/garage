@@ -1,9 +1,5 @@
 package algorithm.C15;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-
 public class S1561 {
     public int maxCoins(int[] piles) {
         // 题目的意思就是说一定会有3的倍数长度

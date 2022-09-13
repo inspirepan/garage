@@ -19,8 +19,11 @@ public class S1475 {
         }
         for (int i = 0; i < len; i++) {
             int nextIndex = right[i];
-            if (nextIndex == len) right[i] = prices[i];
-            else right[i] = prices[i] - prices[nextIndex];
+            if (nextIndex == len) {
+                right[i] = prices[i];
+            } else {
+                right[i] = prices[i] - prices[nextIndex];
+            }
         }
         return right;
     }

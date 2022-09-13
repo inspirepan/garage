@@ -1,13 +1,18 @@
 package algorithm.C1;
 
 import datastructure.TreeNode;
-
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Deque;
+import java.util.List;
 
 public class S107 {
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
         List<List<Integer>> result = new ArrayList<>();
-        if (root == null) return result;
+        if (root == null) {
+            return result;
+        }
         List<Integer> level = new ArrayList<>();
         Deque<TreeNode> currLevel = new ArrayDeque<>();
         Deque<TreeNode> nextLevel = new ArrayDeque<>();

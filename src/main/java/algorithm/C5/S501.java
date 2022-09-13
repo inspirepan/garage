@@ -1,14 +1,18 @@
 package algorithm.C5;
 
 import datastructure.TreeNode;
-
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.List;
 
 public class S501 {
     public int[] findMode(TreeNode root) {
         // 不能用额外的空间，用递归就好了，用自己的栈慢很多
         // 差点忘了是BST
-        if (root == null) return new int[]{0};
+        if (root == null) {
+            return new int[] {0};
+        }
         List<Integer> res = new ArrayList<>();
         int times = 0;
         int currTimes = 0;
@@ -45,7 +49,9 @@ public class S501 {
             node = node.right;
         }
         int[] result = new int[res.size()];
-        for (int i = 0; i < res.size(); i++) result[i] = res.get(i);
+        for (int i = 0; i < res.size(); i++) {
+            result[i] = res.get(i);
+        }
         return result;
     }
 }

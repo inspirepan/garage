@@ -1,8 +1,7 @@
 package algorithm.C1;
 
-import java.util.HashMap;
-
 import datastructure.TreeNode;
+import java.util.HashMap;
 
 public class S105 {
     /* 从前序与中序遍历序列构造二叉树 */
@@ -35,7 +34,7 @@ public class S105 {
             System.arraycopy(preorder, 1, leftPreorder, 0, leftLength);
             System.arraycopy(preorder, rootIndex + 1, rightPreorder, 0, rightLength);
             return new TreeNode(rootVal, buildTreeWithIndex(leftPreorder, leftInorder, startPoint),
-                    buildTreeWithIndex(rightPreorder, rightInorder, startPoint + leftLength + 1));
+                buildTreeWithIndex(rightPreorder, rightInorder, startPoint + leftLength + 1));
         } else if (leftLength == 0 && rightLength == 0) {
             return new TreeNode(rootVal);
         } else if (leftLength == 0) {

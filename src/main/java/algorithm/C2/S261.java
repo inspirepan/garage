@@ -3,13 +3,17 @@ package algorithm.C2;
 public class S261 {
     public boolean validTree(int n, int[][] edges) {
         int edgeCount = edges.length;
-        if (edgeCount != n - 1) return false;
+        if (edgeCount != n - 1) {
+            return false;
+        }
         // 查看有没有重复的边
         Find uf = new Find(n);
         for (int[] edge : edges) {
             int a = edge[0];
             int b = edge[1];
-            if (uf.isConnected(a, b)) return false;
+            if (uf.isConnected(a, b)) {
+                return false;
+            }
             uf.union(a, b);
         }
         return true;

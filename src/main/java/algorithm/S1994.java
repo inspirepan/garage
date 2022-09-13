@@ -15,7 +15,7 @@ public class S1994 {
 
     int MOD = (int) 1e9 + 7;
     // 质数
-    int[] p = new int[]{2, 3, 5, 7, 11, 13, 17, 19, 23, 29};
+    int[] p = new int[] {2, 3, 5, 7, 11, 13, 17, 19, 23, 29};
     int[] cnts = new int[35];
 
     public int numberOfGoodSubsets(int[] nums) {
@@ -53,7 +53,9 @@ public class S1994 {
                     break;
                 }
             }
-            if (!ok) continue;
+            if (!ok) {
+                continue;
+            }
             // 枚举前一状态prev 2*3 0000110
             // 当前状态cur 2*3*5 0010110
             for (int prev = mask - 1; prev >= 0; prev--) {

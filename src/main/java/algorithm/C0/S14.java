@@ -16,7 +16,9 @@ public class S14 {
                     break;
                 }
             }
-            if (flag) break;
+            if (flag) {
+                break;
+            }
             i++;
         }
         return strs[0].substring(0, i);

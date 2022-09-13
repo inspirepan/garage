@@ -24,7 +24,9 @@ public class S748 {
 
     private boolean contains(int[] wCount, int[] count) {
         for (int i = 0; i < 26; i++) {
-            if (wCount[i] < count[i]) return false;
+            if (wCount[i] < count[i]) {
+                return false;
+            }
         }
         return true;
     }
@@ -34,7 +36,9 @@ public class S748 {
         // ignore uppercase
         Arrays.fill(count, 0);
         for (char c : s.toCharArray()) {
-            if (c == ' ' || (c >= '0' && c <= '9')) continue;
+            if (c == ' ' || (c >= '0' && c <= '9')) {
+                continue;
+            }
             if (c >= 'a') {
                 count[c - 'a']++;
             } else if (c >= 'A') {

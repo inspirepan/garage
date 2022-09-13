@@ -1,6 +1,10 @@
 package algorithm.C6;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Set;
 
 public class S684m {
 
@@ -31,7 +35,9 @@ public class S684m {
         // 找到环中的全部节点 ring
         for (int i = n - 1; i >= 0; i--) {
             int[] edge = edges[i];
-            if (ring.contains(edge[0]) && ring.contains(edge[1])) return edge;
+            if (ring.contains(edge[0]) && ring.contains(edge[1])) {
+                return edge;
+            }
         }
         return null;
     }
@@ -53,11 +59,15 @@ public class S684m {
             }
             return;
         }
-        if (founded) return;
+        if (founded) {
+            return;
+        }
         path.add(node);
         visited[node] = true;
         for (int neighbor : map.get(node)) {
-            if (neighbor == from) continue;
+            if (neighbor == from) {
+                continue;
+            }
             dfs(neighbor, node);
         }
         visited[node] = false;

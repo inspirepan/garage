@@ -41,7 +41,6 @@ public class S685 {
 
     /**
      * 将 removeEdgeIndex 去掉以后，剩下的有向边是否构成环
-     *
      * @param edges
      * @param len             结点总数（从 1 开始，因此初始化的时候 + 1）
      * @param removeEdgeIndex 删除的边的下标
@@ -63,7 +62,7 @@ public class S685 {
 
     private class UnionFind {
         // 代表元法
-        private int[] parent;
+        private final int[] parent;
 
         public UnionFind(int n) {
             parent = new int[n];

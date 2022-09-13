@@ -1,7 +1,5 @@
 package algorithm.C5;
 
-import java.util.Arrays;
-
 public class S583 {
     public int minDistance(String word1, String word2) {
         char[] arr1 = word1.toCharArray();

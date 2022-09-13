@@ -2,7 +2,6 @@ package algorithm;
 
 /**
  * 208 前缀树
- *
  * @author panjx
  */
 public class Trie {

@@ -23,13 +23,17 @@ public class S549 {
 
     private int findDecre(TreeNode root, int parent) {
         // 返回的是往下的连续递减序列中最小值
-        if (root == null || root.val != parent - 1) return parent;
+        if (root == null || root.val != parent - 1) {
+            return parent;
+        }
         return Math.min(findDecre(root.left, root.val), findDecre(root.right, root.val));
     }
 
     private int findIncre(TreeNode root, int parent) {
         // 返回的是往下的连续递增序列的最大值
-        if (root == null || root.val != parent + 1) return parent;
+        if (root == null || root.val != parent + 1) {
+            return parent;
+        }
         return Math.max(findIncre(root.left, root.val), findIncre(root.right, root.val));
     }
 }

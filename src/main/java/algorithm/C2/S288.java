@@ -20,7 +20,9 @@ public class S288 {
         }
 
         String getAbbr(String s) {
-            if (s.length() <= 2) return s;
+            if (s.length() <= 2) {
+                return s;
+            }
             var sb = new StringBuilder();
             sb.append(s.charAt(0));
             sb.append(s.length() - 2);
@@ -32,9 +34,10 @@ public class S288 {
             String abbr = getAbbr(word);
             if (map.containsKey(abbr)) {
                 var set = map.get(abbr);
-                if (set.size() >= 2) return false;
-                if (set.contains(word)) return true;
-                else return false;
+                if (set.size() >= 2) {
+                    return false;
+                }
+                return set.contains(word);
             }
             return true;
         }

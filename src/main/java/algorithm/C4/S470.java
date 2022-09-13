@@ -11,7 +11,9 @@ public class S470 {
         while (true) {
             sum = (rand7() - 1) * 7; // 0/7/14/21/28/35/42
             sum += rand7(); // 1~49
-            if (sum > 39) break;
+            if (sum > 39) {
+                break;
+            }
         }
         return sum - 39;
     }

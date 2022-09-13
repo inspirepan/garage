@@ -6,7 +6,9 @@ import java.util.PriorityQueue;
 public class S253 {
     public int minMeetingRooms(int[][] intervals) {
         Arrays.sort(intervals, (o1, o2) -> {
-            if (o1[0] == o2[0]) return o1[1] - o2[1];
+            if (o1[0] == o2[0]) {
+                return o1[1] - o2[1];
+            }
             return o1[0] - o2[0];
         });
 

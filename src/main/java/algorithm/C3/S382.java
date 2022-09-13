@@ -1,12 +1,11 @@
 package algorithm.C3;
 
 import datastructure.ListNode;
-
 import java.util.Random;
 
 public class S382 {
     class Solution {
-        private ListNode head;
+        private final ListNode head;
 
         public Solution(ListNode head) {
             this.head = head;

@@ -28,7 +28,7 @@ public class S320 {
         }
         if (flag) {
             for (int end = start + 1; end <= len; end++) {
-                sb.append(word.substring(start, end));
+                sb.append(word, start, end);
                 dfs(end, false);
                 sb.setLength(sb.length() - end + start);
             }

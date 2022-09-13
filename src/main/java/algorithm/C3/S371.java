@@ -8,7 +8,9 @@ public class S371 {
         // 这样可以解决每个位置单独的问题，需要再处理一下进位的问题
         int carry = a & b;
         carry <<= 1;
-        if (carry == 0) return sum;
+        if (carry == 0) {
+            return sum;
+        }
         return getSum(sum, carry);
     }
 }

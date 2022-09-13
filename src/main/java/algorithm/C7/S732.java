@@ -7,7 +7,7 @@ public class S732 {
 
     class MyCalendarThree {
 
-        private TreeMap<Integer, Integer> calendar;
+        private final TreeMap<Integer, Integer> calendar;
 
         public MyCalendarThree() {
             calendar = new TreeMap<>();

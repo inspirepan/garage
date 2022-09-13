@@ -20,7 +20,9 @@ public class S755 {
         }
         if (heights[p + 1] < heights[k]) {
             int t = p + 1;
-            while (t + 1 < heights.length && heights[t + 1] == heights[t]) t++;
+            while (t + 1 < heights.length && heights[t + 1] == heights[t]) {
+                t++;
+            }
             heights[t]++;
             return;
         }
@@ -30,7 +32,9 @@ public class S755 {
         }
         if (heights[p - 1] < heights[k]) {
             int t = p - 1;
-            while (t >= 1 && heights[t - 1] == heights[t]) t--;
+            while (t >= 1 && heights[t - 1] == heights[t]) {
+                t--;
+            }
             heights[t]++;
             return;
         }

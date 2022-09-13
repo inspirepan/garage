@@ -1,10 +1,5 @@
 package algorithm.C5;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 public class S546 {
 
     // 一定是每次尽可能移除更多的连续同色盒子，分数会更高

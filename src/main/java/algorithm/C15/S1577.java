@@ -12,7 +12,9 @@ public class S1577 {
     }
 
     private int helper(int[] a, int[] b) {
-        if (a.length == 0 || b.length == 0) return 0;
+        if (a.length == 0 || b.length == 0) {
+            return 0;
+        }
         Map<Long, Integer> map = new HashMap<>();
         for (int n : a) {
             Long k = (long) n;

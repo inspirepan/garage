@@ -1,7 +1,6 @@
 package algorithm.C1;
 
 import datastructure.TreeNode;
-
 import java.util.ArrayDeque;
 import java.util.Deque;
 

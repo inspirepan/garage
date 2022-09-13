@@ -1,47 +1,14 @@
 package algorithm.C7;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 public class S721union {
-    // 并查集
-    static class Graph {
-        int[] root;
-        int[] level;
-
-        public Graph(int m) {
-            root = new int[m];
-            level = new int[m];
-            for (int i = 0; i < m; i++) {
-                root[i] = i;
-            }
-            Arrays.fill(level, 1);
-        }
-
-        public int find(int x) {
-            // 寻找根节点
-            if (x != root[x]) {
-                root[x] = find(root[x]);
-            }
-            return root[x];
-        }
-
-        public void union(int root1, int root2) {
-            // 合并两个组
-            int a = find(root1);
-            int b = find(root2);
-            if (a != b) {
-                if (level[a] == level[b]) {
-                    root[a] = b;
-                    level[b]++;
-                } else if (level[a] > level[b]) {
-                    root[b] = a;
-                } else {
-                    root[a] = b;
-                }
-            }
-        }
-    }
-
     private final Map<String, Integer> emailIndex = new HashMap<>();
     private final Map<String, String> emailName = new HashMap<>();
 
@@ -90,5 +57,44 @@ public class S721union {
             res.add(groupList);
         }
         return res;
+    }
+
+    // 并查集
+    static class Graph {
+        int[] root;
+        int[] level;
+
+        public Graph(int m) {
+            root = new int[m];
+            level = new int[m];
+            for (int i = 0; i < m; i++) {
+                root[i] = i;
+            }
+            Arrays.fill(level, 1);
+        }
+
+        public int find(int x) {
+            // 寻找根节点
+            if (x != root[x]) {
+                root[x] = find(root[x]);
+            }
+            return root[x];
+        }
+
+        public void union(int root1, int root2) {
+            // 合并两个组
+            int a = find(root1);
+            int b = find(root2);
+            if (a != b) {
+                if (level[a] == level[b]) {
+                    root[a] = b;
+                    level[b]++;
+                } else if (level[a] > level[b]) {
+                    root[b] = a;
+                } else {
+                    root[a] = b;
+                }
+            }
+        }
     }
 }

@@ -1,7 +1,6 @@
 package algorithm.F1;
 
 import datastructure.TreeNode;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -11,13 +10,17 @@ public class S34 {
     List<List<Integer>> result = new ArrayList<>();
 
     public List<List<Integer>> pathSum(TreeNode root, int target) {
-        if (root == null) return result;
+        if (root == null) {
+            return result;
+        }
         dfs(root, 0, target);
         return result;
     }
 
     private void dfs(TreeNode node, int curr, int target) {
-        if (node == null) return;
+        if (node == null) {
+            return;
+        }
         if (node.left == null && node.right == null) {
             if (curr + node.val == target) {
                 var newPath = new ArrayList<>(path);

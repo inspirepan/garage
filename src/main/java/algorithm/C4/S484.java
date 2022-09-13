@@ -3,13 +3,15 @@ package algorithm.C4;
 public class S484 {
     public int[] findPermutation(String s) {
         int[] res = new int[s.length() + 1];
-        for (int i = 0; i < res.length; i++)
+        for (int i = 0; i < res.length; i++) {
             res[i] = i + 1;
+        }
         int i = 1;
         while (i <= s.length()) {
             int j = i;
-            while (i <= s.length() && s.charAt(i - 1) == 'D')
+            while (i <= s.length() && s.charAt(i - 1) == 'D') {
                 i++;
+            }
             reverse(res, j - 1, i);
             i++;
         }

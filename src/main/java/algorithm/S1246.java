@@ -5,8 +5,8 @@ public class S1246 {
     public class CombinationIterator {
         // CombinationIterator
         private final int[] combination;
-        private boolean hasNext = true;
         private final char[] charArr;
+        private boolean hasNext = true;
 
         public CombinationIterator(String characters, int combinationLength) {
             combination = new int[combinationLength];

@@ -1,6 +1,13 @@
 package algorithm.C1;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class S126 {
     public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
@@ -27,7 +34,9 @@ public class S126 {
         }
         // 判断endWord是否在wordList中，是否有转换对象，以及它和beginWord的距离
         List<List<String>> res = new ArrayList<>();
-        if (!map.containsKey(endWord)) return res;
+        if (!map.containsKey(endWord)) {
+            return res;
+        }
         if (isNeighbor(beginWord, endWord)) {
             res.add(List.of(beginWord, endWord));
             return res;
@@ -48,7 +57,9 @@ public class S126 {
 
                 String last = curr.get(curr.size() - 1);
                 for (String next : map.get(last)) {
-                    if (visited.contains(next)) continue;
+                    if (visited.contains(next)) {
+                        continue;
+                    }
                     // 不能重复访问一个词，但是同一层级可以访问
                     levelNewVisited.add(next);
                     var nextList = new ArrayList<>(curr);

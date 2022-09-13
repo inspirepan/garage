@@ -15,7 +15,9 @@ public class S781 {
             int key = e.getKey();
             int val = e.getValue();
             int group = val / (key + 1);
-            if (val % (key + 1) > 0) group++;
+            if (val % (key + 1) > 0) {
+                group++;
+            }
             count += (key + 1) * group;
             // 每个key最多key+1只兔子为一组
         }

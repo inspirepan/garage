@@ -20,8 +20,10 @@ public class S591 {
                     if (arr[i] == '!') {
                         // CDATA 规则7
                         // 必须要有一个闭合标签，栈必须大于1 规则1
-                        if (tags.size() == 0) return false;
-                        if (i + 7 >= arr.length || !code.substring(i + 1, i + 8).equals("[CDATA[")) {
+                        if (tags.size() == 0) {
+                            return false;
+                        }
+                        if (i + 7 >= arr.length || !code.startsWith("[CDATA[", i + 1)) {
                             return false;
                         }
                         i += 8;
@@ -36,7 +38,9 @@ public class S591 {
                             }
                             i++;
                         }
-                        if (!cdataClosed) return false;
+                        if (!cdataClosed) {
+                            return false;
+                        }
                     } else if (arr[i] == '/') {
                         // close tag
                         int start = ++i;
@@ -65,7 +69,9 @@ public class S591 {
                     }
                 }
                 // 必须要有一个闭合标签，栈必须大于1 规则1
-                if (tags.size() == 0 && i != arr.length - 1) return false;
+                if (tags.size() == 0 && i != arr.length - 1) {
+                    return false;
+                }
                 i++;
             }
             return tags.isEmpty();

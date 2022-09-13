@@ -2,12 +2,12 @@ package algorithm.C1;
 
 import datastructure.ListNode;
 
-import java.util.List;
-
 public class S148 {
 
     public ListNode sortList(ListNode head) {
-        if (head == null || head.next == null) return head;
+        if (head == null || head.next == null) {
+            return head;
+        }
         // 第一步：将链表拆成两半
         ListNode fast = head, slow = head, prev = head;
         while (fast != null && fast.next != null) {
@@ -46,12 +46,16 @@ public class S148 {
 
     // 自己写的quicksort超时了
     public ListNode sortList2(ListNode head) {
-        if (head == null) return null;
+        if (head == null) {
+            return null;
+        }
         return quicksort(head)[0];
     }
 
     private ListNode[] quicksort(ListNode head) {
-        if (head == null) return null;
+        if (head == null) {
+            return null;
+        }
         ListNode p = head;
         ListNode greater = new ListNode();
         ListNode less = new ListNode();

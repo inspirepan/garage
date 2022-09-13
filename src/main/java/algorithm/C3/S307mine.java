@@ -1,7 +1,5 @@
 package algorithm.C3;
 
-import java.util.Arrays;
-
 public class S307mine {
     class NumArray {
 
@@ -67,7 +65,7 @@ public class S307mine {
                     return range(left, right, index * 2 + 2, mid + 1, end);
                 } else {
                     return range(left, mid, index * 2 + 1, start, mid)
-                            + range(mid + 1, right, index * 2 + 2, mid + 1, end);
+                        + range(mid + 1, right, index * 2 + 2, mid + 1, end);
                 }
             }
         }

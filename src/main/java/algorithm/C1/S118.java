@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class S118 {
-    private List<List<Integer>> ans = new ArrayList<>();
+    private final List<List<Integer>> ans = new ArrayList<>();
 
     public List<List<Integer>> generate(int numRows) {
         ans.add(List.of(1));
@@ -24,8 +24,12 @@ public class S118 {
     }
 
     private int generateSingle(List<Integer> prev, int left, int right) {
-        if (left == -1) return 1;
-        if (right == prev.size()) return 1;
+        if (left == -1) {
+            return 1;
+        }
+        if (right == prev.size()) {
+            return 1;
+        }
         return prev.get(left) + prev.get(right);
     }
 }

@@ -7,7 +7,9 @@ import java.util.Map;
 public class S690 {
     public int getImportance(List<Employee> employees, int id) {
         Map<Integer, Employee> map = new HashMap<>();
-        for (var em : employees) map.put(em.id, em);
+        for (var em : employees) {
+            map.put(em.id, em);
+        }
         return helper(id, map);
     }
 

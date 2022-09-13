@@ -5,7 +5,7 @@ public class S48 {
         int n = matrix.length;
         // 水平镜像翻转
         int left = 0;
-        int right = n-1;
+        int right = n - 1;
         while (left < right) {
             for (int i = 0; i < n; i++) {
                 swap(matrix, i, left, i, right);

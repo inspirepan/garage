@@ -9,12 +9,18 @@ public class S2024 {
         char[] cs = answerKey.toCharArray();
         while (right < cs.length) {
             char in = cs[right++];
-            if (in == 'T') tSize++;
-            else fSize++;
+            if (in == 'T') {
+                tSize++;
+            } else {
+                fSize++;
+            }
             if (Math.min(tSize, fSize) > k) {
                 char out = cs[left++];
-                if (out == 'T') tSize--;
-                else fSize--;
+                if (out == 'T') {
+                    tSize--;
+                } else {
+                    fSize--;
+                }
             }
         }
         return right - left;

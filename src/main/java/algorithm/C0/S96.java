@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class S96 {
 
-    private Map<Integer, Integer> map = new HashMap<>();
+    private final Map<Integer, Integer> map = new HashMap<>();
 
     public int numTrees(int n) {
         if (n == 0) {

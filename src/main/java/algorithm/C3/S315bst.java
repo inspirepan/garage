@@ -1,14 +1,15 @@
 package algorithm.C3;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class S315bst {
     // 二叉的效率不行，还不如On2的插入排序。二叉会超时
     public List<Integer> countSmaller(int[] nums) {
         List<Integer> res = new ArrayList<>();
-        if (nums.length == 0) return res;
+        if (nums.length == 0) {
+            return res;
+        }
         TreeNode root = new TreeNode(nums[nums.length - 1]);
         int[] r = new int[nums.length];
         r[r.length - 1] = 0;
