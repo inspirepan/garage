@@ -20,46 +20,46 @@ public class S672 {
         if (presses == 0) {
             return 1;
         }
-        int[] ops = new int[4];
+        int[] operateTimes = new int[4];
         if (presses >= 1) {
             for (int i = 0; i < 4; i++) {
-                ops[i] = 1;
-                set.add(helper(ops, n));
-                ops[i] = 0;
+                operateTimes[i] = 1;
+                set.add(currentResult(operateTimes, n));
+                operateTimes[i] = 0;
             }
         }
         if (presses >= 2) {
             for (int i = 0; i < 3; i++) {
                 for (int j = i + 1; j < 4; j++) {
-                    ops[i] = ops[j] = 1;
-                    set.add(helper(ops, n));
-                    ops[i] = ops[j] = 0;
+                    operateTimes[i] = operateTimes[j] = 1;
+                    set.add(currentResult(operateTimes, n));
+                    operateTimes[i] = operateTimes[j] = 0;
                 }
             }
         }
-        Arrays.fill(ops, 1);
+        Arrays.fill(operateTimes, 1);
         if (presses >= 3) {
             for (int i = 0; i < 4; i++) {
-                ops[i] = 0;
-                set.add(helper(ops, n));
-                ops[i] = 1;
+                operateTimes[i] = 0;
+                set.add(currentResult(operateTimes, n));
+                operateTimes[i] = 1;
             }
         }
         if (presses >= 4) {
-            set.add(helper(ops, n));
+            set.add(currentResult(operateTimes, n));
         }
         return set.size();
     }
 
-    private String helper(int[] ops, int n) {
+    private String currentResult(int[] operateTimes, int n) {
         // n个灯泡，最多6种
         var sb = new StringBuilder();
         for (int i = 1; i <= n; i++) {
             int b = switch (i) {
-                case 6, 2 -> (ops[0] + ops[1]) & 1;
-                case 1 -> (ops[0] + ops[2] + ops[3]) & 1;
-                case 3, 5 -> (ops[0] + ops[2]) & 1;
-                case 4 -> (ops[0] + ops[1] + ops[3]) & 1;
+                case 6, 2 -> (operateTimes[0] + operateTimes[1]) & 1;
+                case 1 -> (operateTimes[0] + operateTimes[2] + operateTimes[3]) & 1;
+                case 3, 5 -> (operateTimes[0] + operateTimes[2]) & 1;
+                case 4 -> (operateTimes[0] + operateTimes[1] + operateTimes[3]) & 1;
                 default -> 0;
             };
             sb.append(b);
