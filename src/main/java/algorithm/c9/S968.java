@@ -20,7 +20,8 @@ public class S968 {
         if (node == null) {
             return 1;
         }
-        int left = dfs(node.left), right = dfs(node.right);
+        int left = dfs(node.left);
+        int right = dfs(node.right);
         if (left == 2 || right == 2) {
             ans++;
             return 0;

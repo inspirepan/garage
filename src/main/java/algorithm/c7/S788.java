@@ -2,11 +2,10 @@ package algorithm.c7;
 
 public class S788 {
     public int rotatedDigits(int n) {
-        // 1-1 0-0 8-8 5-2 2-5 6-9 9-6
-        // 3-4-7 是不行的
-        // 必须包含2569
-        // 判断1-n
-        // 生成符合条件的数
+        // 三类数
+        // 1: 旋转后不同
+        // 0： 旋转后相同
+        // -1： 不能旋转
         int ans = 0;
         int[] dp = new int[Math.max(11, n + 1)];
         dp[2] = dp[5] = dp[6] = dp[9] = 1;
