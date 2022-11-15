@@ -1,3 +1,11 @@
+package main
+
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
+
 func smallestFromLeaf(root *TreeNode) string {
 	if root == nil {
 		return ""
@@ -6,7 +14,7 @@ func smallestFromLeaf(root *TreeNode) string {
 	var dfs func(root *TreeNode, str string)
 	dfs = func(root *TreeNode, str string) {
 		//当前字符串
-		str = string('a'+root.Val) + str
+		str = string(rune('a'+root.Val)) + str
 		//终止条件 叶子节点，跟当前res存储值比较
 		if root.Left == nil && root.Right == nil {
 			if res == "" {
