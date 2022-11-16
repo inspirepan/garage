@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.c10;
 
 import java.util.ArrayList;
 import java.util.List;

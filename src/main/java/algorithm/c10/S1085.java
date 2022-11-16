@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.c10;
 
 public class S1085 {
     public int sumOfDigits(int[] nums) {

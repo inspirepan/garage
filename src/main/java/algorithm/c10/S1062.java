@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.c10;
 
 public class S1062 {
     // 挺迷惑的，居然是on2的解法

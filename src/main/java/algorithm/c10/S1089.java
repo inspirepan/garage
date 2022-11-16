@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.c10;
 
 public class S1089 {
     public void duplicateZeros(int[] arr) {

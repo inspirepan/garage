@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.c10;
 
 public class S1079 {
     int ans = 0;

@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.c10;
 
 public class S1071 {
     public String gcdOfStrings(String str1, String str2) {
