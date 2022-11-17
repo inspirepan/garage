@@ -1,14 +1,11 @@
 package algorithm.c7;
 
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class S792 {
     // 实际情况就是字典树费力不讨好，效率还不如直接排序，应该是words规模不够大，字典树作用不大
+
+    // 这道题的子序列其实并不能很好地使用字典树的子序列信息，所以还不如直接使用队列在 s 上做文章
     public int numMatchingSubseq2(String s, String[] words) {
         Map<Character, Deque<String>> m = new HashMap<>();
         for (char c = 'a'; c <= 'z'; c++) {
