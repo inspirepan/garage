@@ -9,7 +9,7 @@ public class S400 {
         if (n < 10) {
             return n;
         }
-        //找规律，1-9  10-99 *2 100*999 *3 1000-9999 *4 ...
+        // 找规律，1-9  10-99 *2 100*999 *3 1000-9999 *4 ...
         int k = 1;
         while (n > digitCount(k)) {
             n -= digitCount(k);

@@ -12,7 +12,6 @@ public class S876 {
         do {
             fast = fast.next.next;
             low = low.next;
-
         } while (fast != null && fast.next != null);
         return low;
     }

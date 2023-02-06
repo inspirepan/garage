@@ -48,7 +48,7 @@ public class S373 {
         int m = Math.min(nums1.length, k), n = nums2.length;
         // 最多k个
         for (int i = 0; i < m; ++i) {
-            pq.offer(new int[] {i, 0});
+            pq.offer(new int[]{i, 0});
         }
         List<List<Integer>> ans = new ArrayList<>();
         while (k-- > 0 && !pq.isEmpty()) {

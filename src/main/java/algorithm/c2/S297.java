@@ -1,6 +1,7 @@
 package algorithm.c2;
 
 import datastructure.TreeNode;
+
 import java.util.Arrays;
 import java.util.Deque;
 import java.util.LinkedList;
@@ -25,7 +26,6 @@ public class S297 {
             result.offer("#"); // 关键是这里，前序遍历到最后一个会打止，因此最后一个叶子结点少了一个右空孩子的「#」标志
             sb.append("\"[").append(String.join(",", result)).append("]\"");
             return sb.toString();
-
         }
 
         /* 迭代的不会，只会递归混混日子 */
@@ -46,7 +46,5 @@ public class S297 {
                 return root;
             }
         }
-
-
     }
 }

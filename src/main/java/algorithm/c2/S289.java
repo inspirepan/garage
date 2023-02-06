@@ -8,8 +8,8 @@ public class S289 {
         int m = board.length;
         int n = board[0].length;
         int[][] dp = new int[m][n];
-        int[] dx = new int[] {-1, 1, 0, 0, -1, -1, 1, 1};
-        int[] dy = new int[] {0, 0, -1, 1, -1, 1, -1, 1};
+        int[] dx = new int[]{-1, 1, 0, 0, -1, -1, 1, 1};
+        int[] dy = new int[]{0, 0, -1, 1, -1, 1, -1, 1};
         // 先遍历一遍，每一个活细胞把周围一圈都+1
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {

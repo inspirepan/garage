@@ -25,7 +25,6 @@ public class S963 {
                                 double b = Math.pow((point3[0] - point1[0]), 2) + Math.pow((point3[1] - point1[1]), 2);
                                 minArea = Math.min(minArea, Math.sqrt(a * b));
                             }
-
                         }
                         set.add(point3[0] * max + point3[1]);
                     }

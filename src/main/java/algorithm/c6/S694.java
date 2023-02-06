@@ -4,8 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class S694 {
-    final int[] dx = new int[] {-1, 1, 0, 0};
-    final int[] dy = new int[] {0, 0, -1, 1};
+    final int[] dx = new int[]{-1, 1, 0, 0};
+    final int[] dy = new int[]{0, 0, -1, 1};
 
     public int numDistinctIslands(int[][] grid) {
         // 找到一个岛屿，然后序列化？用Set去比较字符串
@@ -19,7 +19,7 @@ public class S694 {
                     continue;
                 }
                 // 开始深搜找岛屿
-                int[] info = new int[] {x, x, y, y};
+                int[] info = new int[]{x, x, y, y};
                 dfs(x, y, grid, info, k);
                 result.add(serialize(grid, info, k));
                 k++;

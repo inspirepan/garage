@@ -3,7 +3,7 @@ package algorithm.c0;
 public class S37 {
 
     public void solveSudoku(char[][] board) {
-        //记录某行，某位数字是否已经被摆放
+        // 记录某行，某位数字是否已经被摆放
         boolean[][] row = new boolean[9][9];
         boolean[][] col = new boolean[9][9];
         boolean[][] block = new boolean[9][9];

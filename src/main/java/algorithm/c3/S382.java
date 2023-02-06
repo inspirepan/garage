@@ -1,6 +1,7 @@
 package algorithm.c3;
 
 import datastructure.ListNode;
+
 import java.util.Random;
 
 public class S382 {

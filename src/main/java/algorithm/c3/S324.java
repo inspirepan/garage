@@ -4,12 +4,12 @@ public class S324 {
     int n = -1;
 
     public void wiggleSort(int[] nums) {
-        //找到中位数索引
+        // 找到中位数索引
         int midIndex = this.quickSelect(nums, 0, nums.length - 1);
-        //找到中位数
+        // 找到中位数
         int mid = nums[midIndex];
         n = nums.length;
-        //三分法
+        // 三分法
         for (int left = 0, i = 0, right = nums.length - 1; i <= right; ) {
             if (nums[V(i)] > mid) {
                 swap(nums, V(i++), V(left++));

@@ -29,7 +29,6 @@ public class S962 {
                 } else {
                     list.add(i);
                 }
-
             }
             return res;
         }

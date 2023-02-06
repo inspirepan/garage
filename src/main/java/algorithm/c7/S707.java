@@ -3,9 +3,10 @@ package algorithm.c7;
 public class S707 {
     class MyLinkedList {
 
-        private int size = 0;
         private final Node head = new Node(0);
         private final Node tail = new Node(0);
+        private int size = 0;
+
         public MyLinkedList() {
             head.next = tail;
             tail.prev = head;

@@ -37,9 +37,7 @@ public class S315merge {
                 return;
             }
 
-            for (int k = left; k <= right; k++) {
-                temp[k] = index[k];
-            }
+            if (right + 1 - left >= 0) System.arraycopy(index, left, temp, left, right + 1 - left);
 
             int i = left;
             int j = mid + 1;

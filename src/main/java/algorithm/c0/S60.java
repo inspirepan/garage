@@ -9,7 +9,7 @@ public class S60 {
      * 1342
      * 1423
      * 1432
-     *
+     * <p>
      * 完了看不太懂自己之前做的，数学方法
      */
     public static String getPermutation(int n, int k) {

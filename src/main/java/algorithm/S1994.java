@@ -15,7 +15,7 @@ public class S1994 {
 
     int MOD = (int) 1e9 + 7;
     // 质数
-    int[] p = new int[] {2, 3, 5, 7, 11, 13, 17, 19, 23, 29};
+    int[] p = new int[]{2, 3, 5, 7, 11, 13, 17, 19, 23, 29};
     int[] cnts = new int[35];
 
     public int numberOfGoodSubsets(int[] nums) {

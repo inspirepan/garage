@@ -41,8 +41,8 @@ public class S419 {
             }
         }
         // 统计孤立的1*1
-        final int[] dx = new int[] {0, 0, 1, -1};
-        final int[] dy = new int[] {1, -1, 0, 0};
+        final int[] dx = new int[]{0, 0, 1, -1};
+        final int[] dy = new int[]{1, -1, 0, 0};
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (board[i][j] == 'X') {

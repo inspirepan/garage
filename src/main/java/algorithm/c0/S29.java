@@ -3,6 +3,7 @@ package algorithm.c0;
 /**
  * 两数相除
  * 边界处理太难了，倔强不想用long
+ *
  * @author panjx
  */
 public class S29 {

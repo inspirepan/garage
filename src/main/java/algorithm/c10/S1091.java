@@ -4,8 +4,8 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class S1091 {
-    int[] dx = new int[] {-1, -1, -1, 0, 0, 1, 1, 1};
-    int[] dy = new int[] {-1, 0, 1, -1, 1, -1, 0, 1};
+    int[] dx = new int[]{-1, -1, -1, 0, 0, 1, 1, 1};
+    int[] dy = new int[]{-1, 0, 1, -1, 1, -1, 0, 1};
 
     public int shortestPathBinaryMatrix(int[][] grid) {
         int n = grid.length;
@@ -20,7 +20,7 @@ public class S1091 {
         }
 
         Queue<int[]> queue = new LinkedList<>();
-        queue.offer(new int[] {0, 0});
+        queue.offer(new int[]{0, 0});
         grid[0][0] = 2;
         int step = 1;
         while (!queue.isEmpty()) {
@@ -35,7 +35,7 @@ public class S1091 {
                             return step;
                         }
                         grid[nx][ny] = 2;
-                        queue.offer(new int[] {nx, ny});
+                        queue.offer(new int[]{nx, ny});
                     }
                 }
             }

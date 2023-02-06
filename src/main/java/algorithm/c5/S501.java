@@ -1,6 +1,7 @@
 package algorithm.c5;
 
 import datastructure.TreeNode;
+
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
@@ -11,7 +12,7 @@ public class S501 {
         // 不能用额外的空间，用递归就好了，用自己的栈慢很多
         // 差点忘了是BST
         if (root == null) {
-            return new int[] {0};
+            return new int[]{0};
         }
         List<Integer> res = new ArrayList<>();
         int times = 0;

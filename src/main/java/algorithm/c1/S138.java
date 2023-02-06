@@ -3,7 +3,6 @@ package algorithm.c1;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class S138 {
     public Node copyRandomList(Node head) {
         if (head == null) {

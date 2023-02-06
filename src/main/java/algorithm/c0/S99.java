@@ -1,6 +1,7 @@
 package algorithm.c0;
 
 import datastructure.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +36,7 @@ public class S99 {
             }
         }
         int x = nums.get(index1), y = nums.get(index2);
-        return new int[] {x, y};
+        return new int[]{x, y};
     }
 
     public void recover(TreeNode root, int count, int x, int y) {

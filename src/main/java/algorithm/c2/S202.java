@@ -5,7 +5,6 @@ import java.util.Set;
 
 public class S202 {
 
-
     private int getNext(int n) {
         int totalSum = 0;
         while (n > 0) {

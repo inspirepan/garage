@@ -3,7 +3,7 @@ package datastructure;
 public class RBTree<T extends Comparable<T>> {
     private final RBTreeNode<T> root;
     // node number
-    private java.util.concurrent.atomic.AtomicLong size = new java.util.concurrent.atomic.AtomicLong(0);
+    private final java.util.concurrent.atomic.AtomicLong size = new java.util.concurrent.atomic.AtomicLong(0);
 
     // in overwrite mode,all node's value can not has same value
     // in non-overwrite mode,node can have same value, suggest don't use
@@ -17,6 +17,26 @@ public class RBTree<T extends Comparable<T>> {
     public RBTree(boolean overrideMode) {
         this();
         this.overrideMode = overrideMode;
+    }
+
+    public static void main(String[] args) {
+        RBTree<String> bst = new RBTree<String>();
+        bst.addNode("d");
+        bst.addNode("d");
+        bst.addNode("c");
+        bst.addNode("c");
+        bst.addNode("b");
+        bst.addNode("f");
+
+        bst.addNode("a");
+        bst.addNode("e");
+
+        bst.addNode("g");
+        bst.addNode("h");
+
+        bst.remove("c");
+
+        bst.printTree(bst.getRoot());
     }
 
     public boolean isOverrideMode() {
@@ -170,7 +190,7 @@ public class RBTree<T extends Comparable<T>> {
      */
     private void fixRemove(RBTreeNode<T> node, boolean isParent) {
         RBTreeNode<T> cur = isParent ? null : node;
-        boolean isRed = isParent ? false : node.isRed();
+        boolean isRed = !isParent && node.isRed();
         RBTreeNode<T> parent = isParent ? node : node.getParent();
 
         while (!isRed && !isRoot(cur)) {
@@ -565,6 +585,10 @@ public class RBTree<T extends Comparable<T>> {
             return red;
         }
 
+        void setRed(boolean red) {
+            this.red = red;
+        }
+
         boolean isBlack() {
             return !red;
         }
@@ -574,10 +598,6 @@ public class RBTree<T extends Comparable<T>> {
          **/
         boolean isLeaf() {
             return left == null && right == null;
-        }
-
-        void setRed(boolean red) {
-            this.red = red;
         }
 
         void makeRed() {
@@ -592,25 +612,5 @@ public class RBTree<T extends Comparable<T>> {
         public String toString() {
             return value.toString();
         }
-    }
-
-    public static void main(String[] args) {
-        RBTree<String> bst = new RBTree<String>();
-        bst.addNode("d");
-        bst.addNode("d");
-        bst.addNode("c");
-        bst.addNode("c");
-        bst.addNode("b");
-        bst.addNode("f");
-
-        bst.addNode("a");
-        bst.addNode("e");
-
-        bst.addNode("g");
-        bst.addNode("h");
-
-        bst.remove("c");
-
-        bst.printTree(bst.getRoot());
     }
 }

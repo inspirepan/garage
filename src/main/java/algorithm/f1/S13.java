@@ -4,8 +4,8 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 public class S13 {
-    final int[] dx = new int[] {-1, 1, 0, 0};
-    final int[] dy = new int[] {0, 0, -1, 1};
+    final int[] dx = new int[]{-1, 1, 0, 0};
+    final int[] dy = new int[]{0, 0, -1, 1};
 
     public int movingCount(int m, int n, int k) {
         int[][] board = new int[m][n];
@@ -21,7 +21,7 @@ public class S13 {
         // BFS
         board[0][0] = 2;
         Deque<Integer[]> queue = new ArrayDeque<>();
-        queue.offer(new Integer[] {0, 0});
+        queue.offer(new Integer[]{0, 0});
         while (!queue.isEmpty()) {
             var curr = queue.poll();
             int currX = curr[0], currY = curr[1];
@@ -32,7 +32,7 @@ public class S13 {
                     if (board[newX][newY] == 1) {
                         board[newX][newY] = 2;
                         count++;
-                        queue.offer(new Integer[] {newX, newY});
+                        queue.offer(new Integer[]{newX, newY});
                     }
                 }
             }

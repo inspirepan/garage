@@ -5,8 +5,8 @@ import java.util.Deque;
 
 public class S317 {
     class Solution {
-        int[] dx = new int[] {1, -1, 0, 0};
-        int[] dy = new int[] {0, 0, 1, -1};
+        int[] dx = new int[]{1, -1, 0, 0};
+        int[] dy = new int[]{0, 0, 1, -1};
 
         public int shortestDistance(int[][] grid) {
             int m = grid.length;

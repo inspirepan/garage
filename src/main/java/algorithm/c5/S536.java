@@ -1,6 +1,7 @@
 package algorithm.c5;
 
 import datastructure.TreeNode;
+
 import java.util.Deque;
 import java.util.LinkedList;
 
@@ -46,12 +47,12 @@ public class S536 {
                 stack.pop();
             } else if (s.charAt(i) >= '0' && s.charAt(i) <= '9' || s.charAt(i) == '-') {
                 int start = i;
-                //找到根元素的值
+                // 找到根元素的值
                 while (i < s.length() - 1 && s.charAt(i + 1) >= '0' && s.charAt(i + 1) <= '9') {
                     i++;
                 }
                 TreeNode root = new TreeNode(Integer.parseInt(s.substring(start, i + 1)));
-                //获取父节点
+                // 获取父节点
                 if (!stack.isEmpty()) {
                     TreeNode parent = stack.peek();
                     if (parent.left == null) {
@@ -61,7 +62,7 @@ public class S536 {
                     }
                 }
 
-                //压栈
+                // 压栈
                 stack.push(root);
             }
         }

@@ -9,8 +9,8 @@ public class S105 {
         int n = grid[0].length;
         Graph g = new Graph(m, n);
         boolean hasIsland = false;
-        int[] dx = new int[] {-1, 0};
-        int[] dy = new int[] {0, -1};
+        int[] dx = new int[]{-1, 0};
+        int[] dy = new int[]{0, -1};
         for (int x = 0; x < m; x++) {
             for (int y = 0; y < n; y++) {
                 if (grid[x][y] == 1) {

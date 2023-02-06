@@ -1,12 +1,6 @@
 package algorithm.f2;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class S108 {
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {

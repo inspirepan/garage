@@ -1,10 +1,6 @@
 package algorithm.c7;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class S763 {
     public List<Integer> partitionLabels(String s) {

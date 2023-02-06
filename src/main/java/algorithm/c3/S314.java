@@ -1,12 +1,8 @@
 package algorithm.c3;
 
 import datastructure.TreeNode;
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
+import java.util.*;
 
 public class S314 {
     List<List<Integer>> result = new ArrayList<>();

@@ -1,12 +1,6 @@
 package algorithm.c14;
 
-import java.util.Arrays;
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class S1488 {
     public int[] avoidFlood(int[] rains) {

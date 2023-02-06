@@ -43,7 +43,7 @@ public class S474 {
                 }
             }
             int count0 = s.length() - count1;
-            count.add(new int[] {count0, count1});
+            count.add(new int[]{count0, count1});
         }
         Collections.sort(count, (a, b) -> {
             if (a[0] == b[0]) {

@@ -11,15 +11,12 @@ public class S912 {
             return nums;
         }
 
-
         void quicksort(int[] A, int left, int right) {
             if (left < right) {
                 int p = partition(A, left, right);
                 quicksort(A, left, p - 1);
                 quicksort(A, p + 1, right);
             }
-
-
         }
 
         int partition(int[] A, int left, int right) {

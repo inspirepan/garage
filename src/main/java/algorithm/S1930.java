@@ -1,10 +1,6 @@
 package algorithm;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class S1930 {
     public int countPalindromicSubsequence(String s) {
@@ -24,11 +20,10 @@ public class S1930 {
             int last = list.get(list.size() - 1);
             char c = entry.getKey();
             for (int i = first + 1; i < last; i++) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(c);
-                sb.append(s.charAt(i));
-                sb.append(c);
-                result.add(sb.toString());
+                String sb = String.valueOf(c) +
+                        s.charAt(i) +
+                        c;
+                result.add(sb);
             }
         }
         return result.size();
@@ -53,6 +48,5 @@ public class S1930 {
             }
         }
         return num;
-
     }
 }

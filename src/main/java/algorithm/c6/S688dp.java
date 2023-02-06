@@ -3,8 +3,8 @@ package algorithm.c6;
 import java.util.Arrays;
 
 public class S688dp {
-    private static final int[] dx = new int[] {-1, -2, -2, -1, 1, 2, 2, 1};
-    private static final int[] dy = new int[] {-2, -1, 1, 2, -2, -1, 1, 2};
+    private static final int[] dx = new int[]{-1, -2, -2, -1, 1, 2, 2, 1};
+    private static final int[] dy = new int[]{-2, -1, 1, 2, -2, -1, 1, 2};
 
     public double knightProbability(int n, int k, int row, int column) {
         // dp[i][j][k] 为坐标ij在k步操作后留在棋盘的概率

@@ -1,6 +1,7 @@
 package algorithm.c1;
 
 import datastructure.Node;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -33,7 +34,7 @@ public class S117 {
                 }
                 cur = cur.next;
             }
-            //下一层
+            // 下一层
             cur = dummy.next;
         }
         return root;
@@ -58,7 +59,7 @@ public class S117 {
 
     private void connectNode(Node node) {
         Node nxt = findNext(node);
-//        System.out.println(nxt == null ? "#" : nxt.val);
+        //        System.out.println(nxt == null ? "#" : nxt.val);
         if (node.left != null && node.right != null) {
             node.left.next = node.right;
             node.right.next = nxt;

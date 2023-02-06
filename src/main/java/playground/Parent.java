@@ -24,12 +24,11 @@ public class Parent {
 
 class Child extends Parent {
     static Other other = new Other();
+    Brother b = new Brother();
 
     public Child() {
         System.out.println("----Child-----");
     }
-
-    Brother b = new Brother();
 
     public static void main(String[] args) {
         Child child = new Child();

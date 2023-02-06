@@ -5,6 +5,11 @@ package algorithm.c9;
  * @since : 2022/10/30
  */
 public class S983 {
+    public static void main(String[] args) {
+        Solution s = new Solution();
+        s.mincostTickets(new int[]{1, 4, 6, 7, 8, 20}, new int[]{2, 7, 15});
+    }
+
     static class Solution {
         public int mincostTickets(int[] days, int[] costs) {
             int[] dp = new int[days.length + 1];
@@ -24,10 +29,5 @@ public class S983 {
             }
             return dp[dp.length - 1];
         }
-    }
-
-    public static void main(String[] args) {
-        Solution s = new Solution();
-        s.mincostTickets(new int[]{1, 4, 6, 7, 8, 20}, new int[]{2, 7, 15});
     }
 }

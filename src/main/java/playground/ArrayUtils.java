@@ -10,7 +10,7 @@ public class ArrayUtils {
             for (int i : line) {
                 sj.add(String.valueOf(i));
             }
-            System.out.println(sj.toString());
+            System.out.println(sj);
         }
     }
 
@@ -18,7 +18,7 @@ public class ArrayUtils {
         for (boolean[] aBoolean : booleans) {
             var sj = new StringJoiner(", ");
             IntStream.range(0, booleans[0].length).mapToObj(j -> aBoolean[j] ? "TRUE" : "----").forEach(sj::add);
-            System.out.println(sj.toString());
+            System.out.println(sj);
         }
     }
 
@@ -29,7 +29,7 @@ public class ArrayUtils {
                 boolean mark = i == row && j == col;
                 sj.add(mark ? (nums[i][j] ? "*TRUE" : "*----") : (nums[i][j] ? " TRUE" : "-----"));
             }
-            System.out.println(sj.toString());
+            System.out.println(sj);
         }
     }
 }

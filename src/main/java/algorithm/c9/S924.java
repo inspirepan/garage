@@ -49,7 +49,6 @@ public class S924 {
         }
     }
 
-
     class UnionFind {
         int[] p, size;
 

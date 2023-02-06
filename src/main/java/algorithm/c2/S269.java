@@ -1,11 +1,6 @@
 package algorithm.c2;
 
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class S269 {
     public String alienOrder(String[] words) {
@@ -20,7 +15,7 @@ public class S269 {
                 indegree.put(c, 0);
             }
         }
-        //比较相邻的就可以了
+        // 比较相邻的就可以了
         for (int i = 0; i < words.length - 1; i++) {
             String w1 = words[i];
             String w2 = words[i + 1];

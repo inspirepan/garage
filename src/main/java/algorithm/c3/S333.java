@@ -20,7 +20,7 @@ public class S333 {
         // 树最大值
         // 树最小值
         if (node.left == null && node.right == null) {
-            return new int[] {1, 1, node.val, node.val};
+            return new int[]{1, 1, node.val, node.val};
         }
         int isBST = 0;
         int count = 1;

@@ -1,8 +1,8 @@
 package algorithm.c9;
 
 public class S980 {
-    private final int[] dirX = new int[] {0, 1, 0, -1};
-    private final int[] dirY = new int[] {1, 0, -1, 0};
+    private final int[] dirX = new int[]{0, 1, 0, -1};
+    private final int[] dirY = new int[]{1, 0, -1, 0};
     private int count = 0;
     private int stepNeeded = 0;
     private int step = 0;

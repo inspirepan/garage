@@ -22,7 +22,7 @@ public class S1525 {
                 rightCount++;
             }
         }
-        //split是当前从右边加入到左边的字符
+        // split是当前从右边加入到左边的字符
         int split = 1;
         int niceSplitCount = leftCount == rightCount ? 1 : 0;
         while (split < s.length() - 1) {

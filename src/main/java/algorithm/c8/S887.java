@@ -1,9 +1,10 @@
 package algorithm.c8;
 
+import playground.ArrayUtils;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import playground.ArrayUtils;
 
 /**
  * @author 官方题解
@@ -64,6 +65,7 @@ public class S887 {
 
     /**
      * 扔鸡蛋
+     *
      * @param K 拥有鸡蛋个数
      * @param N 总楼层高度
      * @return 确定最低高度的最小尝试次数
@@ -96,7 +98,7 @@ public class S887 {
                 }
 
                 ans = 1 + Math.min(Math.max(dp(K - 1, lo - 1), dp(K, N - lo)),
-                    Math.max(dp(K - 1, hi - 1), dp(K, N - hi)));
+                        Math.max(dp(K - 1, hi - 1), dp(K, N - hi)));
             }
 
             memo.put(N * 100 + K, ans);

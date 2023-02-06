@@ -17,7 +17,7 @@ public class S555 {
             String rev = new StringBuilder(strs[i]).reverse().toString();
             // 翻转
             int len = strs[i].length();
-            for (String s : new String[] {strs[i], rev}) {
+            for (String s : new String[]{strs[i], rev}) {
                 for (int j = 0; j < len; j++) {
                     // 考虑当前字符串的每一个字符
                     if (s.charAt(j) < max) {

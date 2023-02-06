@@ -1,6 +1,7 @@
 package algorithm.c0;
 
 import datastructure.ListNode;
+
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
@@ -8,6 +9,7 @@ import java.util.PriorityQueue;
  * 有序合并K链表
  * 1. 使用优先队列
  * 2. 归并法
+ *
  * @author panjx
  */
 public class S23 {

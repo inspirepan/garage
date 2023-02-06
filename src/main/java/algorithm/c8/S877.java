@@ -2,7 +2,7 @@ package algorithm.c8;
 
 public class S877 {
 
-    //自己写的动态规划
+    // 自己写的动态规划
     class Solution {
         public boolean stoneGame(int[] piles) {
             int len = piles.length;

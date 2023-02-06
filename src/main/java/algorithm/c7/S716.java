@@ -10,6 +10,7 @@ public class S716 {
         Node head = new Node(0);
         Node tail = new Node(0);
         List<Node> list = new ArrayList<>();
+
         public MaxStack() {
             // 栈好说，维护一个链表、有栈顶元素就可以了
             // 维护一个有序列表，使用二分搜索找增删的节点，o(logn)

@@ -22,7 +22,7 @@ public class S981 {
                 var list = map.get(key);
                 // 二分搜索
                 int left = 0;
-                int right = list.size() ;
+                int right = list.size();
                 while (left < right) {
                     int mid = left + (right - left) / 2;
                     if (list.get(mid).num > timestamp) {

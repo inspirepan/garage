@@ -1,10 +1,6 @@
 package algorithm.c9;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author : panjixiang
@@ -18,7 +14,6 @@ public class S952 {
             list.add(val);
             map.put(key, list);
         }
-
 
         public int largestComponentSize(int[] nums) {
             // 判断是否连接的方法要优化，不能每次gcd，效率很低
@@ -89,8 +84,5 @@ public class S952 {
                 maxSize = Math.max(maxSize, size[a]);
             }
         }
-
-
     }
-
 }

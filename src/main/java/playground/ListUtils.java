@@ -12,6 +12,6 @@ public class ListUtils {
             sj.add(String.valueOf(node.val));
             node = node.next;
         }
-        System.out.println(sj.toString());
+        System.out.println(sj);
     }
 }

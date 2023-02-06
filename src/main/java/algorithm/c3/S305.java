@@ -10,8 +10,8 @@ public class S305 {
         // 并查集，每次加入陆地后，将四周的union在一起
         UnionFind uf = new UnionFind(m * n);
         List<Integer> result = new ArrayList<>();
-        int[] dx = new int[] {-1, 0, 0, 1};
-        int[] dy = new int[] {0, -1, 1, 0};
+        int[] dx = new int[]{-1, 0, 0, 1};
+        int[] dy = new int[]{0, -1, 1, 0};
         boolean[] isLand = new boolean[m * n];
         for (int[] pos : positions) {
             int curr = pos[0] * n + pos[1];
@@ -20,7 +20,7 @@ public class S305 {
                 continue;
             }
             uf.addCount();
-            //如果四周有陆地，把它们连起来
+            // 如果四周有陆地，把它们连起来
             for (int i = 0; i < 4; i++) {
                 int nx = pos[0] + dx[i];
                 int ny = pos[1] + dy[i];

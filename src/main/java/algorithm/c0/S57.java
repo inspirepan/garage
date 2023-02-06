@@ -4,13 +4,14 @@ import java.util.ArrayList;
 
 /**
  * 这道题就是一次for循环解决，需要用两个布尔变量记录两个新边界有没有安排好。
+ *
  * @author panjx
  * @date 8.26 新写的
  */
 public class S57 {
     public int[][] insert(int[][] intervals, int[] newInterval) {
         if (intervals.length == 0) {
-            return new int[][] {newInterval};
+            return new int[][]{newInterval};
         }
         int start = newInterval[0], end = newInterval[1];
         var result = new ArrayList<int[]>();
@@ -18,13 +19,13 @@ public class S57 {
         for (int[] curr : intervals) {
             // 如果都已安排好
             if (endSettled) {
-                result.add(new int[] {curr[0], curr[1]});
+                result.add(new int[]{curr[0], curr[1]});
                 continue;
             }
             // 还没找到start
             if (!startSettled) {
                 if (curr[1] < start) {
-                    result.add(new int[] {curr[0], curr[1]});
+                    result.add(new int[]{curr[0], curr[1]});
                     continue;
                 } else {
                     startSettled = true;
@@ -35,11 +36,11 @@ public class S57 {
             if (curr[0] <= end && end <= curr[1]) {
                 endSettled = true;
                 end = curr[1];
-                result.add(new int[] {start, curr[1]});
+                result.add(new int[]{start, curr[1]});
             } else if (end < curr[0]) {
                 endSettled = true;
-                result.add(new int[] {start, end});
-                result.add(new int[] {curr[0], curr[1]});
+                result.add(new int[]{start, end});
+                result.add(new int[]{curr[0], curr[1]});
             }
             // end还没找到的话交给下一项处理
         }
@@ -47,7 +48,7 @@ public class S57 {
         // 原[3,4]，新[1,6]
         // 原[3,4]，新[5,6]
         if (!endSettled) {
-            result.add(new int[] {start, end});
+            result.add(new int[]{start, end});
         }
         return result.toArray(new int[result.size()][2]);
     }

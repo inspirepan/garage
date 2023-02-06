@@ -120,13 +120,13 @@ public class S81 {
             if (A[mid] == target) {
                 return true;
             }
-            //有重复元素时，需要判断一下左右中三者相等的情况，这种情况无法确定那边有序，需要左右指针移动一下
+            // 有重复元素时，需要判断一下左右中三者相等的情况，这种情况无法确定那边有序，需要左右指针移动一下
             if (A[mid] == A[low] && A[low] == A[high]) {
                 low++;
                 high--;
                 continue; //!! 注意打断本次执行
             }
-            //左边有序，就可以确定目标是否在左边。
+            // 左边有序，就可以确定目标是否在左边。
             if (A[mid] >= A[low]) {
                 if (target >= A[low] && target <= A[mid]) {
                     high = mid - 1;
@@ -134,7 +134,7 @@ public class S81 {
                     low = mid + 1;
                 }
             }
-            //右边有序
+            // 右边有序
             else {
                 if (target >= A[mid] && target <= A[high]) {
                     low = mid + 1;

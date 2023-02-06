@@ -5,9 +5,7 @@ public class S265 {
         int n = costs.length;
         int k = costs[0].length;
         int[][] dp = new int[n][k];
-        for (int i = 0; i < k; i++) {
-            dp[0][i] = costs[0][i];
-        }
+        System.arraycopy(costs[0], 0, dp[0], 0, k);
         for (int i = 1; i < n; i++) {
             int[] currCost = costs[i];
 

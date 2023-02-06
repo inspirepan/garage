@@ -24,6 +24,5 @@ public class S220 {
             }
         }
         return false;
-
     }
 }

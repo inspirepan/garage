@@ -15,7 +15,7 @@ public class S286 {
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (rooms[i][j] == 0) {
-                    queue.add(new int[] {i, j});
+                    queue.add(new int[]{i, j});
                 }
             }
         }
@@ -34,7 +34,7 @@ public class S286 {
                     if (nx >= 0 && nx < m && ny >= 0 && ny < n && rooms[nx][ny] == Integer.MAX_VALUE) {
                         next++;
                         rooms[nx][ny] = distance;
-                        queue.offer(new int[] {nx, ny});
+                        queue.offer(new int[]{nx, ny});
                     }
                 }
             }

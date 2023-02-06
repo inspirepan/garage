@@ -25,5 +25,4 @@ public class S1624 {
             return res;
         }
     }
-
 }

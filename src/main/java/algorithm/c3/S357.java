@@ -8,7 +8,7 @@ public class S357 {
      * f(2)=9*9+f(1)
      * f(3)=9*9*8+f(2)
      * f(4)=9*9*8*7+f(3)
-     *
+     * <p>
      * // 为什么是9呢，因为第一位不能是0啦
      */
     public int countNumbersWithUniqueDigits(int n) {

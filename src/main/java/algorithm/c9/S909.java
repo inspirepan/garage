@@ -53,7 +53,6 @@ public class S909 {
                 }
                 queue = nextQueue;
                 times++;
-
             }
         }
     }

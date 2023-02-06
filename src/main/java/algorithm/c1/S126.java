@@ -1,13 +1,6 @@
 package algorithm.c1;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class S126 {
     public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {

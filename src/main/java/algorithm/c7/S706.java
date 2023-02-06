@@ -10,6 +10,7 @@ public class S706 {
         private final int NOT_FOUND = -1;
         private final int SIZE = (int) Math.pow(2, F);
         private final LinkedList<IntegerEntry>[] table = new LinkedList[SIZE];
+
         public MyHashMap() {
 
         }

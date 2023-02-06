@@ -52,7 +52,5 @@ public class S947 {
                 root[a] = b;
             }
         }
-
-
     }
 }

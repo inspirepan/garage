@@ -17,7 +17,7 @@ public class S680 {
                     return false;
                 } else {
                     return helper(s.substring(l + 1, r + 1), true)
-                        || helper(s.substring(l, r), true);
+                            || helper(s.substring(l, r), true);
                 }
             }
         }

@@ -2,8 +2,8 @@ package algorithm.c2;
 
 public class S200 {
 
-    int[] dirX = new int[] {1, 0, -1, 0};
-    int[] dirY = new int[] {0, 1, 0, -1};
+    int[] dirX = new int[]{1, 0, -1, 0};
+    int[] dirY = new int[]{0, 1, 0, -1};
     char[][] grid;
 
     public int numIslands(char[][] grid) {

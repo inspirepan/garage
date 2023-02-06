@@ -10,8 +10,8 @@ public class S37 {
             if (root == null) {
                 return "#";
             }
-            return new StringBuilder().append(root.val).append("(").append(serialize(root.left))
-                .append(",").append(serialize(root.right)).append(")").toString();
+            return root.val + "(" + serialize(root.left) +
+                    "," + serialize(root.right) + ")";
         }
 
         public TreeNode deserialize(String data) {

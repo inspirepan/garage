@@ -27,7 +27,7 @@ public class S794 {
     }
 
     public boolean isWinner(String[] board, char c) {
-        //判断是不是c（X或者O）赢了,X赢得时候，X比O多1，反之相同
+        // 判断是不是c（X或者O）赢了,X赢得时候，X比O多1，反之相同
         if (board[0].charAt(0) == board[1].charAt(1) && board[1].charAt(1) == board[2].charAt(2) && board[2].charAt(2) == c) {
             return true;
         }
@@ -46,7 +46,7 @@ public class S794 {
     }
 
     public boolean countDiff(String[] board) {
-        //判断X是不是比O多1或者相同
+        // 判断X是不是比O多1或者相同
         int xNum = 0;
         int oNum = 0;
         for (int i = 0; i < 3; i++) {

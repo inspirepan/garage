@@ -17,5 +17,4 @@ public class S116 {
         connect(root.right);
         return root;
     }
-
 }

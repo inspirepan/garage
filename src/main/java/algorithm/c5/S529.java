@@ -5,8 +5,8 @@ import java.util.List;
 
 public class S529 {
 
-    static final int[] dx = new int[] {-1, -1, -1, 0, 0, 1, 1, 1};
-    static final int[] dy = new int[] {-1, 0, 1, -1, 1, -1, 0, 1};
+    static final int[] dx = new int[]{-1, -1, -1, 0, 0, 1, 1, 1};
+    static final int[] dy = new int[]{-1, 0, 1, -1, 1, -1, 0, 1};
 
     public char[][] updateBoard(char[][] board, int[] click) {
         int x = click[0];
@@ -33,7 +33,7 @@ public class S529 {
                         continue;
                     } else {
                         // E 需要在标记xy之后，去递归
-                        search.add(new int[] {nx, ny});
+                        search.add(new int[]{nx, ny});
                     }
                 }
             }

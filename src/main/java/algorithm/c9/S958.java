@@ -1,6 +1,7 @@
 package algorithm.c9;
 
 import datastructure.TreeNode;
+
 import java.util.ArrayDeque;
 import java.util.Deque;
 
@@ -51,9 +52,6 @@ public class S958 {
                 level++;
             }
             return true;
-
-
         }
     }
-
 }

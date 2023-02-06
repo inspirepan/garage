@@ -20,7 +20,7 @@ public class S473 {
         // 边长
         Arrays.sort(matchsticks);
         // 从大边往下找
-        int[] targets = new int[] {target, target, target, target};
+        int[] targets = new int[]{target, target, target, target};
         return dfs(matchsticks, len - 1, targets);
     }
 

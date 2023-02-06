@@ -1,6 +1,7 @@
 package algorithm.c6;
 
 import datastructure.TreeNode;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,10 +21,8 @@ public class S652 {
         if (node == null) {
             return "#";
         }
-        var sb = new StringBuilder();
-        sb.append(node.val).append(",");
-        sb.append(serialize(node.left)).append(",").append(serialize(node.right));
-        String serial = sb.toString();
+        String serial = node.val + "," +
+                serialize(node.left) + "," + serialize(node.right);
         count.put(serial, count.getOrDefault(serial, 0) + 1);
         if (count.get(serial) == 2) {
             res.add(node);

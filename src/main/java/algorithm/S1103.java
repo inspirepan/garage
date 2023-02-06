@@ -28,7 +28,7 @@ public class S1103 {
             int n = grid[0].length;
             int left = 1;
             int right = Math.min(grid[0][0], grid[m - 1][n - 1]);
-            int[] dirs = new int[] {0, 1, 0, -1, 0};
+            int[] dirs = new int[]{0, 1, 0, -1, 0};
             int result = 0;
             while (left <= right) {
                 int mid = (left + right) / 2;
@@ -45,7 +45,7 @@ public class S1103 {
     }
 
     class Solution2 {
-        int[][] dirs = new int[][] {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+        int[][] dirs = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
         int R;
         int C;
 

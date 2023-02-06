@@ -33,8 +33,8 @@ public class S241 {
             }
         }
         operand.add(Integer.parseInt(numberBuilder.toString()));
-//        if (operand.size() == 1) return new ArrayList<>(operand.get(0));
-//        if (operand.size() == 0 || operator.size() == 0) return new ArrayList<>();
+        //        if (operand.size() == 1) return new ArrayList<>(operand.get(0));
+        //        if (operand.size() == 0 || operator.size() == 0) return new ArrayList<>();
 
         dfs();
         return new ArrayList<>(result);

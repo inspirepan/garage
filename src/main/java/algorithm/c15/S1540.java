@@ -5,7 +5,7 @@ public class S1540 {
         if (s.length() != t.length()) {
             return false;
         }
-        //小写字符切换最多只要变换25次，之后就是27开始的循环了
+        // 小写字符切换最多只要变换25次，之后就是27开始的循环了
         int[] count = new int[26];
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == t.charAt(i)) {

@@ -10,6 +10,7 @@ public class S207 {
      * 思路是记录每一门课程需要先修的课程数量，找到先修数为0的放入队列，然后把所有需要先修这门课的计数-1，如果到0就放进队列。
      * 最后遍历一轮如果有非0的说明无法修这门课。
      * 优化：使用List<List>替代Map
+     *
      * @param numCourses
      * @param prerequisites
      * @return
@@ -46,7 +47,6 @@ public class S207 {
                     }
                 });
             }
-
         }
         return numCourses == 0;
     }

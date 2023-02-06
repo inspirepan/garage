@@ -3,7 +3,7 @@ package algorithm.c1;
 public class S115 {
     public int numDistinct(String s, String t) {
         int[][] dp = new int[t.length() + 1][s.length() + 1];
-        //初始化第一行
+        // 初始化第一行
         for (int j = 0; j <= s.length(); j++) {
             dp[0][j] = 1;
         }

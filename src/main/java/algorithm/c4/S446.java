@@ -19,7 +19,7 @@ public class S446 {
         }
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < i; ++j) {
-                long dist = 1L * nums[i] - nums[j];
+                long dist = (long) nums[i] - nums[j];
                 int cnt = dp[j].getOrDefault(dist, 0);
                 ans += cnt;
                 dp[i].put(dist, dp[i].getOrDefault(dist, 0) + cnt + 1);

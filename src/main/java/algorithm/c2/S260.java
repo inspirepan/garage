@@ -17,6 +17,6 @@ public class S260 {
                 b ^= n;
             }
         }
-        return new int[] {a, b};
+        return new int[]{a, b};
     }
 }

@@ -1,10 +1,6 @@
 package algorithm.c7;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class S743dijkstra {
     public int networkDelayTime(int[][] times, int n, int k) {
@@ -23,7 +19,7 @@ public class S743dijkstra {
             int dest = time[1];
             int pathLen = time[2];
             var list = map.getOrDefault(source, new ArrayList<>());
-            list.add(new Integer[] {dest, pathLen});
+            list.add(new Integer[]{dest, pathLen});
             map.put(source, list);
         }
         while (true) {

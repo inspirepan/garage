@@ -6,14 +6,13 @@ package algorithm.c9;
  */
 public class S959 {
 
-
     class Solution {
-        int[][] dirs = new int[][] {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
         // 一个方格分成四块
         public static final int UP = 0;
         public static final int RIGHT = 1;
         public static final int DOWN = 2;
         public static final int LEFT = 3;
+        int[][] dirs = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
         public int regionsBySlashes(String[] grid) {
             int n = grid.length;
@@ -35,7 +34,6 @@ public class S959 {
 
                         uf.union(4 * (i * n + j) + k, 4 * (x * n + y) + ((k + 2) % 4));
                     }
-
 
                     switch (g[i][j]) {
                         case ' ' -> {
@@ -87,9 +85,5 @@ public class S959 {
                 root[a] = b;
             }
         }
-
-
     }
-
-
 }

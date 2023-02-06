@@ -23,11 +23,10 @@ public class S288 {
             if (s.length() <= 2) {
                 return s;
             }
-            var sb = new StringBuilder();
-            sb.append(s.charAt(0));
-            sb.append(s.length() - 2);
-            sb.append(s.charAt(s.length() - 1));
-            return sb.toString();
+            String sb = String.valueOf(s.charAt(0)) +
+                    (s.length() - 2) +
+                    s.charAt(s.length() - 1);
+            return sb;
         }
 
         public boolean isUnique(String word) {

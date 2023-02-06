@@ -20,9 +20,9 @@ public class S302omn {
             }
             if (k < bottom == whiteToBlack) // k < bottom means the column mid has black pixel
             {
-                j = mid; //search the boundary in the smaller half
+                j = mid; // search the boundary in the smaller half
             } else {
-                i = mid + 1; //search the boundary in the greater half
+                i = mid + 1; // search the boundary in the greater half
             }
         }
         return i;

@@ -22,7 +22,7 @@ public class S97 {
             for (int j = 1; j <= n; j++) {
                 // 这道题的细节是这里把dp放前面，因为读取dp数组中的值比比较char快得多
                 dp[i][j] = (dp[i - 1][j] && s3.charAt(i + j - 1) == s1.charAt(i - 1))
-                    || (dp[i][j - 1] && s3.charAt(i + j - 1) == s2.charAt(j - 1));
+                        || (dp[i][j - 1] && s3.charAt(i + j - 1) == s2.charAt(j - 1));
             }
         }
         return dp[m][n];

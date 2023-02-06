@@ -49,7 +49,6 @@ public class S151 {
             if (j < len) {
                 c[i++] = ' ';
             }
-
         }
         return new String(c).substring(0, i);
     }

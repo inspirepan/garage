@@ -14,7 +14,6 @@ public class S313 {
         // a a*a|b 一旦选择了b，接下来每个选择都要判断c
         // 感觉这个思路不对，不能自己去生成，应该从1开始往上判断是不是质因数只有primes中间的 —> 这个方案超时了
 
-
         // 还是看了题解，用最小堆，生成n次，每次把当前堆中最小，乘以primes中的所有数，用pq来找到其中的最小值就可以了，每次primes都乘一下，不会错过数
         var queue = new PriorityQueue<Long>();
         long res = 1;

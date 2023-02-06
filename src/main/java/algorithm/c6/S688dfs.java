@@ -2,8 +2,8 @@ package algorithm.c6;
 
 public class S688dfs {
 
-    private static final int[] dr = new int[] {-1, -2, -2, -1, 1, 2, 2, 1};
-    private static final int[] dc = new int[] {-2, -1, 1, 2, -2, -1, 1, 2};
+    private static final int[] dr = new int[]{-1, -2, -2, -1, 1, 2, 2, 1};
+    private static final int[] dc = new int[]{-2, -1, 1, 2, -2, -1, 1, 2};
 
     public double knightProbability(int n, int k, int row, int column) {
         // 模拟题 —— 直接dfs模拟超时了 哎

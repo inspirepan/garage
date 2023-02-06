@@ -25,7 +25,7 @@ public class S787 {
         Map<Integer, Integer> currMin = new HashMap<>();
         currMin.put(src, 0);
         Deque<int[]> queue = new LinkedList<>();
-        queue.offer(new int[] {src, 0});
+        queue.offer(new int[]{src, 0});
         int currStep = 1;
         while (!queue.isEmpty() && step <= k) {
             int nextStep = 0;
@@ -40,7 +40,7 @@ public class S787 {
                             continue;
                         }
                         currMin.put(to, price);
-                        queue.offer(new int[] {to, price});
+                        queue.offer(new int[]{to, price});
                         nextStep++;
                     }
                 }

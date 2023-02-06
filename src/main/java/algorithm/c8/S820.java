@@ -43,7 +43,7 @@ public class S820 {
         }
 
         public void insert(String word) {
-            //后缀插入
+            // 后缀插入
             TrieNode p = root;
             char[] chars = word.toCharArray();
             int i = chars.length - 1;

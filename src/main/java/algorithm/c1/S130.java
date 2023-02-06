@@ -44,5 +44,4 @@ public class S130 {
         findConnectedO(i, j + 1);
         findConnectedO(i, j - 1);
     }
-
 }

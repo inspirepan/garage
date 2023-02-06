@@ -15,7 +15,7 @@ public class S1636 {
                 count[num + 100]++;
             }
 
-            ArrayList<Integer> r[] = new ArrayList[101];
+            ArrayList<Integer>[] r = new ArrayList[101];
             for (int i = 0; i < count.length; i++) {
                 int n = i - 100;
                 if (r[count[i]] == null) {
@@ -30,7 +30,7 @@ public class S1636 {
                     Collections.sort(r[k]);
                     for (int m = r[k].size() - 1; m >= 0; m--) {
                         for (int i1 = 0; i1 < k; i1++) {
-                            res[i++] = (int) r[k].get(m);
+                            res[i++] = r[k].get(m);
                         }
                     }
                 }

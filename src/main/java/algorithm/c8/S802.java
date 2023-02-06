@@ -1,20 +1,16 @@
 package algorithm.c8;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Deque;
-import java.util.List;
+import java.util.*;
 
 public class S802 {
     class Solution {
-        int idx;        int N = (int) 1e4 + 10, M = 4 * N;
+        int idx;
 
         void add(int a, int b) {
             e[idx] = b;
             ne[idx] = he[a];
             he[a] = idx++;
-        }
+        }        int N = (int) 1e4 + 10, M = 4 * N;
 
         public List<Integer> eventualSafeNodes(int[][] g) {
             int n = g.length;
@@ -50,12 +46,11 @@ public class S802 {
                 }
             }
             return ans;
-        }        int[] he = new int[N], e = new int[M], ne = new int[M];
+        }
+
+
+
+        int[] he = new int[N], e = new int[M], ne = new int[M];
         int[] cnts = new int[N];
-
-
-
-
     }
-
 }

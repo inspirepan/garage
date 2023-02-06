@@ -2,6 +2,7 @@ package algorithm;
 
 /**
  * 208 前缀树
+ *
  * @author panjx
  */
 public class Trie {
@@ -12,7 +13,6 @@ public class Trie {
 
     public Trie() {
     }
-
 
     public void insert(String word) {
         var wordArr = word.toCharArray();
@@ -37,7 +37,6 @@ public class Trie {
         }
         return p.containChild(END);
     }
-
 
     public boolean startsWith(String prefix) {
         var prefixArr = prefix.toCharArray();

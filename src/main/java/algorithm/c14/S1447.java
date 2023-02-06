@@ -19,7 +19,7 @@ public class S1447 {
         }
         for (int i = 1; i < n; i++) {
             if (reduced(i, n)) {
-                result.add(new StringBuilder().append(i).append("/").append(n).toString());
+                result.add(i + "/" + n);
             }
         }
         helper(n - 1);

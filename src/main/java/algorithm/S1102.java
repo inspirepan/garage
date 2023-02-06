@@ -6,8 +6,8 @@ public class S1102 {
     int[][] grid;
     int m;
     int n;
-    int[] dx = new int[] {-1, 0, 0, 1};
-    int[] dy = new int[] {0, 1, -1, 0};
+    int[] dx = new int[]{-1, 0, 0, 1};
+    int[] dy = new int[]{0, 1, -1, 0};
 
     public int maximumMinimumPath(int[][] grid) {
         // 分数是这个路径上的最小值

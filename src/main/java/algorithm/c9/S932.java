@@ -31,7 +31,6 @@ public class S932 {
             for (int i = mid + 1; i <= hi; i++) {
                 a[i] = 2 * a[i];
             }
-            return;
         }
     }
 }

@@ -31,7 +31,7 @@ public class S3 {
                 cmap[c[right]]++;
                 right++;
             } else {
-                //左缩
+                // 左缩
                 cmap[c[left]]--;
                 left++;
             }

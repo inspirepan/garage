@@ -20,7 +20,6 @@ public class S946 {
                 }
             }
             return stack.isEmpty();
-
         }
     }
 }

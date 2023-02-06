@@ -9,7 +9,7 @@ public class S29 {
         int n = matrix[0].length;
         int[] result = new int[m * n];
         int index = 0;
-        final int[][] directions = new int[][] {{0, 1}, {1, 0}, {0, -1}, {-1, -0}}; // 右 下 左 上
+        final int[][] directions = new int[][]{{0, 1}, {1, 0}, {0, -1}, {-1, -0}}; // 右 下 左 上
         int dir = 0; // 向右开始
         int x = 0;
         int y = 0;

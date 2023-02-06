@@ -36,7 +36,7 @@ public class S767 {
 
         for (int i = 0; i < 26; i++) {
             if (count[i] > 0) {
-                pq.offer(new int[] {i, count[i]});
+                pq.offer(new int[]{i, count[i]});
             }
         }
         int index = 0;

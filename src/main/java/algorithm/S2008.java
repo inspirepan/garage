@@ -15,7 +15,7 @@ public class S2008 {
             // 循环到第p个终点为i的
             for (; p < rides.length && rides[p][1] == i; p++) {
                 int[] ride = rides[p];
-                //乘客p的起点处的最大利润+乘客p的利润=当前方案的利润
+                // 乘客p的起点处的最大利润+乘客p的利润=当前方案的利润
                 maxi = Math.max(maxi, ride[1] - ride[0] + ride[2] + dp[ride[0]]);
             }
             dp[i] = maxi;

@@ -1,6 +1,7 @@
 package algorithm.c1;
 
 import datastructure.TreeNode;
+
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -37,7 +38,6 @@ public class S144 {
             if (curr.left != null) {
                 stack.push(curr.left);
             }
-
         }
         return result;
     }

@@ -17,7 +17,7 @@ public class S253 {
         PriorityQueue<Integer> pq = new PriorityQueue<>();
         for (int i = 0; i < intervals.length; i++) {
             int[] curr = intervals[i];
-            while (pq.isEmpty() == false && pq.peek() <= curr[0]) {
+            while (!pq.isEmpty() && pq.peek() <= curr[0]) {
                 pq.poll();
             }
             pq.offer(curr[1]);

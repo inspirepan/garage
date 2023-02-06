@@ -2,6 +2,7 @@ package algorithm.c0;
 
 /**
  * KMP
+ *
  * @author panjx
  */
 public class S28 {

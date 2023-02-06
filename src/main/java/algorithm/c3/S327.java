@@ -30,7 +30,7 @@ public class S327 {
                 if (last >= lower && last <= upper) {
                     count++; // 情况1
                 }
-                return new long[] {last};
+                return new long[]{last};
             }
 
             int mid = (left + right) / 2;
@@ -68,6 +68,4 @@ public class S327 {
             return copy;
         }
     }
-
-
 }

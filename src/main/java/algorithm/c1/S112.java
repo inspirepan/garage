@@ -21,6 +21,6 @@ public class S112 {
         }
 
         return hasPathSumWithInitialValue(root.left, sum, currentSum)
-            || hasPathSumWithInitialValue(root.right, sum, currentSum);
+                || hasPathSumWithInitialValue(root.right, sum, currentSum);
     }
 }

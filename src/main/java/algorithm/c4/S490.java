@@ -33,7 +33,7 @@ public class S490 {
             while (leftY >= 0 && maze[x][leftY] == 0) {
                 leftY--;
             }
-            if (++leftY != y && !visited[x][leftY] && dfs(maze, new int[] {x, leftY}, dest, LEFT)) {
+            if (++leftY != y && !visited[x][leftY] && dfs(maze, new int[]{x, leftY}, dest, LEFT)) {
                 return true;
             }
         }
@@ -42,7 +42,7 @@ public class S490 {
             while (rightY < maze[0].length && maze[x][rightY] == 0) {
                 rightY++;
             }
-            if (--rightY != y && !visited[x][rightY] && dfs(maze, new int[] {x, rightY}, dest, RIGHT)) {
+            if (--rightY != y && !visited[x][rightY] && dfs(maze, new int[]{x, rightY}, dest, RIGHT)) {
                 return true;
             }
         }
@@ -51,7 +51,7 @@ public class S490 {
             while (upX >= 0 && maze[upX][y] == 0) {
                 upX--;
             }
-            if (++upX != x && !visited[upX][y] && dfs(maze, new int[] {upX, y}, dest, UP)) {
+            if (++upX != x && !visited[upX][y] && dfs(maze, new int[]{upX, y}, dest, UP)) {
                 return true;
             }
         }
@@ -61,7 +61,7 @@ public class S490 {
                 downX++;
             }
             int[] ns = {--downX, y};
-            return downX != x && !visited[downX][y] && dfs(maze, new int[] {downX, y}, dest, DOWN);
+            return downX != x && !visited[downX][y] && dfs(maze, new int[]{downX, y}, dest, DOWN);
         }
         return false;
     }

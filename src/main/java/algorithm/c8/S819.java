@@ -1,9 +1,6 @@
 package algorithm.c8;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class S819 {
     class Solution {
@@ -27,9 +24,7 @@ public class S819 {
             }
             System.out.println(map);
             Set<String> ban = new HashSet<>();
-            for (String s : banned) {
-                ban.add(s);
-            }
+            Collections.addAll(ban, banned);
             int max = 0;
             String res = "";
             for (var e : map.entrySet()) {

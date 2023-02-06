@@ -33,7 +33,6 @@ public class S1652 {
                 }
             }
             return result;
-
         }
     }
 }

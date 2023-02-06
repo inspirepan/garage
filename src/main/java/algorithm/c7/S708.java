@@ -48,5 +48,4 @@ public class S708 {
             next = _next;
         }
     }
-
 }

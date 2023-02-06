@@ -1,12 +1,6 @@
 package algorithm.c2;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class S218 {
     // 复制题解
@@ -26,7 +20,7 @@ public class S218 {
             // 如果当前建筑左边界小于boundary
             // pq放入右边界和高度
             while (idx < n && buildings[idx][0] <= boundary) {
-                pq.offer(new int[] {buildings[idx][1], buildings[idx][2]});
+                pq.offer(new int[]{buildings[idx][1], buildings[idx][2]});
                 idx++;
             }
             // 将右边界小于当前boundary的建筑出列
@@ -49,8 +43,8 @@ public class S218 {
             List<int[]> ps = new ArrayList<>();
             for (int[] b : bs) {
                 int l = b[0], r = b[1], h = b[2];
-                ps.add(new int[] {l, h, -1});
-                ps.add(new int[] {r, h, 1});
+                ps.add(new int[]{l, h, -1});
+                ps.add(new int[]{r, h, 1});
             }
             /**
              * 先严格按照横坐标进行「从小到大」排序
@@ -111,5 +105,4 @@ public class S218 {
             return ans;
         }
     }
-
 }

@@ -6,10 +6,10 @@ import java.util.List;
 
 public class S54 {
 
-    private final int[] right = new int[] {0, 1};
-    private final int[] down = new int[] {1, 0};
-    private final int[] left = new int[] {0, -1};
-    private final int[] up = new int[] {-1, 0};
+    private final int[] right = new int[]{0, 1};
+    private final int[] down = new int[]{1, 0};
+    private final int[] left = new int[]{0, -1};
+    private final int[] up = new int[]{-1, 0};
 
     public List<Integer> spiralOrder(int[][] matrix) {
         if (matrix.length == 0 || matrix[0].length == 0) {

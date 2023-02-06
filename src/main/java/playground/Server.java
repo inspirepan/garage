@@ -12,7 +12,7 @@ public class Server {
     public static void main(String[] args) throws IOException {
         ServerSocket ss = new ServerSocket(6666);
         System.out.println("server is running...");
-        for (;;) {
+        for (; ; ) {
             Socket sock = ss.accept();
             System.out.println("connected from " + sock.getRemoteSocketAddress());
             Thread t = new Handler(sock);
@@ -48,7 +48,7 @@ class Handler extends Thread {
         var reader = new BufferedReader(new InputStreamReader(input, StandardCharsets.UTF_8));
         writer.write("hello\n");
         writer.flush();
-        for (;;) {
+        for (; ; ) {
             String s = reader.readLine();
             if ("bye".equals(s)) {
                 writer.write("bye\n");

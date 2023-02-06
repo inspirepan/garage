@@ -1,12 +1,6 @@
 package algorithm;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class S2039 {
     public int networkBecomesIdle(int[][] edges, int[] patience) {

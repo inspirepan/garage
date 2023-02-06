@@ -2,7 +2,6 @@ package algorithm.c1;
 
 public class S135 {
 
-
     public int candy(int[] ratings) {
         int length = ratings.length;
         if (length == 0) {

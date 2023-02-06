@@ -1,8 +1,8 @@
 package algorithm.f1;
 
 public class S12 {
-    final int[] dx = new int[] {-1, 1, 0, 0};
-    final int[] dy = new int[] {0, 0, 1, -1};
+    final int[] dx = new int[]{-1, 1, 0, 0};
+    final int[] dy = new int[]{0, 0, 1, -1};
     // dfs
     char[] chars;
     int m;

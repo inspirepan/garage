@@ -37,6 +37,7 @@ public class S46 {
 
     /**
      * 题解中看到的交换位置做法
+     *
      * @param nums 数组
      * @return 全排列
      */

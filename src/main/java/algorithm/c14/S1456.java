@@ -33,5 +33,4 @@ public class S1456 {
         }
         return max;
     }
-
 }

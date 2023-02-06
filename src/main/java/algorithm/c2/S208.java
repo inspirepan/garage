@@ -49,7 +49,6 @@ public class S208 {
             return true;
         }
 
-
         class TrieNode {
             boolean isLeaf = false;
             TrieNode[] children = new TrieNode[26];

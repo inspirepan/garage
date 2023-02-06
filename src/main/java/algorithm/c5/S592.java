@@ -25,9 +25,7 @@ public class S592 {
         // 根据res化简生成字符串
         simplify(res);
         // 这道题用StringBuilder只需要1ms，用字符串相加要5ms，差别好大
-        var sb = new StringBuilder();
-        sb.append(res[0]).append("/").append(res[1]);
-        return sb.toString();
+        return res[0] + "/" + res[1];
     }
 
     private void calculate(int[] res, int nu2, int de2) {

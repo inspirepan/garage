@@ -1,12 +1,6 @@
 package algorithm.c7;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class S721union {
     private final Map<String, Integer> emailIndex = new HashMap<>();
@@ -28,7 +22,7 @@ public class S721union {
             }
         }
 
-        //同一个账户的邮箱合并
+        // 同一个账户的邮箱合并
         for (List<String> account : accounts) {
             String email = account.get(1);
             int firstIndex = emailIndex.get(email);

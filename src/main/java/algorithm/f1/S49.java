@@ -26,7 +26,7 @@ public class S49 {
         Set<Integer> set = new HashSet<>();
         set.addAll(pq);
         int t = 0;
-        int[] factors = new int[] {2, 3, 5};
+        int[] factors = new int[]{2, 3, 5};
         while (n > 0) {
             t = pq.poll();
             for (int factor : factors) {

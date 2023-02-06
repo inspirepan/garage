@@ -1,6 +1,5 @@
 package algorithm.c2;
 
-
 public class S201 {
     public static int rangeBitwiseAnd(int m, int n) {
         int mask = 1 << 30;

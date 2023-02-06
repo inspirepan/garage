@@ -6,9 +6,7 @@ public class S931 {
     public int minFallingPathSum(int[][] matrix) {
         int n = matrix.length;
         int[][] dp = new int[n][n];
-        for (int j = 0; j < n; j++) {
-            dp[0][j] = matrix[0][j];
-        }
+        System.arraycopy(matrix[0], 0, dp[0], 0, n);
         for (int i = 1; i < n; i++) {
 
             dp[i][0] = Math.min(dp[i - 1][0], dp[i - 1][1]) + matrix[i][0];

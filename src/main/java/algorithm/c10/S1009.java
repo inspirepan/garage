@@ -6,7 +6,4 @@ package algorithm.c10;
  */
 public class S1009 {
 
-
-
-
 }

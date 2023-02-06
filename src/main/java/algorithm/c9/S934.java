@@ -11,8 +11,8 @@ import java.util.LinkedList;
 public class S934 {
 
     class Solution {
-        static final int[] dirX = new int[] {1, 0, -1, 0};
-        static final int[] dirY = new int[] {0, -1, 0, 1};
+        static final int[] dirX = new int[]{1, 0, -1, 0};
+        static final int[] dirY = new int[]{0, -1, 0, 1};
 
         public int shortestBridge(int[][] grid) {
             // 先染色成2
@@ -42,7 +42,7 @@ public class S934 {
                             if (grid[nx][ny] == 1) {
                                 return res;
                             } else if (grid[nx][ny] == 0) {
-                                sea.offer(new int[] {nx, ny});
+                                sea.offer(new int[]{nx, ny});
                                 grid[nx][ny] = 2;
                             }
                         }
@@ -53,14 +53,13 @@ public class S934 {
             return res;
         }
 
-
         private void dfs(int[][] grid, int i, int j, Deque<int[]> sea) {
             if (i < 0 || j < 0 || grid.length <= i || grid.length <= j) {
                 return;
             }
             if (grid[i][j] == 0) {
                 grid[i][j] = 2;
-                sea.offer(new int[] {i, j});
+                sea.offer(new int[]{i, j});
             } else if (grid[i][j] == 1) {
                 grid[i][j] = 2;
                 for (int k = 0; k < 4; k++) {
@@ -68,13 +67,12 @@ public class S934 {
                 }
             }
         }
-
     }
 
     class Solution2 {
 
-        static final int[] dirX = new int[] {1, 0, -1, 0};
-        static final int[] dirY = new int[] {0, -1, 0, 1};
+        static final int[] dirX = new int[]{1, 0, -1, 0};
+        static final int[] dirY = new int[]{0, -1, 0, 1};
 
         public static int shortestBridge(int[][] grid) {
             // 先染色成2
@@ -86,7 +84,7 @@ public class S934 {
                 for (int j = 0; j < n; j++) {
                     if (grid[i][j] == 1) {
                         grid[i][j] = 2;
-                        queue.offer(new int[] {i, j});
+                        queue.offer(new int[]{i, j});
                         while (!queue.isEmpty()) {
                             int[] curr = queue.poll();
                             int x = curr[0];
@@ -97,10 +95,10 @@ public class S934 {
                                 if (nx >= 0 && nx < n && ny >= 0 && ny < n) {
                                     if (grid[nx][ny] == 1) {
                                         grid[nx][ny] = 2;
-                                        queue.offer(new int[] {nx, ny});
+                                        queue.offer(new int[]{nx, ny});
                                     } else if (grid[nx][ny] == 0) {
                                         grid[nx][ny] = 2;
-                                        sea.offer(new int[] {nx, ny});
+                                        sea.offer(new int[]{nx, ny});
                                     }
                                 }
                             }
@@ -108,7 +106,6 @@ public class S934 {
                         break outter;
                     }
                 }
-
             }
             // 距离
             int res = 1;
@@ -125,18 +122,15 @@ public class S934 {
                             if (grid[nx][ny] == 1) {
                                 return res;
                             } else if (grid[nx][ny] == 0) {
-                                sea.offer(new int[] {nx, ny});
+                                sea.offer(new int[]{nx, ny});
                                 grid[nx][ny] = 2;
                             }
                         }
                     }
                 }
                 res++;
-
             }
             return res;
         }
     }
-
-
 }

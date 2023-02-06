@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class S666 {
-    private int res;
     // depth+pos, value
     private final Map<Integer, Integer> map = new HashMap();
+    private int res;
 
     public int pathSum(int[] nums) {
         if (nums == null || nums.length == 0) {

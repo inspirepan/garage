@@ -1,12 +1,6 @@
 package algorithm.c3;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class S332 {
     private final Deque<String> result = new ArrayDeque<>();

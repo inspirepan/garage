@@ -7,7 +7,7 @@ public class S57I {
         while (left < right) {
             int sum = nums[left] + nums[right];
             if (sum == target) {
-                return new int[] {nums[left], nums[right]};
+                return new int[]{nums[left], nums[right]};
             } else if (sum > target) {
                 right--;
             } else {

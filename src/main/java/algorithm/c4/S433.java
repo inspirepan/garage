@@ -1,10 +1,6 @@
 package algorithm.c4;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class S433 {
 
@@ -12,7 +8,7 @@ public class S433 {
         if (start.equals(end)) {
             return 0;
         }
-        final char[] ch = new char[] {'A', 'C', 'G', 'T'};
+        final char[] ch = new char[]{'A', 'C', 'G', 'T'};
         Set<String> bankSet = new HashSet<>();
         Collections.addAll(bankSet, bank);
         if (!bankSet.contains(end)) {

@@ -3,13 +3,12 @@ package algorithm.c15;
 public class S1507 {
     public String reformatDate(String date) {
         String[] d = date.split(" ");
-        var sb = new StringBuilder();
-        sb.append(d[2]);
-        sb.append("-");
-        sb.append(toMonth(d[1]));
-        sb.append("-");
-        sb.append(toDate(d[0]));
-        return sb.toString();
+        String sb = d[2] +
+                "-" +
+                toMonth(d[1]) +
+                "-" +
+                toDate(d[0]);
+        return sb;
     }
 
     private String toMonth(String mon) {

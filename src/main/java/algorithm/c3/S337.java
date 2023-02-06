@@ -1,6 +1,7 @@
 package algorithm.c3;
 
 import datastructure.TreeNode;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,8 +24,8 @@ public class S337 {
                 return map.get(node);
             } else {
                 int result = Math.max(
-                    helper(node.left, true) + helper(node.right, true) + node.val,
-                    helper(node.left, false) + helper(node.right, false)
+                        helper(node.left, true) + helper(node.right, true) + node.val,
+                        helper(node.left, false) + helper(node.right, false)
                 );
                 map.put(node, result);
                 return result;
@@ -40,7 +41,7 @@ public class S337 {
 
     int[] dfs(TreeNode node) {
         if (node == null) {
-            return new int[] {0, 0};
+            return new int[]{0, 0};
         }
 
         int[] l = dfs(node.left);
@@ -49,6 +50,6 @@ public class S337 {
         int select = l[1] + r[1] + node.val;
         int notSelect = Math.max(l[0], l[1]) + Math.max(r[0], r[1]);
 
-        return new int[] {select, notSelect};
+        return new int[]{select, notSelect};
     }
 }

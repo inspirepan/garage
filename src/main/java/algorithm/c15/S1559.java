@@ -1,7 +1,7 @@
 package algorithm.c15;
 
 public class S1559 {
-    private final int[][] nexts = new int[][] {{1, 0}, {0, -1}, {-1, 0}, {0, 1}};
+    private final int[][] nexts = new int[][]{{1, 0}, {0, -1}, {-1, 0}, {0, 1}};
 
     public boolean containsCycle(char[][] grid) {
         // 维护一个visited结构保存已经访问过的节点

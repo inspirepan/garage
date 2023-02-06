@@ -14,7 +14,7 @@ public class S516 {
             dp[j][j] = 1;
             for (int i = j - 1; i >= 0; i--) {
                 dp[i][j] = s.charAt(i) == s.charAt(j) ? dp[i + 1][j - 1] + 2 :
-                    Math.max(dp[i][j - 1], dp[i + 1][j]);
+                        Math.max(dp[i][j - 1], dp[i + 1][j]);
             }
         }
         return dp[0][len - 1];

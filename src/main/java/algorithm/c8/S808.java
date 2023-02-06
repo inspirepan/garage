@@ -50,7 +50,7 @@ public class S808 {
                 return 0;
             }
             return helper(a - 100, b, prob / 4) + helper(a - 75, b - 25, prob / 4) +
-                helper(a - 50, b - 50, prob / 4) + helper(a - 25, b - 75, prob / 4);
+                    helper(a - 50, b - 50, prob / 4) + helper(a - 25, b - 75, prob / 4);
         }
     }
 }

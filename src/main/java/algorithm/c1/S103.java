@@ -1,11 +1,8 @@
 package algorithm.c1;
 
 import datastructure.TreeNode;
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Deque;
-import java.util.List;
+
+import java.util.*;
 
 public class S103 {
     /**

@@ -1,8 +1,8 @@
 package algorithm.c6;
 
 public class S695 {
-    final int[] dx = new int[] {-1, 1, 0, 0};
-    final int[] dy = new int[] {0, 0, -1, 1};
+    final int[] dx = new int[]{-1, 1, 0, 0};
+    final int[] dy = new int[]{0, 0, -1, 1};
     int max = 0;
     int count = 0;
 

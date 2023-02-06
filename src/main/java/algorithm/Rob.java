@@ -45,7 +45,7 @@ public class Rob {
         // 比打劫家舍I就多了一个限制条件，就是第一个和最后一个不能同时打劫
         // 分成两种情况考虑就是了
         return Math.max(rob2Helper(Arrays.copyOfRange(nums, 0, nums.length - 1)),
-            rob2Helper(Arrays.copyOfRange(nums, 1, nums.length)));
+                rob2Helper(Arrays.copyOfRange(nums, 1, nums.length)));
     }
 
     private int rob2Helper(int[] nums) {

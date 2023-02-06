@@ -1,19 +1,14 @@
 package algorithm.c15;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class S1519 {
-    int[] count;
-    String labels;
     private final Map<Integer, Set<Integer>> map = new HashMap<>();
     // 保存路径
     private final Set<Integer> path = new HashSet<>();
     private final Map<Character, List<Integer>> labelMap = new HashMap<>();
+    int[] count;
+    String labels;
 
     public int[] countSubTrees(int n, int[][] edges, String labels) {
         // 还是一个搜索的思想

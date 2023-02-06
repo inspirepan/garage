@@ -1,10 +1,6 @@
 package algorithm.c7;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.PriorityQueue;
-import java.util.Set;
+import java.util.*;
 
 public class S743pq {
     // 抄的
@@ -24,7 +20,7 @@ public class S743pq {
             }
             return a[1] - b[1];
         });
-        pq.add(new int[] {0, k});
+        pq.add(new int[]{0, k});
         Set<Integer> satisfied = new HashSet<>();
         while (pq.size() > 0) {
             // 取出当前距离最小的
@@ -44,7 +40,7 @@ public class S743pq {
                     if (!satisfied.contains(other)) {
                         // 对于没有满足
                         int tm = connect.get(node).get(other);
-                        pq.add(new int[] {time + tm, other});
+                        pq.add(new int[]{time + tm, other});
                     }
                 }
             }

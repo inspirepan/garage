@@ -1,17 +1,12 @@
 package algorithm.c7;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class S752 {
     public int openLock(String[] deadends, String target) {
         // 强行广搜，效果还是不错的 65%
         Set<String> set = new HashSet<>();
-        for (String d : deadends) {
-            set.add(d);
-        }
+        Collections.addAll(set, deadends);
 
         // if target or start is deadend
         if (set.contains(target) || set.contains("0000")) {
